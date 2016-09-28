@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Character Viewer</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+</head>
+<body>
+<img src="../../media/images/IMG_1804.JPG" height=200 width=200 rotate="90">
+<script>
+var character = $.getJSON("./../../data/characters/c9983.json");
+document.write(character.intelligence);
+</script>
+
+</body>
+</html>

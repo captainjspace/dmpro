@@ -1,0 +1,13 @@
+{  
+  "itemId":1,
+  "itemName":"Potion of Animal Control",
+  "itemType":"MagicItemType.POTION",
+  "itemValue":400,
+  "weight":1,
+  "isMagic":true,
+  "isTreasure":true,
+  "isWeapon":false,
+  "isProtection":false,
+  "description":"test description",
+  "modifiers": []
+}

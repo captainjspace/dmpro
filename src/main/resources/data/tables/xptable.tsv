@@ -1,0 +1,53 @@
+class	min. xp	max xp	exp lvl.	hit dice	hp bonus	title
+Magic-User	0	2500	1	1		prestidigitator
+Magic-User	2501	5000	2	2		evoker
+Magic-User	5001	10000	3	3		conjurer
+Magic-User	10001	22000	4	4		theurgist
+Magic-User	22001	40000	5	5		thaumturgist
+Magic-User	40001	60000	6	6		magician
+Magic-User	60001	90000	7	7		enchanter
+Magic-User	90001	135000	8	8		warlock
+Magic-User	135001	250000	9	9		sorcerer
+Magic-User	250001	375000	10	10		necromancer
+Magic-User	375001	750000	11	11		wizard
+Magic-User	750001	1125000	12		1	wizard
+Magic-User	1125001	1500000	13		2	wizard
+Magic-User	1500001	1875000	14		3	wizard
+Magic-User	1875001	2250000	15		4	wizard
+Magic-User	2250001	2625000	16		5	mage
+Magic-User	2625001	3000000	17		6	mage
+Magic-User	3000001	3375000	18		7	arch-mage
+Fighter	0	2000	1	1		veteran
+Fighter	2001	4000	2	2		warrior
+Fighter	4001	8000	3	3		swordsman
+Fighter	8001	18000	4	4		hero
+Fighter	18001	35000	5	5		swashbuckler
+Fighter	35001	70000	6	6		myrmidon
+Fighter	70001	125000	7	7		champion
+Fighter	125001	250000	8	8		superhero
+Fighter	250001	500000	9	9		lord
+Fighter	500001	750000	10		3	lord
+Fighter	750001	1000000	11		6	lord
+Thief	0	1250	1	1		rogue
+Thief	1251	2500	2	2		footpad
+Thief	2501	5000	3	3		cutpurse
+Thief	5001	10000	4	4		robber
+Thief	10001	20000	5	5		burglar
+Thief	20001	42500	6	6		filcher
+Thief	42501	70000	7	7		sharper
+Thief	70001	110000	8	8		magsman
+Thief	110001	160000	9	9		Thief
+Thief	160001	220000	10	10		master Thief
+Thief	220001	440000	11		2	master Thief
+Thief	440001	660000	12		4	master Thief
+Cleric	0	1500	1	1		acolyte
+Cleric	1501	3000	2	2		adept
+Cleric	3001	6000	3	3		priest
+Cleric	6001	13000	4	4		curate
+Cleric	13001	27500	5	5		perfect
+Cleric	27501	55000	6	6		canon
+Cleric	55001	110000	7	7		lama
+Cleric	110001	225000	8	8		patriarch
+Cleric	225001	450000	9	9		high priest
+Cleric	450001	6750000	10		2	high priest
+Cleric	6750001	9000000	11		4	high priest

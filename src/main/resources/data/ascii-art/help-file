@@ -1,0 +1,26 @@
+                  DM Pro Help
+The Command Object has 5 parts:
+<command set> get (default), list, search, help, .exit.
+<subsystem>  data (default), character
+<datasets> combat, spell, magicitem, spelltables, thieving, savingthrow, weapons, xp , attributes
+<string variable> string will be chained without quoting
+<integer variable> generally a level...
+<end command> .
+examples:
+get data attributes strength 17 .
+data attributes strength 17 .
+attributes strength 17 .
+(all produce the same results - leveraging defaults)
+
+search spell fire .
+fire spell search .
+spell search fire .
+(all produce a list of spells with fire in the name)
+
+list weapons
+search weapons sword
+get weapons sword, long
+(examples of different level of details)
+
+.exit. - exit
+help  - show this message

@@ -1,0 +1,99 @@
+class	lvl	1	2	3	4	5	6	7	8	9
+Magic-User	1	1								
+Magic-User	2	2								
+Magic-User	3	2	1							
+Magic-User	4	3	2							
+Magic-User	5	4	2	1						
+Magic-User	6	4	2	2						
+Magic-User	7	4	3	2	1					
+Magic-User	8	4	3	3	2					
+Magic-User	9	4	3	3	2	1				
+Magic-User	10	4	4	3	2	2				
+Magic-User	11	4	4	4	3	3				
+Magic-User	12	4	4	4	4	4	1			
+Magic-User	13	5	5	5	4	4	2			
+Magic-User	14	5	5	5	4	4	2	1		
+Magic-User	15	5	5	5	5	5	2	1		
+Magic-User	16	5	5	5	5	5	3	2	1	
+Magic-User	17	5	5	5	5	5	3	3	2	
+Magic-User	18	5	5	5	5	5	3	3	2	1
+Magic-User	19	5	5	5	5	5	3	3	3	1
+Magic-User	20	5	5	5	5	5	4	3	3	2
+Magic-User	21	5	5	5	5	5	4	4	4	2
+Magic-User	22	5	5	5	5	5	5	4	4	3
+Magic-User	23	5	5	5	5	5	5	5	5	3
+Magic-User	24	5	5	5	5	5	5	5	5	4
+Magic-User	25	5	5	5	5	5	5	5	5	5
+Magic-User	26	6	6	6	6	5	5	5	5	5
+Magic-User	27	6	6	6	6	6	6	6	5	5
+Magic-User	28	6	6	6	6	6	6	6	6	6
+Magic-User	29	7	7	7	7	6	6	6	6	6
+Cleric	1	1							0	0
+Cleric	2	2							0	0
+Cleric	3	2	1						0	0
+Cleric	4	3	2						0	0
+Cleric	5	3	3	1					0	0
+Cleric	6	3	3	2					0	0
+Cleric	7	3	3	2	1				0	0
+Cleric	8	3	3	3	2				0	0
+Cleric	9	4	4	3	2	1			0	0
+Cleric	10	4	4	3	3	2			0	0
+Cleric	11	5	4	4	3	2	1		0	0
+Cleric	12	6	5	5	3	2	2		0	0
+Cleric	13	6	6	6	4	2	2		0	0
+Cleric	14	6	6	6	5	3	2		0	0
+Cleric	15	7	7	7	5	4	2		0	0
+Cleric	16	7	7	7	6	5	3	1	0	0
+Cleric	17	8	8	8	6	5	3	1	0	0
+Cleric	18	8	8	8	7	6	4	1	0	0
+Cleric	19	9	9	9	7	6	4	2	0	0
+Cleric	20	9	9	9	8	7	5	2	0	0
+Cleric	21	9	9	9	9	8	6	2	0	0
+Cleric	22	9	9	9	9	9	6	3	0	0
+Cleric	23	9	9	9	9	9	7	3	0	0
+Cleric	24	9	9	9	9	9	8	3	0	0
+Cleric	25	9	9	9	9	9	8	4	0	0
+Cleric	26	9	9	9	9	9	9	4	0	0
+Cleric	27	9	9	9	9	9	9	5	0	0
+Cleric	28	9	9	9	9	9	9	6	0	0
+Cleric	29	9	9	9	9	9	9	7	0	0
+Druid	1	2								
+Druid	2	2	1							
+Druid	3	3	2	1						
+Druid	4	4	2	2						
+Druid	5	4	3	2						
+Druid	6	4	3	2	1					
+Druid	7	4	4	3	1					
+Druid	8	4	4	3	2					
+Druid	9	5	4	3	2	1				
+Druid	10	5	4	3	3	2				
+Druid	11	5	5	3	3	2	1			
+Druid	12	5	5	4	4	3	2	1		
+Druid	13	6	5	5	5	4	3	2		
+Druid	14	6	6	6	6	5	4	3		
+Illusionist	1	1								
+Illusionist	2	2								
+Illusionist	3	2	1							
+Illusionist	4	3	2							
+Illusionist	5	4	2	1						
+Illusionist	6	4	3	1						
+Illusionist	7	4	3	2						
+Illusionist	8	4	3	2	1					
+Illusionist	9	5	3	3	2					
+Illusionist	10	5	4	3	2	1				
+Illusionist	11	5	4	3	3	2				
+Illusionist	12	5	5	4	3	2	1			
+Illusionist	13	5	5	4	3	2	2			
+Illusionist	14	5	5	4	3	2	2	1		
+Illusionist	15	5	5	4	4	2	2	2		
+Illusionist	16	5	5	5	4	3	2	2		
+Illusionist	17	5	5	5	5	3	2	2		
+Illusionist	18	5	5	5	5	3	3	2		
+Illusionist	19	5	5	5	5	4	3	2		
+Illusionist	20	5	5	5	5	4	3	3		
+Illusionist	21	5	5	5	5	5	4	3		
+Illusionist	22	5	5	5	5	5	5	4		
+Illusionist	23	5	5	5	5	5	5	5		
+Illusionist	24	6	6	6	6	5	5	5		
+Illusionist	25	6	6	6	6	6	6	6		
+Illusionist	26	7	7	7	7	6	6	6		

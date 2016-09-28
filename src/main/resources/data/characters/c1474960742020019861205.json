@@ -1,0 +1,606 @@
+{
+  "created": 1474960742020,
+  "modified": 1474960817312,
+  "characterId": "1474960742020019861205",
+  "playerCharacter": false,
+  "name": "josh",
+  "prefix": "mr",
+  "firstName": "joshua",
+  "lastName": "landman",
+  "title": "duke",
+  "suffixes": [
+    "Sr"
+  ],
+  "age": 0,
+  "height": 0,
+  "weight": 0,
+  "sex": "M",
+  "strength": {
+    "percentOverHuman": 0.0,
+    "hitProbabilityModifier": 0,
+    "damageAdjustmentModifier": 0,
+    "weightAllowanceModifier": 100,
+    "openDoors": 0.33333334,
+    "wizardLockOpenDoors": 0.0,
+    "openDoorDieRoll": "1-2",
+    "doorDie": "d6",
+    "bendBarsLiftGates": 0.04,
+    "notes": "",
+    "attributeType": "STRENGTH",
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Strength",
+    "abilityScore": 12,
+    "modifiedAbilityScore": -1
+  },
+  "intelligence": {
+    "bonusLanguageModifier": 3,
+    "maxSpelllevel": 0,
+    "percentKnowSpell": 0.55,
+    "maxSpellLevel": 6,
+    "spellImmunity": [],
+    "attributeType": "INTELLIGENCE",
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Intelligence",
+    "abilityScore": 13,
+    "modifiedAbilityScore": -1
+  },
+  "wisdom": {
+    "magicalAttackAdustment": 0,
+    "percentSpellFailure": 0.0,
+    "bonusSpells": [
+      1
+    ],
+    "spellImmunity": [],
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Wisdom",
+    "abilityScore": 14,
+    "modifiedAbilityScore": -1
+  },
+  "dexterity": {
+    "initiativeAdjustment": 0,
+    "missileAttackAdjustment": 0,
+    "defensiveAdjustment": -1,
+    "pickPockets": 0.0,
+    "openLocks": 0.0,
+    "locateRemoveTraps": 0.0,
+    "movingSilently": 0.0,
+    "hidingInShadows": 0.0,
+    "attributeType": "DEXTERITY",
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Dexterity",
+    "abilityScore": 15,
+    "modifiedAbilityScore": -1
+  },
+  "constitution": {
+    "hitPointAdjustment": 1,
+    "fighterHPAdjustment": 1,
+    "systemShock": 0.9,
+    "ressurectionSurvival": 0.94,
+    "poisonSaveAdjustment": 0,
+    "regenerationRate": 0,
+    "attributeType": "CONSTITUTION",
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Constitution",
+    "abilityScore": 15,
+    "modifiedAbilityScore": -1
+  },
+  "charisma": {
+    "maxHenchment": 8,
+    "loyaltyBase": 0.2,
+    "reactionAdjustment": 0.25,
+    "awePowerHitDice": 0,
+    "attributeType": "CHARISMA",
+    "attributeModifiers": [],
+    "outgoingModifiers": [],
+    "fieldCount": 0,
+    "attributeName": "Charisma",
+    "abilityScore": 16,
+    "modifiedAbilityScore": -1
+  },
+  "experienceBonus": false,
+  "race": {
+    "race": "ELF",
+    "raceAbilities": [
+      {
+        "CLASSNAME": "dmpro.modifier.SpellEffectModifier",
+        "INSTANCE": {
+          "spellInEffect": {
+            "spellId": 221,
+            "spellAbilityClassName": "MAGIC-USER",
+            "spellAbilityClassLevel": 3,
+            "spellName": "Infravision",
+            "spellCategory": "Alteration",
+            "reversible": false,
+            "isRangeTouch": true,
+            "isRangeSpecial": false,
+            "isRangeInfinite": false,
+            "isRangeUnlimited": false,
+            "rangeBase": 0.0,
+            "rangeModifier": 0.0,
+            "range": 0.0,
+            "rangeMax": 0.0,
+            "rangeText": "Touch",
+            "durationText": "2 turns + 6 turns/level",
+            "durationBase": 2.0,
+            "durationModifier": 6.0,
+            "durationUnits": "turns",
+            "durationIsPermanent": false,
+            "durationIsSpecial": false,
+            "durationIsTimeofChanting": false,
+            "durationIsUntilFulfilled": false,
+            "durationIsInstantaneous": false,
+            "durationIsTouch": false,
+            "durationDieRollMultiplier": 0,
+            "durationDieModifier": 0,
+            "durationHasBonusDie": false,
+            "isVariable": false,
+            "areaOfEffectText": "Creature touched",
+            "areaOfEffect": {
+              "creature": false,
+              "numberOfCreatures": false,
+              "numberOfCreatureslevelModifier": false,
+              "isSpecial": false,
+              "aoeTokens": [
+                {
+                  "t": "SUBJECT",
+                  "s": "Creature touched"
+                },
+                {
+                  "t": "TERMINATOR",
+                  "s": "\n"
+                }
+              ],
+              "dimensions": {},
+              "dimensionality": 0,
+              "modifiers": 0.0,
+              "hasBonusDie": false,
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "d": 0,
+              "r": 0,
+              "levelDimensionMultiplier": 0
+            },
+            "spellComponent": [
+              {
+                "componentType": "V"
+              },
+              {
+                "componentType": "S"
+              },
+              {
+                "componentType": "M"
+              }
+            ],
+            "isCastingTimeSpecial": false,
+            "castingTime": 1.0,
+            "castingTimeUnits": "round",
+            "castingTimeModifiers": 0.0,
+            "castingTimeText": "1 round",
+            "savingThrowImpact": 1.0,
+            "savingThrowIsSpecial": false,
+            "savingThrowText": "None",
+            "description": "Explanation/Description: By means of this spell the magic-user enables the recipient of Infravision to see light in the infrared spectrum. Thus, differences in heat wave radiations can be seen up to 6\". Note that strong sources of infrared radiation (fire, lanterns, torches, etc.) tend to blind or cast \"shadows\" just as such light does with respect to normal vision, so the infravision is affected and does not function efficiently in the presence of such heat sources. (Invisible creatures are not usually detectable by infravision, as the infrared light waves are affected by invisibility, just as those of the ultraviolet and normal spectrums are.) The material component of this spell is either a pinch of dried carrot or an agate.",
+            "fullSpellText": "Infravision (Alteration)\nLevel: 3     Components:\tV, S, M    Range: Touch     Casting Time: 1 round    Duration:\t2 turns + 6 turns/level     Saving Throw: None    Area of Effect:\tCreature touched\nExplanation/Description: By means of this spell the magic-user enables the recipient of Infravision to see light in the infrared spectrum. Thus, differences in heat wave radiations can be seen up to 6\". Note that strong sources of infrared radiation (fire, lanterns, torches, etc.) tend to blind or cast \"shadows\" just as such light does with respect to normal vision, so the infravision is affected and does not function efficiently in the presence of such heat sources. (Invisible creatures are not usually detectable by infravision, as the infrared light waves are affected by invisibility, just as those of the ultraviolet and normal spectrums are.) The material component of this spell is either a pinch of dried carrot or an agate."
+          },
+          "ability": {
+            "id": -1,
+            "abilityName": "Infravision 60\u0027",
+            "isPermanent": false,
+            "abilityType": "SPELL",
+            "requiredRoll": 0,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": 0,
+          "description": "Elvish Infravision",
+          "isPermanent": true,
+          "modifierType": "SPELLEFFECT"
+        }
+      },
+      {
+        "CLASSNAME": "dmpro.modifier.MagicResistanceModifier",
+        "INSTANCE": {
+          "resistedSpell": {
+            "spellId": 179,
+            "spellAbilityClassName": "MAGIC-USER",
+            "spellAbilityClassLevel": 1,
+            "spellName": "Sleep",
+            "spellCategory": "Enchantment/Charm",
+            "reversible": false,
+            "isRangeTouch": false,
+            "isRangeSpecial": false,
+            "isRangeInfinite": false,
+            "isRangeUnlimited": false,
+            "rangeBase": 3.0,
+            "rangeModifier": 1.0,
+            "range": 0.0,
+            "rangeMax": 0.0,
+            "rangeText": "3\" + 1\"/level",
+            "durationText": "5 rounds/level",
+            "durationBase": 0.0,
+            "durationModifier": 5.0,
+            "durationUnits": "rounds",
+            "durationIsPermanent": false,
+            "durationIsSpecial": false,
+            "durationIsTimeofChanting": false,
+            "durationIsUntilFulfilled": false,
+            "durationIsInstantaneous": false,
+            "durationIsTouch": false,
+            "durationDieRollMultiplier": 0,
+            "durationDieModifier": 0,
+            "durationHasBonusDie": false,
+            "isVariable": false,
+            "areaOfEffectText": "Special",
+            "areaOfEffect": {
+              "creature": false,
+              "numberOfCreatures": false,
+              "numberOfCreatureslevelModifier": false,
+              "isSpecial": false,
+              "aoeTokens": [
+                {
+                  "t": "SPECIAL",
+                  "s": "Special"
+                },
+                {
+                  "t": "TERMINATOR",
+                  "s": "\n"
+                }
+              ],
+              "dimensions": {},
+              "dimensionality": 0,
+              "modifiers": 0.0,
+              "hasBonusDie": false,
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "d": 0,
+              "r": 0,
+              "levelDimensionMultiplier": 0
+            },
+            "spellComponent": [
+              {
+                "componentType": "V"
+              },
+              {
+                "componentType": "S"
+              },
+              {
+                "componentType": "M"
+              }
+            ],
+            "isCastingTimeSpecial": false,
+            "castingTime": 1.0,
+            "castingTimeUnits": "segment",
+            "castingTimeModifiers": 0.0,
+            "castingTimeText": "1 segment",
+            "savingThrowImpact": 1.0,
+            "savingThrowIsSpecial": false,
+            "savingThrowText": "None",
+            "description": "Explanation/Description: When a magic-user casts a Sleep spell, he or she will usually cause a comatose slumber to come upon one or more creatures [other than undead and certain other creatures specifically excluded (see ADVANCED DUNGEONS \u0026 DRAGONS. MONSTER MANUAL) from the spell\u0027s effects]. All creatures to be affected by the Sleep spell must be within a 3\" diameter circle. The number of creatures which can be affected is a function of their life energy levels, expressed as hit dice and hit points:Creatures Hit Dice\tNumber Affected\tBy Sleep Spellup to 1\t4-16\t(4d4)1+1 to 2\t2-8\t(2d4)2+1 to 3\t1-4\t(1d4)3+1 to 4\t1-2\t(½d4, round off)4+1 to 4+4\t0-1\t(d4, 3 or 4)The area of effect is determined by the range and area centre decided upon by the spell caster. Slapping or wounding will awaken affected creatures, but noise will not do so. Awakening requires 1 complete melee round. Note that sleeping creatures can be slain automatically at a rate of 1 per slayer per melee round. The material component for this spell is a pinch of fine sand, rose petals, or a live cricket.",
+            "fullSpellText": "Sleep (Enchantment/Charm)\nLevel:\t1     Components:\tV, S, M    Range: 3\" + 1\"/level     Casting Time: 1 segment    Duration: 5 rounds/level     Saving Throw: None    Area of Effect: Special\nExplanation/Description: When a magic-user casts a Sleep spell, he or she will usually cause a comatose slumber to come upon one or more creatures [other than undead and certain other creatures specifically excluded (see ADVANCED DUNGEONS \u0026 DRAGONS. MONSTER MANUAL) from the spell\u0027s effects]. All creatures to be affected by the Sleep spell must be within a 3\" diameter circle. The number of creatures which can be affected is a function of their life energy levels, expressed as hit dice and hit points:\nCreatures Hit Dice\tNumber Affected\tBy Sleep Spell\nup to 1\t4-16\t(4d4)\n1+1 to 2\t2-8\t(2d4)\n2+1 to 3\t1-4\t(1d4)\n3+1 to 4\t1-2\t(½d4, round off)\n4+1 to 4+4\t0-1\t(d4, 3 or 4)\nThe area of effect is determined by the range and area centre decided upon by the spell caster. Slapping or wounding will awaken affected creatures, but noise will not do so. Awakening requires 1 complete melee round. Note that sleeping creatures can be slain automatically at a rate of 1 per slayer per melee round. The material component for this spell is a pinch of fine sand, rose petals, or a live cricket."
+          },
+          "percentResisted": 90.0,
+          "savingThrowClassModifier": 0,
+          "source": "Elven Race Characteristic",
+          "ability": {
+            "id": -1,
+            "abilityName": "Sleep Resistance",
+            "isPermanent": false,
+            "abilityType": "MAGICRESISTANCE",
+            "requiredRoll": 0,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": 0,
+          "description": "Elven Sleep Resistance",
+          "isPermanent": true,
+          "modifierType": "ABILITY"
+        }
+      },
+      {
+        "CLASSNAME": "dmpro.modifier.MagicResistanceModifier",
+        "INSTANCE": {
+          "resistedSpell": {
+            "spellId": 157,
+            "spellAbilityClassName": "MAGIC-USER",
+            "spellAbilityClassLevel": 1,
+            "spellName": "Charm Person",
+            "spellCategory": "Enchantment/Charm",
+            "reversible": false,
+            "isRangeTouch": false,
+            "isRangeSpecial": false,
+            "isRangeInfinite": false,
+            "isRangeUnlimited": false,
+            "rangeBase": 12.0,
+            "rangeModifier": 0.0,
+            "range": 0.0,
+            "rangeMax": 0.0,
+            "rangeText": "12\"",
+            "durationText": "Special",
+            "durationBase": 0.0,
+            "durationModifier": 0.0,
+            "durationIsPermanent": false,
+            "durationIsSpecial": true,
+            "durationIsTimeofChanting": false,
+            "durationIsUntilFulfilled": false,
+            "durationIsInstantaneous": false,
+            "durationIsTouch": false,
+            "durationDieRollMultiplier": 0,
+            "durationDieModifier": 0,
+            "durationHasBonusDie": false,
+            "isVariable": false,
+            "areaOfEffectText": "One person",
+            "areaOfEffect": {
+              "creature": false,
+              "numberOfCreatures": false,
+              "numberOfCreatureslevelModifier": false,
+              "isSpecial": false,
+              "aoeTokens": [
+                {
+                  "t": "NUMBER",
+                  "s": "1"
+                },
+                {
+                  "t": "SUBJECT",
+                  "s": "person"
+                },
+                {
+                  "t": "TERMINATOR",
+                  "s": "\n"
+                }
+              ],
+              "dimensions": {},
+              "dimensionality": 0,
+              "modifiers": 0.0,
+              "hasBonusDie": false,
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "d": 0,
+              "r": 0,
+              "levelDimensionMultiplier": 0
+            },
+            "spellComponent": [
+              {
+                "componentType": "V"
+              },
+              {
+                "componentType": "S"
+              }
+            ],
+            "isCastingTimeSpecial": false,
+            "castingTime": 1.0,
+            "castingTimeUnits": "segment",
+            "castingTimeModifiers": 0.0,
+            "castingTimeText": "1 segment",
+            "savingThrowImpact": 0.0,
+            "savingThrowIsSpecial": false,
+            "savingThrowText": "Neg.",
+            "description": "Explanation/Description: Except as shown above, this spell is the same as the second level druid spell, Charm Person Or Mammal (q.v.), but the magic-user can charm only persons, i.e. brownies, dwarves, elves, gnolls, gnomes, goblins, half-elves, halflings, half-orcs, hobgoblins, humans, kobolds, lizard men, nixies, orcs, pixies, sprites, and troglodytes. All other comments regarding spell effects apply with respect to persons.",
+            "fullSpellText": "Charm Person (Enchantment/Charm)\nLevel:\t1     Components:\tV, S    Range:\t12\"     Casting Time: 1 segment     Duration:\tSpecial     Saving Throw: Neg.    Area of Effect: One person\nExplanation/Description: Except as shown above, this spell is the same as the second level druid spell, Charm Person Or Mammal (q.v.), but the magic-user can charm only persons, i.e. brownies, dwarves, elves, gnolls, gnomes, goblins, half-elves, halflings, half-orcs, hobgoblins, humans, kobolds, lizard men, nixies, orcs, pixies, sprites, and troglodytes. All other comments regarding spell effects apply with respect to persons."
+          },
+          "percentResisted": 90.0,
+          "savingThrowClassModifier": 0,
+          "source": "Elven Race Characteristic",
+          "ability": {
+            "id": -1,
+            "abilityName": "Elven Charm Resistance",
+            "isPermanent": false,
+            "abilityType": "MAGICRESISTANCE",
+            "requiredRoll": 0,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": 0,
+          "description": "Elven Charm Resistance",
+          "isPermanent": true,
+          "modifierType": "ABILITY"
+        }
+      },
+      {
+        "CLASSNAME": "dmpro.modifier.AbilityModifier",
+        "INSTANCE": {
+          "ability": {
+            "id": -1,
+            "abilityName": "Secret Door Detection",
+            "description": "Detection of Secret Doors within 10\u0027",
+            "isPermanent": false,
+            "abilityType": "SECRETDOORS",
+            "abilityDie": "d6",
+            "requiredRoll": 1,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": 1,
+          "description": "Elven Secret Door Detection + 1 when searching",
+          "isPermanent": true,
+          "modifierType": "ABILITY"
+        }
+      },
+      {
+        "CLASSNAME": "dmpro.modifier.AbilityModifier",
+        "INSTANCE": {
+          "ability": {
+            "id": -1,
+            "abilityName": "Concealed Door Detection",
+            "description": "Detection of Concealed Doors within 10\u0027",
+            "isPermanent": false,
+            "abilityType": "SECRETDOORS",
+            "abilityDie": "d6",
+            "requiredRoll": 2,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": 1,
+          "description": "Elven Concealed Door Detection +1 when searching",
+          "isPermanent": true,
+          "modifierType": "ABILITY"
+        }
+      },
+      {
+        "CLASSNAME": "dmpro.modifier.AbilityModifier",
+        "INSTANCE": {
+          "ability": {
+            "id": -1,
+            "abilityName": "Silence Movement and Surprise",
+            "description": "Surprise Advantage",
+            "isPermanent": false,
+            "abilityType": "SURPRISE",
+            "abilityDie": "d6",
+            "requiredRoll": 4,
+            "percentChance": 0.0,
+            "meleeModifier": 0
+          },
+          "modifier": -2,
+          "description": "Elves Surprise on 1-4 if 90\u0027 separate from party, 1-2 if going through a door",
+          "isPermanent": true,
+          "modifierType": "ABILITY"
+        }
+      }
+    ],
+    "raceAttributes": [
+      {
+        "attributeType": "DEXTERITY",
+        "bonus": 1,
+        "description": "\t--\u003e\tElf gets +1 Dexterity",
+        "modifiesAbilityScore": true,
+        "modifierType": "ATTRIBUTE"
+      },
+      {
+        "attributeType": "CONSTITUTION",
+        "bonus": -1,
+        "description": "\t--\u003e\tElf gets -1 Constitution",
+        "modifiesAbilityScore": true,
+        "modifierType": "ATTRIBUTE"
+      },
+      {
+        "attributeType": "STRENGTH",
+        "bonus": 0,
+        "description": "\t--\u003e\tElf gets +1 to hit with one handed swords (hitProbabilityModifier+1) - need to look at weapon",
+        "modifiesAbilityScore": true,
+        "modifierType": "ATTRIBUTE"
+      },
+      {
+        "attributeType": "DEXTERITY",
+        "bonus": 0,
+        "description": "\t--\u003e\tElf gets +1 to hit with bows (missileAttackAdjustment+1) - need to look at weapon",
+        "modifiesAbilityScore": true,
+        "modifierType": "ATTRIBUTE"
+      },
+      {
+        "attributeType": "INTELLIGENCE",
+        "bonus": 0,
+        "description": "\t--\u003e\tElf get (Intelligence - 15) additional bonus languages",
+        "modifiesAbilityScore": false,
+        "modifierType": "ATTRIBUTE"
+      }
+    ],
+    "languages": [
+      {
+        "id": 0,
+        "name": "elvish"
+      },
+      {
+        "id": 0,
+        "name": "gnomish"
+      },
+      {
+        "id": 0,
+        "name": "halfling"
+      },
+      {
+        "id": 0,
+        "name": "goblin"
+      },
+      {
+        "id": 0,
+        "name": "hobgoblin"
+      },
+      {
+        "id": 0,
+        "name": "orcish"
+      },
+      {
+        "id": 0,
+        "name": "gnollish"
+      },
+      {
+        "id": 0,
+        "name": "common"
+      }
+    ]
+  },
+  "classes": {
+    "MAGICUSER": {
+      "spellBook": [],
+      "dailySpells": [],
+      "characterClassType": "MAGICUSER",
+      "className": "Magic-User",
+      "experiencePoints": 0,
+      "experiencePointsPerLevelAfterMax": 375000,
+      "experienceLevel": -1,
+      "hitTableId": 0,
+      "savingThrowTableId": 0,
+      "hasSpells": true,
+      "readyForLevelUp": false,
+      "hitDie": {
+        "r": {
+          "seed": 171279356435368,
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "dieType": "d4"
+      },
+      "hitDieRecord": [],
+      "maxHitDice": 11,
+      "hitPointPerLevelAfterMax": 1,
+      "startingProficiencies": 1,
+      "newProficienyPerLevel": 6,
+      "nonProficiencyPenalty": -5,
+      "weaponProficiencies": [],
+      "restrictedItems": [],
+      "classAbilities": [],
+      "classAttribute": [
+        {
+          "attributeType": "STRENGTH",
+          "bonus": -5,
+          "description": "Magic-User non proficiency toHit penalty (-5)",
+          "modifiesAbilityScore": false,
+          "modifierType": "ATTRIBUTE"
+        },
+        {
+          "attributeType": "DEXTERITY",
+          "bonus": 1,
+          "description": "\t--\u003e\tMU gets +1 Dexterity",
+          "modifiesAbilityScore": true,
+          "modifierType": "ATTRIBUTE"
+        }
+      ]
+    }
+  },
+  "maxHitPoints": 0,
+  "armorClass": 10,
+  "activeModifiers": [],
+  "requiredActions": [],
+  "languages": [],
+  "equipment": [],
+  "equippedItems": [],
+  "savingThrowMap": {},
+  "proficiencies": [],
+  "protections": [],
+  "spellBook": [],
+  "dailySpells": [],
+  "movementRate": 0,
+  "encumbranceState": 0
+}

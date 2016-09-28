@@ -1,0 +1,116 @@
+CLERICS
+
+Number	1st Level	2nd Level 	3rd Level	4th Level	5th Level	6th Level	7th Level
+ 	 	 	 	 	 	 	 
+1	Bless	Augury	Animate Dead	Cure Serious Wounds	Atonement	Aerial Servant	Astral Spell
+2	Command	Chant	Continual Light	Detect Lie	Commune	Animate Object	Control Weather
+3	Create Water	Detect Charm	Create Food & Water	Divination	Cure Critical Wounds	Blade Barrier	Earthquake
+4	Cure Light Wounds	Find Traps	Cure Blindness	Exorcise	Dispel Evil	Conjure Animals	Gate
+5	Detect Evil	Hold Person	Cure Disease	Lower Water	Flame Strike	Find The Path	Holy (Unholy) Word
+6	Detect Magic	Know Alignment	Dispel Magic	Neutralize Poison	Insect Plague	Heal	Regenerate
+7	Light	Resist Fire	Feign Death	Prot. from Evil 10' r.	Plane Shift	Part Water	Restoration
+8	Protection From Evil	Silence 15' Radius	Glyph Of Warding	Speak With Plants	Quest	Speak With Monsters	Resurrection
+9	Purify Food & Drink	Slow Poison	Locate Object	Sticks To Snakes	Raise Dead	Stone Tell	Symbol
+10	Remove Fear	Snake Charm	Prayer	Tongues	True Seeing	Word Of Recall	Wind Walk
+11	Resist Cold	Speak With Animals	Remove Curse	 	 	 	 
+12	Sanctuary	Spiritual Hammer	Speak With Dead	 	 	 	 
+ 
+
+DRUIDS
+
+Number	1st Level	2nd Level 	3rd Level	4th Level	5th Level	6th Level	7th Level
+ 	 	 	 	 	 	 	 
+1	Animal Friendship	Barkskin	Call Lightning	Animal Summoning I	Animal Growth	Animal Summoning III	Animate Rock
+2	Detect Magic	Charm Person/Mammal	Cure Disease	Call Woodland Beings	Animal Summoning II	Anti-Animal Shell	Chariot Of Sustarre
+3	Detect Snares & Pits	Create Water	Hold Animal	Control Temperature	Anti-Plant Shell	Conjure Fire Elemental	Confusion
+4	Entangle	Cure Light Wounds	Neutralize Poison	Cure Serious Wounds	Commune With Nature	Cure Critical Wounds	Conjure Earth Elemental
+5	Faerie Fire	Feign Death	Plant Growth	Dispel Magic	Control Winds	Feeblemind	Control Weather
+6	Invisibility To Animals	Fire Trap	Protection From Fire	Hallucinatory Forest	Insect Plague	Fire Seeds	Creeping Doom
+7	Locate Animals	Heat Metal	Pyrotechnics	Hold Plant	Pass Plant	Transport Via Plants	Finger Of Death
+8	Pass Without Trace	Locate Plants	Snare	Plant Door	Sticks To Snakes	Turn Wood	Fire Storm
+9	Predict Weather	Obscurement	Stone Shape	Produce Fire	Trans Rock To Mud	Wall Of Thorns	Reincarnate
+10	Purify Water	Produce Flame	Summon Insects	Prot. From Lightning	Wall Of Fire	Weather Summoning	Trans Metal To Wood
+11	Shillelagh	Trip	Tree	Repel Insects	 	 	 
+12	Speak With Animals	Warp Wood	Water Breathing	Speak With Plants	 	 	 
+ 
+
+MAGIC-USERS
+
+Number	1st Level	2nd Level 	3rd Level	4th Level	5th Level
+ 	 	 	 	 	 
+1	Affect Normal Fires	Audible Glamour	Blink	Charm Monster	Airy Water
+2	Burning Hands	Continual Light	Clairaudience	Confusion	Animal Growth
+3	Charm Person	Darkness 15' Radius	Clairvoyance	Dig	Animate Dead
+4	Comprehend Languages	Detect Evil	Dispel Magic	Dimension Door	Bigby's Interposing Hand
+5	Dancing Lights	Detect Invisibility	Explosive Runes	Enchanted Weapon	Cloudkill
+6	Detect Magic	ESP	Feign Death	Extension I	Conjure Elemental
+7	Enlarge	Fools Gold	Fireball	Fear	Cone Of Cold
+8	Erase	Forget	Flame Arrow	Fire Charm	Contact Other Plane
+9	Feather Fall	Invisibility	Fly	Fire Shield	Distance Distortion
+10	Find Familiar	Knock	Gust Of Wind	Fire Trap	Extension II
+11	Friends	Leomund's Trap	Haste	Fumble	Feeblemind
+12	Hold Portal	Levitate	Hold Person	Hallucinatory Terrain	Hold Monster
+13	Identify	Locate Object	Infravision	Ice Storm	Leomund's Secret Chest
+14	Jump	Magic Mouth	Invisibility 10' Radius	Massmorph	Magic Jar
+15	Light	Mirror Image	Leomund's Tiny Hut	Minor Globe Of Invulnerability	Monster Summoning III
+16	Magic Missile	Pyrotechnics	Lightning Bolt	Monster Summoning II	Mordenkainen's Faithful Hound
+17	Mending	Ray Of Enfeeblement	Monster Summoning I	Plant Growth	Passwall
+18	Message	Rope Trick	Phantasmal Force	Polymorph Other	Stone Shape
+19	Nystul's Magic Aura	Scare	Protection From Evil 10' Radius	Polymorph Self	Telekinesis
+20	Protection From Evil	Shatter	Protection From Normal Missiles	Rary's Mnemonic Enhancer	Teleport
+21	Push	Stinking Cloud	Slow	Remove Curse	Transmute Rock To Mud
+22	Read Magic	Strength	Suggestion	Wall Of Fire	Wall Of Force
+23	Shield	Web	Tongues	Wall Of Ice	Wall Of Iron
+24	Shocking Grasp	Wizard Lock	Water Breathing	Wizard Eye	Wall Of Stone
+25	Sleep	 		 	 
+26	Spider Climb	 		 	 
+27	Tenser's Floating Disc	 		 	 
+28	Unseen Servant	 		 	 
+29	Ventriloquism	 		 	 
+30	Write	 		 	 
+ 	 	 	 	  	  
+Number	6th Level	7th Level 	8th Level	9th Level	 
+ 	 	  	  	 	 
+1	Anti-Magic Shell	Bigby's Grasping Hand	Antipathy/Sympathy	Astral Spell	 
+2	Bigby's Forceful Hand	Cacodemon	Bigby's Clenched Fist	Bigby's Crushing Hand	 
+3	Control Weather	Charm Plants	Clone	Gate	 
+4	Death Spell	Delayed Blast Fireball	Glassteel	Imprisonment	 
+5	Disintegrate	Drawmij's Instant Summons	Incendiary Cloud	Meteor Swarm	 
+6	Enchant An Item	Duo-Dimension	Mass Charm	Monster Summoning VII	 
+7	Extension III	Limited Wish	Maze	Power Word, Kill	 
+8	Geas	Mass Invisibility	Mind Blank	Prismatic Sphere	 
+9	Glassee	Monster Summoning V	Monster Summoning VI	Shape Change	 
+10	Globe Of Invulnerability	Mordenkainen's Sword	Otto's Irresistible Dance	Temporal Stasis	 
+11	Guards And Wards	Phase Door	Permanency	Time Stop	 
+12	Invisible Stalker	Power Word, Stun	Polymorph Any Object	Wish	 
+13	Legend Lore	Reverse Gravity	Power Word, Blind	 	 
+14	Lower Water	Simulacrum	Serten's Spell Immunity	 	 
+15	Monster Summoning IV	Statue	Symbol	 	 
+16	Move Earth	Vanish	Trap The Soul	 	 
+17	Otiluke's Freezing Sphere	 	 	 	 
+18	Part Water	 	 	 	 
+19	Project Image	 	 	 	 
+20	Reincarnation	 	 	 	 
+21	Repulsion	 	 	 	 
+22	Spiritwrack	 	 	 	 
+23	Stone To Flesh	 	 	 	 
+24	Tenser's Transformation	 	 	 	 
+ 
+
+ILLUSIONISTS
+
+Number	1st Level	2nd Level 	3rd Level	4th Level	5th Level	6th Level	7th Level
+ 	 	 	 	 	 	 	 
+1	Audible Glamour	Blindness	Continual Darkness	Confusion	Chaos	Conjure Animals	Alter Reality
+2	Change Self	Blur	Continual Light	Dispel Exhaustion	Demi-Shadow Monsters	Demi-Shadow Magic	Astral Spell
+3	Colour Spray	Deafness	Dispel Illusion	Emotion	Major Creation	Mass Suggestion	Prismatic Spray
+4	Dancing Lights	Detect Magic	Fear	Improved Invisibility	Maze	Permanent Illusion	Prismatic Wall
+5	Darkness	Fog Cloud	Hallucinatory Terrain	Massmorph	Projected Image	Programmed Illusion	Vision
+6	Detect Illusion	Hypnotic Pattern	Illusionary Script	Minor Creation	Shadow Door	Shades	First Level Magic-User Spells
+7	Detect Invisibility	Improved Phantasmal Force	Invisibility 10' Radius	Phantasmal Killer	Shadow Magic	True Sight	 
+8	Gaze Reflection	Invisibility	Non-detection	Shadow Monsters	Summon Shadow	Veil	 
+9	Hypnotism	Magic Mouth	Paralyzation	 	 	 	 
+10	Light	Mirror Image	Rope Trick	 	 	 	 
+11	Phantasmal Force	Misdirection	Spectral Force	 	 	 	 
+12	Wall Of Fog	Ventriloquism	Suggestion	 	 	 	 
+ 

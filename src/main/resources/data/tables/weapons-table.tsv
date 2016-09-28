@@ -1,0 +1,71 @@
+Item	WeaponType	Cost	Weight (lbs.)	Weight (g.p.)	Size	Type	Speed Factor	S-M Dmg	L Dmg	Range S	Range M	Range L	Source
+Arrow	MISSILE	2 sp	0.1	1	S	P	2	1d6	1d6				PHB
+Axe, Battle	TWOHANDEDAXE	5 gp	7	70	M	S	7	1d8	1d8				PHB
+Axe, Hand/Throwing	ONEHANDEDAXE	1 gp	5	50	M	S	4	1d6	1d4				PHB
+Blowgun Needle	MISSILE	1 sp	0.1	1	S	P	2	1d1	1d1				PHB
+Bow, Composite Long	BOWCLASS	100 gp	3	30	L	—	7			6	12	21	PHB
+Bow, Composite Short	BOWCLASS	75 gp	2	20	M	—	6			5	10	18	PHB
+Bow, Long	BOWCLASS	75 gp	3	30	L	—	8			7	14	21	PHB
+Bow, Short	BOWCLASS	30 gp	2	20	M	—	7			5	10	15	PHB
+Club	MACE	0 cp	3	30	M	B	4	1d6	1d3				PHB
+Crossbow, Hand	BOWCLASS	300 gp	3	30	S	—	5			2	4	6	PHB
+Crossbow, Heavy	BOWCLASS	50 gp	14	140	M	—	10			8	16	24	PHB
+Crossbow, Light	BOWCLASS	35 gp	7	70	M	—	7			6	12	18	PHB
+Dagger	DAGGER	2 gp	1	10	S	P	2	1d4	1d3				PHB
+Dart	MISSILE	5 sp	0.5	5	S	P	2	1d3	1d2	1	2	3	PHB
+Dirk	DAGGER	2 gp	1	10	S	P	2	1d4	1d3				PHB
+Flail, Footman's	FLAIL	15 gp	15	150	M	B	7	1d6+1	2d4				PHB
+Flail, Horseman's	FLAIL	8 gp	5	50	M	B	6	1d4+1	1d4+1				PHB
+Javelin	MISSILE	5 sp	2	20	M	P	4	1d6	1d6	2	4	6	PHB
+Knife	DAGGER	5 sp	0.6	6	S	P/S	2	1d3	1d2				PHB
+Lance, Heavy Horse	POLEARMCLASS	15 gp	15	150	L	P	8	1d8+1	3d6				PHB
+Lance, Light Horse	POLEARMCLASS	6 gp	5	50	L	P	6	1d6	1d8				PHB
+Lance, Jousting	POLEARMCLASS	20 gp	20	200	L	P	10	1d3-1	1d2-1				PHB
+Lance, Medium Horse	POLEARMCLASS	10 gp	10	100	L	P	7	1d6+1	2d6				PHB
+Mace, Footman's	MACE	8 gp	10	100	M	B	7	1d6+1	1d6				PHB
+Mace, Horseman's	MACE	5 gp	6	60	M	B	6	1d6	1d4				PHB
+Man Catcher	POLEARMCLASS	30 gp	8	80	L	—	7	1d2	1d2				PHB
+Morning Star	MACE	10 gp	12	120	M	B	7	2d4	1d6+1				PHB
+Pick, Footman's	POLEARMCLASS	8 gp	6	60	M	P	7	1d6+1	2d4				PHB
+Pick, Horseman's	POLEARMCLASS	7 gp	4	40	M	P	5	1d4+1	1d4				PHB
+Polearm, Awl Pike	POLEARMCLASS	5 gp	12	120	L	P	13	1d6	1d12				PHB
+Polearm, Bardiche	POLEARMCLASS	7 gp	12	120	L	S	9	2d4	2d6				PHB
+Polearm, Bec De Corbin	POLEARMCLASS	8 gp	10	100	L	P/B	9	1d8	1d6				PHB
+Polearm, Bill-Guisarme	POLEARMCLASS	7 gp	15	150	L	P/S	10	2d4	1d10				PHB
+Polearm, Fauchard	POLEARMCLASS	5 gp	7	70	L	P/S	8	1d6	1d8				PHB
+Polearm, Fauchard-Fork	POLEARMCLASS	8 gp	9	90	L	P/S	8	1d8	1d10				PHB
+Polearm, Glaive	POLEARMCLASS	6 gp	8	80	L	S	8	1d6	1d10				PHB
+Polearm, Glaive-Guisarme	POLEARMCLASS	10 gp	10	100	L	P/S	9	2d4	2d6				PHB
+Polearm, Guisarme	POLEARMCLASS	5 gp	8	80	L	S	8	2d4	1d8				PHB
+Polearm, Guisarme-Voulge	POLEARMCLASS	8 gp	15	150	L	P/S	10	2d4	2d4				PHB
+Polearm, Halberd	POLEARMCLASS	10 gp	15	150	L	P/S	9	1d10	2d6				PHB
+Polearm, Hook Fauchard	POLEARMCLASS	10 gp	8	80	L	P/S	9	1d4	1d4				PHB
+Polearm, Lucern Hammer	POLEARMCLASS	7 gp	15	150	L	P/B	9	2d4	1d6				PHB
+Polearm, Military Fork	POLEARMCLASS	5 gp	7	70	L	P	7	1d8	2d4				PHB
+Polearm, Partisan	POLEARMCLASS	10 gp	8	80	L	P	9	1d6	1d6+1				PHB
+Polearm, Ranseur	POLEARMCLASS	6 gp	7	70	L	P	8	2d4	2d4				PHB
+Polearm, Spetum	POLEARMCLASS	5 gp	7	70	L	P	8	1d6+1	2d6				PHB
+Polearm, Voulge	POLEARMCLASS	5 gp	12	120	L	S	10	2d4	2d4				PHB
+Quarrel, Hand	MISSILE	1 gp	0.1	1	S	P	1	1d3	1d2				PHB
+Quarrel, Heavy	MISSILE	2 sp	0.1	1	S	P	1/2	1d4+1	1d6+1				PHB
+Quarrel, Light	MISSILE	1 sp	0.1	1	S	P	1	1d4	1d4				PHB
+Quarterstaff	STAFF	0 cp	4	40	L	B	4	1d6	1d6				PHB
+Scourge	POLEARMCLASS	1 gp	2	20	S	—	5	1d4	1d2				PHB
+Sickle	POLEARMCLASS	6 sp	3	30	S	S	4	1d4+1	1d4				PHB
+Sling	BOWCLASS	5 sp	10	100		B	1						PHB
+Sling Bullet	MISSILE	5 cp	0.2	2	S	B	1	1d4+1	1d6+1	5	10	20	PHB
+Sling Stone	MISSILE	0 cp	0.1	1	S	B	1	1d4	1d4	4	8	16	PHB
+Spear	SPEAR	8 sp	5	6	M	P	6	1d6	1d6	1	2	3	PHB
+Staff Sling	STAFF	2 gp	22	220	MS	—B	11						PHB
+Staff Sling Bullet	MISSILE	5 cp	0.2	2	S	B	1/2	2d4	2d4+1		6	9	PHB
+Staff Sling Stone	MISSILE	0 cp	0.1	1	S	B	1/2	1d8	2d4		6	9	PHB
+Sword, Bastard	ONEHANDEDSWORD	25 gp	10	100	M	S	6	2d4	2d8				PHB
+Sword, Broad	ONEHANDEDSWORD	10 gp	4	40	M	S	5	2d4	1d6+1				PHB
+Sword, Khopesh	ONEHANDEDSWORD	10 gp	7	70	M	S	9	2d4	1d6				PHB
+Sword, Long	ONEHANDEDSWORD	15 gp	4	40	M	S	5	1d8	1d12				PHB
+Sword, Scimitar	ONEHANDEDSWORD	15 gp	4	40	M	S	5	1d8	1d8				PHB
+Sword, Short	ONEHANDEDSWORD	10 gp	3	30	S	P	5	1d6	1d8				PHB
+Sword, Two-Handed	TWOHANDEDSWORD	50 gp	15	150	L	S	10	1d10	3d6				PHB
+Trident	POLEARMCLASS	15 gp	5	50	L	P	7	1d6+1	3d4				PHB
+Hammer	HAMMER	2 gp	6	60	M	B	4	1d4+1	1d4				PHB
+Whip	FLAIL	1 sp	2	20	M	—	8	1d2	1d1				PHB

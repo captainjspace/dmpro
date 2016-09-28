@@ -1,0 +1,24 @@
+{
+	"itemId": 2,
+	"itemName": "Ring of Dexterity",
+	"itemType": "MagicItemType.RING",
+	"itemValue": 1000,
+	"weight": 1,
+	"isMagic": true,
+	"isTreasure": true,
+	"isWeapon": false,
+	"isProtection": false,
+	"description": "test description",
+	"modifiers": [
+		{
+			"CLASSNAME": "dmpro.modifier.AttributeModifier",
+			"INSTANCE": {
+				"attributeType": "DEXTERITY",
+				"bonus": 1,
+				"description": "\t--\u003e\tRing of Dexterity +1",
+				"modifiesAbilityScore": true,
+				"modifierType": "ATTRIBUTE"
+			}
+		}
+	]
+}
