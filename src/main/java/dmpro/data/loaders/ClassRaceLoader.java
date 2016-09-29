@@ -12,10 +12,10 @@ import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.character.race.RaceType;
 
-public class ClassRaceLoader {
+public class ClassRaceLoader implements ResourceLoader{
 	
 	private List<ClassRaceRecord> classRaceTable = new ArrayList<ClassRaceRecord>();
-	private final String classRaceFile = "./data/tables/class-race-limits.tsv";
+	private final String classRaceFile = dataDirectory + "tables/class-race-limits.tsv";
 	private final int fieldCount = 7;
 	
 	public class ClassRaceRecord {
