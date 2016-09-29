@@ -15,7 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-public class SpellLibrary {
+import dmpro.data.loaders.ResourceLoader;
+
+public class SpellLibrary implements ResourceLoader{
 	
 	public enum SpellResponseType {
 		SPELL,
@@ -27,7 +29,7 @@ public class SpellLibrary {
 	Gson gson= new GsonBuilder().setPrettyPrinting().create();
 	File file;
 	
-	String spellDir = "data/spells/";
+	String spellDir = dataDirectory + "spells/";
 	
 	public SpellLibrary() {
 		// TODO Auto-generated constructor stub

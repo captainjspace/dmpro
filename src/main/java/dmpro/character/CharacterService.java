@@ -34,6 +34,7 @@ import dmpro.character.race.Halfling;
 import dmpro.core.Application;
 import dmpro.core.Server;
 import dmpro.core.StubApp;
+import dmpro.data.loaders.ResourceLoader;
 import dmpro.data.loaders.WeaponItemLoader;
 import dmpro.items.TreasureItemViewer;
 import dmpro.utils.Dice;
