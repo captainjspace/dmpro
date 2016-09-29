@@ -3,15 +3,13 @@ package dmpro.character;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//import dmpro.CombatTableLoader;
-//import dmpro.ExperienceTableLoader;
-import dmpro.ExperienceTableRecord;
 //import dmpro.SavingThrowLoader;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.HitDieRecord;
 import dmpro.character.classes.XPBonus;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.core.Server;
+import dmpro.data.loaders.ExperienceTableRecord;
 
 public class XPProcessor {
 	private Logger logger = Logger.getLogger(this.getClass().getName());

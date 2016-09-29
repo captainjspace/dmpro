@@ -3,12 +3,12 @@ package dmpro.character.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import dmpro.ThiefAbilityRecord;
-import dmpro.ThiefAbilityTableLoader;
 import dmpro.Ability.AbilityType;
 import dmpro.attributes.Strength;
 import dmpro.attributes.Attribute.AttributeType;
 import dmpro.character.Language;
+import dmpro.data.loaders.ThiefAbilityRecord;
+import dmpro.data.loaders.ThiefAbilityTableLoader;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.utils.Dice;

@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.data.loaders;
 
 import java.util.HashMap;
 import java.util.Map;

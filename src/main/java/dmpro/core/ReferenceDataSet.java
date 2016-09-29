@@ -1,16 +1,16 @@
 package dmpro.core;
 
-import dmpro.CombatTableLoader;
-import dmpro.ExperienceTableLoader;
-import dmpro.SavingThrowLoader;
-import dmpro.SpellsAllowedTableLoader;
-import dmpro.ThiefAbilityTableLoader;
 import dmpro.attributes.*;
-import dmpro.character.classes.ClassAttributeLoader;
-import dmpro.character.classes.ClassRaceLoader;
-import dmpro.character.race.RaceAttributeLoader;
-import dmpro.items.MagicItemLoader;
-import dmpro.items.WeaponItemLoader;
+import dmpro.data.loaders.ClassAttributeLoader;
+import dmpro.data.loaders.ClassRaceLoader;
+import dmpro.data.loaders.CombatTableLoader;
+import dmpro.data.loaders.ExperienceTableLoader;
+import dmpro.data.loaders.MagicItemLoader;
+import dmpro.data.loaders.RaceAttributeLoader;
+import dmpro.data.loaders.SavingThrowLoader;
+import dmpro.data.loaders.SpellsAllowedTableLoader;
+import dmpro.data.loaders.ThiefAbilityTableLoader;
+import dmpro.data.loaders.WeaponItemLoader;
 import dmpro.spells.SpellLibrary;
 
 public class ReferenceDataSet implements Runnable{

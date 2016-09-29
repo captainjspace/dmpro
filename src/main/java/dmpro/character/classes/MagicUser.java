@@ -1,14 +1,14 @@
 package dmpro.character.classes;
 
 import dmpro.attributes.Attribute.AttributeType;
+import dmpro.data.loaders.SpellsAllowedRecord;
+import dmpro.data.loaders.SpellsAllowedTableLoader;
 import dmpro.modifier.AttributeModifier;
 import dmpro.attributes.Dexterity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import dmpro.SpellsAllowedRecord;
-import dmpro.SpellsAllowedTableLoader;
 import dmpro.attributes.Strength;
 import dmpro.spells.Spell;
 import dmpro.utils.Dice;

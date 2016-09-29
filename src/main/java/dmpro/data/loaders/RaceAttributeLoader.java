@@ -1,4 +1,4 @@
-package dmpro.character.race;
+package dmpro.data.loaders;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import dmpro.attributes.Attribute;
+import dmpro.character.race.RaceType;
 /**
  * RaceAttributeLoader.java
  *  Standard to be refactored

@@ -69,7 +69,7 @@ public class Commander implements Runnable {
 			case COMBAT:
 				switch (commandObject.commandSet) {
 				case GET:
-					dmpro.CombatRecord combatRecord = application.getReferenceDataSet().getCombatTableLoader().getRecord(commandObject.varString, commandObject.varInt);
+					dmpro.data.loaders.CombatRecord combatRecord = application.getReferenceDataSet().getCombatTableLoader().getRecord(commandObject.varString, commandObject.varInt);
 					StringBuilder combat = new StringBuilder();
 					combatRecord.getArmorClass().entrySet().stream().sorted(Map.Entry.comparingByKey())
 					.forEach(a -> combat.append("AC:").append(a.getKey()).append(" To Hit:").append(a.getValue()).append('\n'));
@@ -81,15 +81,15 @@ public class Commander implements Runnable {
 				}
 				break;
 			case EXPERIENCE:
-				dmpro.ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecord(commandObject.varString, commandObject.varInt );
+				dmpro.data.loaders.ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecord(commandObject.varString, commandObject.varInt );
 				results = gson.toJson(experienceTableRecord);
 				break;
 			case SAVINGTHROW:
-				dmpro.SavingThrowRecord savingThrowRecord = application.getReferenceDataSet().getSavingThrowTableLoader().getRecord(commandObject.varString, commandObject.varInt);
+				dmpro.data.loaders.SavingThrowRecord savingThrowRecord = application.getReferenceDataSet().getSavingThrowTableLoader().getRecord(commandObject.varString, commandObject.varInt);
 				results = gson.toJson(savingThrowRecord);
 				break;
 			case THIEFABILITY:
-				dmpro.ThiefAbilityRecord thiefAbilityRecord = application.getReferenceDataSet().getThiefAbilityTableLoader().getRecord(commandObject.varInt);
+				dmpro.data.loaders.ThiefAbilityRecord thiefAbilityRecord = application.getReferenceDataSet().getThiefAbilityTableLoader().getRecord(commandObject.varInt);
 				results = gson.toJson(thiefAbilityRecord);
 				break;
 			case SPELLS:
@@ -132,7 +132,7 @@ public class Commander implements Runnable {
 			    }
 				break;
 			case SPELLTABLES:
-				dmpro.SpellsAllowedRecord spellsAllowedRecord = application.getReferenceDataSet().getSpellsAllowedTableLoader().getRecord(commandObject.varString, commandObject.varInt );
+				dmpro.data.loaders.SpellsAllowedRecord spellsAllowedRecord = application.getReferenceDataSet().getSpellsAllowedTableLoader().getRecord(commandObject.varString, commandObject.varInt );
 				results = gson.toJson(spellsAllowedRecord);
 				break;
 			case ATTRIBUTES:

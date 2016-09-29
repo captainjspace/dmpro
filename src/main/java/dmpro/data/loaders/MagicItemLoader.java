@@ -1,4 +1,4 @@
-package dmpro.items;
+package dmpro.data.loaders;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +14,10 @@ import java.util.NoSuchElementException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import dmpro.items.GSonItemAdapter;
+import dmpro.items.GSonModifierAdapter;
+import dmpro.items.Item;
+import dmpro.items.MagicItem;
 import dmpro.modifier.*;
 
 import java.util.logging.Level;

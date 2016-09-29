@@ -16,7 +16,7 @@ import dmpro.attributes.Attribute.AttributeType;
 public class AttributeLoader {
 	
 	private static final boolean DEBUG = false;
-	static final String attributeDir="data/attributes/";
+	static final String attributeDir="src/main/resources/data/attributes/";
 	protected File file;
 	private Attribute attribute;
 	protected List<Attribute> attributeTable = new ArrayList<Attribute>();

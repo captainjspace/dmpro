@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.data.loaders;
 
 public class ThiefAbilityRecord {
 	/**

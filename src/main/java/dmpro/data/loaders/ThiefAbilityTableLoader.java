@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.data.loaders;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

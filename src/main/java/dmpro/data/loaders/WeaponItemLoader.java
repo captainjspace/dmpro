@@ -1,4 +1,4 @@
-package dmpro.items;
+package dmpro.data.loaders;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import dmpro.items.ItemGsonExclusion;
+import dmpro.items.WeaponItem;
 
 public class WeaponItemLoader {
 	

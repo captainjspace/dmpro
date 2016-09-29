@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import dmpro.CombatTableLoader;
+import dmpro.data.loaders.CombatTableLoader;
 import dmpro.utils.ParseUtils;
 
 /**

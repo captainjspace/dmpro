@@ -2,10 +2,10 @@ package dmpro.character.classes;
 
 import java.util.List;
 
-import dmpro.CombatRecord;
-import dmpro.SavingThrowRecord;
 import dmpro.character.Proficiency;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.data.loaders.CombatRecord;
+import dmpro.data.loaders.SavingThrowRecord;
 import dmpro.items.Item;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;

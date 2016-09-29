@@ -14,14 +14,17 @@ import java.util.logging.Logger;
 import dmpro.attributes.*;
 import dmpro.character.classes.*;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
-import dmpro.character.classes.ClassAttributeLoader.ClassAttributeRecord;
-import dmpro.character.classes.ClassAttributeLoader.ListPossibleClassResults;
-import dmpro.character.classes.ClassRaceLoader.ClassRaceRecord;
-import dmpro.character.classes.ClassRaceLoader.ListPossibleClassRaceResults;
 import dmpro.character.race.*;
-import dmpro.character.race.RaceAttributeLoader.ListPossibleRaceResults;
-import dmpro.character.race.RaceAttributeLoader.RaceAttributeRecord;
 import dmpro.core.Server;
+import dmpro.data.loaders.ClassAttributeLoader;
+import dmpro.data.loaders.ClassRaceLoader;
+import dmpro.data.loaders.RaceAttributeLoader;
+import dmpro.data.loaders.ClassAttributeLoader.ClassAttributeRecord;
+import dmpro.data.loaders.ClassAttributeLoader.ListPossibleClassResults;
+import dmpro.data.loaders.ClassRaceLoader.ClassRaceRecord;
+import dmpro.data.loaders.ClassRaceLoader.ListPossibleClassRaceResults;
+import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
+import dmpro.data.loaders.RaceAttributeLoader.RaceAttributeRecord;
 
 
 public class CharacterBuildDirector {
