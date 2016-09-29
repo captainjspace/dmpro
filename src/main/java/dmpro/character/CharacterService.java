@@ -51,7 +51,7 @@ import dmpro.utils.Die;
  * 
  */
 //@SuppressWarnings("unused")
-public class CharacterService implements Runnable {
+public class CharacterService implements Runnable, ResourceLoader {
 	/**
 	 * Mostly a test class for modifying characters and input/output of JSON
 	 */
@@ -133,7 +133,7 @@ public class CharacterService implements Runnable {
 //		String file = formatter.format("data/characters/c%.0f.json", character.characterId).toString();
 //		formatter.close();
 
-		String file = "data/characters/c" + character.characterId + ".json";
+		String file = dataDirectory + "characters/c" + character.characterId + ".json";
 		//probably should do time/date checks to see if modified version is later than last save
 		character.setModified(System.currentTimeMillis());
 		String json = null;
