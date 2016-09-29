@@ -32,6 +32,8 @@ public class CombatTableLoader {
 				.collect(Collectors.toList());
 	}
 	public boolean load() {
+		String currentDir = System.getProperty("user.dir");
+        System.out.println("Current dir using System:" +currentDir);
 		String spFile = "combat-table.tsv";
 		String spDir = "/resources/data/tables/" + spFile;
 		//reader = new BufferedReader(getClass().getResourceAsStream(spDir));
