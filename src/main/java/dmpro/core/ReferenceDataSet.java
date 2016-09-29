@@ -15,7 +15,7 @@ import dmpro.spells.SpellLibrary;
 
 public class ReferenceDataSet implements Runnable{
 
-	protected boolean isReady = false;
+	public boolean isReady = false;
 	
 	
 	

@@ -43,7 +43,7 @@ public class WeaponItemLoader implements ResourceLoader {
 		
 		scanner.close();
 	}
-
+	
 	public List<WeaponItem> searchWeaponItem(String weaponName) {
 		List<WeaponItem> weaponSearch = new ArrayList<WeaponItem>();
 		weaponSearch = weapons.stream()
@@ -53,7 +53,7 @@ public class WeaponItemLoader implements ResourceLoader {
 	}
 	
 	public WeaponItem getWeaponItem(String weaponName) {
-		System.out.println(weaponName);
+		//System.out.println(weaponName);
 		WeaponItem weapon = null;
 		try {
 		  weapon = weapons.stream().filter(p -> p.getItemName().toLowerCase().trim().equals(weaponName.toLowerCase()))

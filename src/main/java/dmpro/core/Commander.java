@@ -55,9 +55,9 @@ public class Commander implements Runnable {
 		case CHARACTER:
 			switch (commandObject.commandSet) {
 			case CREATE:
-				application.getCharacterService().getCharacterBuildDirector().setInput(input);
-				application.getCharacterService().getCharacterBuildDirector().setOutput(output);
-				application.getCharacterService().createCharacter();
+				//application.getCharacterService().getCharacterBuildDirector().setInput(input);
+				//application.getCharacterService().getCharacterBuildDirector().setOutput(output);
+				application.getCharacterService().createCharacter(input, output);
 				break;
 			}
 			break;
@@ -126,7 +126,7 @@ public class Commander implements Runnable {
 				case LIST:
 					weapons = application.getReferenceDataSet().getWeaponItemLoader().getWeapons();
 					StringBuilder sb = new StringBuilder();
-			    	weapons.stream().forEach(w -> sb.append(w.getItemName()).append('\t'));
+			    	weapons.stream().sorted().forEach(w -> sb.append(w.getItemName()).append('\n'));
 			    	results = sb.toString();
 					break;
 			    }

@@ -89,21 +89,21 @@ public class Application implements Server {
 		int threads =  ((ThreadPoolExecutor) subsystem).getActiveCount();
 		logger.log(Level.INFO, "Dungeon Master pro is here: Subsystem Thread Count:" + threads);
 
-		//test
-		dmpro.character.Character t = characterService.saveCharacter(
-				characterModifierEngine.processModifiers(
-						characterService.createCharacter()
-						)
-				);
-		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("ring of dexterity"));
-		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("potion of animal control"));
-		characterService.saveCharacter(characterModifierEngine.processModifiers(t));
-		
+//		//test
+//		dmpro.character.Character t = characterService.saveCharacter(
+//				characterModifierEngine.processModifiers(
+//						characterService.createCharacter()
+//						)
+//				);
+//		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("ring of dexterity"));
+//		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("potion of animal control"));
+//		characterService.saveCharacter(characterModifierEngine.processModifiers(t));
+//		
 //		for (int i =0 ; i<=5; i++) 
 //			characterService.saveCharacter(
 //					characterModifierEngine.processModifiers(t));
 
-		characterService.saveCharacter(t);
+//		characterService.saveCharacter(t);
 		
 		//hangout and wait for shutdown command
 		while (true) {

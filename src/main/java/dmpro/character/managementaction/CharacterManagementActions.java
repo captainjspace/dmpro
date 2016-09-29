@@ -2,6 +2,9 @@ package dmpro.character.managementaction;
 
 public enum CharacterManagementActions {
 	INITIALIZECHARACTER(new InitializeCharacter()),
+	INITIALIZESPELLBOOK(new InitializeSpellBook()),
+	INTIAILIZEEQUIPMENT(new InitializeEquipment()),
+	INITIALIZEPROFICIENCIES( new InitializeProficiencies()),
 	UPDATEXP(new UpdateExperience()),
 	UPDATELEVEL(new UpdateLevel()),
 	UPDATECOMBAT(new UpdateCombatTables()),
@@ -11,11 +14,8 @@ public enum CharacterManagementActions {
 	UPDATESPELLBOOK(new UpdateSpellBook()),
 	UPDATEDAILYSPELLS(new UpdateDailySpells()),
 	UPDATETHIEFSKILLS(new UpdateThiefSkills()),
-	INITIALIZESPELLBOOK(new InitializeSpellBook()),
-	INTIAILIZEEQUIPMENT(new InitializeEquipment()),
 	EQUIPCHARACTER(new EquipCharacter()),
 	SPENDGOLD(new SpendGold()),
-	INITIALIZEPROFICIENCIES( new InitializeProficiencies()),
 	UPDATEPROFICIENCIES( new UpdateProficiencies()),
 	ADDCHARACTERBACKGROUND( new AddCharacterBackground()),
 	UPDATETURNUNDEAD(new UpdateTurnUndead());

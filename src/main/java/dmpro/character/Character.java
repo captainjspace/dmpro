@@ -30,6 +30,7 @@ import dmpro.character.race.Race;
 import dmpro.items.Item;
 import dmpro.items.ProtectionItem;
 import dmpro.items.WeaponItem;
+import dmpro.items.WeaponItem.WeaponType;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.Modifiable;
 import dmpro.modifier.Modifier;
@@ -115,7 +116,7 @@ public class Character implements Modifiable {
 	//Saving Throws
 	//determined by level and class, race, and modifiers
 	Map<SavingThrowType,SavingThrow> savingThrowMap = new HashMap<SavingThrowType,SavingThrow>();
-	List<WeaponItem> proficiencies = new ArrayList<WeaponItem>();
+	List<WeaponType> proficiencies = new ArrayList<WeaponType>();
 	List<ProtectionItem> protections = new ArrayList<ProtectionItem>();
 	
 	//TODO: Move spells to Spell Casters...
@@ -482,12 +483,19 @@ public class Character implements Modifiable {
 //	public void setSpellResistance(List<SpellResistance> spellResistance) {
 //		this.spellResistance = spellResistance;
 //	}
-	public List<WeaponItem> getProficiencies() {
+	
+	//Weapon proficiencies...
+	public List<WeaponType> getProficiencies() {
 		return proficiencies;
 	}
-	public void setProficiencies(List<WeaponItem> proficiencies) {
+	public void setProficiencies(List<WeaponType> proficiencies) {
 		this.proficiencies = proficiencies;
 	}
+	public void addProficiency(WeaponType weaponType) {
+		this.proficiencies.add(weaponType);
+	}
+	
+	//not sure this is necessary.
 	public List<ProtectionItem> getProtections() {
 		return protections;
 	}

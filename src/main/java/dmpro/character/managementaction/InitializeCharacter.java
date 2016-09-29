@@ -3,6 +3,10 @@ package dmpro.character.managementaction;
 import dmpro.core.Server;
 import dmpro.items.CoinItem;
 import dmpro.items.CoinItem.CoinType;
+
+import java.util.Formatter;
+import java.util.Scanner;
+
 import dmpro.character.Character;
 import dmpro.character.classes.CharacterClass;
 
@@ -20,12 +24,14 @@ import dmpro.character.classes.CharacterClass;
 public class InitializeCharacter implements ManagementAction {
 
 	@Override
-	public Character execute(Character character, Server application) {
+	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		int goldCoins = 0;
 		for (CharacterClass characterClass : character.getClasses().values()) {
 			goldCoins += characterClass.getInitialGold();
 		}
 		character.addToInventory(new CoinItem(CoinType.GOLD, goldCoins));
+		output.format("\nYou lucky adventurer! You've got %d to spend\n>", goldCoins);
+		output.flush();
 		return character;
 	}
 

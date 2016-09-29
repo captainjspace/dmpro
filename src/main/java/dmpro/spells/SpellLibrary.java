@@ -7,9 +7,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,6 +45,19 @@ public class SpellLibrary implements ResourceLoader{
 		return spell;
 	}
 
+	public List<Spell> spellByClassAndLevel(String className, int level) {
+		return spellLibrary.stream()
+				.filter(s -> s.getSpellAbilityClassName().toLowerCase().equals(className.toLowerCase()))
+				.filter(s -> s.getSpellAbilityClassLevel() == level)
+				.collect(Collectors.toList());
+	}
+	
+	public List<Spell> spellByClass(String className) {
+		return spellLibrary.stream()
+				.filter(s -> s.getSpellAbilityClassName().toLowerCase().equals(className.toLowerCase()))
+				.collect(Collectors.toList());
+	}
+	
 	public List<Spell> searchSpell(String spellName) {
 		return spellLibrary.stream()
 				.filter(s -> s.getSpellName().toLowerCase().contains(spellName.toLowerCase()))

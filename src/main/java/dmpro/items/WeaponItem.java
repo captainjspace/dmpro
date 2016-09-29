@@ -6,20 +6,36 @@ import java.util.Map;
 import dmpro.utils.ParseUtils;
 
 public class WeaponItem extends Item {
+	
 	public enum WeaponType {
-		ONEHANDEDSWORD,
-		TWOHANDEDSWORD,
-		DAGGER,
-		POLEARMCLASS,
-		SPEAR,
-		ONEHANDEDAXE,
-		TWOHANDEDAXE,
-		HAMMER,
-		BOWCLASS,
-		FLAIL,
-		MACE,
-		STAFF,
-		MISSILE;
+		ONEHANDEDSWORD(1, "One Handed Swords"),
+		TWOHANDEDSWORD(2, "The Venerable Two Handed Sword - Bane of all big beasts!"),
+		DAGGER(3,"Daggers, Knives, Stilletto's for sneaking in the night or hurling at your enemy"),
+		POLEARMCLASS(4, "Polearms for War!"),
+		SPEAR(5, "Spears, Javelins for both Pole and Missile attacks!"),
+		ONEHANDEDAXE(6, "One handed Axes - for chopping wood, and throwing on occasion"),
+		TWOHANDEDAXE(7,"The Battle Axe - Crush crumble and chomp through Armor!"),
+		HAMMER(8, "The War Hammer - Thrown or Smashed"),
+		BOWCLASS(9, "Bows and Crossbows - no party can be without"),
+		FLAIL(10, "Flails, and whips and all chainy things"),
+		MACE(11, "Mace, Club and One-handed crushy stuff!"),
+		STAFF(12, "No Mage should be without his trusty Staff!"),
+		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!");
+		
+		int weaponTypeIndex;
+		String weaponTypeDescription;
+		
+		WeaponType ( int weaponTypeIndex, String weaponTypeDescription) {
+			this.weaponTypeIndex = weaponTypeIndex;
+			this.weaponTypeDescription = weaponTypeDescription;
+		}
+		
+		public int weaponTypeIndex() {
+			return weaponTypeIndex;
+		}
+		public String weaponTypeDescription() {
+			return weaponTypeDescription;
+		}
 	}
 	
 	public enum Size {S,M,L;}
@@ -167,5 +183,13 @@ public class WeaponItem extends Item {
 				+ itemCurrency + ", weight=" + weight + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure
 				+ ", isWeapon=" + isWeapon + ", isProtection=" + isProtection + ", "
 				+ (description != null ? "description=" + description : "") + "]";
+	}
+	
+	public static void main (String[] args) {
+		for (WeaponType wt : WeaponType.values()) {
+			System.out.format("\t%d  :  %s\n", 
+					wt.weaponTypeIndex(), 
+					wt.weaponTypeDescription());
+		}
 	}
 }

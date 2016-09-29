@@ -15,6 +15,7 @@ import dmpro.attributes.*;
 import dmpro.character.classes.*;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.character.race.*;
+import dmpro.core.ReferenceDataSet;
 import dmpro.core.Server;
 import dmpro.data.loaders.ClassAttributeLoader;
 import dmpro.data.loaders.ClassRaceLoader;
@@ -31,7 +32,7 @@ public class CharacterBuildDirector {
 	private Logger logger = Logger.getLogger(this.getClass().getName());
 	private Server application;
 	
-	CharacterModifierEngine characterModifierEngine;
+//	CharacterModifierEngine characterModifierEngine;
 	CharacterBuilder characterBuilder;
 	private Scanner scanner = new Scanner(System.in);
 	private Formatter output = new Formatter(System.out);
@@ -47,7 +48,7 @@ public class CharacterBuildDirector {
 
 	public CharacterBuildDirector(CharacterBuilder characterBuilder, Server application) {
 		this.characterBuilder = characterBuilder;
-		this.characterModifierEngine = new CharacterModifierEngine();
+//		this.characterModifierEngine = new CharacterModifierEngine();
 		this.application = application; 
 	}
 
@@ -164,6 +165,8 @@ public class CharacterBuildDirector {
 		//TODO: hook up to central.
 		//attributeLoader = new StrengthLoader();
 		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));
+		//ReferenceDataSet rds = this.application.getReferenceDataSet();
+		
 		attributes.put("Strength", application.getReferenceDataSet().getStrengthLoader().getRecord(attributeRolls[0]));
 	    attributes.put("Intelligence", application.getReferenceDataSet().getIntelligenceLoader().getRecord( attributeRolls[1]));
 		attributes.put("Wisdom", application.getReferenceDataSet().getWisdomLoader().getRecord( attributeRolls[2]));
@@ -202,6 +205,8 @@ public class CharacterBuildDirector {
 			//raceType = RaceType.ByIndex(raceIndex);
 			if (raceType != null) break;
 		}
+		
+		//TODO: put news in enum
 		switch(raceType) {
 		case HUMAN:
 			race  = new Human();
@@ -313,6 +318,8 @@ public class CharacterBuildDirector {
 		output.format("Character Class Selected is %s, %s, Id=%d\n",
 				characterClassType, characterClassType.className, characterClassType.classIndex);
 		
+		
+		//TODO: put classes in enum
  		switch (characterClassType ) {
  		case MAGICUSER:
  			characterClass = new MagicUser();

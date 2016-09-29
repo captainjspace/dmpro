@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.logging.Formatter;
+import java.util.Scanner;
+import java.util.Formatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -62,6 +63,9 @@ public class CharacterService implements Runnable, ResourceLoader {
 	private CharacterBuildDirector characterBuildDirector;
 	private CharacterBuilder characterBuilder;
 	private XPProcessor xpProcessor;
+	private Scanner input;
+	private Formatter output;
+	
 	
 	
 	Map<String,Character> characters = new HashMap<String,Character>();
@@ -89,9 +93,10 @@ public class CharacterService implements Runnable, ResourceLoader {
 	 * @param application
 	 */
 	public CharacterService(Server application) {
+		this.application = application;
+		
 		this.characterBuilder = new PCCharacterBuilder();
 		this.characterBuildDirector = new CharacterBuildDirector(characterBuilder, this.application);
-		this.application = application;
 		this.characterModifierEngine = new CharacterModifierEngine(this.application);
 		this.xpProcessor = new XPProcessor(this.application);
 	}
@@ -117,6 +122,19 @@ public class CharacterService implements Runnable, ResourceLoader {
 		return character;
 	}
 	
+	/**
+	 * Wraps input streams for use with sockets, stdio etc.
+	 * @param input java.util.Scanner
+	 * @param output java.util.Formatter
+	 * @return dmpro.character.Character
+	 */
+	public Character createCharacter(Scanner input, Formatter output) {
+		this.input = input;
+		this.output = output;
+		characterBuildDirector.setInput(input);
+		characterBuildDirector.setOutput(output);
+		return createCharacter();
+	}
 	public Character createCharacter() {
 		//CharacterBuilder pCCharacterBuilder = new PCCharacterBuilder();
 		//characterBuildDirector = new CharacterBuildDirector(pCCharacterBuilder);
@@ -124,19 +142,23 @@ public class CharacterService implements Runnable, ResourceLoader {
 		character = characterBuilder.getCharacter();
 		//character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
 		//character = xpProcessor.evaluateExperience(character);
-		character = processManagementActions();
+		character = processManagementActions(character);
 		saveCharacter(character);
 		return character;
 	}
 
-	private Character processManagementActions() {
-		for (CharacterManagementActions characterManagementAction : character.getRequiredActions()) {
+	private Character processManagementActions(Character character) {
+		CharacterManagementActions characterManagementAction;
+	
+		while (!character.getRequiredActions().isEmpty())
+		{
+		    characterManagementAction = character.getRequiredActions().remove(0);
 			logger.log(Level.INFO, "executing managementAction " + characterManagementAction);
 			ManagementAction action = characterManagementAction.getManagementAction();
-			character = action.execute(character, application);
-			character.getRequiredActions().remove(characterManagementAction);
+			character = action.execute(character, this.application, this.input, this.output);
+			saveCharacter(character); //save after each mod.
 		}
-		return null;
+		return character;
 	}
 
 	public Character saveCharacter(Character character) {
@@ -146,6 +168,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 //		formatter.close();
 
 		String file = dataDirectory + "characters/c" + character.characterId + ".json";
+		//String file = "src/main/resources/data/characters/c" + character.getCharacterId() + ".json";
 		//probably should do time/date checks to see if modified version is later than last save
 		character.setModified(System.currentTimeMillis());
 		String json = null;

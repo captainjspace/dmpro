@@ -96,7 +96,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 		characterClasses.stream()
 		.forEach(characterClass -> character.getClasses()
 				.put(characterClass.getCharacterClassType(), characterClass));
-		
+		character.addRequiredAction(CharacterManagementActions.INITIALIZEPROFICIENCIES);
 		logger.log(Level.INFO, "Build Added Classes Character Id: " + character.getCharacterId());
 
 	}
