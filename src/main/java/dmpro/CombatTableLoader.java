@@ -35,7 +35,7 @@ public class CombatTableLoader {
 		String spFile = "combat-table.tsv";
 		String spDir = "/resources/data/tables/" + spFile;
 		//reader = new BufferedReader(getClass().getResourceAsStream(spDir));
-		Scanner scanner = new Scanner(getClass().getResourceAsStream(spDir));
+		Scanner scanner = new Scanner(getClass().getResourceAsStream(spFile));
 		CombatRecord combatRecord;
 		scanner.nextLine(); //skip header
 		while (scanner.hasNext()) {
