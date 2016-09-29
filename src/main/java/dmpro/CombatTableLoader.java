@@ -1,9 +1,7 @@
 package dmpro;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,21 +30,28 @@ public class CombatTableLoader {
 				.collect(Collectors.toList());
 	}
 	public boolean load() {
-		String currentDir = System.getProperty("user.dir");
-        System.out.println("Current dir using System:" +currentDir);
+//		String currentDir = System.getProperty("user.dir");
+//		System.out.println("Current dir using System:" +currentDir);
+		FileReader reader;
 		String spFile = "combat-table.tsv";
-		String spDir = "/resources/data/tables/" + spFile;
-		//reader = new BufferedReader(getClass().getResourceAsStream(spDir));
-		Scanner scanner = new Scanner(getClass().getResourceAsStream(spFile));
-		CombatRecord combatRecord;
-		scanner.nextLine(); //skip header
-		while (scanner.hasNext()) {
-			String lineInput = scanner.nextLine();
-			combatRecord = new CombatRecord(lineInput);
-			combatTable.add(combatRecord);
+		String spDir = "src/main/resources/data/tables/" + spFile;
+		Scanner scanner;
+		try {
+			scanner = new Scanner(new FileReader(spDir));
+			CombatRecord combatRecord;
+			scanner.nextLine(); //skip header
+			while (scanner.hasNext()) {
+				String lineInput = scanner.nextLine();
+				combatRecord = new CombatRecord(lineInput);
+				combatTable.add(combatRecord);
+			}
+			scanner.close();
+			return true;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		scanner.close();
-		return true;
+		return false;
 
 	}
 	public CombatRecord getRecord(String characterClass, int level) {
