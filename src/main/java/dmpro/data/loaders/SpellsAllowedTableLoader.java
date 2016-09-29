@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class SpellsAllowedTableLoader {
+public class SpellsAllowedTableLoader implements ResourceLoader {
 
 	List<SpellsAllowedRecord> spellsAllowed = new ArrayList<SpellsAllowedRecord>();
 	
@@ -23,7 +23,7 @@ public class SpellsAllowedTableLoader {
 	}
 	public boolean load() {
 		String spFile = "spells-useable.tsv";
-		String spDir = "data/tables/" + spFile;
+		String spDir = dataDirectory + "tables/" + spFile;
 		FileReader reader;
 		try {
 			reader = new FileReader(spDir);

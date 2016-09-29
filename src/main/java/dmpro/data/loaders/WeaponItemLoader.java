@@ -14,11 +14,11 @@ import com.google.gson.GsonBuilder;
 import dmpro.items.ItemGsonExclusion;
 import dmpro.items.WeaponItem;
 
-public class WeaponItemLoader {
+public class WeaponItemLoader implements ResourceLoader {
 	
 	List<WeaponItem> weapons = new ArrayList<WeaponItem>();
 	
-	private final String weaponFile = "data/tables/weapons-table.tsv";
+	private final String weaponFile = dataDirectory + "tables/weapons-table.tsv";
 	private final int fieldCount = 14;
 	
 	public WeaponItemLoader () {

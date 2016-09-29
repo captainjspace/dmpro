@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ThiefAbilityTableLoader {
+public class ThiefAbilityTableLoader implements ResourceLoader {
 	/**
 	 * data container
 	 */
@@ -18,7 +18,7 @@ public class ThiefAbilityTableLoader {
 	}
 
 	public void load() {
-		String file = "data/tables/thief-abilities.tsv";
+		String file = dataDirectory + "tables/thief-abilities.tsv";
 		FileReader reader;
 		Scanner scanner;
 		

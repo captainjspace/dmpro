@@ -16,7 +16,7 @@ import dmpro.character.classes.CharacterClass.CharacterClassType;
 public class ClassAttributeLoader {
 
 	private List<ClassAttributeRecord> classAttributeTable = new ArrayList<ClassAttributeRecord>();
-	private final String classAttributeFile = "./data/tables/class-attribute-limits";
+	private final String classAttributeFile = "src/main/resources/data/tables/class-attribute-limits";
 	private final int fieldCount = 3;
 	
 	public class ClassAttributeRecord {

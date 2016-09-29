@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class SavingThrowLoader {
+public class SavingThrowLoader implements ResourceLoader{
 	/**
 	 * data container
 	 */
@@ -24,7 +24,7 @@ public class SavingThrowLoader {
 
 
 	public boolean load() {
-		String file = "data/tables/dmg/saving-throws.tsv";
+		String file = dataDirectory + "tables/dmg/saving-throws.tsv";
 		FileReader reader; 
 
 		try {

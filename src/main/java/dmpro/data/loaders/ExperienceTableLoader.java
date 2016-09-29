@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class ExperienceTableLoader {
+public class ExperienceTableLoader implements ResourceLoader {
 	/**
 	 * data container
 	 * needs to interact with individual classes to extend base data table as characters progress to levels/
@@ -31,7 +31,7 @@ public class ExperienceTableLoader {
 	
 	public boolean load() {
 		String xpFile = "xptable.tsv";
-		String xpDir = "data/tables/" + xpFile;
+		String xpDir = dataDirectory + "tables/" + xpFile;
 		FileReader reader;
 		try {
 			reader = new FileReader(xpDir);

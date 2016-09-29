@@ -26,10 +26,10 @@ import dmpro.character.race.RaceType;
  *
  */
 
-public class RaceAttributeLoader {
+public class RaceAttributeLoader implements ResourceLoader{
 	
 	private List<RaceAttributeRecord> raceAttributeTable = new ArrayList<RaceAttributeRecord>();
-	private final String raceAttributeFile = "data/tables/race-attribute-limits.tsv";
+	private final String raceAttributeFile = dataDirectory + "tables/race-attribute-limits.tsv";
 	private final int fieldCount = 5;
 	
 	public class RaceAttributeRecord {

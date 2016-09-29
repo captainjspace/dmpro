@@ -1,12 +1,7 @@
 package dmpro.attributes;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-import java.util.Scanner;
-import java.util.function.Predicate;
 
+import java.lang.reflect.InvocationTargetException;
 
 public class StrengthLoader extends AttributeLoader {
 	//Strength strength;

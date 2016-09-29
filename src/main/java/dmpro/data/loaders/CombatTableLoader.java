@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class CombatTableLoader {
+public class CombatTableLoader implements ResourceLoader {
 	/**
 	 * data container for combat
 	 * note that all combat records can be resolved to a fine grain fighter table
@@ -34,7 +34,7 @@ public class CombatTableLoader {
 //		System.out.println("Current dir using System:" +currentDir);
 		FileReader reader;
 		String spFile = "combat-table.tsv";
-		String spDir = "src/main/resources/data/tables/" + spFile;
+		String spDir = dataDirectory + "tables/" + spFile;
 		Scanner scanner;
 		try {
 			scanner = new Scanner(new FileReader(spDir));
