@@ -25,7 +25,7 @@ import java.util.logging.Logger;
 
 public class MagicItemLoader implements ResourceLoader {
 	private Logger logger = Logger.getLogger(this.getClass().getName());
-	private static final String magicDir = dataDirectory + "data/magic-items";
+	private static final String magicDir = dataDirectory + "magic-items";
 	
 	private List<MagicItem> magicItems = new ArrayList<MagicItem>();
 
