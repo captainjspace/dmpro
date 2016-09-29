@@ -28,8 +28,8 @@ import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.MagicUser;
 import dmpro.character.classes.Thief;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
-
-
+import dmpro.character.managementaction.CharacterManagementActions;
+import dmpro.character.managementaction.ManagementAction;
 import dmpro.character.race.Halfling;
 import dmpro.core.Application;
 import dmpro.core.Server;
@@ -90,7 +90,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 	 */
 	public CharacterService(Server application) {
 		this.characterBuilder = new PCCharacterBuilder();
-		this.characterBuildDirector = new CharacterBuildDirector(characterBuilder);
+		this.characterBuildDirector = new CharacterBuildDirector(characterBuilder, this.application);
 		this.application = application;
 		this.characterModifierEngine = new CharacterModifierEngine(this.application);
 		this.xpProcessor = new XPProcessor(this.application);
@@ -121,13 +121,24 @@ public class CharacterService implements Runnable, ResourceLoader {
 		//CharacterBuilder pCCharacterBuilder = new PCCharacterBuilder();
 		//characterBuildDirector = new CharacterBuildDirector(pCCharacterBuilder);
 		characterBuildDirector.buildCharacter();
-		//character = characterBuilder.getCharacter();
-		character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
-		character = xpProcessor.evaluateExperience(character);
+		character = characterBuilder.getCharacter();
+		//character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
+		//character = xpProcessor.evaluateExperience(character);
+		character = processManagementActions();
 		saveCharacter(character);
 		return character;
 	}
-	
+
+	private Character processManagementActions() {
+		for (CharacterManagementActions characterManagementAction : character.getRequiredActions()) {
+			logger.log(Level.INFO, "executing managementAction " + characterManagementAction);
+			ManagementAction action = characterManagementAction.getManagementAction();
+			character = action.execute(character, application);
+			character.getRequiredActions().remove(characterManagementAction);
+		}
+		return null;
+	}
+
 	public Character saveCharacter(Character character) {
 		
 //		java.util.Formatter formatter = new java.util.Formatter();
@@ -164,8 +175,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 		Character load = null;
 		String file = "data/characters/c" + characterId + ".json";
 		try {
-			FileReader r = new FileReader(file);
-			load = gson.fromJson(r, Character.class);
+			FileReader reader = new FileReader(file);
+			load = gson.fromJson(reader, Character.class);
 			
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "File not Found: " + file +

@@ -1,12 +1,12 @@
 package dmpro.character.race;
 
 import dmpro.Ability.AbilityType;
-import dmpro.SavingThrowType;
 import dmpro.attributes.Attribute.AttributeType;
 import dmpro.attributes.Charisma;
 import dmpro.attributes.Constitution;
 import dmpro.attributes.Intelligence;
 import dmpro.character.Language;
+import dmpro.character.SavingThrowType;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.SavingThrowModifier;

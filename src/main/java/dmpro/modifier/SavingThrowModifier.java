@@ -1,6 +1,6 @@
 package dmpro.modifier;
 
-import dmpro.SavingThrowType;
+import dmpro.character.SavingThrowType;
 
 public class SavingThrowModifier extends AbilityModifier {
 	

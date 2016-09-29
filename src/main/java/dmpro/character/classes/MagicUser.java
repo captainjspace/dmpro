@@ -3,6 +3,7 @@ package dmpro.character.classes;
 import dmpro.attributes.Attribute.AttributeType;
 import dmpro.data.loaders.SpellsAllowedRecord;
 import dmpro.data.loaders.SpellsAllowedTableLoader;
+import dmpro.items.DamageRoll;
 import dmpro.modifier.AttributeModifier;
 import dmpro.attributes.Dexterity;
 
@@ -38,6 +39,7 @@ public class MagicUser extends CharacterClass {
 		this.setHitPointPerLevelAfterMax(1);
 		this.setExperiencePointsPerLevelAfterMax(375000);
 		this.addXPBonus(new XPBonus("intelligence", 16));
+		this.setInitialGold(( new DamageRoll("2d4").getDamageRoll() * 10 ));
 
 		this.setStartingProficiencies(1);
 		this.setNewProficienyPerLevel(6);

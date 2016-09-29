@@ -62,6 +62,7 @@ public class CharacterClass {
 	int savingThrowTableId;//?
 	boolean hasSpells;
 	boolean readyForLevelUp=false;
+	int initialGold; //not really important to persist this...
 	
 	Die hitDie; 
 	List<HitDieRecord> hitDieHistory = new ArrayList<HitDieRecord>();
@@ -349,5 +350,17 @@ public class CharacterClass {
 	
 	public void setExperiencePointsPerLevelAfterMax(int experiencePointsPerLevelAfterMax) {
 		this.experiencePointsPerLevelAfterMax = experiencePointsPerLevelAfterMax;
+	}
+	/**
+	 * @return the initialGold
+	 */
+	public int getInitialGold() {
+		return initialGold;
+	}
+	/**
+	 * @param initialGold the initialGold to set
+	 */
+	public void setInitialGold(int initialGold) {
+		this.initialGold = initialGold;
 	}
 }

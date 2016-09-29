@@ -2,7 +2,7 @@ package dmpro.game;
 
 import java.util.List;
 
-import dmpro.AdventureParty;
+import dmpro.character.AdventureParty;
 import dmpro.items.Item;
 
 public interface Loot {

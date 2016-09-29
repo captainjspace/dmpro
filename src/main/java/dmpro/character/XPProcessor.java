@@ -1,4 +1,23 @@
 package dmpro.character;
+/**
+ * XP Processor 
+ * - XP operations occur at the CharacterClass scope.
+ * - Operations that are common to all classes will be contained in this unit
+ * - Actions that are class specific will be registered in the queue for class specific processors
+ * 
+ * This class focuses will:
+ * <ol>
+ * <li> Add experience to a class</li>
+ * <li> determine if xp gets the 10% bonus</li>
+ * <li> divide experience among subclasses </li>
+ * <li> check for level increases </li>
+ * <li> add level to class </li>
+ * <li> refresh combat record </li>
+ * <li> refresh saving throw record </li>
+ * <li> add class specific required actions for other processors </li>
+ * <li> recalc max hitpoints </li>
+ * </ol>
+ */
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,6 +27,7 @@ import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.HitDieRecord;
 import dmpro.character.classes.XPBonus;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.core.Server;
 import dmpro.data.loaders.ExperienceTableRecord;
 
@@ -35,7 +55,7 @@ public class XPProcessor {
 	 * handle distribution to multi-class
 	 * TODO:	add in non-distribution for human 2 class -- pretty rare...
 	 * 			probably an isActive..
-	 * 
+	 * TODO: energy drain combat 
 	 * @param newXPpoints
 	 */
 	public void addExperiencePoints(int newXPpoints) {
@@ -72,7 +92,8 @@ public class XPProcessor {
 		int currentLevel  = characterClass.getExperienceLevel();
 		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.getExperiencePoints());
 	
-		//could implement the max 1 level increase and set XP right here.
+		//TODO: implement race checks for max
+		//TODO: implement max 1 level increase and cap XP.
 		if (currentLevel < experienceTableRecord.getExperienceLevel()) {
 			logger.log(Level.INFO,  "setting experience level to " + experienceTableRecord.getExperienceLevel());
 			characterClass.setExperienceLevel(experienceTableRecord.getExperienceLevel());
@@ -96,6 +117,7 @@ public class XPProcessor {
 				(characterClass.getCharacterClassType() == CharacterClassType.RANGER) ||
 				(characterClass.getCharacterClassType() == CharacterClassType.PALADIN)
 			) {
+			//TODO: Resolve character vs character-class action for multiclass
 			character.requiredActions.add(CharacterManagementActions.UPDATESPELLSALLOWED);
 			character.requiredActions.add(CharacterManagementActions.UPDATESPELLBOOK);
 			character.requiredActions.add(CharacterManagementActions.UPDATEDAILYSPELLS);
@@ -118,6 +140,8 @@ public class XPProcessor {
 	public void processClassHitPoints(CharacterClass characterClass) {
 		logger.log(Level.INFO,  "Class Hit Point Check");
 		int hpBonus = 0;
+		
+		//i feel like this is gross code.
 		switch (characterClass.getCharacterClassType()) {
 		case FIGHTER:
 			hpBonus = character.getConstitution().getFighterHPAdjustment();
@@ -133,6 +157,7 @@ public class XPProcessor {
 			break;
 		}
 		
+		//keep record of hit dice in case we get touched by  vampire and lose two levels.
 		while (characterClass.getHitDieHistory().size() < characterClass.getExperienceLevel()) {
 			characterClass.getHitDieHistory()
 			.add(new HitDieRecord(characterClass.getHitDie().roll(), 
@@ -163,6 +188,10 @@ public class XPProcessor {
 				);
 	}
 
+	/**
+	 * stream all hit die records and calculate max
+	 * stream api is the bomb.
+	 */
 	public void processCharacterHitPoints() {
 		// TODO Auto-generated method stub
 		int classCount = character.getClasses().size();

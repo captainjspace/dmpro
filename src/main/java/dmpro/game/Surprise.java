@@ -1,6 +1,6 @@
 package dmpro.game;
 
-import dmpro.AdventureParty;
+import dmpro.character.AdventureParty;
 
 public class Surprise {
 

@@ -9,6 +9,7 @@ import dmpro.attributes.Attribute.AttributeType;
 import dmpro.character.Language;
 import dmpro.data.loaders.ThiefAbilityRecord;
 import dmpro.data.loaders.ThiefAbilityTableLoader;
+import dmpro.items.DamageRoll;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.utils.Dice;
@@ -54,6 +55,7 @@ public class Thief extends CharacterClass {
 		this.setHitPointPerLevelAfterMax(2);
 		this.setExperiencePointsPerLevelAfterMax(220000);
 		this.addXPBonus(new XPBonus("dexterity", 15));
+		this.setInitialGold(( new DamageRoll("2d6").getDamageRoll() * 10 ));
 		
 		this.setStartingProficiencies(2);
 		this.setNewProficienyPerLevel(4);

@@ -29,7 +29,7 @@ import dmpro.data.loaders.RaceAttributeLoader.RaceAttributeRecord;
 
 public class CharacterBuildDirector {
 	private Logger logger = Logger.getLogger(this.getClass().getName());
-	//private Server server; //stub interface
+	private Server application;
 	
 	CharacterModifierEngine characterModifierEngine;
 	CharacterBuilder characterBuilder;
@@ -45,9 +45,10 @@ public class CharacterBuildDirector {
 	private List<CharacterClass> characterClasses = new ArrayList<CharacterClass>();;
 	private CharacterClass characterClass;
 
-	public CharacterBuildDirector(CharacterBuilder characterBuilder) {
+	public CharacterBuildDirector(CharacterBuilder characterBuilder, Server application) {
 		this.characterBuilder = characterBuilder;
 		this.characterModifierEngine = new CharacterModifierEngine();
+		this.application = application; 
 	}
 
 	/**
@@ -130,11 +131,9 @@ public class CharacterBuildDirector {
 
 		output.format("Enter Suffixes (i.e. Esq., III, Jr, etc>>");
 		output.flush();
-		String suffix;
-		//		do {
+		String suffix = null;
 		suffix = scanner.nextLine();
-		suffixes = Arrays.asList(suffix.split(" "));
-		//		} while (suffix.isEmpty());
+		if (suffix != null) suffixes = Arrays.asList(suffix.split(" "));
 	}
 
 	/**
@@ -146,6 +145,7 @@ public class CharacterBuildDirector {
 		output.format("---------------- Character Attributes -------------------\n");
 		int answer=0;
 		String s;
+		//TODO: allow input of rolls
 		do {
 			output.format( "Would you like to AutoGenerate Attribute rolls(1) or enter manually(2):>");
 			output.flush();
@@ -156,30 +156,20 @@ public class CharacterBuildDirector {
 				//whatever...
 			}
 		} while ( answer!=1 && answer !=2 );
-		//if manual -- start scanning
+		
 		output.format("Autogen it is!!!\n");
 		AttributeRoller attributeRoller = new AttributeRoller();
 		int[] attributeRolls = attributeRoller.attributeRolls();
 		
-		attributeLoader = new StrengthLoader();
-		attributes.put("Strength", 
-				(Strength) attributeLoader.getRecord( attributeRolls[0] ));
-		attributeLoader = new IntelligenceLoader();
-	    attributes.put("Intelligence",   
-	    		(Intelligence) attributeLoader.getRecord( attributeRolls[1]));
-		attributeLoader = new WisdomLoader();
-		attributes.put("Wisdom", 
-				(Wisdom) attributeLoader.getRecord( attributeRolls[2]));
-		attributeLoader = new DexterityLoader();
-		attributes.put("Dexterity",
-				(Dexterity) attributeLoader.getRecord(attributeRolls[3]));
-		attributeLoader = new ConstitutionLoader();
-		attributes.put("Constitution",
-				(Constitution) attributeLoader.getRecord( attributeRolls[4]));
-		attributeLoader = new CharismaLoader();
-		attributes.put("Charisma",
-				(Charisma) attributeLoader.getRecord(attributeRolls[5]));
-		attributeLoader = null;
+		//TODO: hook up to central.
+		//attributeLoader = new StrengthLoader();
+		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));
+		attributes.put("Strength", application.getReferenceDataSet().getStrengthLoader().getRecord(attributeRolls[0]));
+	    attributes.put("Intelligence", application.getReferenceDataSet().getIntelligenceLoader().getRecord( attributeRolls[1]));
+		attributes.put("Wisdom", application.getReferenceDataSet().getWisdomLoader().getRecord( attributeRolls[2]));
+		attributes.put("Dexterity", application.getReferenceDataSet().getDexterityLoader().getRecord(attributeRolls[3]));
+		attributes.put("Constitution", application.getReferenceDataSet().getConstitutionLoader().getRecord( attributeRolls[4]));
+		attributes.put("Charisma", application.getReferenceDataSet().getCharismaLoader().getRecord(attributeRolls[5]));
 		
 		showAttributes();
 		

@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import dmpro.attributes.Attribute;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.ICharacterClass;
+import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.race.Race;
 
 
@@ -39,6 +40,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 				(new StringBuilder().append(time).append(rand).append(playerBirthDate)).toString()
 				);
 		logger.log(Level.INFO, "Initialized Character Id: " + character.getCharacterId());
+		character.addRequiredAction(CharacterManagementActions.INITIALIZECHARACTER);
 	}
 	
 	@Override

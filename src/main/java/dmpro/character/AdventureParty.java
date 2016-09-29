@@ -1,9 +1,9 @@
-package dmpro;
+package dmpro.character;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import dmpro.character.Character;
+import dmpro.AdventureModule;
 import dmpro.modifier.Modifiable;
 import dmpro.modifier.Modifier;
 /**

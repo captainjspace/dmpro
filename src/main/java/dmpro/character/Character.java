@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import dmpro.AdventureParty;
-import dmpro.SavingThrow;
-import dmpro.SavingThrowType;
 import dmpro.attributes.Attribute;
 import dmpro.attributes.AttributeLoader;
 import dmpro.attributes.Charisma;
@@ -27,6 +24,7 @@ import dmpro.attributes.Wisdom;
 import dmpro.attributes.WisdomLoader;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.classes.ICharacterClass;
 import dmpro.character.race.Race;
 import dmpro.items.Item;

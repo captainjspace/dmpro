@@ -1,11 +1,11 @@
 package dmpro.character.race;
 
 import dmpro.Ability.AbilityType;
-import dmpro.SavingThrowType;
 import dmpro.attributes.Dexterity;
 import dmpro.attributes.Intelligence;
 import dmpro.attributes.Strength;
 import dmpro.attributes.Attribute.AttributeType;
+import dmpro.character.SavingThrowType;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.SavingThrowModifier;

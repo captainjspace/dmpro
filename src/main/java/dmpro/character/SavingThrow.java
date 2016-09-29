@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.character;
 
 import java.util.ArrayList;
 import java.util.List;

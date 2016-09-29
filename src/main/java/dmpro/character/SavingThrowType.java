@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.character;
 /**
  * SavingThrowType.java
  * 

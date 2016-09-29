@@ -10,6 +10,7 @@ public abstract class Item implements Modifiable {
 	
 	public enum ItemType {
 		WEAPON,
+		ARMOR,
 		TREASURE,
 		MAGIC,
 		STANDARD,
@@ -23,6 +24,7 @@ public abstract class Item implements Modifiable {
 	int itemId;
 	String itemName;
 	ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
+	int itemCount;
 	int itemValue; //gold piece value
 	String itemCurrency;
 	int weight; //in gp
@@ -162,8 +164,18 @@ public abstract class Item implements Modifiable {
 		this.modifiers = modifiers;
 	}
 
-	
-  
-  
-  
+	/**
+	 * @return the count
+	 */
+	public int getItemCount() {
+		return itemCount;
+	}
+
+	/**
+	 * @param count the count to set
+	 */
+	public void setCount(int itemCount) {
+		this.itemCount = itemCount;
+	}
+
 }

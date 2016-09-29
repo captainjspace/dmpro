@@ -3,6 +3,7 @@ package dmpro.character.classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import dmpro.items.DamageRoll;
 import dmpro.items.WeaponItem;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;
@@ -33,6 +34,7 @@ public class Fighter extends CharacterClass {
 		this.setMaxHitDice(9); //read from table?
 		this.setExperiencePointsPerLevelAfterMax(250000);
 		this.addXPBonus(new XPBonus("strength", 15));
+		this.setInitialGold(( new DamageRoll("5d4").getDamageRoll() * 10 ));
 		
 		//all could be in table
 		this.setStartingProficiencies(4);
