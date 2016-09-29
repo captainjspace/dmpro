@@ -1,7 +1,9 @@
 package dmpro;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,28 +33,19 @@ public class CombatTableLoader {
 	}
 	public boolean load() {
 		String spFile = "combat-table.tsv";
-		String spDir = "data/tables/" + spFile;
-		FileReader reader;
-		try {
-			reader = new FileReader(spDir);
-			Scanner scanner = new Scanner(reader);
-			CombatRecord combatRecord;
-			scanner.nextLine(); //skip header
-			while (scanner.hasNext()) {
-				String lineInput = scanner.nextLine();
-				combatRecord = new CombatRecord(lineInput);
-				combatTable.add(combatRecord);
-			}
-			
-			scanner.close();
-			return true;
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
+		String spDir = "/resources/data/tables/" + spFile;
+		//reader = new BufferedReader(getClass().getResourceAsStream(spDir));
+		Scanner scanner = new Scanner(getClass().getResourceAsStream(spDir));
+		CombatRecord combatRecord;
+		scanner.nextLine(); //skip header
+		while (scanner.hasNext()) {
+			String lineInput = scanner.nextLine();
+			combatRecord = new CombatRecord(lineInput);
+			combatTable.add(combatRecord);
 		}
-		
+		scanner.close();
+		return true;
+
 	}
 	public CombatRecord getRecord(String characterClass, int level) {
 		return combatTable.stream()
