@@ -45,14 +45,14 @@ public class SpellLibrary implements ResourceLoader{
 		return spell;
 	}
 
-	public List<Spell> spellByClassAndLevel(String className, int level) {
+	public List<Spell> getSpellsByClassAndLevel(String className, int level) {
 		return spellLibrary.stream()
 				.filter(s -> s.getSpellAbilityClassName().toLowerCase().equals(className.toLowerCase()))
 				.filter(s -> s.getSpellAbilityClassLevel() == level)
 				.collect(Collectors.toList());
 	}
 	
-	public List<Spell> spellByClass(String className) {
+	public List<Spell> getSpellsByClass(String className) {
 		return spellLibrary.stream()
 				.filter(s -> s.getSpellAbilityClassName().toLowerCase().equals(className.toLowerCase()))
 				.collect(Collectors.toList());
@@ -64,18 +64,13 @@ public class SpellLibrary implements ResourceLoader{
 				.collect(Collectors.toList());
 	}
 	
-	public Spell getSpell(String name){
+	public Spell getSpell(String name) {
 		Spell spell=null;
 		try {
 			spell = spellLibrary.stream().filter(a -> a.spellName.equalsIgnoreCase(name)).findFirst().get();
 		}
 		catch (NoSuchElementException e) {
-//			try {
-//				spell = spellLibrary.stream().filter(a -> a.spellName.contains(name)).findFirst().get();
-//			} catch (NoSuchElementException e1) {
-//				spell = new Spell("name");
-//			}
-
+			
 		}
 		return spell;
 	}

@@ -44,7 +44,7 @@ public class InitializeProficiencies implements ManagementAction {
 					character.addProficiency(proficiency);
 					initialProficiencySlots--;
 				} else {
-					throw new Exception("Looks like tat Number is out of range!");
+					throw new Exception("Looks like that Number is out of range!");
 				}
 			} catch (Exception e) {
 				output.format("That did not work!!! " + e.getMessage());

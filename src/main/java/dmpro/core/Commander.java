@@ -45,7 +45,11 @@ public class Commander implements Runnable {
 	public void run() {
 		
 	}
-	
+	/**
+	 * TODO: break this out into a full command pattern
+	 * @param commandObject
+	 * @return String
+	 */
 	public String execute(CommandObject commandObject) {
 		String results = null;
 		if (commandObject.commandSet == CommandSet.HELP) {

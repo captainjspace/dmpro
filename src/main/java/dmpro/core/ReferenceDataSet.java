@@ -18,7 +18,7 @@ public class ReferenceDataSet implements Runnable{
 	public boolean isReady = false;
 	
 	
-	
+	private AsciiArt asciiArt;
 	private CombatTableLoader combatTableLoader;
 	private ExperienceTableLoader experienceTableLoader;
 	private SavingThrowLoader savingThrowTableLoader;
@@ -60,6 +60,7 @@ public class ReferenceDataSet implements Runnable{
 		constitutionLoader = new ConstitutionLoader();
 		charismaLoader = new CharismaLoader();
 		attributeLoader = new AttributeLoader();
+		asciiArt = new AsciiArt();
 		isReady = true;
 	}
 	/**
@@ -169,6 +170,12 @@ public class ReferenceDataSet implements Runnable{
 	 */
 	public AttributeLoader getAttributeLoader() {
 		return attributeLoader;
+	}
+	/**
+	 * @return the asciiArt
+	 */
+	public AsciiArt getAsciiArt() {
+		return asciiArt;
 	}
 
 

@@ -57,7 +57,7 @@ public class DungeonMasterProHandler implements Runnable {
 		} 
 		output.format(ascii.art.get("fighter"));
 		output.format("Welcome to the Dungeon Master Pro Command Line Interface\n");
-		output.format(ascii.art.get("help"));
+		output.format(ascii.art.get("help-file"));
 		output.flush();
 		String command = "";
 		do  {

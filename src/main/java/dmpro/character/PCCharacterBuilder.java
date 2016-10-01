@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import dmpro.attributes.Attribute;
 import dmpro.character.classes.CharacterClass;
+import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.character.classes.ICharacterClass;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.race.Race;
@@ -90,15 +91,20 @@ public class PCCharacterBuilder implements CharacterBuilder {
 
 	@Override
 	public void buildCharacterClass(List<CharacterClass> characterClasses) {
-		// TODO Must pick class 
-		//enforce limits from attributes and classes
-		// allow multiclass 
+		// TODO - allow multiclass
+		
 		characterClasses.stream()
 		.forEach(characterClass -> character.getClasses()
 				.put(characterClass.getCharacterClassType(), characterClass));
+		
 		character.addRequiredAction(CharacterManagementActions.INITIALIZEPROFICIENCIES);
+		if  ( 
+				(character.getClasses().containsKey(CharacterClassType.MAGICUSER)) ||
+				(character.getClasses().containsKey(CharacterClassType.ILLUSIONIST))
+			) {
+				character.addRequiredAction(CharacterManagementActions.INITIALIZESPELLBOOK);
+		}
 		logger.log(Level.INFO, "Build Added Classes Character Id: " + character.getCharacterId());
-
 	}
 
 	@Override

@@ -6,3 +6,5 @@ tmp
 *~
 doc
 /bin/
+c*.json
+run.sh
