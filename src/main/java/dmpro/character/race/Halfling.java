@@ -38,7 +38,7 @@ public class Halfling extends Race {
 
 	public Halfling() {
 		// TODO Auto-generated constructor stub
-		this.race = RaceType.HALFLING;
+		this.raceType = RaceType.HALFLING;
 		
 		AttributeModifier a = new AttributeModifier();
 		a.setAttributeToModify(Dexterity.class);

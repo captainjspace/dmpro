@@ -15,7 +15,7 @@ import dmpro.spells.Spell;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;
 
-public class MagicUser extends CharacterClass {
+public class MagicUser extends CharacterClass implements SpellCaster {
 
 	//bonus exp by 10% if Intelligence is > 16
 	//minimum intelligence >=9
@@ -24,7 +24,7 @@ public class MagicUser extends CharacterClass {
 	//restrictions: no armor, no shield
 	//weapon list: caltrop,dagger,dart,knife,sling,staff
 	
-	public SpellsAllowedRecord spellsAllowed;
+	SpellsAllowedRecord spellsAllowed; 
 	List<Spell> spellBook = new ArrayList<Spell>();
 	List<Spell> dailySpells = new ArrayList<Spell>();
 	
@@ -57,7 +57,26 @@ public class MagicUser extends CharacterClass {
 	public void init() {
 		
 	}
-
+	
+	public void addToSpellBook(Spell spell) {
+		spellBook.add(spell);
+	}
+	//TODO:  Add spellsAllowed check to make sure the correct # of daily spells are available.
+	// map might be better for removal.
+	public boolean addToDailySpells(Spell spell) {
+		if (spellBook.stream()
+				.anyMatch(p -> p.getSpellName().equals(spell.getSpellName()))) {
+				spellBook.add(spell);
+				return true;
+		}
+		else return false;
+	}
+    public SpellsAllowedRecord getSpellsAllowed() {
+    	return spellsAllowed;
+    }
+    public void setSpellsAllowedRecord(SpellsAllowedRecord spellsAllowedRecord) {
+    	spellsAllowed = spellsAllowedRecord;
+    }
 //	public void processExperience(int i) {
 //		System.out.println("PROCESS EXPERIENCE AS MAGIC USER");
 //		super.processExperience(i);

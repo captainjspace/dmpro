@@ -50,7 +50,7 @@ public class Commander implements Runnable {
 	 * @param commandObject
 	 * @return String
 	 */
-	public String execute(CommandObject commandObject) {
+	public String execute(CommandObject commandObject) throws NullPointerException {
 		String results = null;
 		if (commandObject.commandSet == CommandSet.HELP) {
 			return DungeonMasterProHandler.ascii.art.get("help");
@@ -62,6 +62,7 @@ public class Commander implements Runnable {
 				//application.getCharacterService().getCharacterBuildDirector().setInput(input);
 				//application.getCharacterService().getCharacterBuildDirector().setOutput(output);
 				application.getCharacterService().createCharacter(input, output);
+				results = "Character Create completed!";
 				break;
 			}
 			break;

@@ -42,10 +42,24 @@ public class AttributeRoller extends Die {
 	 * @return int[]
 	 */
 	public int[] attributeRolls() {
+
 		int[] attributeRolls = { attributeRoll(), attributeRoll(), attributeRoll(), attributeRoll(), 
 				attributeRoll(), attributeRoll() , attributeRoll() };
+		//eliminate lowest
+		//for (int i=0;i<=attributeRolls.length -1; i++) 
+		//	System.out.format("\t%d\t", attributeRolls[i]);
 		java.util.Arrays.sort(attributeRolls);
-		System.arraycopy(attributeRolls, 1, attributeRolls, 0, 6);
+		int[] copyRolls = new int[6];
+		System.arraycopy(attributeRolls, 1, copyRolls, 0, 6);
+		attributeRolls = copyRolls;
+		//reshuffle the rest
+		
+		for (int i = attributeRolls.length-1; i>1 ; i--) {
+			int shuffleIndex = (int) Math.round(Math.random() * i);
+			int attribute = attributeRolls[shuffleIndex];
+			attributeRolls[shuffleIndex] = attributeRolls[i];
+			attributeRolls[i] = attribute;
+		}
 		return attributeRolls;
 	}
 
@@ -53,7 +67,7 @@ public class AttributeRoller extends Die {
 		AttributeRoller attributeRoller = new AttributeRoller();
 		int[] attributeRolls;
 		List<Integer> sums = new ArrayList();
-		for (int t=0; t <500; t++)  {
+		for (int t=0; t <5; t++)  {
 			attributeRolls = attributeRoller.attributeRolls();
 			int sum=0;
 			for (int i = 0; i<=attributeRolls.length-1;i++) {

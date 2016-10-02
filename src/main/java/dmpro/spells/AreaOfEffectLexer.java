@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import dmpro.data.loaders.ResourceLoader;
 import dmpro.utils.ParseUtils;
 
-public class AreaOfEffectLexer {
+public class AreaOfEffectLexer implements ResourceLoader {
 	
 	public static boolean DEBUG = true;
 	
@@ -52,7 +53,7 @@ public class AreaOfEffectLexer {
 	public AreaOfEffectLexer() {
 		// TODO Auto-generated constructor stub
 		try {
-			r = new FileReader("data/spells/area_of_effect.txt");
+			r = new FileReader(dataDirectory + "spells/area_of_effect.txt");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

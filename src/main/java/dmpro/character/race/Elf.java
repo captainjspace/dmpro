@@ -28,7 +28,7 @@ public class Elf extends Race {
 	public Elf() {
 		
 		//refactor me
-		race = RaceType.ELF;
+		raceType = RaceType.ELF;
 		
 		for (String s : Arrays.asList(elfLang)) {
 			this.languages.add(new Language(s));

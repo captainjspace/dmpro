@@ -11,8 +11,8 @@ import dmpro.utils.Die;
 public class Fighter extends CharacterClass {
 	
 	/** Fighting Men
-	 * Strength min 9, Constitution 7
-	 * +10%xp Strength over 15
+	 * Strength min 9, Constitution 7 - handled ClassAttributeLoader
+	 * +10%xp Strength over 15 - handled XPProcessor
 	 * 9th level Freehold - castle, clear 20-50 mile radius
 	 * attract men-at-arms (mercenaries)
 	 * collect monthly revenue of 7 s.p. from inhabitants

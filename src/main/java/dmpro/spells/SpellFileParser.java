@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import dmpro.spells.AreaOfEffectLexer.Token;
+import dmpro.data.loaders.ResourceLoader;
 import dmpro.utils.Dice;
 import dmpro.utils.ParseUtils;
 
 
-public class SpellFileParser {
+public class SpellFileParser implements ResourceLoader {
 
 	String spellDir;
 	String fileName;
@@ -40,7 +40,7 @@ public class SpellFileParser {
 	public SpellFileParser() {
 		
 		// TODO Auto-generated constructor stub
-		spellDir = "data/spells/";
+		spellDir = dataDirectory + "spells/";
 		fileName = "spell-tables-scrubbed.txt";
 		file = new File(spellDir + fileName);
 		jsonFile = new File(spellDir + "spells.json");
@@ -96,7 +96,7 @@ public class SpellFileParser {
 		//System.out.println(s);
 		Spell spell = new Spell();
 		spell.spellId = this.spellId++;
-		spell.spellAbilityClassName = this.spellAbilityClassName;
+		spell.spellAbilityClassName = this.spellAbilityClassName.replace("-","");
 		System.out.println(spell.spellAbilityClassName); //CLASSNAME
 		spell.fullSpellText = s.trim();
 

@@ -5,15 +5,16 @@ import dmpro.spells.Spell;
 import dmpro.spells.SpellLibrary;
 
 import java.util.Formatter;
-
+import java.util.Map.Entry;
 import java.util.Scanner;
 
-
-
 import dmpro.character.Character;
+import dmpro.character.classes.CharacterClass;
+import dmpro.character.classes.CharacterClass.CharacterClassType;
 
 public class InitializeSpellBook implements ManagementAction {
 
+	
 	private SpellLibrary spellLibrary;
 	@Override
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
@@ -27,27 +28,30 @@ public class InitializeSpellBook implements ManagementAction {
 		
 		output.format(welcome, character.getPrefix(), character.getFirstName(), character.getLastName());
 
-		spellLibrary.getSpellsByClassAndLevel("MAGIC-USER", 1)
-					.stream()
-					.forEach(p -> output.format("%s\n", p.getSpellName()));
+		for (Entry<CharacterClassType, CharacterClass> entry  : character.getClasses().entrySet()) {
+			spellLibrary.getSpellsByClassAndLevel(entry.getKey().name(), 1)
+			.stream()
+			.forEach(p -> output.format("%s\n", p.getSpellName()));
 
-		int initialSpellCount = 4;
-		//TODO : stop this from reading the first line.
-		while (initialSpellCount > 0) {
-			output.format("You have %d spells remaining\nEnter Spell Name::", initialSpellCount);
-			output.flush();
-			String spellName = input.nextLine();
-			Spell spell = spellLibrary.getSpell(spellName);
-			if (spell != null) {
-				character.getSpellBook().add(spell);
-				initialSpellCount--;
-			} else {
-				output.format("Hmmm I could not find %s",  spell);
-				continue;
+			int initialSpellCount = 4;
+			//TODO : stop this from reading the first line.
+			while (initialSpellCount > 0) {
+				output.format("You have %d spells remaining\nEnter Spell Name::", initialSpellCount);
+				output.flush();
+				String spellName = input.nextLine();
+				Spell spell = spellLibrary.getSpell(spellName);
+				if (spell != null) {
+					character.getSpellBook().add(spell);
+					initialSpellCount--;
+				} else {
+					output.format("Hmmm I could not find %s",  spell);
+					continue;
+				}
 			}
+			
+			character.getSpellBook().add(spellLibrary.getSpell("Read Magic"));
+			character.getSpellBook().stream().forEach(sp -> output.format("\t%s\n", sp.getSpellName()));
 		}
-		character.getSpellBook().add(spellLibrary.getSpell("Read Magic"));
-		character.getSpellBook().stream().forEach(sp -> output.format("\t%s\n", sp.getSpellName()));
 		return character;
 	}
 }

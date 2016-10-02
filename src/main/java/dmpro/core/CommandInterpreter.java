@@ -44,8 +44,8 @@ public class CommandInterpreter {
 		this.input = input;
 		this.output = output;
 		this.rds = application.getReferenceDataSet();
-		
 	}
+	
 	/**
 	 * * Helper function to generate lookups - not for runtime really
 	 * @return
@@ -114,15 +114,20 @@ public class CommandInterpreter {
 	
 	public class CommandObject {
 		Subsystem subsystem=Subsystem.DATA;
-		DataSet dataSet;
+		DataSet dataSet = null;
 		CommandSet commandSet=CommandSet.GET;
 		String varString = "";
 		int varInt = -1;
 		
+		public String toString() {
+			return String.format("Subsystem:%s, Dataset:%s,Command:%s,StringVar%s,IntVar:%d",
+					subsystem, dataSet, commandSet, varString, varInt);
+		}
 	}
 	
-	protected String interpretCommands(List<String> commands) {
+	protected String interpretCommands(List<String> commands)  {
 		logger.log(Level.INFO, "interpreting commands");
+		if (commands.size() == 0) return " Received No Commands ";
 		CommandObject commandObject = new CommandObject();
 		boolean knownToken;
 		StringBuilder stringParameter = new StringBuilder();
@@ -177,8 +182,8 @@ public class CommandInterpreter {
 		String results = null;
 		try {
 			results = commander.execute(commandObject);
-		} catch (Exception e) {
-			results = "error occured!";
+		} catch (NullPointerException e) {
+			results = String.format("No Data For:\n\t%s\n",commandObject.toString());
 			logger.log(Level.WARNING, "Error with " + commandObject.toString(), e);
 		}
 		return results;

@@ -45,7 +45,7 @@ public class Dwarf extends Race {
 	 * MAx Charisma 16???
 	 */
 	public Dwarf() {
-		race = RaceType.DWARF;
+		raceType = RaceType.DWARF;
 		
 		for (String i : new String[]{"dwarven", "gnome", "goblin", "kobold", "orcish", "common"})
 			this.languages.add(new Language(i));

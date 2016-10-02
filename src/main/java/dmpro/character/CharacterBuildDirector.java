@@ -38,8 +38,9 @@ public class CharacterBuildDirector {
 	private Formatter output = new Formatter(System.out);
 	AttributeLoader attributeLoader;
 	
+	//TODO: evalutate if these would be better as locals -- had to force reset them when creating multiple characters.
 	private String sex=null, nickname=null, prefix=null, firstName=null, lastName=null, title=null;
-	private List<String> suffixes = new ArrayList<String>();
+	private List<String> suffixes;;
 	private int age = 0, height = 0, weight = 0;
 	private Map<String,Attribute> attributes = new LinkedHashMap<String,Attribute>();
 	private Race race;
@@ -94,6 +95,10 @@ public class CharacterBuildDirector {
 	}
 
 	private void getCharacterPersonalInformation() {
+		//reset
+		sex=null; nickname=null; prefix=null; firstName=null; lastName=null; title=null;
+		suffixes = new ArrayList<String>();
+		
 		output.format("----------------------- Character Personal Information ------------------------\n");
 		output.flush();
 		do {
@@ -143,6 +148,7 @@ public class CharacterBuildDirector {
 	 * 			Possible show class, race restrictions before approval....
 	 */
 	private void getCharacterAttributes() {
+		
 		output.format("---------------- Character Attributes -------------------\n");
 		int answer=0;
 		String s;
@@ -165,14 +171,14 @@ public class CharacterBuildDirector {
 		//TODO: hook up to central.
 		//attributeLoader = new StrengthLoader();
 		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));
-		//ReferenceDataSet rds = this.application.getReferenceDataSet();
-		
-		attributes.put("Strength", application.getReferenceDataSet().getStrengthLoader().getRecord(attributeRolls[0]));
-	    attributes.put("Intelligence", application.getReferenceDataSet().getIntelligenceLoader().getRecord( attributeRolls[1]));
-		attributes.put("Wisdom", application.getReferenceDataSet().getWisdomLoader().getRecord( attributeRolls[2]));
-		attributes.put("Dexterity", application.getReferenceDataSet().getDexterityLoader().getRecord(attributeRolls[3]));
-		attributes.put("Constitution", application.getReferenceDataSet().getConstitutionLoader().getRecord( attributeRolls[4]));
-		attributes.put("Charisma", application.getReferenceDataSet().getCharismaLoader().getRecord(attributeRolls[5]));
+		ReferenceDataSet rds = this.application.getReferenceDataSet();
+		attributes = new LinkedHashMap<String,Attribute>();
+		attributes.put("Strength", rds.getStrengthLoader().getRecord(attributeRolls[0]));
+	    attributes.put("Intelligence", rds.getIntelligenceLoader().getRecord( attributeRolls[1]));
+		attributes.put("Wisdom", rds.getWisdomLoader().getRecord(attributeRolls[2]));
+		attributes.put("Dexterity", rds.getDexterityLoader().getRecord(attributeRolls[3]));
+		attributes.put("Constitution", rds.getConstitutionLoader().getRecord( attributeRolls[4]));
+		attributes.put("Charisma", rds.getCharismaLoader().getRecord(attributeRolls[5]));
 		
 		showAttributes();
 		
@@ -206,7 +212,9 @@ public class CharacterBuildDirector {
 			if (raceType != null) break;
 		}
 		
-		//TODO: put news in enum
+		//TODO: Get this to work... for some reason the classes method is not seeing the race..
+		//this.race = raceType.newRace();
+		
 		switch(raceType) {
 		case HUMAN:
 			race  = new Human();
@@ -241,7 +249,7 @@ public class CharacterBuildDirector {
 
 	private void getCharacterRacePersonalInformation() {
 		//after class
-		
+	
 	}
 	
 	/**
@@ -249,17 +257,19 @@ public class CharacterBuildDirector {
 	 * 			Need Loader with rules.
 	 */
 	private void getCharacterClass() {
+		//reset
+		characterClasses = new ArrayList<CharacterClass>();
 		output.format ("------------------------------- Character Class ------------------------\n");
 		//TODO : CLASS RESTRICTION on RACE
 		ClassRaceLoader classRaceLoader = new ClassRaceLoader();
-		ListPossibleClassRaceResults possibleClassRaceResults = classRaceLoader.listPossibleClasses(race.getRace());
+		ListPossibleClassRaceResults possibleClassRaceResults = classRaceLoader.listPossibleClasses(race.getRaceType());
 		if (!possibleClassRaceResults.limitRecords.isEmpty()) {
 			output.format("Race Restrictions on your Class:\n");
 			for (ClassRaceRecord classRaceRecord : possibleClassRaceResults.limitRecords) {
 				output.format("\t%s\n",classRaceRecord.toString());
 			}
 		}
-		output.format("-------------Valid Classes for ----------- %s\n", race.getRace());
+		output.format("-------------Valid Classes for ----------- %s\n", race.getRaceType());
 		possibleClassRaceResults.possibleClasses.stream().forEach(p -> output.format("\t%s\n",p.className));
 		//Class Restriction by Attribute
 		showAttributes();
@@ -344,7 +354,8 @@ public class CharacterBuildDirector {
 	}
 	
 	private void getCharacterClassPersonalInformation() {
-		// TODO Auto-generated method stub
+		// TODO page 12 DMG, probably create loader.
+		age = 0; height = 0; weight = 0;
 
 	}
 	

@@ -13233,7 +13233,7 @@
   },
   {
     "spellId": 155,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Affect Normal Fires",
     "spellCategory": "Alteration",
@@ -13317,7 +13317,7 @@
   },
   {
     "spellId": 156,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Burning Hands",
     "spellCategory": "Alteration",
@@ -13393,7 +13393,7 @@
   },
   {
     "spellId": 157,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Charm Person",
     "spellCategory": "Enchantment/Charm",
@@ -13472,7 +13472,7 @@
   },
   {
     "spellId": 158,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Comprehend Languages",
     "spellCategory": "Alteration",
@@ -13563,7 +13563,7 @@
   },
   {
     "spellId": 159,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Dancing Lights",
     "spellCategory": "Alteration",
@@ -13642,7 +13642,7 @@
   },
   {
     "spellId": 160,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Detect Magic",
     "spellCategory": "Divination",
@@ -13750,7 +13750,7 @@
   },
   {
     "spellId": 161,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Enlarge",
     "spellCategory": "Alteration",
@@ -13829,7 +13829,7 @@
   },
   {
     "spellId": 162,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Erase",
     "spellCategory": "Alteration",
@@ -13920,7 +13920,7 @@
   },
   {
     "spellId": 163,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Feather Fall",
     "spellCategory": "Alteration",
@@ -13996,7 +13996,7 @@
   },
   {
     "spellId": 164,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Find Familiar",
     "spellCategory": "Conjuration/Summoning",
@@ -14077,7 +14077,7 @@
   },
   {
     "spellId": 165,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Friends",
     "spellCategory": "Enchantment/Charm",
@@ -14204,7 +14204,7 @@
   },
   {
     "spellId": 166,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Hold Portal",
     "spellCategory": "Alteration",
@@ -14289,7 +14289,7 @@
   },
   {
     "spellId": 167,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Identify",
     "spellCategory": "Divination",
@@ -14372,7 +14372,7 @@
   },
   {
     "spellId": 168,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Jump",
     "spellCategory": "Alteration",
@@ -14450,7 +14450,7 @@
   },
   {
     "spellId": 169,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Light",
     "spellCategory": "Alteration",
@@ -14538,7 +14538,7 @@
   },
   {
     "spellId": 170,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Magic Missile",
     "spellCategory": "Evocation",
@@ -14633,7 +14633,7 @@
   },
   {
     "spellId": 171,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Mending",
     "spellCategory": "Alteration",
@@ -14715,7 +14715,7 @@
   },
   {
     "spellId": 172,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Message",
     "spellCategory": "Alteration",
@@ -14814,7 +14814,7 @@
   },
   {
     "spellId": 173,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Nystul\u0027s Magic Aura",
     "spellCategory": "Illusion/Phantasm",
@@ -14893,7 +14893,7 @@
   },
   {
     "spellId": 174,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Protection From Evil",
     "spellCategory": "Abjuration",
@@ -14972,7 +14972,7 @@
   },
   {
     "spellId": 175,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Push",
     "spellCategory": "Conjuration/Summoning",
@@ -15050,7 +15050,7 @@
   },
   {
     "spellId": 176,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Read Magic",
     "spellCategory": "Divination",
@@ -15129,7 +15129,7 @@
   },
   {
     "spellId": 177,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Shield",
     "spellCategory": "Evocation",
@@ -15205,7 +15205,7 @@
   },
   {
     "spellId": 178,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Shocking Grasp",
     "spellCategory": "Alteration",
@@ -15280,7 +15280,7 @@
   },
   {
     "spellId": 179,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Sleep",
     "spellCategory": "Enchantment/Charm",
@@ -15359,7 +15359,7 @@
   },
   {
     "spellId": 180,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Spider Climb",
     "spellCategory": "Alteration",
@@ -15438,7 +15438,7 @@
   },
   {
     "spellId": 181,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Tenser\u0027s Floating Disc",
     "spellCategory": "Evocation",
@@ -15517,7 +15517,7 @@
   },
   {
     "spellId": 182,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Unseen Servant",
     "spellCategory": "Conjuration/Summoning",
@@ -15612,7 +15612,7 @@
   },
   {
     "spellId": 183,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Ventriloquism",
     "spellCategory": "Illusion/Phantasm",
@@ -15692,7 +15692,7 @@
   },
   {
     "spellId": 184,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 1,
     "spellName": "Write",
     "spellCategory": "Evocation",
@@ -15775,7 +15775,7 @@
   },
   {
     "spellId": 185,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Audible Glamour",
     "spellCategory": "Illusion/Phantasm",
@@ -15851,7 +15851,7 @@
   },
   {
     "spellId": 186,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Continual Light",
     "spellCategory": "Alteration",
@@ -15938,7 +15938,7 @@
   },
   {
     "spellId": 187,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Darkness, 15\u0027 Radius",
     "spellCategory": "Alteration",
@@ -16026,7 +16026,7 @@
   },
   {
     "spellId": 188,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Detect Evil",
     "spellCategory": "Divination",
@@ -16114,7 +16114,7 @@
   },
   {
     "spellId": 189,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Detect Invisibility",
     "spellCategory": "Divination",
@@ -16205,7 +16205,7 @@
   },
   {
     "spellId": 190,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "ESP",
     "spellCategory": "Divination",
@@ -16296,7 +16296,7 @@
   },
   {
     "spellId": 191,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Fools Gold",
     "spellCategory": "Alteration",
@@ -16391,7 +16391,7 @@
   },
   {
     "spellId": 192,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Forget",
     "spellCategory": "Enchantment/Charm",
@@ -16498,7 +16498,7 @@
   },
   {
     "spellId": 193,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Invisibility",
     "spellCategory": "Illusion/Phantasm",
@@ -16576,7 +16576,7 @@
   },
   {
     "spellId": 194,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Knock",
     "spellCategory": "Alteration",
@@ -16660,7 +16660,7 @@
   },
   {
     "spellId": 195,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Leomund\u0027s Trap",
     "spellCategory": "Illusion/Phantasm",
@@ -16738,7 +16738,7 @@
   },
   {
     "spellId": 196,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Levitate",
     "spellCategory": "Alteration",
@@ -16817,7 +16817,7 @@
   },
   {
     "spellId": 197,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Locate Object",
     "spellCategory": "Divination",
@@ -16896,7 +16896,7 @@
   },
   {
     "spellId": 198,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Magic Mouth",
     "spellCategory": "Alteration",
@@ -16978,7 +16978,7 @@
   },
   {
     "spellId": 199,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Mirror Image",
     "spellCategory": "Illusion/Phantasm",
@@ -17062,7 +17062,7 @@
   },
   {
     "spellId": 200,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Pyrotechnics",
     "spellCategory": "Alteration",
@@ -17153,7 +17153,7 @@
   },
   {
     "spellId": 201,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Ray Of Enfeeblement",
     "spellCategory": "Enchantment/Charm",
@@ -17233,7 +17233,7 @@
   },
   {
     "spellId": 202,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Rope Trick",
     "spellCategory": "Alteration",
@@ -17312,7 +17312,7 @@
   },
   {
     "spellId": 203,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Scare",
     "spellCategory": "Enchantment/Charm",
@@ -17395,7 +17395,7 @@
   },
   {
     "spellId": 204,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Shatter",
     "spellCategory": "Alteration",
@@ -17477,7 +17477,7 @@
   },
   {
     "spellId": 205,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Stinking Cloud",
     "spellCategory": "Evocation",
@@ -17608,7 +17608,7 @@
   },
   {
     "spellId": 206,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Strength",
     "spellCategory": "Alteration",
@@ -17687,7 +17687,7 @@
   },
   {
     "spellId": 207,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Web",
     "spellCategory": "Evocation",
@@ -17766,7 +17766,7 @@
   },
   {
     "spellId": 208,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 2,
     "spellName": "Wizard Lock",
     "spellCategory": "Alteration",
@@ -17853,7 +17853,7 @@
   },
   {
     "spellId": 209,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Blink",
     "spellCategory": "Alteration",
@@ -17929,7 +17929,7 @@
   },
   {
     "spellId": 210,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Clairaudience",
     "spellCategory": "Divination",
@@ -18008,7 +18008,7 @@
   },
   {
     "spellId": 211,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Clairvoyance",
     "spellCategory": "Divination",
@@ -18087,7 +18087,7 @@
   },
   {
     "spellId": 212,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Dispel Magic",
     "spellCategory": "Abjuration",
@@ -18174,7 +18174,7 @@
   },
   {
     "spellId": 213,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Explosive Runes",
     "spellCategory": "Alteration",
@@ -18261,7 +18261,7 @@
   },
   {
     "spellId": 214,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Feign Death",
     "spellCategory": "Necromantic}",
@@ -18337,7 +18337,7 @@
   },
   {
     "spellId": 215,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Fireball",
     "spellCategory": "Evocation",
@@ -18424,7 +18424,7 @@
   },
   {
     "spellId": 216,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Flame Arrow",
     "spellCategory": "Conjuration/Summoning",
@@ -18515,7 +18515,7 @@
   },
   {
     "spellId": 217,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Fly",
     "spellCategory": "Alteration",
@@ -18595,7 +18595,7 @@
   },
   {
     "spellId": 218,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Gust Of Wind",
     "spellCategory": "Alteration",
@@ -18718,7 +18718,7 @@
   },
   {
     "spellId": 219,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Haste",
     "spellCategory": "Alteration",
@@ -18849,7 +18849,7 @@
   },
   {
     "spellId": 220,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Hold Person",
     "spellCategory": "Enchantment/Charm",
@@ -18934,7 +18934,7 @@
   },
   {
     "spellId": 221,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Infravision",
     "spellCategory": "Alteration",
@@ -19013,7 +19013,7 @@
   },
   {
     "spellId": 222,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Invisibility, 10\u0027 Radius",
     "spellCategory": "Illusion/Phantasm",
@@ -19099,7 +19099,7 @@
   },
   {
     "spellId": 223,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Leomund\u0027s Tiny Hut",
     "spellCategory": "Alteration",
@@ -19182,7 +19182,7 @@
   },
   {
     "spellId": 224,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Lightning Bolt",
     "spellCategory": "Evocation",
@@ -19260,7 +19260,7 @@
   },
   {
     "spellId": 225,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Monster Summoning I",
     "spellCategory": "Conjuration/Summoning",
@@ -19339,7 +19339,7 @@
   },
   {
     "spellId": 226,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Phantasmal Force",
     "spellCategory": "Illusion/Phantasm",
@@ -19441,7 +19441,7 @@
   },
   {
     "spellId": 227,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Protection From Evil, 10\u0027 Radius",
     "spellCategory": "Abjuration",
@@ -19528,7 +19528,7 @@
   },
   {
     "spellId": 228,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Protection From Normal Missiles",
     "spellCategory": "Abjuration",
@@ -19607,7 +19607,7 @@
   },
   {
     "spellId": 229,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Slow",
     "spellCategory": "Alteration",
@@ -19738,7 +19738,7 @@
   },
   {
     "spellId": 230,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Suggestion",
     "spellCategory": "Enchantment/Charm",
@@ -19818,7 +19818,7 @@
   },
   {
     "spellId": 231,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Tongues",
     "spellCategory": "Alteration",
@@ -19906,7 +19906,7 @@
   },
   {
     "spellId": 232,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 3,
     "spellName": "Water Breathing",
     "spellCategory": "Alteration",
@@ -19985,7 +19985,7 @@
   },
   {
     "spellId": 233,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Charm Monster",
     "spellCategory": "Enchantment/Charm",
@@ -20060,7 +20060,7 @@
   },
   {
     "spellId": 234,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Confusion",
     "spellCategory": "Enchantment/Charm",
@@ -20179,7 +20179,7 @@
   },
   {
     "spellId": 235,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Dig",
     "spellCategory": "Evocation",
@@ -20274,7 +20274,7 @@
   },
   {
     "spellId": 236,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Dimension Door",
     "spellCategory": "Alteration",
@@ -20346,7 +20346,7 @@
   },
   {
     "spellId": 237,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Enchanted Weapon",
     "spellCategory": "Alteration",
@@ -20425,7 +20425,7 @@
   },
   {
     "spellId": 238,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Extension I",
     "spellCategory": "Alteration",
@@ -20497,7 +20497,7 @@
   },
   {
     "spellId": 239,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Fear",
     "spellCategory": "Illusion/Phantasm",
@@ -20635,7 +20635,7 @@
   },
   {
     "spellId": 240,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Fire Charm",
     "spellCategory": "Enchantment/Charm",
@@ -20722,7 +20722,7 @@
   },
   {
     "spellId": 241,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Fire Shield",
     "spellCategory": "Evocation-Alteration",
@@ -20801,7 +20801,7 @@
   },
   {
     "spellId": 242,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Fire Trap",
     "spellCategory": "Evocation",
@@ -20879,7 +20879,7 @@
   },
   {
     "spellId": 243,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Fumble",
     "spellCategory": "Enchantment/Charm",
@@ -20962,7 +20962,7 @@
   },
   {
     "spellId": 244,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Hallucinatory Terrain",
     "spellCategory": "Illusion/Phantasm",
@@ -21080,7 +21080,7 @@
   },
   {
     "spellId": 245,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Ice Storm",
     "spellCategory": "Evocation",
@@ -21159,7 +21159,7 @@
   },
   {
     "spellId": 246,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Massmorph",
     "spellCategory": "Illusion/Phantasm",
@@ -21269,7 +21269,7 @@
   },
   {
     "spellId": 247,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Minor Globe Of Invulnerability",
     "spellCategory": "Abjuration",
@@ -21360,7 +21360,7 @@
   },
   {
     "spellId": 248,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Monster Summoning II",
     "spellCategory": "Conjuration/Summoning",
@@ -21439,7 +21439,7 @@
   },
   {
     "spellId": 249,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Plant Growth",
     "spellCategory": "Alteration",
@@ -21554,7 +21554,7 @@
   },
   {
     "spellId": 250,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Polymorph Other",
     "spellCategory": "Alteration",
@@ -21636,7 +21636,7 @@
   },
   {
     "spellId": 251,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Polymorph Self",
     "spellCategory": "Alteration",
@@ -21709,7 +21709,7 @@
   },
   {
     "spellId": 252,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Rary\u0027s Mnemonic Enhancer",
     "spellCategory": "Alteration",
@@ -21788,7 +21788,7 @@
   },
   {
     "spellId": 253,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Remove Curse",
     "spellCategory": "Abjuration",
@@ -21863,7 +21863,7 @@
   },
   {
     "spellId": 254,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Wall Of Fire",
     "spellCategory": "Evocation",
@@ -21941,7 +21941,7 @@
   },
   {
     "spellId": 255,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Wall Of Ice",
     "spellCategory": "Evocation",
@@ -22020,7 +22020,7 @@
   },
   {
     "spellId": 256,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 4,
     "spellName": "Wizard Eye",
     "spellCategory": "Alteration",
@@ -22099,7 +22099,7 @@
   },
   {
     "spellId": 257,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Airy Water",
     "spellCategory": "Alteration",
@@ -22210,7 +22210,7 @@
   },
   {
     "spellId": 258,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Animal Growth",
     "spellCategory": "Alteration",
@@ -22314,7 +22314,7 @@
   },
   {
     "spellId": 259,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Animate Dead",
     "spellCategory": "Necromantic",
@@ -22392,7 +22392,7 @@
   },
   {
     "spellId": 260,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Bigby\u0027s Interposing Hand",
     "spellCategory": "Evocation",
@@ -22471,7 +22471,7 @@
   },
   {
     "spellId": 261,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Cloudkill",
     "spellCategory": "Evocation",
@@ -22602,7 +22602,7 @@
   },
   {
     "spellId": 262,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Conjure Elemental",
     "spellCategory": "Conjuration/Summoning",
@@ -22681,7 +22681,7 @@
   },
   {
     "spellId": 263,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Cone Of Cold",
     "spellCategory": "Evocation",
@@ -22759,7 +22759,7 @@
   },
   {
     "spellId": 264,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Contact Other Plane",
     "spellCategory": "Divination",
@@ -22831,7 +22831,7 @@
   },
   {
     "spellId": 265,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Distance Distortion",
     "spellCategory": "Alteration",
@@ -22934,7 +22934,7 @@
   },
   {
     "spellId": 266,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Extension II",
     "spellCategory": "Alteration",
@@ -23006,7 +23006,7 @@
   },
   {
     "spellId": 267,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Feeblemind",
     "spellCategory": "Enchantment/Charm",
@@ -23088,7 +23088,7 @@
   },
   {
     "spellId": 268,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Hold Monster",
     "spellCategory": "Enchantment/Charm",
@@ -23179,7 +23179,7 @@
   },
   {
     "spellId": 269,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Leomund\u0027s Secret Chest",
     "spellCategory": "Alteration, Conjuration/Summoning",
@@ -23294,7 +23294,7 @@
   },
   {
     "spellId": 270,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Magic Jar",
     "spellCategory": "Possession",
@@ -23376,7 +23376,7 @@
   },
   {
     "spellId": 271,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Monster Summoning III",
     "spellCategory": "Conjuration/Summoning",
@@ -23455,7 +23455,7 @@
   },
   {
     "spellId": 272,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Mordenkainen\u0027s Faithful Hound",
     "spellCategory": "Conjuration/Summoning",
@@ -23534,7 +23534,7 @@
   },
   {
     "spellId": 273,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Passwall",
     "spellCategory": "Alteration",
@@ -23613,7 +23613,7 @@
   },
   {
     "spellId": 274,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Stone Shape",
     "spellCategory": "Alteration",
@@ -23703,7 +23703,7 @@
   },
   {
     "spellId": 275,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Telekinesis",
     "spellCategory": "Alteration",
@@ -23791,7 +23791,7 @@
   },
   {
     "spellId": 276,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Teleport",
     "spellCategory": "Alteration",
@@ -23863,7 +23863,7 @@
   },
   {
     "spellId": 277,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Transmute Rock To Mud",
     "spellCategory": "Alteration",
@@ -23965,7 +23965,7 @@
   },
   {
     "spellId": 278,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Wall Of Force",
     "spellCategory": "Evocation",
@@ -24056,7 +24056,7 @@
   },
   {
     "spellId": 279,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Wall Of Iron",
     "spellCategory": "Evocation",
@@ -24134,7 +24134,7 @@
   },
   {
     "spellId": 280,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 5,
     "spellName": "Wall Of Stone",
     "spellCategory": "Evocation",
@@ -24212,7 +24212,7 @@
   },
   {
     "spellId": 281,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Anti-Magic Shell",
     "spellCategory": "Abjuration",
@@ -24304,7 +24304,7 @@
   },
   {
     "spellId": 282,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Bigby\u0027s Forceful Hand",
     "spellCategory": "Evocation",
@@ -24383,7 +24383,7 @@
   },
   {
     "spellId": 283,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Control Weather",
     "spellCategory": "Alteration",
@@ -24466,7 +24466,7 @@
   },
   {
     "spellId": 284,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Death Spell",
     "spellCategory": "Conjuration/Summoning",
@@ -24572,7 +24572,7 @@
   },
   {
     "spellId": 285,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Disintegrate",
     "spellCategory": "Alteration",
@@ -24650,7 +24650,7 @@
   },
   {
     "spellId": 286,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Enchant An Item",
     "spellCategory": "Conjuration/Summoning",
@@ -24731,7 +24731,7 @@
   },
   {
     "spellId": 287,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Extension III",
     "spellCategory": "Alteration",
@@ -24803,7 +24803,7 @@
   },
   {
     "spellId": 288,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Geas",
     "spellCategory": "Enchantment/Charm",
@@ -24875,7 +24875,7 @@
   },
   {
     "spellId": 289,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Glassee",
     "spellCategory": "Alteration",
@@ -24954,7 +24954,7 @@
   },
   {
     "spellId": 290,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Globe Of Invulnerability",
     "spellCategory": "Abjuration",
@@ -25045,7 +25045,7 @@
   },
   {
     "spellId": 291,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Guards And Wards",
     "spellCategory": "Evocation, Alteration, Enchantment/Charm",
@@ -25164,7 +25164,7 @@
   },
   {
     "spellId": 292,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Invisible Stalker",
     "spellCategory": "Conjuration/Summoning",
@@ -25242,7 +25242,7 @@
   },
   {
     "spellId": 293,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Legend Lore",
     "spellCategory": "Divination",
@@ -25319,7 +25319,7 @@
   },
   {
     "spellId": 294,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Lower Water",
     "spellCategory": "Alteration",
@@ -25454,7 +25454,7 @@
   },
   {
     "spellId": 295,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Monster Summoning IV",
     "spellCategory": "Conjuration/Summoning",
@@ -25533,7 +25533,7 @@
   },
   {
     "spellId": 296,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Move Earth",
     "spellCategory": "Alteration",
@@ -25610,7 +25610,7 @@
   },
   {
     "spellId": 297,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Otiluke\u0027s Freezing Sphere",
     "spellCategory": "Alteration-Evocation",
@@ -25688,7 +25688,7 @@
   },
   {
     "spellId": 298,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Part Water",
     "spellCategory": "Alteration",
@@ -25767,7 +25767,7 @@
   },
   {
     "spellId": 299,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Project Image",
     "spellCategory": "Alteration, Illusion/Phantasm",
@@ -25846,7 +25846,7 @@
   },
   {
     "spellId": 300,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Reincarnation",
     "spellCategory": "Necromantic",
@@ -25924,7 +25924,7 @@
   },
   {
     "spellId": 301,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Repulsion",
     "spellCategory": "Abjuration",
@@ -26015,7 +26015,7 @@
   },
   {
     "spellId": 302,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Spiritwrack",
     "spellCategory": "Evocation/Abjuration",
@@ -26089,7 +26089,7 @@
   },
   {
     "spellId": 303,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Stone To Flesh",
     "spellCategory": "Alteration",
@@ -26168,7 +26168,7 @@
   },
   {
     "spellId": 304,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 6,
     "spellName": "Tenser\u0027s Transformation",
     "spellCategory": "Alteration-Evocation",
@@ -26247,7 +26247,7 @@
   },
   {
     "spellId": 305,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Bigby\u0027s Grasping Hand",
     "spellCategory": "Evocation",
@@ -26326,7 +26326,7 @@
   },
   {
     "spellId": 306,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Cacodemon",
     "spellCategory": "Conjuration/Summoning",
@@ -26403,7 +26403,7 @@
   },
   {
     "spellId": 307,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Charm Plants",
     "spellCategory": "Enchantment/Charm",
@@ -26481,7 +26481,7 @@
   },
   {
     "spellId": 308,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Delayed Blast Fire Ball",
     "spellCategory": "Evocation",
@@ -26568,7 +26568,7 @@
   },
   {
     "spellId": 309,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Drawmij\u0027s Instant Summons",
     "spellCategory": "Conjuration/Summoning",
@@ -26650,7 +26650,7 @@
   },
   {
     "spellId": 310,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Duo-Dimension",
     "spellCategory": "Alteration",
@@ -26729,7 +26729,7 @@
   },
   {
     "spellId": 311,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Limited Wish",
     "spellCategory": "Conjuration/Summoning",
@@ -26800,7 +26800,7 @@
   },
   {
     "spellId": 312,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Mass Invisibility",
     "spellCategory": "Illusion/Phantasm",
@@ -26878,7 +26878,7 @@
   },
   {
     "spellId": 313,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Monster Summoning V",
     "spellCategory": "Conjuration/Summoning",
@@ -26957,7 +26957,7 @@
   },
   {
     "spellId": 314,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Mordenkainen\u0027s Sword",
     "spellCategory": "Evocation",
@@ -27036,7 +27036,7 @@
   },
   {
     "spellId": 315,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Phase Door",
     "spellCategory": "Alteration",
@@ -27109,7 +27109,7 @@
   },
   {
     "spellId": 316,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Power Word, Stun",
     "spellCategory": "Conjuration/Summoning",
@@ -27185,7 +27185,7 @@
   },
   {
     "spellId": 317,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Reverse Gravity",
     "spellCategory": "Alteration",
@@ -27296,7 +27296,7 @@
   },
   {
     "spellId": 318,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Simulacrum",
     "spellCategory": "Illusion/Phantasm",
@@ -27377,7 +27377,7 @@
   },
   {
     "spellId": 319,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Statue",
     "spellCategory": "Alteration",
@@ -27456,7 +27456,7 @@
   },
   {
     "spellId": 320,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 7,
     "spellName": "Vanish",
     "spellCategory": "Alteration",
@@ -27528,7 +27528,7 @@
   },
   {
     "spellId": 321,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Antipathy/Sympathy",
     "spellCategory": "Enchantment/Charm",
@@ -27607,7 +27607,7 @@
   },
   {
     "spellId": 322,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Bigby\u0027s Clenched Fist",
     "spellCategory": "Evocation",
@@ -27686,7 +27686,7 @@
   },
   {
     "spellId": 323,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Clone",
     "spellCategory": "Necromantic",
@@ -27764,7 +27764,7 @@
   },
   {
     "spellId": 324,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Glassteel",
     "spellCategory": "Alteration",
@@ -27842,7 +27842,7 @@
   },
   {
     "spellId": 325,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Incendiary Cloud",
     "spellCategory": "Alteration-Evocation",
@@ -27921,7 +27921,7 @@
   },
   {
     "spellId": 326,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Mass Charm",
     "spellCategory": "Enchantment/Charm",
@@ -27993,7 +27993,7 @@
   },
   {
     "spellId": 327,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Maze",
     "spellCategory": "Conjuration/Summoning",
@@ -28072,7 +28072,7 @@
   },
   {
     "spellId": 328,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Mind Blank",
     "spellCategory": "Abjuration",
@@ -28152,7 +28152,7 @@
   },
   {
     "spellId": 329,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Monster Summoning VI",
     "spellCategory": "Conjuration/Summoning",
@@ -28231,7 +28231,7 @@
   },
   {
     "spellId": 330,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Otto\u0027s Irresistible Dance",
     "spellCategory": "Enchantment/Charm",
@@ -28304,7 +28304,7 @@
   },
   {
     "spellId": 331,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Permanency",
     "spellCategory": "Alteration",
@@ -28382,7 +28382,7 @@
   },
   {
     "spellId": 332,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Polymorph Any Object",
     "spellCategory": "Alteration",
@@ -28460,7 +28460,7 @@
   },
   {
     "spellId": 333,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Power Word, Blind",
     "spellCategory": "Conjuration/Summoning",
@@ -28544,7 +28544,7 @@
   },
   {
     "spellId": 334,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Serten\u0027s Spell Immunity",
     "spellCategory": "Abjuration",
@@ -28623,7 +28623,7 @@
   },
   {
     "spellId": 335,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Symbol",
     "spellCategory": "Conjuration/Summoning",
@@ -28701,7 +28701,7 @@
   },
   {
     "spellId": 336,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 8,
     "spellName": "Trap The Soul",
     "spellCategory": "Conjuration/Summoning",
@@ -28783,7 +28783,7 @@
   },
   {
     "spellId": 337,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Astral Spell",
     "spellCategory": "Evocation",
@@ -28858,7 +28858,7 @@
   },
   {
     "spellId": 338,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Bigby\u0027s Crushing Hand",
     "spellCategory": "Evocation",
@@ -28937,7 +28937,7 @@
   },
   {
     "spellId": 339,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Gate",
     "spellCategory": "Conjuration/Summoning",
@@ -29012,7 +29012,7 @@
   },
   {
     "spellId": 340,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Imprisonment",
     "spellCategory": "Abjuration",
@@ -29091,7 +29091,7 @@
   },
   {
     "spellId": 341,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Meteor Swarm",
     "spellCategory": "Evocation",
@@ -29166,7 +29166,7 @@
   },
   {
     "spellId": 342,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Monster Summoning VII",
     "spellCategory": "Conjuration/Summoning",
@@ -29245,7 +29245,7 @@
   },
   {
     "spellId": 343,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Power Word, Kill",
     "spellCategory": "Conjuration/Summoning",
@@ -29329,7 +29329,7 @@
   },
   {
     "spellId": 344,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Prismatic Sphere",
     "spellCategory": "Abjuration, Conjuration/Summoning",
@@ -29414,7 +29414,7 @@
   },
   {
     "spellId": 345,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Shape Change",
     "spellCategory": "Alteration",
@@ -29493,7 +29493,7 @@
   },
   {
     "spellId": 346,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Temporal Stasis",
     "spellCategory": "Alteration",
@@ -29575,7 +29575,7 @@
   },
   {
     "spellId": 347,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Time Stop",
     "spellCategory": "Alteration",
@@ -29661,7 +29661,7 @@
   },
   {
     "spellId": 348,
-    "spellAbilityClassName": "MAGIC-USER",
+    "spellAbilityClassName": "MAGICUSER",
     "spellAbilityClassLevel": 9,
     "spellName": "Wish",
     "spellCategory": "Conjuration/Summoning",

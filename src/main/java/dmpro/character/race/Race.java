@@ -8,17 +8,17 @@ import dmpro.modifier.AttributeModifier;
 
 public class Race {
 	
-	RaceType race;
+	RaceType raceType;
 	//List<RaceAbility> raceAbilities = new ArrayList<RaceAbility>();
 	List<AbilityModifier> raceAbilities = new ArrayList<AbilityModifier>();
 	List<AttributeModifier> raceAttributes = new ArrayList<AttributeModifier>();
 	List<Language> languages = new ArrayList<Language>();
 	
-	public RaceType getRace() {
-		return race;
+	public RaceType getRaceType() {
+		return raceType;
 	}
-	public void setRace(RaceType race) {
-		this.race = race;
+	public void setRaceType(RaceType race) {
+		this.raceType = race;
 	}
 	public List<AbilityModifier> getRaceAbilities() {
 		return raceAbilities;

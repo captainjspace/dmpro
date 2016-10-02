@@ -1,6 +1,7 @@
 package dmpro.core;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.IntStream;
 
 public class DungeonMasterProHandler implements Runnable {
 	
@@ -51,9 +53,9 @@ public class DungeonMasterProHandler implements Runnable {
 			commandInterpreter = new CommandInterpreter(application,input, output);
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "Failed to attach Formatter to output stream", e);
-		}
+		} 
 		if ( input != null && output != null) {
-			logger.log(Level.INFO, "successfully received stream conenctions, now munching");
+			logger.log(Level.INFO, "successfully received stream connections, now munching");
 		} 
 		output.format(ascii.art.get("fighter"));
 		output.format("Welcome to the Dungeon Master Pro Command Line Interface\n");
@@ -62,7 +64,9 @@ public class DungeonMasterProHandler implements Runnable {
 		String command = "";
 		do  {
 			command = parseAndRespond();
-		} while (!command.equals(EXIT));
+			if (Thread.currentThread().isInterrupted()) break;
+			//logger.log(Level.INFO, "output open" + Boolean.toString());
+		} while (!command.equals(EXIT) );
 		input.close();
 		output.close();
 	}
@@ -71,21 +75,38 @@ public class DungeonMasterProHandler implements Runnable {
 		// TODO Auto-generated method stub
 		List<String> commands = new ArrayList<String>();
 		while (input.hasNext()) {
-			commands.add(input.next());
+			String inputToken = input.next();
+			commands.add(inputToken);
+			//			commands.get(commands.size()-1).chars().forEach(p -> System.out.println(p));
+			String telnetControlC = IntStream.of(65533,65533,65533,65533,6).collect(StringBuilder::new,
+					StringBuilder::appendCodePoint, StringBuilder::append).toString();
+			if (inputToken.contains(telnetControlC)) { 
+				System.out.println("Caught you CTRL+C evil!");
+				return EXIT;
+			}
 			if (commands.get(commands.size()-1).equals(".")) {
 				commands.remove(commands.size()-1);
 				break;
 			}
+//			int [] ctrlc = {65533,65533,65533,65533,6};
+			
+			//IntStream is = Arrays.stream(ctrlc).boxed().collect(Collectors.toList()))) 
+			
+//			if (commands.stream().anyMatch(p -> p.chars() == IntStream.of(ctrlc))) {
+//				return EXIT;
+//			}
+			
 			if (commands.get(commands.size()-1).equals(EXIT)) return EXIT;
+			
 		}
 		
 		String response = "";
-		try {
+//		try {
 			response = commandInterpreter.interpretCommands(commands);
-		} catch (Exception e) {
-			logger.log(Level.WARNING, "Error interpreting commands", e);
-			response = "Error occured!";
-		}
+//		} catch (IOException e) {
+//			logger.log(Level.WARNING, "Error interpreting commands", e);
+//			response = "Error occured!";
+//		}
 		output.format("%s\n>",response);
 		output.flush();
 		

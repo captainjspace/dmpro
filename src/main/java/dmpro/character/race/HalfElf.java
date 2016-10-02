@@ -35,7 +35,7 @@ public class HalfElf extends Race {
 
 	public HalfElf() {
 		// TODO Auto-generated constructor stub
-		this.setRace(RaceType.HALFELF);
+		this.setRaceType(RaceType.HALFELF);
 		
 		//cheap 
 		for (String s : Arrays.asList(Elf.elfLang)) {

@@ -4,7 +4,7 @@ public class Human extends Race {
 
 	public Human() {
 		//yay!!!!
-		race = RaceType.HUMAN;
+		raceType = RaceType.HUMAN;
 	}
 
 }

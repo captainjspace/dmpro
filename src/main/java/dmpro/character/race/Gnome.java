@@ -39,7 +39,7 @@ public class Gnome extends Race {
 	 */
 
 	public Gnome() {
-		race = RaceType.GNOME;
+		raceType = RaceType.GNOME;
 		
 		
 		for (String i : new String[]{"dwarven", "gnome", "halfling", "goblin", "kobold","common","burrowing animals:moles,badgers,ground squirrels"})

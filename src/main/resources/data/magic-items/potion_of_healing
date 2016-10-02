@@ -1,0 +1,13 @@
+{
+  "itemId":3,
+  "itemName":"Potion of Healing",
+  "itemType":"MagicItemType.POTION",
+  "itemValue":250,
+  "weight":1,
+  "isMagic":true,
+  "isTreasure":true,
+  "isWeapon":false,
+  "isProtection":false,
+  "description":"Heals 1d8 hit points",
+  "modifiers": []
+}

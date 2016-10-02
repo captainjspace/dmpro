@@ -28,7 +28,7 @@ public class HalfOrc extends Race {
 
 	public HalfOrc() {
 		// TODO Auto-generated constructor stub
-		race=RaceType.HALFORC;
+		raceType=RaceType.HALFORC;
 		this.languages.add(new Language("orcish"));
 		
 		AttributeModifier a = new AttributeModifier();
