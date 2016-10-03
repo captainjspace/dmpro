@@ -1,0 +1,8 @@
+RaceType	Height	Weight	Female Height Multiplier	Female Weight Multiplier
+DWARF	2d6+42	4d10+134	0.95	0.8
+ELF	2d6+54	3d10+90	0.9	0.85
+GNOME	1d6+39	2d12+70	0.9	0.88
+HALFELF	1d12+60	2d20+100	0.92	0.8
+HALFLING	1d10+32	2d10+51	0.92	0.9
+HALFORC	1d10+61	8d8+126	0.92	0.8
+HUMAN	1d20+64	10d10+135	0.9	0.9

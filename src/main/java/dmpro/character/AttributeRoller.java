@@ -66,7 +66,7 @@ public class AttributeRoller extends Die {
 	public static void main (String[] args) {
 		AttributeRoller attributeRoller = new AttributeRoller();
 		int[] attributeRolls;
-		List<Integer> sums = new ArrayList();
+		List<Integer> sums = new ArrayList<Integer>();
 		for (int t=0; t <5; t++)  {
 			attributeRolls = attributeRoller.attributeRolls();
 			int sum=0;
@@ -78,8 +78,8 @@ public class AttributeRoller extends Die {
 			System.out.format("Sum: %d\tAvg: %d\n", sum, sum/6);
 		}
 		IntSummaryStatistics stats = sums.stream()
-                .mapToInt((x) -> x)
-                .summaryStatistics();
+				.mapToInt((x) -> x)
+				.summaryStatistics();
 		System.out.println(stats);
 	}
 }

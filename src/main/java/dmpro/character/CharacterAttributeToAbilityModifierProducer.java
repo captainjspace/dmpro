@@ -5,8 +5,6 @@ import java.util.List;
 
 import java.util.logging.Logger;
 import java.util.logging.Level;
-
-import dmpro.core.DungeonLogger;
 import dmpro.modifier.*;
 import dmpro.modifier.ArmorClassModifier.ArmorClassModifierType;
 import dmpro.modifier.MeleeModifier.MeleeModifierType;

@@ -1,16 +1,7 @@
 package dmpro.core;
 
 import dmpro.attributes.*;
-import dmpro.data.loaders.ClassAttributeLoader;
-import dmpro.data.loaders.ClassRaceLoader;
-import dmpro.data.loaders.CombatTableLoader;
-import dmpro.data.loaders.ExperienceTableLoader;
-import dmpro.data.loaders.MagicItemLoader;
-import dmpro.data.loaders.RaceAttributeLoader;
-import dmpro.data.loaders.SavingThrowLoader;
-import dmpro.data.loaders.SpellsAllowedTableLoader;
-import dmpro.data.loaders.ThiefAbilityTableLoader;
-import dmpro.data.loaders.WeaponItemLoader;
+import dmpro.data.loaders.*;
 import dmpro.spells.SpellLibrary;
 
 public class ReferenceDataSet implements Runnable{
@@ -38,6 +29,8 @@ public class ReferenceDataSet implements Runnable{
 	private DexterityLoader dexterityLoader;
 	private ConstitutionLoader constitutionLoader;
 	private CharismaLoader charismaLoader;
+	private RaceSizeLoader raceSizeLoader;
+	private RaceClassAgeLoader raceClassAgeLoader;
 
 
 	public void run() {
@@ -61,6 +54,8 @@ public class ReferenceDataSet implements Runnable{
 		charismaLoader = new CharismaLoader();
 		attributeLoader = new AttributeLoader();
 		asciiArt = new AsciiArt();
+		raceClassAgeLoader = new RaceClassAgeLoader();
+		raceSizeLoader = new RaceSizeLoader();
 		isReady = true;
 	}
 	/**
@@ -176,6 +171,18 @@ public class ReferenceDataSet implements Runnable{
 	 */
 	public AsciiArt getAsciiArt() {
 		return asciiArt;
+	}
+	/**
+	 * @return the raceSizeLoader
+	 */
+	public RaceSizeLoader getRaceSizeLoader() {
+		return raceSizeLoader;
+	}
+	/**
+	 * @return the raceClassAgeLoader
+	 */
+	public RaceClassAgeLoader getRaceClassAgeLoader() {
+		return raceClassAgeLoader;
 	}
 
 

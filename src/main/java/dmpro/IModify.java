@@ -3,8 +3,6 @@
  */
 package dmpro;
 
-import java.util.List;
-
 import dmpro.modifier.Modifier;
 
 /**

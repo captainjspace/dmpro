@@ -77,7 +77,7 @@ public class DungeonMasterProHandler implements Runnable {
 		while (input.hasNext()) {
 			String inputToken = input.next();
 			commands.add(inputToken);
-			//			commands.get(commands.size()-1).chars().forEach(p -> System.out.println(p));
+			commands.get(commands.size()-1).chars().forEach(p -> System.out.println(p));
 			String telnetControlC = IntStream.of(65533,65533,65533,65533,6).collect(StringBuilder::new,
 					StringBuilder::appendCodePoint, StringBuilder::append).toString();
 			if (inputToken.contains(telnetControlC)) { 

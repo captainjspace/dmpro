@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.Formatter;
 import java.util.logging.Level;
@@ -140,8 +139,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 		//characterBuildDirector = new CharacterBuildDirector(pCCharacterBuilder);
 		characterBuildDirector.buildCharacter();
 		character = characterBuilder.getCharacter();
-		//character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
-		//character = xpProcessor.evaluateExperience(character);
+		character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
+		character = xpProcessor.evaluateExperience(character);
 		character = processManagementActions(character);
 		saveCharacter(character);
 		return character;
@@ -192,11 +191,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 	}
 	
 	public Character loadCharacter(String characterId){
-//		java.util.Formatter formatter = new java.util.Formatter();
-//		String file = formatter.format("data/characters/c%s.json", characterId).toString();
-//		formatter.close();
 		Character load = null;
-		String file = "data/characters/c" + characterId + ".json";
+		String file = dataDirectory + "data/characters/c" + characterId + ".json";
 		try {
 			FileReader reader = new FileReader(file);
 			load = gson.fromJson(reader, Character.class);

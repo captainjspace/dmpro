@@ -27,7 +27,7 @@ public class AttributeLoader {
     
     public AttributeLoader() {}
     
-    public AttributeLoader(@SuppressWarnings("rawtypes") Class c,File f) {
+    public AttributeLoader(Class<? extends Attribute> c,File f) {
     	try {
     		this.file = f;
 			load(c);
@@ -37,7 +37,7 @@ public class AttributeLoader {
 			e.printStackTrace();
 		}
     }
-	public <T extends Attribute> List<Attribute> load(Class<T> c) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
+	public <T extends Attribute> List<Attribute> load(Class<? extends Attribute> c) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
 		
 		try {
 			reader = new FileReader(file);
@@ -48,7 +48,7 @@ public class AttributeLoader {
 			
 			while (scan.hasNextLine()) {
 				fields = scan.nextLine().split("\t",i);		
-				attribute =  (Attribute) c.asSubclass(c)
+				attribute =  c.asSubclass(c)
 						.getConstructor(String[].class)
 						.newInstance((Object)fields); 
 				attributeTable.add(attribute);

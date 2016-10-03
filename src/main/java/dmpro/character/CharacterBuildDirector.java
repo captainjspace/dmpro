@@ -26,6 +26,8 @@ import dmpro.data.loaders.ClassRaceLoader.ClassRaceRecord;
 import dmpro.data.loaders.ClassRaceLoader.ListPossibleClassRaceResults;
 import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
 import dmpro.data.loaders.RaceAttributeLoader.RaceAttributeRecord;
+import dmpro.data.loaders.RaceClassAgeLoader;
+import dmpro.data.loaders.RaceSizeLoader;
 
 
 public class CharacterBuildDirector {
@@ -46,11 +48,13 @@ public class CharacterBuildDirector {
 	private Race race;
 	private List<CharacterClass> characterClasses = new ArrayList<CharacterClass>();;
 	private CharacterClass characterClass;
+	private ReferenceDataSet referenceDataSet;
 
 	public CharacterBuildDirector(CharacterBuilder characterBuilder, Server application) {
 		this.characterBuilder = characterBuilder;
 //		this.characterModifierEngine = new CharacterModifierEngine();
 		this.application = application; 
+		this.referenceDataSet = application.getReferenceDataSet();
 	}
 
 	/**
@@ -79,13 +83,13 @@ public class CharacterBuildDirector {
 		characterBuilder.buildCharacterRace(race);
 		
 		getCharacterRacePersonalInformation();
-		characterBuilder.buildCharacterRacePersonalInformation(age, height, weight);
+		characterBuilder.buildCharacterRacePersonalInformation();
 		
 		getCharacterClass();
 		characterBuilder.buildCharacterClass(characterClasses);
 		
 		getCharacterClassPersonalInformation();
-		characterBuilder.buildCharacterClassInformation();
+		characterBuilder.buildCharacterClassInformation(age, height, weight);
 		
 		getCharacterHistory();
 		characterBuilder.buildCharacterHistory();
@@ -148,6 +152,7 @@ public class CharacterBuildDirector {
 	 * 			Possible show class, race restrictions before approval....
 	 */
 	private void getCharacterAttributes() {
+		attributes = new LinkedHashMap<String,Attribute>();
 		
 		output.format("---------------- Character Attributes -------------------\n");
 		int answer=0;
@@ -171,22 +176,24 @@ public class CharacterBuildDirector {
 		//TODO: hook up to central.
 		//attributeLoader = new StrengthLoader();
 		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));
-		ReferenceDataSet rds = this.application.getReferenceDataSet();
-		attributes = new LinkedHashMap<String,Attribute>();
-		attributes.put("Strength", rds.getStrengthLoader().getRecord(attributeRolls[0]));
-	    attributes.put("Intelligence", rds.getIntelligenceLoader().getRecord( attributeRolls[1]));
-		attributes.put("Wisdom", rds.getWisdomLoader().getRecord(attributeRolls[2]));
-		attributes.put("Dexterity", rds.getDexterityLoader().getRecord(attributeRolls[3]));
-		attributes.put("Constitution", rds.getConstitutionLoader().getRecord( attributeRolls[4]));
-		attributes.put("Charisma", rds.getCharismaLoader().getRecord(attributeRolls[5]));
+		//ReferenceDataSet rds = this.application.getReferenceDataSet();
+		
+		attributes.put("Strength", referenceDataSet.getStrengthLoader().getRecord(attributeRolls[0]));
+	    attributes.put("Intelligence", referenceDataSet.getIntelligenceLoader().getRecord( attributeRolls[1]));
+		attributes.put("Wisdom", referenceDataSet.getWisdomLoader().getRecord(attributeRolls[2]));
+		attributes.put("Dexterity", referenceDataSet.getDexterityLoader().getRecord(attributeRolls[3]));
+		attributes.put("Constitution", referenceDataSet.getConstitutionLoader().getRecord( attributeRolls[4]));
+		attributes.put("Charisma", referenceDataSet.getCharismaLoader().getRecord(attributeRolls[5]));
 		
 		showAttributes();
 		
 	}
 
 	private void getCharacterRace() {
+		race = null;
+		
 		output.format("-------------- Character Race ----------------\n");
-		RaceAttributeLoader raceAttributeLoader = new RaceAttributeLoader();
+		RaceAttributeLoader raceAttributeLoader = referenceDataSet.getRaceAttributeLoader();
 		ListPossibleRaceResults listPossibleRaceResults = raceAttributeLoader.listPossibleRaces(attributes, sex);
 		if (!listPossibleRaceResults.limitRecords.isEmpty()) {
 			output.format("Attribute Restrictions on your Race:\n");
@@ -257,11 +264,11 @@ public class CharacterBuildDirector {
 	 * 			Need Loader with rules.
 	 */
 	private void getCharacterClass() {
-		//reset
 		characterClasses = new ArrayList<CharacterClass>();
+		
 		output.format ("------------------------------- Character Class ------------------------\n");
 		//TODO : CLASS RESTRICTION on RACE
-		ClassRaceLoader classRaceLoader = new ClassRaceLoader();
+		ClassRaceLoader classRaceLoader = referenceDataSet.getClassRaceLoader();
 		ListPossibleClassRaceResults possibleClassRaceResults = classRaceLoader.listPossibleClasses(race.getRaceType());
 		if (!possibleClassRaceResults.limitRecords.isEmpty()) {
 			output.format("Race Restrictions on your Class:\n");
@@ -276,7 +283,7 @@ public class CharacterBuildDirector {
 		output.format("-------------Checking Attribute Restrictions -----------------\n");
 		output.flush();
 		
-		ClassAttributeLoader classAttributeLoader = new ClassAttributeLoader();
+		ClassAttributeLoader classAttributeLoader = referenceDataSet.getClassAttributeLoader();
 		ListPossibleClassResults listPossibleClassResults = classAttributeLoader.listPossibleClasses(attributes);
 		if (!listPossibleClassResults.limitRecords.isEmpty()) {
 			output.format("Attribute Restrictions on your Class:\n");
@@ -313,7 +320,7 @@ public class CharacterBuildDirector {
 				int index= Integer.parseInt(classIndex);
 				if (possibleClasses.stream()
 						.anyMatch(p -> p.classIndex == index))
-					characterClassType = characterClassType.ByIndex(index);
+					characterClassType = CharacterClassType.ByIndex(index);
 			}
 			//classType = classType.ByIndex(classIndex);
 			if (characterClassType != null) break;
@@ -356,7 +363,14 @@ public class CharacterBuildDirector {
 	private void getCharacterClassPersonalInformation() {
 		// TODO page 12 DMG, probably create loader.
 		age = 0; height = 0; weight = 0;
-
+		RaceClassAgeLoader raceClassAgeLoader = referenceDataSet.getRaceClassAgeLoader();
+		RaceSizeLoader raceSizeLoader = referenceDataSet.getRaceSizeLoader();
+		//TODO: make loop when adding multiclass to get the oldest...
+		age = raceClassAgeLoader.getAge(this.race.getRaceType(),  characterClasses.get(0).getCharacterClassType());
+		height = raceSizeLoader.getHeight(this.race.getRaceType());
+		weight = raceSizeLoader.getWeight(this.race.getRaceType());
+		output.format("You are a wee child of %d years old!  and you are %d inches tall and weigh %d lbs\n", age,height,weight);
+		return;
 	}
 	
 	private void getCharacterHistory() {

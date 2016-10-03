@@ -79,14 +79,11 @@ public class PCCharacterBuilder implements CharacterBuilder {
 	}
 
 	@Override
-	public void buildCharacterRacePersonalInformation(int age, int height, int weight) {
+	public void buildCharacterRacePersonalInformation() {
 		// TODO 
 		//age, height, weight
 		//get from DMG after class 
-		character.setAge(age);
-		character.setHeight(height);
-		character.setWeight(weight);
-		logger.log(Level.INFO, "Build Race Additional CharacterId: " + character.getCharacterId());
+		
 	}
 
 	@Override
@@ -108,10 +105,13 @@ public class PCCharacterBuilder implements CharacterBuilder {
 	}
 
 	@Override
-	public void buildCharacterClassInformation() {
+	public void buildCharacterClassInformation(int age, int height, int weight) {
 		// TODO
 		//initial Items - treasure, equipment, spells
-		
+		character.setAge(age);
+		character.setHeight(height);
+		character.setWeight(weight);
+		logger.log(Level.INFO, "Build Class/Race Information for CharacterId: " + character.getCharacterId());
 	}
 
 	@Override

@@ -11,8 +11,6 @@ public class IntelligenceLoader extends AttributeLoader {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		IntelligenceLoader intelligence = new IntelligenceLoader();
 	}
 
 }

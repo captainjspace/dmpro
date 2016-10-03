@@ -35,9 +35,9 @@ public interface CharacterBuilder {
 			String lastName, String title, List<String> suffixes);
 	void buildCharacterAttributes(Map<String,Attribute> attributes);
 	void buildCharacterRace(Race race);
-	void buildCharacterRacePersonalInformation(int age, int height, int weight);
+	void buildCharacterRacePersonalInformation();
 	void buildCharacterClass(List<CharacterClass> characterClass);
-	void buildCharacterClassInformation();
+	void buildCharacterClassInformation(int age, int height, int weight);
 	void buildCharacterHistory();
 	Character getCharacter();
 	

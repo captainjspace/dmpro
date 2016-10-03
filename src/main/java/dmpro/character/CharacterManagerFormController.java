@@ -11,11 +11,11 @@ public class CharacterManagerFormController extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			
+
 			BorderPane page = (BorderPane) FXMLLoader.load(Main.class.getResource("./TestCharacterManagerForm.fxml"));
-            Scene scene = new Scene(page);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+			Scene scene = new Scene(page);
+			primaryStage.setScene(scene);
+			primaryStage.show();
 		}   catch(Exception e) {
 			e.printStackTrace();
 		}

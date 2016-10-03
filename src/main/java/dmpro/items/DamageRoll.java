@@ -58,10 +58,9 @@ public class DamageRoll {
 		while (this.rollCount-- > 0 ) {
 			damage+=die.roll();
 //			System.out.printf("DAMAGE LOOP %d\n", damage);
-			damage += modifier;
-//			System.out.printf("DAMAGE POST MODIFIER %d:\n", damage);
-
 		}
+		damage += modifier;
+//		System.out.printf("DAMAGE POST MODIFIER %d:\n", damage);
 		damage*=multiplier;
 //		System.out.printf("DAMAGE POST MULTIPLIER %d:\n", damage);
 		return damage;
