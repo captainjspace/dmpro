@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dmpro.items.CoinItem.CoinType;
-import dmpro.items.Item.ItemType;
+import dmpro.items.Item;
+//import dmpro.items.Item.ItemType;
 import dmpro.modifier.ArmorClassModifier;
 import dmpro.modifier.ArmorClassModifier.ArmorClassModifierType;
-import dmpro.modifier.Modifier;
+//import dmpro.modifier.Modifier;
 import dmpro.modifier.Modifier.ModifierPriority;
 import dmpro.modifier.Modifier.ModifierSource;
 
-public class ArmorRecord implements TSVData {
+public class ArmorRecord extends Item implements TSVData {
 
 	static final int fieldCount = 12;
 	//Type	Item	Cost	Currency	Weight	Base Movement	Fixed AC	Modified AC	# of Attacks	Damage Absorb	HP	Repair Cost
@@ -175,12 +176,6 @@ public class ArmorRecord implements TSVData {
 		return itemType;
 	}
 
-	/**
-	 * @return the itemCurrency
-	 */
-	public CoinType getItemCurrency() {
-		return itemCurrency;
-	}
 
 	/**
 	 * @return the itemEncumbrance

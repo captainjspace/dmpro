@@ -70,7 +70,7 @@ public class GSonModifierListAdapter implements JsonSerializer<List<Modifier>>
 		JsonArray jArray = null;
 		try {
 			jArray = json.getAsJsonArray();
-		} catch (IllegalStateException ise) {
+		} catch (NullPointerException | IllegalStateException ise) {
 			return abilityModifier;
 		}
 

@@ -101,7 +101,7 @@ public class MagicItemLoader implements ResourceLoader {
 		System.out.println("MagicItemLoader");
 		MagicItemLoader magicItemLoader = new MagicItemLoader();
 		magicItemLoader.load();
-		System.out.println(magicItemLoader.getMagicItem("ring of dexterity").toString());
+		//System.out.println(magicItemLoader.getMagicItem("ring of dexterity").toString());
 	}
 
 }

@@ -5,13 +5,13 @@ package dmpro.world;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -19,8 +19,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import dmpro.IModify;
-import dmpro.modifier.AbilityModifier;
+import dmpro.attributes.Attribute.AttributeType;
+import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.Modifier;
+import dmpro.modifier.Modifier.ModifierPriority;
+import dmpro.modifier.Modifier.ModifierSource;
+import dmpro.modifier.Modifier.ModifierType;
 
 /**
  * @author joshualandman
@@ -31,9 +35,19 @@ public class Location implements IModify{
 	//this is naturally recursive to a fault.
 	//planet, continent, country, forest, dungeon, level, chamber - etc
 	//any of these things can have some modifier that is broadcast to inhabitants
+	//locations are containers of other locations, and overlapping.
 	
-	int locationId = 1;
-	String locationName;
+	private String uniqueId = UUID.randomUUID().toString(); //not sure how I will use this yet - might be for create only.
+	private int locationId = 1; //relative Id for stack of locations
+	private double latitude; //surface
+	private double longitude;
+	private double altitude; //underdark or higher
+	private double area; 
+	private String locationName;
+	private String description;
+
+	
+
 	private Map<Integer, Location> locations= new HashMap<Integer,Location>();
 	private List<Modifier> environmentModifier = new ArrayList<Modifier>();
 	
@@ -60,8 +74,10 @@ public class Location implements IModify{
 		.collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue()));	
 	}
 	
-	public void enterLocation(String locationName) {
-		locations.put(this.locations.size()+1, new Location(locationName, this.locations));
+	public Location enterLocation(String locationName) {
+		Location ref = new Location(locationName, this.locations);
+		locations.put(this.locations.size()+1, ref);
+		return ref;
 	}
 
 	@Override
@@ -116,39 +132,127 @@ public class Location implements IModify{
 	 * Static testing
 	 * @param args
 	 */
-	public static void main(String[] args) {
+		/**
+	 * @return the environmentModifier
+	 */
+	public List<Modifier> getEnvironmentModifiers() {
+		return environmentModifier;
+	}
+
+	/**
+	 * @param environmentModifier the environmentModifier to set
+	 */
+	public void setEnvironmentModifiers(List<Modifier> environmentModifier) {
+		this.environmentModifier = environmentModifier;
+	}
+
+	/**
+	 * @return the latitude
+	 */
+	public double getLatitude() {
+		return latitude;
+	}
+
+	/**
+	 * @return the longitude
+	 */
+	public double getLongitude() {
+		return longitude;
+	}
+
+	/**
+	 * @return the altitude
+	 */
+	public double getAltitude() {
+		return altitude;
+	}
+
+	/**
+	 * @return the environmentModifier
+	 */
+	public List<Modifier> getEnvironmentModifier() {
+		return environmentModifier;
+	}
+	
+	
+public static void main(String[] args) {
 		
 		//test
 		
 		GeoFactory geo = GeoFactory.getGeoFactory();
 		
+		/*
+		 * basic containers requiring little detail for context
+		 */
 		Location location = new Location("Greyhawk");
 		location.enterLocation("Hellfurnaces");
-		location.enterLocation("Hall of the Fire Giant King");
-		location.enterLocation("Level 3");
-		location.enterLocation("Room 16");
+		location.enterLocation("WesternSlope");
 		
+		/*
+		 * location requiring detail;
+		 */
+		Location hall; 
+		hall = location.enterLocation("Hall of the Fire Giant King");
+		hall.setArea(35000);
+		hall.setDescription("A massive keep built into a smoking mountain with a river of lava running through it! Home of King Snurre!");
+		location.locations.put( hall.locationId, hall);
+		
+		location.enterLocation("Level 3");
+		
+		/*
+		 * location requiring Encounter details.
+		 */
+		Location encounter;
+		encounter = location.enterLocation("Room 16");
+		AttributeModifier em = new AttributeModifier();
+		em.modifierPriority = ModifierPriority.HIGH;
+		em.modifierSource = ModifierSource.LOCATION;
+		em.modifierType = ModifierType.ATTRIBUTE;
+		em.setDescription("Strength Drain Spell");
+		em.setBonus(-4);
+		//em.setAttributeToModify(Strength.class);
+		em.setAttributeType(AttributeType.STRENGTH);
+		encounter.addModifier(em);
+		location.locations.put(encounter.locationId, encounter);
+		
+		
+		/*
+		 * place location into standard universe, specific plane
+		 */
 		geo.getUniverse().getPlanes().get(PlaneName.PRIMEMATERIAL.ordinal()).setLocations(location.locations);
 		
+		/* for serialization */
 		Type locationMapType = new TypeToken<Map<Integer,Location>>(){}.getType();
+		
+		/*TODO: does not belong here */
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(locationMapType, new GsonLocationAdapter());
 		Gson gson = gsonBuilder.setPrettyPrinting().create();
-		System.out.println(
-				gson.toJson(
-						geo.getUniverse()
-						.getPlanes()
-						.get(PlaneName.PRIMEMATERIAL.ordinal())
-						.getLocations()
-						.get(3)
-						)
-				);
 		
+		/* details of a specific location in the middle */
+//		System.out.println(
+//				gson.toJson(
+//						geo.getUniverse()
+//						.getPlanes()
+//						.get(PlaneName.PRIMEMATERIAL.ordinal())
+//						.getLocations()
+//						.get(3)
+//						)
+//				);
+		
+		/* details of specific location from a specific location */
 //		System.out.println(
 //				gson.toJson(geo.getUniverse()
 //				.getPlanes()
 //				.get(PlaneName.PRIMEMATERIAL.ordinal())
 //				.getLocations().get(1).getLocations().get(5)));
+		
+		/* detail of the current location */
+		String json = gson.toJson(location);
+		System.out.println(json);
+		
+		Location x = gson.fromJson(json, Location.class);
+		System.out.println(gson.toJson(x));
 //		
 //		
 		
@@ -177,17 +281,75 @@ public class Location implements IModify{
 //		
 	}
 
-	/**
-	 * @return the environmentModifier
-	 */
-	public List<Modifier> getEnvironmentModifiers() {
-		return environmentModifier;
-	}
+/**
+ * @return the area
+ */
+public double getArea() {
+	return area;
+}
 
-	/**
-	 * @param environmentModifier the environmentModifier to set
-	 */
-	public void setEnvironmentModifiers(List<Modifier> environmentModifier) {
-		this.environmentModifier = environmentModifier;
-	}
+/**
+ * @param area the area to set
+ */
+public void setArea(double area) {
+	this.area = area;
+}
+
+/**
+ * @return the description
+ */
+public String getDescription() {
+	return description;
+}
+
+/**
+ * @param description the description to set
+ */
+public void setDescription(String description) {
+	this.description = description;
+}
+
+/**
+ * @param latitude the latitude to set
+ */
+public void setLatitude(double latitude) {
+	this.latitude = latitude;
+}
+
+/**
+ * @param longitude the longitude to set
+ */
+public void setLongitude(double longitude) {
+	this.longitude = longitude;
+}
+
+/**
+ * @param altitude the altitude to set
+ */
+public void setAltitude(double altitude) {
+	this.altitude = altitude;
+}
+
+/**
+ * @return the uniqueId
+ */
+public String getUniqueId() {
+	return uniqueId;
+}
+
+/**
+ * @param uniqueId the uniqueId to set
+ */
+public void setUniqueId(String uniqueId) {
+	this.uniqueId = uniqueId;
+}
+
+/**
+ * @param environmentModifier the environmentModifier to set
+ */
+public void setEnvironmentModifier(List<Modifier> environmentModifier) {
+	this.environmentModifier = environmentModifier;
+}
+
+
 }

@@ -1,9 +1,10 @@
 package dmpro.data.loaders;
 
 import dmpro.items.CoinItem.CoinType;
+import dmpro.items.Item;
 import dmpro.items.Item.ItemType;
 
-public class StandardItemRecord implements TSVData {
+public class StandardItemRecord extends Item implements TSVData {
 
 	//ITEM	FREQUENCY	TYPE	ItemType	ENCUMBRANCE	COST	ItemValue	Cointype	SOURCE	p. #
 	static final int fieldCount = 10;
