@@ -3,23 +3,25 @@ package dmpro.data.loaders;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CombatRecord {
+public class CombatRecord implements TSVData {
+	static final int fieldCount = 24;
+	
 	String characterClassName;
 	int experienceLevel;
 	Map<Integer,Integer> armorClass = new HashMap<Integer,Integer>();
 	String fighterEquivalent;
 
-	public CombatRecord(String lineInput) {
-		String[] field = lineInput.split("\t",24);
+	public CombatRecord(String [] fields) {
+		//String[] fields = lineInput.split("\t",24);
 		
-		characterClassName = field[0];
-		experienceLevel = Integer.parseInt(field[1]);
+		characterClassName = fields[0];
+		experienceLevel = Integer.parseInt(fields[1]);
 		int ac=-10;
 		for (int i = 2; i<23; i++) {
-			this.armorClass.put(ac++, Integer.parseInt(field[i]));
+			this.armorClass.put(ac++, Integer.parseInt(fields[i]));
 //			System.out.printf("Armor class %d, to hot %d\n", ac,Integer.parseInt(field[i]) );
 		}
-		fighterEquivalent = field[23];
+		fighterEquivalent = fields[23];
 	}
 
 	/**

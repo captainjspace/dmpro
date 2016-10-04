@@ -95,6 +95,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 				.put(characterClass.getCharacterClassType(), characterClass));
 		
 		character.addRequiredAction(CharacterManagementActions.INITIALIZEPROFICIENCIES);
+		character.addRequiredAction(CharacterManagementActions.INITIALIZEEQUIPMENT);
 		if  ( 
 				(character.getClasses().containsKey(CharacterClassType.MAGICUSER)) ||
 				(character.getClasses().containsKey(CharacterClassType.ILLUSIONIST))
@@ -102,6 +103,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 				character.addRequiredAction(CharacterManagementActions.INITIALIZESPELLBOOK);
 		}
 		logger.log(Level.INFO, "Build Added Classes Character Id: " + character.getCharacterId());
+		
 	}
 
 	@Override

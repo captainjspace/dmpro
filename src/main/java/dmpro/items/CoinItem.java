@@ -50,13 +50,45 @@ public class CoinItem extends Item {
 	
 	private CoinType coinType;
 	
-	public CoinItem(CoinType coinType, int amount) {
+	public CoinItem(CoinType coinType, int itemCount) {
 		this.itemType = ItemType.COINS;
 		this.coinType = coinType;
 		this.itemName = coinType.getCoinName();
-		this.itemCount = amount;
-		this.itemValue = Math.round(amount * coinType.getGoldValue());
-		this.itemEncumbrance = amount;
+		this.itemCount = itemCount;
+		this.setItemValue(itemCount);
+		this.itemEncumbrance = itemCount;
+	}
+	
+	@Override
+	public void setItemCount(int itemCount) {
+		this.itemCount=itemCount;
+		setItemValue(itemCount);
+		setItemEncumbrance(itemCount);
+	}
+	public void setItemValue(int itemCount) {
+		this.itemValue = Math.round(itemCount * coinType.getGoldValue());
+	}
+
+	/**
+	 * @return the coinType
+	 */
+	public CoinType getCoinType() {
+		return coinType;
+	}
+
+	/**
+	 * @param coinType the coinType to set
+	 */
+	public void setCoinType(CoinType coinType) {
+		this.coinType = coinType;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CoinItem [" + (coinType != null ? "coinType=" + coinType : "") + "]";
 	}
 
 }

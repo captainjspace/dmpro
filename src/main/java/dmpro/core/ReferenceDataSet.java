@@ -11,6 +11,7 @@ public class ReferenceDataSet implements Runnable{
 	
 	private AsciiArt asciiArt;
 	private CombatTableLoader combatTableLoader;
+	private TurnUndeadLoader turnUndeadLoader;
 	private ExperienceTableLoader experienceTableLoader;
 	private SavingThrowLoader savingThrowTableLoader;
 	private ThiefAbilityTableLoader thiefAbilityTableLoader;
@@ -19,7 +20,9 @@ public class ReferenceDataSet implements Runnable{
 	private ClassAttributeLoader classAttributeLoader;
 	private RaceAttributeLoader raceAttributeLoader;
 	private MagicItemLoader magicItemLoader ;
-	private WeaponItemLoader weaponItemLoader ;
+	private WeaponItemLoader weaponItemLoader;
+	private ArmorTableLoader armorTableLoader;
+	private StandardItemLoader standardItemLoader;
 	//	private ItemLoader itemLoader - new ItemLoader(); //IMPLEMENT ME
 	private SpellLibrary spellLibrary;
 	private AttributeLoader attributeLoader;
@@ -35,6 +38,7 @@ public class ReferenceDataSet implements Runnable{
 
 	public void run() {
 		combatTableLoader = new CombatTableLoader();
+		turnUndeadLoader = new TurnUndeadLoader();
 		experienceTableLoader = new ExperienceTableLoader();
 		savingThrowTableLoader = new SavingThrowLoader();
 		thiefAbilityTableLoader = new ThiefAbilityTableLoader();
@@ -44,6 +48,8 @@ public class ReferenceDataSet implements Runnable{
 		raceAttributeLoader = new RaceAttributeLoader();
 		magicItemLoader = new MagicItemLoader();
 		weaponItemLoader = new WeaponItemLoader();
+		armorTableLoader = new ArmorTableLoader();
+		standardItemLoader = new StandardItemLoader();
 		//		private ItemLoader itemLoader - new ItemLoader(); //IMPLEMENT ME
 		spellLibrary = new SpellLibrary();
 		strengthLoader = new StrengthLoader();

@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import dmpro.attributes.Attribute;
-import dmpro.character.classes.CharacterClass;
+
 import dmpro.character.classes.CharacterClass.CharacterClassType;
 
 public class ClassAttributeLoader {

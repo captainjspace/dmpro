@@ -749,5 +749,21 @@ public class Character implements Modifiable {
 	public Environment getCurrentEnvironment() {
 		return currentEnvironment;
 	}
+
+
+	/**
+	 * @return the inventory
+	 */
+	public List<Item> getInventory() {
+		return inventory;
+	}
+
+
+	/**
+	 * @param inventory the inventory to set
+	 */
+	public void setInventory(List<Item> inventory) {
+		this.inventory = inventory;
+	}
 	
 }

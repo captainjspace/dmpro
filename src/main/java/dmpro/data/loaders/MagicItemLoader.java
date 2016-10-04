@@ -83,6 +83,7 @@ public class MagicItemLoader implements ResourceLoader {
 		}
 	}
 
+	/*TODO: move to utility */
 	private List<Path> listSourceFiles(Path dir) throws IOException {
 		List<Path> result = new ArrayList<>();
 		try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.json")) {

@@ -3,7 +3,7 @@ package dmpro.character.managementaction;
 public enum CharacterManagementActions {
 	INITIALIZECHARACTER(new InitializeCharacter()),
 	INITIALIZESPELLBOOK(new InitializeSpellBook()),
-	INTIAILIZEEQUIPMENT(new InitializeEquipment()),
+	INITIALIZEEQUIPMENT(new InitializeEquipment()),
 	INITIALIZEPROFICIENCIES( new InitializeProficiencies()),
 	UPDATEXP(new UpdateExperience()),
 	UPDATELEVEL(new UpdateLevel()),

@@ -178,4 +178,11 @@ public abstract class Item implements Modifiable {
 		this.itemCount = itemCount;
 	}
 
+	/**
+	 * @param itemCount the itemCount to set
+	 */
+	public void setItemCount(int itemCount) {
+		this.itemCount = itemCount;
+	}
+
 }

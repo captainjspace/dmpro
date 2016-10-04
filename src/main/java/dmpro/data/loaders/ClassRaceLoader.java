@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.character.race.RaceType;
 
