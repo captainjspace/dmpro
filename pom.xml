@@ -3,9 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>dmpro</groupId>
-  <artifactId>dmpro</artifactId>
+  <artifactId>DungeonMasterPro</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <mainClass>dmpro.core.Application</mainClass>
+    </properties>
 
   <name>Maven Quick Start Archetype</name>
   <url>http://maven.apache.org</url>
@@ -20,7 +25,8 @@
 
   <build>
     <plugins>
-      <!-- we want JDK 1.6 source and binary compatiblility -->
+      <!-- we want JDK 1.8 source and binary compatiblility -->
+			<!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -29,8 +35,9 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+		-->
       <!-- ... -->
-      <!-- we want sources to be processed by a specific 1.6 javac -->
+      <!-- we want sources to be processed by a specific 1.8 javac -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

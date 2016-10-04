@@ -1,0 +1,790 @@
+ITEM	FREQUENCY	TYPE	ItemType	ENCUMBRANCE	COST	ItemValue	Cointype	SOURCE	p. #
+Adze	Common	Tool	TOOL	20	1gp	1	gp	DD	xx
+Air Bladder	Common	Tool	TOOL	20	15gp	15	gp	DD	xx
+Ale, Dark (pint)	Common	Inn	INN	10	15cp	15	cp	DD	xx
+Ale, Light (pint)	Common	Inn	INN	10	1sp	1	sp	DD	xx
+Ale (50 gal.)	Common	Raw Goods	RAWGOODS	200	10gp	10	gp	DD	xx
+Ale, Dwarven (50 gal.)	Rare	Raw Goods	RAWGOODS	200	100pp	100	pp	DD	xx
+Ale, Dwarven (5 gal.)	Rare	Raw Goods	RAWGOODS	20	10pp	10	pp	DD	xx
+Alembic	Uncommon	Alchemical	ALCHEMICAL	30	8gp	8	gp	DD	xx
+Altar Cloth	Common	Ritual	RITUAL	20	10gp	10	gp	DD	xx
+Amphora, Clay	Common	Container	CONTAINER	20	6cp	6	cp	DD	xx
+Anchor, Dead-weight	Common	Nautical	NAUTICAL	4000	25gp	25	gp	DD	xx
+Anchor, Dual-prong	Common	Nautical	NAUTICAL	8000	100gp	100	gp	DD	xx
+Anchor, Single-prong	Common	Nautical	NAUTICAL	6000	80gp	80	gp	DD	xx
+Anklet, Copper	Common	Jewelry	JEWELRY	5	3sp	3	sp	DD	xx
+Anvil	Common	Tool	TOOL	2000	12gp	12	gp	DD	310
+Apples (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4cp	4	cp	DD	xx
+Apricots (1 lb.)	Common	Foodstuff	FOODSTUFF	10	10gp	10	gp	DD	xx
+Apron, Linen	Common	Clothing	CLOTHING	10	2cp	2	cp	DD	xx
+Apron, Woolen	Common	Clothing	CLOTHING	20	1cp	1	cp	DD	xx
+Armchair, Ornate	Common	Furniture	FURNITURE	600	25gp	25	gp	DD	xx
+Armchair, Padded	Common	Furniture	FURNITURE	500	10gp	10	gp	DD	xx
+Armchair, Wooden	Common	Furniture	FURNITURE	300	5gp	5	gp	DD	xx
+Armour Stand	Common	Furniture	FURNITURE	30	2gp	2	gp	DD	xx
+Arsenic, Sprig	Uncommon	Herb	HERB	1	10sp	10	sp	DD	xx
+Aspergillum	Common	Ritual	RITUAL	30	12gp	12	gp	DD	xx
+Ass	Common	Livestock	LIVESTOCK	7000	20gp	20	gp	DD	xx
+Astrolabe	Common	Nautical	NAUTICAL	300	150gp	150	gp	DD	xx
+Auger	Common	Tool	TOOL	20	1gp	1	gp	DD	xx
+Axe, Felling	Common	Tool	TOOL	100	2gp	2	gp	DD	xx
+Axe, Hatchet	Common	Tool	TOOL	30	6sp	6	sp	DD	xx
+Axe, Splitting	Common	Tool	TOOL	50	1gp	1	gp	DD	xx
+Backpack, Leather	Common	Container	CONTAINER	20	2gp	2	gp	OSRIC	44
+Bacon (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1gp	1	gp	DD	xx
+Bag, Leather	Common	Container	CONTAINER	5	2sp	2	sp	DD	xx
+Bag, Woolen	Common	Container	CONTAINER	5	3cp	3	cp	DD	xx
+Bagpipes	Common	Instrument	INSTRUMENT	60	35gp	35	gp	DD	xx
+Baldric	Common	Clothing	CLOTHING	20	2sp	2	sp	DD	xx
+Bandages (sq.ft.)	Common	Textile	TEXTILE	5	2cp	2	cp	DD	xx
+Banquet, 5 course	Common	Inn	INN	10	8gp	8	gp	DD	xx
+Banquet, 7 course	Common	Inn	INN	20	10gp	10	gp	DD	xx
+Banquet, 9 course	Common	Inn	INN	35	12gp	12	gp	DD	xx
+Barding, Chain	Uncommon	Tack	TACK	3000	500gp	500	gp	DD	xx
+Barding, Leather	Common	Tack	TACK	700	200gp	200	gp	DD	xx
+Barding, Padded	Common	Tack	TACK	600	150gp	150	gp	DD	xx
+Barding, Plate	Rare	Tack	TACK	5000	2,000gp	2000	gp	DD	xx
+Barding, Scale	Uncommon	Tack	TACK	2000	200gp	200	gp	DD	xx
+Barding, Splint	Uncommon	Tack	TACK	4000	400gp	400	gp	DD	xx
+Barge	Common	Transport	TRANSPORT	200000	500gp	500	gp	DD	xx
+Barrel (50 gal.)	Common	Container	CONTAINER	1500	5gp	5	gp	OSRIC	44
+Basket, Large	Common	Container	CONTAINER	10	3sp	3	sp	DD	xx
+Basket, Small	Common	Container	CONTAINER	5	1sp	1	sp	DD	xx
+Bastinadoes	Common	Torture	TORTURE	20	1gp	1	gp	DD	xx
+Bath, Copper	Common	Furniture	FURNITURE	150	5gp	5	gp	DD	xx
+Bath, Hot	Common	Inn	INN	0	1sp	1	sp	DD	xx
+Bath, Tin	Common	Furniture	FURNITURE	150	3gp	3	gp	DD	xx
+Beads, Prayer	Common	Ritual	RITUAL	5	1gp	1	gp	DD	xx
+Beaker	Uncommon	Alchemical	ALCHEMICAL	10	2gp	2	gp	DD	xx
+Beans (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4cp	4	cp	DD	xx
+Bear	Uncommon	Livestock	LIVESTOCK	10000	100gp	100	gp	DD	xx
+Bear, Dancing	Rare	Livestock	LIVESTOCK	10000	300gp	300	gp	DD	xx
+Bed, Double	Common	Furniture	FURNITURE	1500	60gp	60	gp	DD	xx
+Bed, Four-Poster	Common	Furniture	FURNITURE	2000	100gp	100	gp	DD	xx
+Bed, Single	Common	Furniture	FURNITURE	900	30gp	30	gp	DD	xx
+Bedroll	Common	Textile	TEXTILE	50	2sp	2	sp	OSRIC	44
+Beef, Jerky (1 lb.)	Common	Foodstuff	FOODSTUFF	10	5gp	5	gp	DD	xx
+Beef, Roast (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1gp	1	gp	DD	xx
+Beer, Small (pint)	Common	Foodstuff	FOODSTUFF	10	1cp	1	cp	DD	xx
+Beer, Strong (pint)	Common	Foodstuff	FOODSTUFF	10	2cp	2	cp	DD	xx
+Beeswax (1 lb.)	Common	Raw Goods	RAWGOODS	10	2sp	2	sp	DD	xx
+Belaying Pin	Common	Nautical	NAUTICAL	20	2cp	2	cp	DD	xx
+Bell	Common	Metalware	METALWARE	0	1gp	1	gp	OSRIC	44
+Bell, Ship's	Common	Nautical	NAUTICAL	2500	60gp	60	gp	DD	xx
+Belladonna	Common	Herb	HERB	1	4sp	4	sp	DD	xx
+Bellows (pair)	Common	Tool	TOOL	20	1gp	1	gp	DD	xx
+Belt, Cloth	Common	Clothing	CLOTHING	2	2cp	2	cp	DD	xx
+Belt, Leather	Common	Clothing	CLOTHING	3	3sp	3	sp	DD	xx
+Bench, Fancy	Common	Furniture	FURNITURE	200	6gp	6	gp	DD	xx
+Bench, Plain	Common	Furniture	FURNITURE	150	3gp	3	gp	DD	xx
+Bill Hook	Common	Tool	TOOL	25	8sp	8	sp	DD	xx
+Blanket, Woolen	Common	Textile	TEXTILE	20	5cp	5	cp	OSRIC	44
+Block and Tackle	Common	Tool	TOOL	50	5gp	5	gp	OSRIC	44
+Boar	Common	Livestock	LIVESTOCK	1000	10gp	10	gp	DD	xx
+Board, Gaming (Backgammon)	Common	Gaming	GAMING	10	12sp	12	sp	DD	xx
+Board, Gaming (Chess)	Common	Gaming	GAMING	10	1gp	1	gp	DD	xx
+Board, Gaming (Fox & Geese)	Common	Gaming	GAMING	10	7sp	7	sp	DD	xx
+Board, Gaming (Tafl)	Common	Gaming	GAMING	10	8sp	8	sp	DD	xx
+Boat, Collapsing	Uncommon	Transport	TRANSPORT	1000	500gp	500	gp	DD	xx
+Bodice, Leather	Common	Clothing	CLOTHING	20	3gp	3	gp	DD	xx
+Bodice, Linen	Common	Clothing	CLOTHING	5	3sp	3	sp	DD	xx
+Bodice, Woolen	Common	Clothing	CLOTHING	6	5cp	5	cp	DD	xx
+Book, Blank (100pp), Papyrus	Common	Scribing	SCRIBING	50	20gp	20	gp	DD	xx
+Book, Blank (100pp), Parchment	Common	Scribing	SCRIBING	50	15gp	15	gp	DD	xx
+Book, Blank (100pp), Vellum	Uncommon	Scribing	SCRIBING	50	25gp	25	gp	DD	xx
+Bookcase	Common	Furniture	FURNITURE	1000	5gp	5	gp	DD	xx
+Boots, High Hard	Common	Clothing	CLOTHING	50	2gp	2	gp	DD	xx
+Boots, High Soft	Common	Clothing	CLOTHING	30	1gp	1	gp	DD	xx
+Boots, Low Hard	Common	Clothing	CLOTHING	30	1gp	1	gp	DD	xx
+Boots, Low Soft	Common	Clothing	CLOTHING	20	8sp	8	sp	DD	xx
+Boots, Riding	Common	Clothing	CLOTHING	60	3gp	3	gp	DD	xx
+Boots, Sea	Common	Clothing	CLOTHING	80	5gp	5	gp	DD	xx
+Bottle (wine), glass	Common	Container	CONTAINER	10	2gp	2	gp	OSRIC	44
+Bowl, Clay	Common	Container	CONTAINER	15	2cp	2	cp	DD	xx
+Bowl, Copper	Common	Container	CONTAINER	20	9sp	9	sp	DD	xx
+Bowl, Silver	Common	Container	CONTAINER	20	2gp	2	gp	DD	xx
+Bowl, Wooden	Common	Container	CONTAINER	10	3cp	3	cp	DD	xx
+Box, Iron, Large	Common	Container	CONTAINER	750	15gp	15	gp	DD	xx
+Box, Iron, Small	Common	Container	CONTAINER	350	8gp	8	gp	DD	xx
+Box, Wooden	Common	Container	CONTAINER	150	1gp	1	gp	OSRIC	44
+Bracelet, Copper	Common	Jewelry	JEWELRY	3	2sp	2	sp	DD	xx
+Bracers, Leather	Common	Clothing	CLOTHING	5	18sp	18	sp	DD	xx
+Bracers, Leather (archery)	Common	Clothing	CLOTHING	10	8sp	8	sp	OSRIC	44
+Bradawl	Common	Thieving	THIEVING	0	1sp	1	sp	DD	xx
+Branding Iron	Common	Torture	TORTURE	30	1gp	1	gp	DD	xx
+Brandy, Gill	Common	Inn	INN	3	1gp	1	gp	DD	xx
+Brazier	Common	Lighting	LIGHTING	150	15gp	15	gp	DD	xx
+Bread, Loaf	Common	Foodstuff	FOODSTUFF	1	1cp	1	cp	DD	xx
+Breeches	Common	Clothing	CLOTHING	10	2gp	2	gp	DD	xx
+Brooch, Copper	Common	Jewelry	JEWELRY	10	6gp	6	gp	DD	xx
+Brooch, Pewter	Common	Jewelry	JEWELRY	10	3gp	3	gp	DD	xx
+Broom, Besom	Common	Tool	TOOL	10	1cp	1	cp	DD	xx
+Brush, Hair	Common	Jewelry	JEWELRY	3	2sp	2	sp	DD	xx
+Brush, Paint	Common	Tool	TOOL	1	1sp	1	sp	DD	xx
+Brush, Wire	Common	Tool	TOOL	1	7sp	7	sp	DD	xx
+Bucket, Wooden	Common	Container	CONTAINER	40	3sp	3	sp	DD	xx
+Buckle	Common	Jewelry	JEWELRY	5	2sp	2	sp	DD	xx
+Bull	Common	Livestock	LIVESTOCK	10000	20gp	20	gp	DD	xx
+Butcher's Hook	Common	Tool	TOOL	10	1gp	1	gp	DD	xx
+Butter (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1sp	1	sp	DD	xx
+Cabbage (1 lb.)	Common	Foodstuff	FOODSTUFF	10	3cp	3	cp	DD	xx
+Cabinet	Common	Furniture	FURNITURE	500	5gp	5	gp	DD	xx
+Cage, Bird	Common	Tool	TOOL	50	2gp	2	gp	DD	xx
+Cage, Man	Common	Torture	TORTURE	1000	120gp	120	gp	DD	xx
+Cakes (1 lb.)	Common	Foodstuff	FOODSTUFF	10	12sp	12	sp	DD	xx
+Calf	Common	Livestock	LIVESTOCK	500	5gp	5	gp	DD	xx
+Caltrops (10)	Common	Tool	TOOL	20	1gp	1	gp	OSRIC	44
+Camel	Common	Livestock	LIVESTOCK	9000	12gp	12	gp	DD	xx
+Candelabra	Common	Lighting	LIGHTING	300	20gp	20	gp	DD	xx
+Candle, Beeswax	Common	Lighting	LIGHTING	2	1cp	1	cp	OSRIC	44
+Candle, Tallow	Common	Lighting	LIGHTING	2	1cp	1	cp	DD	xx
+Candlesnuffer	Common	Lighting	LIGHTING	15	1sp	1	sp	DD	xx
+Cane, Walking	Common	Clothing	CLOTHING	50	2gp	2	gp	DD	xx
+Canoe, Large	Common	Transport	TRANSPORT	600	30gp	30	gp	DD	xx
+Canoe, Small	Common	Transport	TRANSPORT	400	50gp	50	gp	DD	xx
+Canoe, War	Common	Transport	TRANSPORT	800	100gp	100	gp	DD	xx
+Cap	Common	Clothing	CLOTHING	10	1sp	1	sp	DD	xx
+Cape, Fur	Common	Clothing	CLOTHING	20	100gp	100	gp	DD	xx
+Cape, Linen	Common	Clothing	CLOTHING	10	5sp	5	sp	DD	xx
+Cape, Woolen	Common	Clothing	CLOTHING	10	3cp	3	cp	DD	xx
+Capon	Common	Livestock	LIVESTOCK	100	3cp	3	cp	DD	xx
+Caraco, Linen	Common	Clothing	CLOTHING	10	18gp	18	gp	DD	xx
+Caravel	Uncommon	Transport	TRANSPORT	0	10,000gp	10000	gp	DD	xx
+Cards, Marked, Deck	Rare	Gaming	GAMING	1	4gp	4	gp	DD	xx
+Cards, Straight, Deck	Common	Gaming	GAMING	1	2sp	2	sp	DD	xx
+Carpet (sq.ft.)	Common	Textile	TEXTILE	20	1gp	1	gp	DD	xx
+Carriage, Common	Common	Transport	TRANSPORT	0	150gp	150	gp	DD	xx
+Carriage, Noble	Rare	Transport	TRANSPORT	0	7,000gp	7000	gp	DD	xx
+Carrots (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4cp	4	cp	DD	xx
+Cart	Common	Transport	TRANSPORT	0	50gp	50	gp	DD	xx
+Cask (30 gal.)	Common	Container	CONTAINER	600	15sp	15	sp	DD	xx
+Cat	Common	Livestock	LIVESTOCK	100	5sp	5	sp	DD	xx
+Cat O'Nine Tails	Common	Torture	TORTURE	3	2gp	2	gp	DD	xx
+Cauldron and tripod	Uncommon	Alchemical	ALCHEMICAL	150	2gp	2	gp	OSRIC	44
+Chain, Fine Gold (1')	Rare	Jewelry	JEWELRY	10	40gp	40	gp	DD	xx
+Chain, Fine Silver (1')	Uncommon	Jewelry	JEWELRY	10	15gp	15	gp	DD	xx
+Chain, Iron, Anchor (1')	Common	Tool	TOOL	100	10gp	10	gp	DD	xx
+Chain, Iron, Fine (1')	Common	Tool	TOOL	3	12gp	12	gp	DD	xx
+Chain, Iron, Heavy (1')	Common	Tool	TOOL	10	5gp	5	gp	DD	xx
+Chain, Iron, Light (1')	Common	Tool	TOOL	5	2gp	2	gp	DD	xx
+Chair, Padded	Common	Furniture	FURNITURE	450	8gp	8	gp	DD	xx
+Chair, Wooden	Common	Furniture	FURNITURE	250	4gp	4	gp	DD	xx
+Chalice	Common	Ritual	RITUAL	10	50gp	50	gp	DD	xx
+Chalk, Powder (1 oz.)	Common	Scribing	SCRIBING	2	1cp	1	cp	DD	xx
+Chalk, Stick	Common	Scribing	SCRIBING	0	1cp	1	cp	DD	xx
+Charcoal (1 lb.)	Common	Raw Goods	RAWGOODS	10	2sp	2	sp	DD	xx
+Chariot, Riding	Uncommon	Transport	TRANSPORT	0	200gp	200	gp	DD	xx
+Chariot, War	Rare	Transport	TRANSPORT	0	500gp	500	gp	DD	xx
+Cheese (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4sp	4	sp	DD	xx
+Cheesewire (1')	Common	Hardware	HARDWARE	1	1gp	1	gp	DD	xx
+Cherries (1 oz.)	Common	Foodstuff	FOODSTUFF	1	5sp	5	sp	DD	xx
+Chest, Wood, Large	Common	Container	CONTAINER	250	2gp	2	gp	DD	xx
+Chest, Wood, Small	Common	Container	CONTAINER	125	1gp	1	gp	DD	xx
+Chicken	Common	Livestock	LIVESTOCK	100	3cp	3	cp	DD	xx
+Chimes	Common	Instrument	INSTRUMENT	50	20gp	20	gp	DD	xx
+Chisel	Common	Tool	TOOL	30	1gp	1	gp	DD	xx
+Chisels, Thieves' (5)	Uncommon	Thieving	THIEVING	1	5gp	5	gp	DD	xx
+Choak Pear	Common	Torture	TORTURE	1	1gp	1	gp	DD	xx
+Chutney (1 oz.)	Common	Foodstuff	FOODSTUFF	1	3sp	3	sp	DD	xx
+Cider (2 gal.)	Common	Raw Goods	RAWGOODS	8	1sp	1	sp	DD	xx
+Cider (12 gal.)	Common	Raw Goods	RAWGOODS	48	4sp	4	sp	DD	xx
+Cider (30 gal.)	Common	Raw Goods	RAWGOODS	120	1gp	1	gp	DD	xx
+Cider (pint)	Common	Inn	INN	10	2cp	2	cp	DD	xx
+Cinnamon	Common	Foodstuff	FOODSTUFF	1	1sp	1	sp	DD	xx
+Citronella Oil (oz.)	Common	Cosmetic	COSMETIC	1	8sp	8	sp	DD	xx
+Cleaver, Butcher's	Common	Tool	TOOL	1	1gp	1	gp	DD	xx
+Cloak, Fur	Common	Clothing	CLOTHING	30	200gp	200	gp	DD	xx
+Cloak, Woolen	Common	Clothing	CLOTHING	20	5sp	5	sp	DD	xx
+Cloth, Canvas (1 sq.yd.)	Common	Textile	TEXTILE	10	1sp	1	sp	DD	xx
+Cloth, Felt (1 sq.yd.)	Common	Textile	TEXTILE	10	3cp	3	cp	DD	xx
+Cloth, Linen (1 sq.yd.)	Common	Textile	TEXTILE	5	7cp	7	cp	DD	xx
+Cloth, Silk (1 sq.yd.)	Common	Textile	TEXTILE	4	20gp	20	gp	DD	xx
+Cloth, Wool (1 sq.yd.)	Common	Textile	TEXTILE	10	2cp	2	cp	DD	xx
+Cloves	Common	Herb	HERB	1	2sp	2	sp	DD	xx
+Coal (1 lb.)	Common	Raw Goods	RAWGOODS	10	15cp	15	cp	DD	xx
+Coaster	Common	Transport	TRANSPORT	0	5,000gp	5000	gp	DD	xx
+Coffin	Common	Ritual	RITUAL	100	2gp	2	gp	DD	xx
+Cog	Common	Transport	TRANSPORT	0	10,000gp	10000	gp	DD	xx
+Comb, Antler	Common	Jewelry	JEWELRY	2	1sp	1	sp	DD	xx
+Comb, Bone	Common	Jewelry	JEWELRY	2	15cp	15	cp	DD	xx
+Comb, Horn	Common	Jewelry	JEWELRY	2	7cp	7	cp	DD	xx
+Compass	Common	Camping	CAMPING	5	10gp	10	gp	DD	xx
+Compass, Waterproof	Common	Nautical	NAUTICAL	5	12gp	12	gp	DD	xx
+Condenser	Rare	Alchemical	ALCHEMICAL	45	12gp	12	gp	DD	xx
+Cord (10')	Common	Textile	TEXTILE	2	1sp	1	sp	DD	xx
+Corset	Common	Clothing	CLOTHING	10	30gp	30	gp	DD	xx
+Corvette	Uncommon	Transport	TRANSPORT	0	12,000gp	12000	gp	DD	xx
+Cow	Common	Livestock	LIVESTOCK	7500	10gp	10	gp	DD	xx
+Crab (1 lb.)	Common	Foodstuff	FOODSTUFF	10	3gp	3	gp	DD	xx
+Crampons	Common	Tool	TOOL	30	4gp	4	gp	DD	xx
+Cross Staff	Common	Nautical	NAUTICAL	40	1gp	1	gp	DD	xx
+Crowbar	Common	Tool	TOOL	50	2gp	2	gp	OSRIC	44
+Crown, Exceptional	Very Rare	Jewelry	JEWELRY	30	5,000gp	5000	gp	DD	xx
+Crucible	Uncommon	Alchemical	ALCHEMICAL	50	5gp	5	gp	DD	xx
+Cruet	Uncommon	Alchemical	ALCHEMICAL	10	2gp	2	gp	DD	xx
+Crystal Ball	Uncommon	Alchemical	ALCHEMICAL	100	250gp	250	gp	DD	xx
+Cup, Clay	Common	Container	CONTAINER	10	1cp	1	cp	DD	xx
+Cup, Copper	Common	Container	CONTAINER	10	5sp	5	sp	DD	xx
+Cup, Silver	Common	Container	CONTAINER	10	1gp	1	gp	DD	xx
+Cup, Wooden	Common	Container	CONTAINER	5	2cp	2	cp	DD	xx
+Curragh	Common	Transport	TRANSPORT	0	500gp	500	gp	DD	xx
+Curtains (sq.ft.)	Common	Textile	TEXTILE	10	3sp	3	sp	DD	xx
+Cushion	Common	Textile	TEXTILE	10	1sp	1	sp	DD	xx
+Cutlery, Copper	Common	Tool	TOOL	1	1sp	1	sp	DD	xx
+Cutlery, Pewter	Common	Tool	TOOL	1	2sp	2	sp	DD	xx
+Cutlery, Silver	Common	Tool	TOOL	1	3sp	3	sp	DD	xx
+Cutter	Rare	Transport	TRANSPORT	0	40,000gp	40000	gp	DD	xx
+Dates (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4sp	4	sp	DD	xx
+Decanter, Clay	Common	Container	CONTAINER	50	4cp	4	cp	DD	xx
+Decanter, Crystal	Common	Container	CONTAINER	60	10gp	10	gp	DD	xx
+Decanter, Silver	Common	Container	CONTAINER	60	5gp	5	gp	DD	xx
+Deer, Red (doe)	Common	Livestock	LIVESTOCK	5000	12gp	12	gp	DD	xx
+Deer, Red (stag)	Common	Livestock	LIVESTOCK	7000	30gp	30	gp	DD	xx
+Desk	Common	Furniture	FURNITURE	600	40gp	40	gp	DD	xx
+Dice, Bone (pair)	Common	Gaming	GAMING	1	5sp	5	sp	OSRIC	44
+Dice, Loaded (pair)	Rare	Gaming	GAMING	1	5gp	5	gp	OSRIC	44
+Dinghy, Large	Common	Transport	TRANSPORT	0	150gp	150	gp	DD	xx
+Dinghy, Small	Common	Transport	TRANSPORT	0	75gp	75	gp	DD	xx
+Dish, Clay	Common	Container	CONTAINER	25	4cp	4	cp	DD	xx
+Dish, Copper	Common	Container	CONTAINER	20	12sp	12	sp	DD	xx
+Dish, Pewter	Common	Container	CONTAINER	30	25sp	25	sp	DD	xx
+Dish, Silver	Common	Container	CONTAINER	40	8gp	8	gp	DD	xx
+Distaff	Common	Tool	TOOL	1	9cp	9	cp	DD	xx
+Dog, Guard	Common	Livestock	LIVESTOCK	800	25gp	25	gp	DD	xx
+Dog, Hunting	Common	Livestock	LIVESTOCK	650	17gp	17	gp	DD	xx
+Dog, Lap	Common	Livestock	LIVESTOCK	500	5gp	5	gp	DD	xx
+Dog, Sled	Uncommon	Livestock	LIVESTOCK	800	15gp	15	gp	DD	xx
+Dog, War	Rare	Livestock	LIVESTOCK	1000	100gp	100	gp	DD	xx
+Dogsled 	Common	Transport	TRANSPORT	0	40gp	40	gp	DD	xx
+Donkey	Common	Livestock	LIVESTOCK	8000	8gp	8	gp	DD	xx
+Doublet, Linen	Common	Clothing	CLOTHING	100	3gp	3	gp	OSRIC	44
+Dove	Common	Livestock	LIVESTOCK	15	3sp	3	sp	DD	xx
+Drakkar	Rare	Transport	TRANSPORT	0	25,000gp	25000	gp	DD	xx
+Dress, Linen	Common	Clothing	CLOTHING	30	15sp	15	sp	DD	xx
+Dress, Woolen	Common	Clothing	CLOTHING	40	9cp	9	cp	DD	xx
+Drill, Brace & Bit	Common	Tool	TOOL	50	5gp	5	gp	DD	xx
+Dromond	Uncommon	Transport	TRANSPORT	0	15,000gp	15000	gp	DD	xx
+Drum	Common	Instrument	INSTRUMENT	50	5gp	5	gp	DD	xx
+Duck	Common	Livestock	LIVESTOCK	20	4sp	4	sp	DD	xx
+Eagle	Uncommon	Livestock	LIVESTOCK	500	500gp	500	gp	DD	xx
+Earring, Copper	Common	Jewelry	JEWELRY	2	1sp	1	sp	DD	xx
+Earspoon, Bone	Common	Jewelry	JEWELRY	10	2cp	2	cp	DD	xx
+Eggs, Duck (dozen)	Common	Foodstuff	FOODSTUFF	25	2cp	2	cp	DD	xx
+Eggs, Goose (dozen)	Common	Foodstuff	FOODSTUFF	35	3cp	3	cp	DD	xx
+Eggs, Hen (dozen)	Common	Foodstuff	FOODSTUFF	15	1cp	1	cp	DD	xx
+Eggs, Quail	Common	Foodstuff	FOODSTUFF	8	1gp	1	gp	DD	xx
+Elephant	Rare	Livestock	LIVESTOCK	100000	300gp	300	gp	DD	xx
+Elephant, War	Very Rare	Livestock	LIVESTOCK	120000	1,500gp	1500	gp	DD	xx
+Falcon	Common	Livestock	LIVESTOCK	80	80gp	80	gp	DD	xx
+Feed & Stabling (Horse/Day)	Common	Inn	INN	0	5sp	5	sp	DD	xx
+Fetters	Common	Torture	TORTURE	10	5gp	5	gp	DD	xx
+Fiddle	Common	Instrument	INSTRUMENT	40	40gp	40	gp	DD	xx
+Fife	Common	Instrument	INSTRUMENT	10	30gp	30	gp	DD	xx
+Figs (1 lb.)	Common	Foodstuff	FOODSTUFF	10	3sp	3	sp	DD	xx
+File, Metal	Common	Tool	TOOL	10	2gp	2	gp	DD	xx
+File, Small, Thieves'	Uncommon	Thieving	THIEVING	0	2gp	2	gp	DD	xx
+Fire-starting Bow	Common	Tool	TOOL	5	7sp	7	sp	DD	xx
+Firewood (per day)	Common	Raw Goods	RAWGOODS	200	1cp	1	cp	OSRIC	44
+Fish Hook	Common	Nautical	NAUTICAL	0	1sp	1	sp	OSRIC	44
+Fish, Fresh (1 lb.)	Common	Foodstuff	FOODSTUFF	10	5sp	5	sp	DD	xx
+Fish, Pickled (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1gp	1	gp	DD	xx
+Fish, Salted (1 lb.)	Common	Foodstuff	FOODSTUFF	10	12sp	12	sp	DD	xx
+Fishing Net (25 sq. ft.)	Common	Nautical	NAUTICAL	250	1sp	1	sp	OSRIC	44
+Flabellum	Common	Ritual	RITUAL	10	2gp	2	gp	DD	xx
+Flask (leather)	Common	Container	CONTAINER	10	3cp	3	cp	OSRIC	44
+Flatiron	Common	Tool	TOOL	60	5sp	5	sp	DD	xx
+Flint and Steel	Common	Tool	TOOL	10	1gp	1	gp	OSRIC	44
+Flour, Sack	Common	Foodstuff	FOODSTUFF	400	5cp	5	cp	DD	xx
+Flute	Common	Instrument	INSTRUMENT	10	20gp	20	gp	DD	xx
+Font	Common	Ritual	RITUAL	750	100gp	100	gp	DD	xx
+Fork	Common	Tool	TOOL	20	4sp	4	sp	DD	xx
+Fowl, Roast Chicken	Common	Foodstuff	FOODSTUFF	30	4sp	4	sp	DD	xx
+Fowl, Roast Duck	Common	Foodstuff	FOODSTUFF	20	6sp	6	sp	DD	xx
+Fowl, Roast Goose	Common	Foodstuff	FOODSTUFF	65	1gp	1	gp	DD	xx
+Fowl, Roast Peacock	Common	Foodstuff	FOODSTUFF	100	30gp	30	gp	DD	xx
+Fowl, Roast Pheasant	Common	Foodstuff	FOODSTUFF	25	2gp	2	gp	DD	xx
+Fowl, Roast Swan	Common	Foodstuff	FOODSTUFF	200	25gp	25	gp	DD	xx
+Frankincense (oz.)	Rare	Cosmetic	COSMETIC	1	2gp	2	gp	DD	xx
+Funnel	Uncommon	Alchemical	ALCHEMICAL	10	15sp	15	sp	DD	xx
+Gaff Hook	Common	Nautical	NAUTICAL	200	5cp	5	cp	DD	xx
+Gaiters, Leather	Common	Clothing	CLOTHING	5	24sp	24	sp	DD	xx
+Galleon	Very Rare	Transport	TRANSPORT	0	50,000gp	50000	gp	DD	xx
+Galley, Large	Rare	Transport	TRANSPORT	0	25,000gp	25000	gp	DD	xx
+Galley, Small	Uncommon	Transport	TRANSPORT	0	10,000gp	10000	gp	DD	xx
+Galley, War	Very Rare	Transport	TRANSPORT	0	40,000gp	40000	gp	DD	xx
+Garlic, Bulb	Common	Herb	HERB	1	5cp	5	cp	DD	xx
+Gauntlets, Leather	Common	Clothing	CLOTHING	20	8gp	8	gp	DD	xx
+Ginger	Common	Foodstuff	FOODSTUFF	1	2sp	2	sp	DD	xx
+Girdle, Broad	Common	Clothing	CLOTHING	10	2gp	2	gp	DD	xx
+Girdle, Normal	Common	Clothing	CLOTHING	5	10sp	10	sp	DD	xx
+Glass (1 sq.ft.)	Common	Raw Goods	RAWGOODS	20	8gp	8	gp	DD	xx
+Gloves, Leather	Common	Clothing	CLOTHING	10	5gp	5	gp	DD	xx
+Gloves, Linen	Common	Clothing	CLOTHING	1	2sp	2	sp	DD	xx
+Gloves, Woolen	Common	Clothing	CLOTHING	2	5cp	5	cp	DD	xx
+Gloves,Kidskin 	Common	Clothing	CLOTHING	5	3gp	3	gp	OSRIC	44
+Glue (oz.)	Common	Raw Goods	RAWGOODS	10	5cp	5	cp	DD	xx
+Goat	Common	Livestock	LIVESTOCK	600	1gp	1	gp	DD	xx
+Goblet, Copper	Common	Container	CONTAINER	10	5sp	5	sp	DD	xx
+Goblet, Crystal	Common	Container	CONTAINER	10	4gp	4	gp	DD	xx
+Gong	Common	Instrument	INSTRUMENT	250	20gp	20	gp	DD	xx
+Goose	Common	Livestock	LIVESTOCK	65	5cp	5	cp	DD	xx
+Gown, Linen	Common	Clothing	CLOTHING	100	3gp	3	gp	OSRIC	44
+Gown, Silk	Common	Clothing	CLOTHING	100	50gp	50	gp	OSRIC	44
+Gown, Woolen	Common	Clothing	CLOTHING	10	5cp	5	cp	DD	xx
+Gown, Woollen	Common	Clothing	CLOTHING	100	5cp	5	cp	OSRIC	44
+Grain Flail	Common	Tool	TOOL	20	2gp	2	gp	DD	xx
+Grapes (1 lb.)	Common	Foodstuff	FOODSTUFF	10	9sp	9	sp	DD	xx
+Grapnel	Common	Tool	TOOL	80	8gp	8	gp	DD	xx
+Grappling Hook	Common	Tool	TOOL	40	1gp	1	gp	OSRIC	44
+Griddle	Common	Container	CONTAINER	15	12sp	12	sp	DD	xx
+Griffon, Riding	Very Rare	Livestock	LIVESTOCK	80000	35,000gp	35000	gp	DD	xx
+Grindstone	Common	Tool	TOOL	20	5gp	5	gp	DD	xx
+Grooming Brush	Common	Tack	TACK	1	6sp	6	sp	DD	xx
+Guinea Fowl	Common	Livestock	LIVESTOCK	20	5cp	5	cp	DD	xx
+Habit, Woolen	Common	Clothing	CLOTHING	10	3cp	3	cp	DD	xx
+Hacksaw	Common	Tool	TOOL	20	2gp	2	gp	DD	xx
+Hacksaw, Thieves'	Uncommon	Thieving	THIEVING	1	2gp	2	gp	DD	xx
+Halter	Common	Tack	TACK	1	5cp	5	cp	DD	xx
+Ham (1 lb.)	Common	Foodstuff	FOODSTUFF	10	11sp	11	sp	DD	xx
+Hammer	Common	Tool	TOOL	20	5sp	5	sp	OSRIC	44
+Hammer, Thieves'	Uncommon	Thieving	THIEVING	1	1gp	1	gp	DD	xx
+Hammock	Common	Textile	TEXTILE	20	2sp	2	sp	DD	xx
+Hand Drill, Thieves'	Uncommon	Thieving	THIEVING	1	2gp	2	gp	DD	xx
+Hare	Common	Livestock	LIVESTOCK	18	25cp	25	cp	DD	xx
+Harness	Common	Tack	TACK	100	12cp	12	cp	DD	xx
+Harness, Cart	Common	Tack	TACK	100	2gp	2	gp	DD	xx
+Harness, Mountaineer's	Uncommon	Tool	TOOL	5	15gp	15	gp	DD	xx
+Harp	Common	Instrument	INSTRUMENT	120	100gp	100	gp	DD	xx
+Harrow	Common	Hardware	HARDWARE	50	4gp	4	gp	DD	xx
+Hat, Fur	Common	Clothing	CLOTHING	10	50gp	50	gp	DD	xx
+Hat, Straw	Common	Clothing	CLOTHING	10	3sp	3	sp	DD	xx
+Hat, Tricorne	Common	Clothing	CLOTHING	5	5gp	5	gp	DD	xx
+Hat, Woolen	Common	Clothing	CLOTHING	10	1sp	1	sp	DD	xx
+Hawk, Large	Uncommon	Livestock	LIVESTOCK	400	40gp	40	gp	DD	xx
+Hawk, Small	Common	Livestock	LIVESTOCK	70	18gp	18	gp	DD	xx
+Head Clamp	Common	Torture	TORTURE	60	12gp	12	gp	DD	xx
+Henna	Common	Cosmetic	COSMETIC	1	7sp	7	sp	DD	xx
+Herbs, Cooking	Common	Foodstuff	FOODSTUFF	1	5cp	5	cp	DD	xx
+Hippocampus, Riding	Very Rare	Livestock	LIVESTOCK	40000	20,000gp	20000	gp	DD	xx
+Hippogriff, Riding	Very Rare	Livestock	LIVESTOCK	20000	32,000gp	32000	gp	DD	xx
+Hoe	Common	Tool	TOOL	15	8sp	8	sp	DD	xx
+Holy Symbol, Pewter	Common	Ritual	RITUAL	10	5gp	5	gp	OSRIC	44
+Holy Symbol, Silver	Common	Ritual	RITUAL	10	25gp	25	gp	OSRIC	44
+Holy Symbol, Wood	Common	Ritual	RITUAL	10	6sp	6	sp	OSRIC	44
+Honey (1 oz.)	Common	Foodstuff	FOODSTUFF	1	4sp	4	sp	DD	xx
+Hood, Fur-lined	Common	Clothing	CLOTHING	10	5gp	5	gp	DD	xx
+Hood, Linen	Common	Clothing	CLOTHING	10	3sp	3	sp	DD	xx
+Hood, Woolen	Common	Clothing	CLOTHING	10	5cp	5	cp	DD	xx
+Hoof Pick	Common	Tack	TACK	10	5sp	5	sp	DD	xx
+Hooked Wires	Common	Thieving	THIEVING	1	6sp	6	sp	DD	xx
+Hooupleande	Common	Clothing	CLOTHING	10	5gp	5	gp	DD	xx
+Horn	Common	Instrument	INSTRUMENT	40	35gp	35	gp	DD	xx
+Horse, Cart	Common	Livestock	LIVESTOCK	11000	15gp	15	gp	OSRIC	44
+Horse, Heavy War	Uncommon	Livestock	LIVESTOCK	13000	300gp	300	gp	OSRIC	44
+Horse, Light War	Uncommon	Livestock	LIVESTOCK	9000	150gp	150	gp	OSRIC	44
+Horse, Medium War	Uncommon	Livestock	LIVESTOCK	11000	225gp	225	gp	OSRIC	44
+Horse, Nag	Common	Livestock	LIVESTOCK	8000	8gp	8	gp	OSRIC	44
+Horse, Draft	Common	Livestock	LIVESTOCK	8000	30gp	30	gp	OSRIC	44
+Horse, Light Riding	Common	Livestock	LIVESTOCK	8000	25gp	25	gp	OSRIC	44
+Horseshoes (4)	Common	Tack	TACK	100	1gp	1	gp	DD	xx
+Hose	Common	Clothing	CLOTHING	100	1gp	1	gp	OSRIC	44
+Hour Candle	Common	Lighting	LIGHTING	10	9sp	9	sp	DD	xx
+Hourglass	Common	Tool	TOOL	10	20gp	20	gp	DD	xx
+Idol	Common	Ritual	RITUAL	1000	25gp	25	gp	DD	xx
+Ink (oz.)	Common	Scribing	SCRIBING	10	1gp	1	gp	DD	xx
+Iron Boot	Common	Torture	TORTURE	100	10gp	10	gp	DD	xx
+Iron Maiden	Common	Torture	TORTURE	2000	200gp	200	gp	DD	xx
+Jar, Clay	Common	Container	CONTAINER	30	4cp	4	cp	DD	xx
+Jar, Glass	Common	Container	CONTAINER	30	6gp	6	gp	DD	xx
+Jemmy, Thieves'	Uncommon	Thieving	THIEVING	1	1gp	1	gp	DD	xx
+Jerkin, Leather	Common	Clothing	CLOTHING	75	1gp	1	gp	DD	xx
+Jug, Clay	Common	Container	CONTAINER	50	4cp	4	cp	DD	xx
+Jug, Copper	Common	Container	CONTAINER	50	8sp	8	sp	DD	xx
+Kayak	Uncommon	Transport	TRANSPORT	400	250gp	250	gp	DD	xx
+Keg (5 gal.)	Common	Container	CONTAINER	50	5sp	5	sp	DD	xx
+Key Blank	Common	Thieving	THIEVING	1	1sp	1	sp	DD	xx
+Keyhole Saw, Thieves'	Uncommon	Thieving	THIEVING	1	2gp	2	gp	DD	xx
+Kirtle, Linen	Common	Clothing	CLOTHING	20	25sp	25	sp	DD	xx
+Kirtle, Woolen	Common	Clothing	CLOTHING	30	1sp	1	sp	DD	xx
+Knarr	Common	Transport	TRANSPORT	0	3,000gp	3000	gp	DD	xx
+Kohl	Common	Cosmetic	COSMETIC	1	5sp	5	sp	DD	xx
+Ladder (10')	Common	Tool	TOOL	20	5sp	5	sp	OSRIC	44
+Ladle	Common	Tool	TOOL	5	6sp	6	sp	DD	xx
+Lamp Oil (pint)	Common	Lighting	LIGHTING	10	1sp	1	sp	OSRIC	44
+Lamp, Bronze	Common	Lighting	LIGHTING	10	1sp	1	sp	OSRIC	44
+Lamp, Swivel	Common	Nautical	NAUTICAL	150	4gp	4	gp	DD	xx
+Lantern, Bullseye	Common	Lighting	LIGHTING	30	12gp	12	gp	OSRIC	44
+Lantern, Hooded	Common	Lighting	LIGHTING	20	7gp	7	gp	OSRIC	44
+Lard (pint)	Common	Raw Goods	RAWGOODS	20	1cp	1	cp	DD	xx
+Lavender Oil (oz.)	Common	Cosmetic	COSMETIC	1	7sp	7	sp	DD	xx
+Leeks (1 lb.)	Common	Foodstuff	FOODSTUFF	10	7cp	7	cp	DD	xx
+Lens, Magnifying	Rare	Scribing	SCRIBING	1	100gp	100	gp	DD	xx
+Limewood Strips	Uncommon	Thieving	THIEVING	10	2sp	2	sp	DD	xx
+Liripipe, Jester's	Uncommon	Clothing	CLOTHING	100	2gp	2	gp	DD	xx
+Listening Horn	Uncommon	Thieving	THIEVING	1	3sp	3	sp	DD	xx
+Llama	Rare	Livestock	LIVESTOCK	6500	30gp	30	gp	DD	xx
+Lobster (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4gp	4	gp	DD	xx
+Lock, Basic	Common	Tool	TOOL	10	20gp	20	gp	DD	xx
+Lock, Secure	Uncommon	Tool	TOOL	10	50gp	50	gp	DD	xx
+Lockpicks (12)	Uncommon	Thieving	THIEVING	1	12gp	12	gp	DD	xx
+Lodestone	Common	Tool	TOOL	10	3gp	3	gp	DD	xx
+Loincloth	Common	Clothing	CLOTHING	5	1cp	1	cp	DD	xx
+Longship	Common	Transport	TRANSPORT	0	10,000gp	10000	gp	DD	xx
+Loom	Common	Tool	TOOL	50	12gp	12	gp	DD	xx
+Lute	Common	Instrument	INSTRUMENT	40	50gp	50	gp	DD	xx
+Lyre	Common	Instrument	INSTRUMENT	80	75gp	75	gp	DD	xx
+Mallet, Wooden	Common	Tool	TOOL	20	3cp	3	cp	DD	xx
+Manacles, Pair	Common	Torture	TORTURE	2	15gp	15	gp	OSRIC	44
+Mandolin	Common	Instrument	INSTRUMENT	50	50gp	50	gp	DD	xx
+Mangle	Common	Tool	TOOL	100	20gp	20	gp	DD	xx
+Mask (Masque)	Common	Clothing	CLOTHING	10	10gp	10	gp	DD	xx
+Mask (Robber)	Common	Clothing	CLOTHING	10	1gp	1	gp	DD	xx
+Mat	Common	Textile	TEXTILE	50	4sp	4	sp	DD	xx
+Mattress, Down, Double	Common	Textile	TEXTILE	300	10gp	10	gp	DD	xx
+Mattress, Down, Single	Common	Textile	TEXTILE	150	6gp	6	gp	DD	xx
+Mattress, Feather, Double	Common	Textile	TEXTILE	300	7gp	7	gp	DD	xx
+Mattress, Feather, Single	Common	Textile	TEXTILE	150	4gp	4	gp	DD	xx
+Mattress, Heather, Double	Common	Textile	TEXTILE	300	5gp	5	gp	DD	xx
+Mattress, Heather, Single	Common	Textile	TEXTILE	150	3gp	3	gp	DD	xx
+Mattress, Straw, Double	Common	Textile	TEXTILE	300	4gp	4	gp	DD	xx
+Mattress, Straw, Single	Common	Textile	TEXTILE	150	2gp	2	gp	DD	xx
+Mead (Pint)	Common	Inn	INN	10	4cp	4	cp	DD	xx
+Meal, Common	Common	Inn	INN	3	3sp	3	sp	DD	xx
+Meal, Good	Common	Inn	INN	5	5sp	5	sp	DD	xx
+Meal, Poor	Common	Inn	INN	10	1sp	1	sp	DD	xx
+Meal, Potluck	Common	Inn	INN	5	5cp	5	cp	DD	xx
+Milk, Cow's (pint)	Common	Foodstuff	FOODSTUFF	10	2cp	2	cp	DD	xx
+Milk, Goat's (pint)	Common	Foodstuff	FOODSTUFF	10	1cp	1	cp	DD	xx
+Mirror (1 sq. ft.)	Common	Raw Goods	RAWGOODS	20	15gp	15	gp	DD	xx
+Mirror on Rod	Uncommon	Thieving	THIEVING	2	20gp	20	gp	DD	xx
+Mirror, Small Silver	Common	Tool	TOOL	5	45gp	45	gp	OSRIC	44
+Mirror, Small Steel	Common	Tool	TOOL	5	20gp	20	gp	OSRIC	44
+Mittens, Woolen	Common	Clothing	CLOTHING	1	2cp	2	cp	DD	xx
+Mop	Common	Tool	TOOL	10	2cp	2	cp	DD	xx
+Motley, Jester's 	Uncommon	Clothing	CLOTHING	20	15gp	15	gp	DD	xx
+Mug, Clay	Common	Container	CONTAINER	10	1cp	1	cp	DD	xx
+Mule	Common	Livestock	LIVESTOCK	7000	18gp	18	gp	OSRIC	44
+Mushrooms (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1sp	1	sp	DD	xx
+Mustard (1 oz.)	Common	Foodstuff	FOODSTUFF	1	3sp	3	sp	DD	xx
+Myrrh (oz.)	Rare	Cosmetic	COSMETIC	1	2gp	2	gp	DD	xx
+Nails, Iron (1 doz.)	Common	Tool	TOOL	10	1cp	1	cp	DD	xx
+Necklace, Amber	Uncommon	Jewelry	JEWELRY	2	45gp	45	gp	DD	xx
+Necklace, Bead	Common	Jewelry	JEWELRY	3	1gp	1	gp	DD	xx
+Necklace, Pearl	Uncommon	Jewelry	JEWELRY	2	60gp	60	gp	DD	xx
+Needle & Thread	Common	Tool	TOOL	0	3cp	3	cp	OSRIC	44
+Needle, Bone Sewing	Common	Tool	TOOL	0	1cp	1	cp	DD	xx
+Needle, Gold Sewing	Uncommon	Tool	TOOL	0	2gp	2	gp	DD	xx
+Needle, Iron Sewing	Common	Tool	TOOL	0	5cp	5	cp	DD	xx
+Needle, Silver Sewing	Uncommon	Tool	TOOL	0	3sp	3	sp	DD	xx
+Nightgown, Linen	Common	Clothing	CLOTHING	10	7sp	7	sp	DD	xx
+Nightgown, Silk	Common	Clothing	CLOTHING	10	30gp	30	gp	DD	xx
+Nutmeg	Common	Foodstuff	FOODSTUFF	1	5cp	5	cp	DD	xx
+Nuts (1 lb,)	Common	Foodstuff	FOODSTUFF	10	10gp	10	gp	DD	xx
+Oar, Common	Common	Nautical	NAUTICAL	200	4sp	4	sp	DD	xx
+Oar, Galley	Common	Nautical	NAUTICAL	1000	3gp	3	gp	DD	xx
+Oats (1 lb.)	Common	Foodstuff	FOODSTUFF	10	2cp	2	cp	DD	xx
+Oboe	Common	Instrument	INSTRUMENT	20	40gp	40	gp	DD	xx
+Oil, Greek Fire (pint)	Common	Raw Goods	RAWGOODS	10	12gp	12	gp	DD	xx
+Oil, Lamp (pint)	Common	Raw Goods	RAWGOODS	10	1sp	1	sp	DD	xx
+Olive Oil (pint)	Common	Foodstuff	FOODSTUFF	10	6sp	6	sp	DD	xx
+Onions (1 lb.)	Common	Foodstuff	FOODSTUFF	10	4cp	4	cp	DD	xx
+Owlbear, Guard	Rare	Livestock	LIVESTOCK	75000	10,000gp	10000	gp	DD	xx
+Ox	Common	Livestock	LIVESTOCK	10000	15gp	15	gp	OSRIC	44
+Paddle	Common	Nautical	NAUTICAL	50	3sp	3	sp	DD	xx
+Pail	Common	Container	CONTAINER	10	2sp	2	sp	DD	xx
+Paint (pint)	Common	Raw Goods	RAWGOODS	10	2sp	2	sp	DD	xx
+Pall	Common	Ritual	RITUAL	10	3sp	3	sp	DD	xx
+Pan Pipes	Common	Instrument	INSTRUMENT	10	5gp	5	gp	DD	xx
+Paper (sheet)	Common	Scribing	SCRIBING	0	1gp	1	gp	DD	xx
+Paprika	Common	Foodstuff	FOODSTUFF	1	2sp	2	sp	DD	xx
+Papyrus (sheet)	Common	Scribing	SCRIBING	0	1sp	1	sp	DD	xx
+Parchment (sheet)	Common	Scribing	SCRIBING	0	2sp	2	sp	OSRIC	44
+Partridge	Common	Livestock	LIVESTOCK	15	5cp	5	cp	DD	xx
+Patchouli Oil	Common	Cosmetic	COSMETIC	1	14sp	14	sp	DD	xx
+Peaches (1 lb.)	Common	Foodstuff	FOODSTUFF	10	6cp	6	cp	DD	xx
+Peacock	Common	Livestock	LIVESTOCK	100	20gp	20	gp	DD	xx
+Peahen	Common	Livestock	LIVESTOCK	70	5gp	5	gp	DD	xx
+Pears (1 lb.)	Common	Foodstuff	FOODSTUFF	10	3cp	3	cp	DD	xx
+Pegasus, Riding	Very Rare	Livestock	LIVESTOCK	10000	40,000gp	40000	gp	DD	xx
+Peignoir	Common	Clothing	CLOTHING	10	50gp	50	gp	DD	xx
+Pen, Quill	Common	Scribing	SCRIBING	0	1sp	1	sp	DD	xx
+Pendant, Bronze	Common	Jewelry	JEWELRY	1	8sp	8	sp	DD	xx
+Pendant, Pewter	Common	Jewelry	JEWELRY	1	6sp	6	sp	DD	xx
+Penknife	Common	Tool	TOOL	10	8sp	8	sp	DD	xx
+Peplos, Linen	Common	Clothing	CLOTHING	10	18sp	18	sp	DD	xx
+Peplos, Woolen	Common	Clothing	CLOTHING	15	6cp	6	cp	DD	xx
+Pepper 	Common	Foodstuff	FOODSTUFF	1	3sp	3	sp	DD	xx
+Perfume (gill)	Common	Cosmetic	COSMETIC	1	5gp	5	gp	DD	xx
+Pestle & Mortar	Common	Tool	TOOL	2	7sp	7	sp	DD	xx
+Petticoat, Linen	Common	Clothing	CLOTHING	10	6sp	6	sp	DD	xx
+Pheasant	Common	Livestock	LIVESTOCK	25	7cp	7	cp	DD	xx
+Pickaxe	Common	Tool	TOOL	60	7gp	7	gp	DD	xx
+Pieces, Gaming, Backgammon	Common	Gaming	GAMING	20	2gp	2	gp	DD	xx
+Pieces, Gaming, Chess	Common	Gaming	GAMING	20	3gp	3	gp	DD	xx
+Pieces, Gaming, Fox & Geese	Common	Gaming	GAMING	15	10sp	10	sp	DD	xx
+Pieces, Gaming, Tafl	Common	Gaming	GAMING	30	12sp	12	sp	DD	xx
+Pig	Common	Livestock	LIVESTOCK	3000	3gp	3	gp	DD	xx
+Pigeon	Common	Livestock	LIVESTOCK	15	1cp	1	cp	DD	xx
+Pigeon, Homing	Uncommon	Livestock	LIVESTOCK	15	100gp	100	gp	DD	xx
+Piglet	Common	Livestock	LIVESTOCK	100	1gp	1	gp	DD	xx
+Pillory	Common	Torture	TORTURE	100	4gp	4	gp	DD	xx
+Pillow, Down	Common	Textile	TEXTILE	20	2gp	2	gp	DD	xx
+Pillow, Feather	Common	Textile	TEXTILE	20	15sp	15	sp	DD	xx
+Pillow, Heather	Common	Textile	TEXTILE	20	1gp	1	gp	DD	xx
+Pillow, Straw	Common	Textile	TEXTILE	20	5sp	5	sp	DD	xx
+Pin, Cloak	Common	Jewelry	JEWELRY	5	4sp	4	sp	OSRIC	44
+Pincers	Common	Torture	TORTURE	30	2gp	2	gp	DD	xx
+Pipeweed (1 oz.)	Common	Foodstuff	FOODSTUFF	1	5cp	5	cp	DD	xx
+Pipe, Smoking	Common	Jewelry	JEWELRY	5	1sp	1	sp	DD	xx
+Pipette	Uncommon	Alchemical	ALCHEMICAL	5	8gp	8	gp	DD	xx
+Piton	Common	Tool	TOOL	5	1sp	1	sp	OSRIC	44
+Plate,  Iron	Common	Container	CONTAINER	10	1gp	1	gp	DD	xx
+Plate, Copper	Common	Container	CONTAINER	10	7sp	7	sp	DD	xx
+Plate, Silver	Common	Container	CONTAINER	10	3gp	3	gp	DD	xx
+Platter, Clay	Common	Container	CONTAINER	20	3cp	3	cp	DD	xx
+Platter, Silver	Common	Container	CONTAINER	30	5gp	5	gp	DD	xx
+Platter, Wooden	Common	Container	CONTAINER	20	3cp	3	cp	DD	xx
+Pliers	Common	Tool	TOOL	20	1gp	1	gp	DD	xx
+Pliers, Thieves'	Uncommon	Thieving	THIEVING	1	1gp	1	gp	DD	xx
+Plough	Common	Tool	TOOL	50	10gp	10	gp	DD	xx
+Pole (10')	Common	Tool	TOOL	80	2sp	2	sp	OSRIC	44
+Pony	Common	Livestock	LIVESTOCK	4000	12gp	12	gp	OSRIC	44
+Pork, Roast (1 lb.)	Common	Foodstuff	FOODSTUFF	10	8sp	8	sp	DD	xx
+Pork, Salted (1 lb.)	Common	Foodstuff	FOODSTUFF	10	12sp	12	sp	DD	xx
+Pot, Iron, Cooking	Common	Container	CONTAINER	100	5sp	5	sp	OSRIC	44
+Potatoes (1 lb.)	Common	Foodstuff	FOODSTUFF	10	2cp	2	cp	DD	xx
+Pouch, Cloth, Large	Common	Container	CONTAINER	20	3cp	3	cp	DD	xx
+Pouch, Cloth, Small	Common	Container	CONTAINER	10	1cp	1	cp	DD	xx
+Pouch, Leather, Large	Common	Container	CONTAINER	20	4sp	4	sp	OSRIC	44
+Pouch, Leather, Small	Common	Container	CONTAINER	10	2sp	2	sp	OSRIC	44
+Prayer Mat	Common	Ritual	RITUAL	40	5sp	5	sp	DD	xx
+Press, Wine	Common	Tool	TOOL	80	20gp	20	gp	DD	xx
+Prism	Uncommon	Alchemical	ALCHEMICAL	35	20gp	20	gp	DD	xx
+Pry Bar, Thieves'	Uncommon	Thieving	THIEVING	1	1gp	1	gp	DD	xx
+Pulley	Common	Tool	TOOL	15	25gp	25	gp	DD	xx
+Purse	Common	Container	CONTAINER	5	1cp	1	cp	DD	xx
+Puzzle Box	Uncommon	Container	CONTAINER	5	60gp	60	gp	DD	xx
+Quern	Common	Tool	TOOL	60	3gp	3	gp	DD	xx
+Quiver (12 arrows)	Common	Container	CONTAINER	10	1gp	1	gp	OSRIC	44
+Quiver (12 bolts)	Common	Container	CONTAINER	10	12sp	12	sp	OSRIC	44
+Quiver (24 arrows)	Common	Container	CONTAINER	24	25sp	25	sp	OSRIC	44
+Quiver (24 bolts)	Common	Container	CONTAINER	24	3gp	3	gp	OSRIC	44
+Rabbit	Common	Livestock	LIVESTOCK	15	2sp	2	sp	DD	xx
+Rack	Common	Torture	TORTURE	1000	75gp	75	gp	DD	xx
+Raft	Common	Transport	TRANSPORT	0	40gp	40	gp	DD	xx
+Raisins (1 lb.)	Common	Foodstuff	FOODSTUFF	10	2sp	2	sp	DD	xx
+Rake	Common	Tool	TOOL	25	7sp	7	sp	DD	xx
+Ram	Common	Livestock	LIVESTOCK	850	4gp	4	gp	DD	xx
+Rations, Standard (1 day)	Common	Foodstuff	FOODSTUFF	20	2gp	2	gp	OSRIC	44
+Rations, Trail (1 day)	Common	Foodstuff	FOODSTUFF	10	6gp	6	gp	OSRIC	44
+Razor	Common	Tool	TOOL	5	1gp	1	gp	DD	xx
+Reins, Bit & Bridle	Common	Tack	TACK	50	2gp	2	gp	OSRIC	44
+Retort	Uncommon	Alchemical	ALCHEMICAL	20	5gp	5	gp	DD	xx
+Retort Stand	Uncommon	Alchemical	ALCHEMICAL	10	5sp	5	sp	DD	xx
+Ring, Copper	Common	Jewelry	JEWELRY	0	2sp	2	sp	DD	xx
+Ring, Engagement	Common	Jewelry	JEWELRY	0	60gp	60	gp	DD	xx
+Ring, High Priest's	Rare	Jewelry	JEWELRY	0	400gp	400	gp	DD	xx
+Ring, Ornamental Gold	Common	Jewelry	JEWELRY	0	25gp	25	gp	DD	xx
+Ring, Ornamental Silver	Common	Jewelry	JEWELRY	0	10gp	10	gp	DD	xx
+Ring, Signet	Common	Jewelry	JEWELRY	0	175gp	175	gp	DD	xx
+Ring, Wedding	Common	Jewelry	JEWELRY	0	85gp	85	gp	DD	xx
+Robe, Linen	Common	Clothing	CLOTHING	10	3gp	3	gp	OSRIC	44
+Robe, Silk	Uncommon	Clothing	CLOTHING	10	60gp	60	gp	OSRIC	44
+Robe, Silk, Fur-trimmed	Uncommon	Clothing	CLOTHING	15	150gp	150	gp	DD	xx
+Robe, Woolen	Common	Clothing	CLOTHING	50	6sp	6	sp	DD	xx
+Roc, Riding	Very Rare	Livestock	LIVESTOCK	250000	100,000gp	100000	gp	DD	xx
+Room, Common (month)	Common	Inn	INN	0	12gp	12	gp	DD	xx
+Room, Common (week)	Common	Inn	INN	0	3gp	3	gp	DD	xx
+Room, Common (night)	Common	Inn	INN	0	5sp	5	sp	DD	xx
+Room, Double (month)	Common	Inn	INN	0	20gp	20	gp	DD	xx
+Room, Double (week)	Common	Inn	INN	0	6gp	6	gp	DD	xx
+Room, Double (night)	Common	Inn	INN	0	1gp	1	gp	DD	xx
+Room, Poor (month)	Common	Inn	INN	0	8gp	8	gp	DD	xx
+Room, Poor (week)	Common	Inn	INN	0	2sp	2	sp	DD	xx
+Room, Poor (night)	Common	Inn	INN	0	5cp	5	cp	DD	xx
+Rope, Hemp (50')	Common	Textile	TEXTILE	10	1gp	1	gp	OSRIC	44
+Rope, Silk (50')	Common	Textile	TEXTILE	5	10gp	10	gp	OSRIC	44
+Rouge	Common	Cosmetic	COSMETIC	1	12sp	12	sp	DD	xx
+Rug, Large	Common	Textile	TEXTILE	300	3gp	3	gp	DD	xx
+Rug, Small	Common	Textile	TEXTILE	50	1gp	1	gp	DD	xx
+Rum (Gill)	Common	Inn	INN	3	1cp	1	cp	DD	xx
+Rushlight	Common	Lighting	LIGHTING	5	1cp	1	cp	DD	xx
+Sack, Large	Common	Container	CONTAINER	5	15cp	15	cp	OSRIC	44
+Sack, Small	Common	Container	CONTAINER	1	9cp	9	cp	OSRIC	44
+Saddle & Stirrups	Common	Tack	TACK	20	10gp	10	gp	OSRIC	44
+Saddle Blanket	Common	Tack	TACK	40	3sp	3	sp	DD	xx
+Saddle, Pack	Common	Tack	TACK	150	5gp	5	gp	DD	xx
+Saddlebags, Large	Common	Tack	TACK	80	4gp	4	gp	DD	xx
+Saddlebags, Small	Common	Tack	TACK	50	3gp	3	gp	DD	xx
+Saffron	Uncommon	Foodstuff	FOODSTUFF	1	4sp	4	sp	DD	xx
+Sail	Common	Nautical	NAUTICAL	1200	20gp	20	gp	DD	xx
+Salt (1 lb.)	Common	Foodstuff	FOODSTUFF	10	3sp	3	sp	DD	xx
+Salver, Silver	Common	Container	CONTAINER	10	10gp	10	gp	DD	xx
+Sanctuary Lamp	Common	Ritual	RITUAL	40	10gp	10	gp	DD	xx
+Sandals	Common	Clothing	CLOTHING	8	5cp	5	cp	DD	xx
+Sash	Common	Clothing	CLOTHING	5	1gp	1	gp	DD	xx
+Satchel	Common	Container	CONTAINER	5	1gp	1	gp	OSRIC	44
+Satchel, Thieves'	Uncommon	Thieving	THIEVING	1	4sp	4	sp	DD	xx
+Saucer, Clay	Common	Container	CONTAINER	5	3cp	3	cp	DD	xx
+Saw, 1-man	Common	Tool	TOOL	30	2gp	2	gp	DD	xx
+Saw, 2-man	Common	Tool	TOOL	200	12gp	12	gp	DD	xx
+Scabbard, 2-handed Sword	Common	Clothing	CLOTHING	20	4gp	4	gp	DD	xx
+Scabbard, Bastard Sword	Common	Clothing	CLOTHING	15	3gp	3	gp	DD	xx
+Scabbard, Broad Sword	Common	Clothing	CLOTHING	10	18sp	18	sp	DD	xx
+Scabbard, Long Sword	Common	Clothing	CLOTHING	10	2gp	2	gp	DD	xx
+Scabbard, Scimitar	Common	Clothing	CLOTHING	10	21sp	21	sp	DD	xx
+Scabbard, Short Sword	Common	Clothing	CLOTHING	5	1gp	1	gp	DD	xx
+Scale, Merchant's	Common	Tool	TOOL	60	5gp	5	gp	DD	xx
+Scalpel	Common	Tool	TOOL	2	2gp	2	gp	DD	xx
+Scarf, Woolen	Common	Clothing	CLOTHING	5	2cp	2	cp	DD	xx
+Scissors, Pair	Common	Tool	TOOL	10	5cp	5	cp	DD	xx
+Sconce, Wall	Common	Tool	TOOL	50	8sp	8	sp	DD	xx
+Scrollcase, Bone	Common	Container	CONTAINER	5	4gp	4	gp	DD	xx
+Scrollcase, Leather	Common	Container	CONTAINER	5	1gp	1	gp	OSRIC	44
+Scuttle	Common	Tool	TOOL	80	7gp	7	gp	DD	xx
+Scuttlebutt	Common	Nautical	NAUTICAL	1250	2gp	2	gp	DD	xx
+Scythe	Common	Tool	TOOL	20	1gp	1	gp	DD	xx
+Seahorse, Riding	Very Rare	Livestock	LIVESTOCK	10000	15,000gp	15000	gp	DD	xx
+Seal, Wax	Common	Scribing	SCRIBING	1	5gp	5	gp	DD	xx
+Sedan Chair	Common	Transport	TRANSPORT	0	100gp	100	gp	DD	xx
+Sextant	Common	Nautical	NAUTICAL	500	1,500gp	1500	gp	DD	xx
+Shawl, Linen	Common	Clothing	CLOTHING	5	3sp	3	sp	DD	xx
+Shawl, Woolen	Common	Clothing	CLOTHING	5	3cp	3	cp	DD	xx
+Shears	Common	Tool	TOOL	10	1gp	1	gp	DD	xx
+Sheath, Boot	Uncommon	Thieving	THIEVING	5	1gp	1	gp	DD	xx
+Sheath, Dagger	Common	Clothing	CLOTHING	1	6sp	6	sp	DD	xx
+Sheath, Knife	Common	Clothing	CLOTHING	1	4sp	4	sp	DD	xx
+Sheath, Wrist	Uncommon	Thieving	THIEVING	1	1gp	1	gp	DD	xx
+Sheep	Common	Livestock	LIVESTOCK	500	2gp	2	gp	DD	xx
+Sherry (Pint)	Common	Inn	INN	10	2sp	2	sp	DD	xx
+Shift, Linen	Common	Clothing	CLOTHING	5	4sp	4	sp	DD	xx
+Shims, Thieves'	Uncommon	Thieving	THIEVING	1	4sp	4	sp	DD	xx
+Shirt/Blouse, Linen	Common	Clothing	CLOTHING	10	4cp	4	cp	DD	xx
+Shoes, Common	Common	Clothing	CLOTHING	10	5sp	5	sp	OSRIC	44
+Shoes, Noble	Common	Clothing	CLOTHING	10	30gp	30	gp	OSRIC	44
+Shoes, Turnshoes	Common	Clothing	CLOTHING	10	5sp	5	sp	DD	xx
+Shovel / Spade	Common	Tool	TOOL	80	2gp	2	gp	OSRIC	44
+Sickle	Common	Tool	TOOL	10	12sp	12	sp	DD	xx
+Signal Whistle	Common	Tool	TOOL	0	8sp	8	sp	OSRIC	44
+Skillet	Common	Container	CONTAINER	50	1gp	1	gp	OSRIC	44
+Skirt, Linen	Common	Clothing	CLOTHING	30	5sp	5	sp	DD	xx
+Skirt, Woolen	Common	Clothing	CLOTHING	40	4cp	4	cp	DD	xx
+Slate & Chalk	Common	Scribing	SCRIBING	1	1sp	1	sp	DD	xx
+Slip, Linen	Common	Clothing	CLOTHING	5	4sp	4	sp	DD	xx
+Slip, Silk	Common	Clothing	CLOTHING	5	4sp	4	sp	DD	xx
+Smock, Linen	Common	Clothing	CLOTHING	10	12sp	12	sp	DD	xx
+Smock, Woolen	Common	Clothing	CLOTHING	15	2cp	2	cp	DD	xx
+Soap (1 lb.)	Common	Cosmetic	COSMETIC	10	5sp	5	sp	OSRIC	44
+Songbird	Common	Livestock	LIVESTOCK	4	1gp	1	gp	DD	xx
+Spatula	Uncommon	Alchemical	ALCHEMICAL	1	4cp	4	cp	DD	xx
+Spikes, Iron (dozen)	Common	Tool	TOOL	50	1gp	1	gp	OSRIC	44
+Spit, Roasting	Common	Tool	TOOL	40	1sp	1	sp	DD	xx
+Spoon	Uncommon	Alchemical	ALCHEMICAL	1	1sp	1	sp	DD	xx
+Stockings, Silk	Common	Clothing	CLOTHING	5	10gp	10	gp	DD	xx
+Stocks	Common	Torture	TORTURE	600	45gp	45	gp	DD	xx
+Stola, Linen	Common	Clothing	CLOTHING	10	3gp	3	gp	DD	xx
+Stola, Woolen	Common	Clothing	CLOTHING	10	8cp	8	cp	DD	xx
+Stool	Common	Furniture	FURNITURE	50	1gp	1	gp	DD	xx
+Stool, Ducking	Common	Torture	TORTURE	50	1gp	1	gp	DD	xx
+Strainer	Uncommon	Alchemical	ALCHEMICAL	2	4gp	4	gp	DD	xx
+Strappado	Common	Torture	TORTURE	150	12gp	12	gp	DD	xx
+String (50')	Common	Textile	TEXTILE	10	3cp	3	cp	DD	xx
+Strophion	Common	Clothing	CLOTHING	5	1cp	1	cp	DD	xx
+Sundial	Common	Tool	TOOL	400	8gp	8	gp	DD	xx
+Surcoat	Common	Clothing	CLOTHING	10	5sp	5	sp	DD	xx
+Swan	Common	Livestock	LIVESTOCK	200	10gp	10	gp	DD	xx
+Tabard	Common	Clothing	CLOTHING	10	5sp	5	sp	DD	xx
+Table, Banquet	Common	Furniture	FURNITURE	4000	250gp	250	gp	DD	xx
+Table, Dining	Common	Furniture	FURNITURE	2000	100gp	100	gp	DD	xx
+Table, Plain	Common	Furniture	FURNITURE	1000	50gp	50	gp	DD	xx
+Table, Trestle	Common	Furniture	FURNITURE	75	4gp	4	gp	DD	xx
+Tacks, Iron (Gross)	Common	Tool	TOOL	20	3cp	3	cp	DD	xx
+Tambourine	Common	Instrument	INSTRUMENT	10	5gp	5	gp	DD	xx
+Tankard, Clay	Common	Container	CONTAINER	15	2sp	2	sp	DD	xx
+Tankard, Leather	Common	Container	CONTAINER	10	5sp	5	sp	DD	xx
+Tankard, Silver	Common	Container	CONTAINER	20	3gp	3	gp	DD	xx
+Tankard, Wooden	Common	Container	CONTAINER	10	3cp	3	cp	DD	xx
+Tapestry, Large	Common	Textile	TEXTILE	1000	150gp	150	gp	DD	xx
+Tapestry, Medium	Common	Textile	TEXTILE	500	75gp	75	gp	DD	xx
+Tapestry, Small	Common	Textile	TEXTILE	150	25gp	25	gp	DD	xx
+Tea (1 lb.)	Common	Foodstuff	FOODSTUFF	10	1gp	1	gp	DD	xx
+Tent, Canvas (2-person)	Common	Textile	TEXTILE	150	75gp	75	gp	DD	xx
+Tent, Canvas (4-person)	Common	Textile	TEXTILE	250	120gp	120	gp	DD	xx
+Tent, Canvas (6-person)	Common	Textile	TEXTILE	400	200gp	200	gp	DD	xx
+Tent, Leather (2-person)	Common	Textile	TEXTILE	200	10gp	10	gp	DD	xx
+Tent, Leather (4-person)	Common	Textile	TEXTILE	350	30gp	30	gp	DD	xx
+Tent, Leather (6-person)	Common	Textile	TEXTILE	500	50gp	50	gp	DD	xx
+Test Tube	Uncommon	Alchemical	ALCHEMICAL	1	1gp	1	gp	DD	xx
+Thieves' Tools	Uncommon	Thieving	THIEVING	10	30gp	30	gp	OSRIC	44
+Thread (50')	Common	Textile	TEXTILE	5	1cp	1	cp	DD	xx
+Thread, Embroidery (10')	Common	Textile	TEXTILE	1	1sp	1	sp	DD	xx
+Thumbscrews	Common	Torture	TORTURE	10	10gp	10	gp	DD	xx
+Thurible	Common	Ritual	RITUAL	10	30gp	30	gp	DD	xx
+Tinderbox	Common	Tool	TOOL	15	15sp	15	sp	DD	xx
+Tobacco (1 lb.)	Common	Foodstuff	FOODSTUFF	10	7cp	7	cp	DD	xx
+Toga, Linen	Common	Clothing	CLOTHING	10	3gp	3	gp	DD	xx
+Toga, Woolen	Common	Clothing	CLOTHING	10	7cp	7	cp	DD	xx
+Tongs, Smith's	Common	Tool	TOOL	20	2gp	2	gp	DD	xx
+Torch	Common	Lighting	LIGHTING	10	1cp	1	cp	OSRIC	44
+Tray, Wooden	Common	Container	CONTAINER	1	4cp	4	cp	DD	xx
+Trivet	Common	Tool	TOOL	5	6sp	6	sp	DD	xx
+Trousers, Linen	Common	Clothing	CLOTHING	30	5sp	5	sp	DD	xx
+Trousers, Woolen	Common	Clothing	CLOTHING	40	4cp	4	cp	DD	xx
+Trowel	Common	Tool	TOOL	5	3sp	3	sp	DD	xx
+Trumpet	Common	Instrument	INSTRUMENT	50	20gp	20	gp	DD	xx
+Trunk, Wooden	Common	Container	CONTAINER	300	25sp	25	sp	DD	xx
+Tub, Wooden	Common	Container	CONTAINER	100	3gp	3	gp	DD	xx
+Tunic, Banqueting	Common	Clothing	CLOTHING	10	10gp	10	gp	OSRIC	44
+Tunic, Linen	Common	Clothing	CLOTHING	10	4sp	4	sp	DD	xx
+Tunic, Woolen	Common	Clothing	CLOTHING	10	5cp	5	cp	OSRIC	44
+Turnips (1 lb.)	Common	Foodstuff	FOODSTUFF	10	2cp	2	cp	DD	xx
+Tweezers	Common	Tool	TOOL	0	7sp	7	sp	DD	xx
+Twine, Linen (100')	Common	Textile	TEXTILE	5	8cp	8	cp	OSRIC	44
+Twine, Linen (50')	Common	Thieving	THIEVING	0	3cp	3	cp	DD	xx
+Urn, Clay	Common	Container	CONTAINER	90	15cp	15	cp	DD	xx
+Vase, Clay	Common	Container	CONTAINER	40	5cp	5	cp	DD	xx
+Veil	Common	Clothing	CLOTHING	1	5sp	5	sp	DD	xx
+Vellum, New (sheet)	Common	Scribing	SCRIBING	0	3sp	3	sp	DD	xx
+Vellum, Palimpsest (sheet)	Common	Scribing	SCRIBING	0	2sp	2	sp	DD	xx
+Vest, Fur	Common	Clothing	CLOTHING	20	50gp	50	gp	DD	xx
+Vest, Linen	Common	Clothing	CLOTHING	10	6sp	6	sp	DD	xx
+Vestments	Common	Ritual	RITUAL	100	40gp	40	gp	DD	xx
+Vial, Clay	Common	Container	CONTAINER	25	1cp	1	cp	DD	xx
+Vial, Copper	Common	Container	CONTAINER	40	5gp	5	gp	DD	xx
+Vial, Glass	Common	Container	CONTAINER	30	3gp	3	gp	DD	xx
+Wagon, Large	Common	Transport	TRANSPORT	0	250gp	250	gp	OSRIC	44
+Wagon, Small	Common	Transport	TRANSPORT	0	100gp	100	gp	OSRIC	44
+Wallet	Common	Clothing	CLOTHING	5	1gp	1	gp	DD	xx
+Wardrobe, Mirror	Common	Furniture	FURNITURE	800	50gp	50	gp	DD	xx
+Wardrobe, Ornate	Uncommon	Furniture	FURNITURE	900	65gp	65	gp	DD	xx
+Wardrobe, Plain	Common	Furniture	FURNITURE	650	30gp	30	gp	DD	xx
+Water, Holy (vial)	Common	Ritual	RITUAL	1	25gp	25	gp	OSRIC	44
+Waterskin (3 pints)	Common	Container	CONTAINER	7	1gp	1	gp	OSRIC	44
+Wax Tablet & Stylus	Common	Scribing	SCRIBING	3	4sp	4	sp	DD	xx
+Wax, Sealing (1 lb.)	Common	Scribing	SCRIBING	10	3sp	3	sp	DD	xx
+Weapon Rack	Common	Furniture	FURNITURE	45	4gp	4	gp	DD	xx
+Wedges, Thieves'	Uncommon	Thieving	THIEVING	1	7cp	7	cp	DD	xx
+Wheel, Breaking	Common	Torture	TORTURE	750	6gp	6	gp	DD	xx
+Wheel, Prayer	Common	Ritual	RITUAL	100	3gp	3	gp	DD	xx
+Wheel, Wagon	Common	Transport	TRANSPORT	0	5gp	5	gp	DD	xx
+Whetstone	Common	Tool	TOOL	5	2cp	2	cp	OSRIC	44
+Whip	Common	Torture	TORTURE	2	5sp	5	sp	DD	xx
+Whisk	Common	Tool	TOOL	1	2sp	2	sp	DD	xx
+Whiskey (Gill)	Common	Inn	INN	3	5sp	5	sp	DD	xx
+Whistle	Common	Instrument	INSTRUMENT	5	8sp	8	sp	DD	xx
+Wig	Common	Clothing	CLOTHING	10	12gp	12	gp	DD	xx
+Wine, Fair (50 gal.)	Common	Raw Goods	RAWGOODS	200	5gp	5	gp	DD	xx
+Wine, Excellent (50 gal.)	Uncommon	Raw Goods	RAWGOODS	200	25gp	25	gp	DD	xx
+Wine, Good (Pint)	Common	Inn	INN	10	5sp	5	sp	OSRIC	44
+Wine, Mulled (Pint)	Common	Inn	INN	10	12sp	12	sp	DD	xx
+Wine, Table (Pint)	Common	Inn	INN	10	3sp	3	sp	DD	xx
+Wire Cutters	Common	Thieving	THIEVING	10	1gp	1	gp	DD	xx
+Wolfsbane	Common	Herb	HERB	1	10sp	10	sp	DD	xx
+Workbench	Common	Furniture	FURNITURE	300	10gp	10	gp	DD	xx
+Wyvern, Guard	Very Rare	Livestock	LIVESTOCK	12000	12,000gp	12000	gp	DD	xx
+Wyvern, Riding	Very Rare	Livestock	LIVESTOCK	12000	15,000gp	15000	gp	DD	xx
+Xylophone	Common	Instrument	INSTRUMENT	100	45gp	45	gp	DD	xx
+Yak	Common	Livestock	LIVESTOCK	4800	9gp	9	gp	DD	xx
+Yoke, Horse	Common	Tack	TACK	150	5gp	5	gp	DD	xx
+Yoke, Ox	Common	Tack	TACK	200	3gp	3	gp	DD	xx
+Zither	Common	Instrument	INSTRUMENT	120	35gp	35	gp	DD	xx

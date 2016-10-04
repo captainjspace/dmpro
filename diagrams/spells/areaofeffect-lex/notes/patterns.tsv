@@ -1,0 +1,36 @@
+Tokens
+<special*>	<expression>	<units>	<modifiers>	<area descriptors>
+[env| descriptor]	[0-9]+	["]	[+ per/level](expression)	[*dimensional]
+[creature]	[one|two|three...]: (TextNum)	[']	[* per/level](factor)	cube
+[character]	[DieRoll]	[miles]		diameter
+[object]	[[0-9]+ - [0-9]+]	...		radius
+[person]	[(TextNum) - (TextNum)]			square
+[spellcaster]	[*Implied]			rectangle
+[magicuser]	[up to | 0 -][(TextNum) | [0-9]+|<expression>]			circle
+				sphere
+
+pattern rules
+	<NUMBER><FACTOR><NUMBER>
+	(if double)[*|/](ifdouble) then <NUMBER>=eval(<NUMBER>,<FACTOR>,<NUMBER>)
+	else NOOP
+
+List<TOKENS>	Smashlist permutations		Smash Token out
+	Token Sequence:
+	<<NUMBER><CONNECTOR><NUMBER>>
+		.lookahead	<NUMBER>
+		<<UNIT><UNIT>>
+		.join	<UNIT>
+	<<*><CONNECTOR><ANY>
+		.lookbehind, .lookahead
+		.if (both) <NUMBER>	<NUMBER>
+		else carry	*ANY
+	<<ADJECTIVE><SUBJECT>>
+		*	<SUBJECT>
+	<<SUBJECT><ADJECTIVE>>
+		*	<SUBJECT>
+	<<SUBJECT><SUBJECT>>
+		*	<SUBJECT>
+	<<ADJECTIVE><UNIT>>
+		*	<UNIT>
+	<<UNIT><ADJECTIVE>>
+		*	<UNIT>	

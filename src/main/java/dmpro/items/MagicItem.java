@@ -54,13 +54,13 @@ public class MagicItem extends Item {
 				+ "itemId=" + itemId + ", "
 				+ (itemName != null ? "itemName=" + itemName + ", " : "")
 				+ (itemType != null ? "itemType=" + itemType + ", " : "") + "itemValue=" + itemValue + ", weight="
-				+ weight + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure + ", isWeapon=" + isWeapon
+				+ itemEncumbrance + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure + ", isWeapon=" + isWeapon
 				+ ", isProtection=" + isProtection + ", "
 				+ (description != null ? "description=" + description + ", " : "") + "isMagic()=" + isMagic()
 				+ ", isTreasure()=" + isTreasure() + ", isWeapon()=" + isWeapon() + ", isProtection()=" + isProtection()
 				+ ", " + (getItemName() != null ? "getItemName()=" + getItemName() + ", " : "")
 				+ (getItemType() != null ? "getItemType()=" + getItemType() + ", " : "") + "getItemValue()="
-				+ getItemValue() + ", getWeight()=" + getWeight() + ", getItemId()=" + getItemId() + ", "
+				+ getItemValue() + ", getWeight()=" + getItemEncumbrance() + ", getItemId()=" + getItemId() + ", "
 				+ (super.toString() != null ? "toString()=" + super.toString() + ", " : "")
 				+ (getDescription() != null ? "getDescription()=" + getDescription() + ", " : "")
 				+ (getClass() != null ? "getClass()=" + getClass() + ", " : "") + "hashCode()=" + hashCode() + "]";

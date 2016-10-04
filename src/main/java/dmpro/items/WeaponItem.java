@@ -58,7 +58,7 @@ public class WeaponItem extends Item {
 		this();
 		this.itemName=fields[0];
 		this.weaponType=WeaponType.valueOf(fields[1]);
-		this.weight=Integer.parseInt(fields[4]);
+		this.itemEncumbrance=Integer.parseInt(fields[4]);
 		this.itemValue = Integer.parseInt(fields[2].split(" ")[0]);
 		this.itemCurrency = fields[2].split(" ")[1];
 		if (this.weaponType != WeaponType.MISSILE) this.speedFactor=Integer.parseInt(fields[7]);
@@ -180,7 +180,7 @@ public class WeaponItem extends Item {
 				+ (range != null ? "range=" + range + ", " : "") + "itemId=" + itemId + ", "
 				+ (itemName != null ? "itemName=" + itemName + ", " : "")
 				+ (itemType != null ? "itemType=" + itemType + ", " : "") + "itemValue=" + itemValue + ", itemCurrency="
-				+ itemCurrency + ", weight=" + weight + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure
+				+ itemCurrency + ", weight=" + itemEncumbrance + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure
 				+ ", isWeapon=" + isWeapon + ", isProtection=" + isProtection + ", "
 				+ (description != null ? "description=" + description : "") + "]";
 	}

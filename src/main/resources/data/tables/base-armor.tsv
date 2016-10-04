@@ -1,0 +1,18 @@
+Type	Item	Cost	Currency	Weight	Base Movement	Fixed AC	Modified AC	# of Attacks	Damage Absorb	HP	Repair Cost
+ARMOR	Banded	90	GOLD	350	90	4		-1	-	-	-
+ARMOR	Plate Mail	400	GOLD	500	60	3		-1	-	-	-
+ARMOR	Bronze Plate Mail	100	GOLD	450	60	4		-1	-	-	-
+ARMOR	Chain Mail	75	GOLD	300	90	5		-1	-	-	-
+ARMOR	Elfin Chain Mail	0	GOLD	150	120	5		-1	-	-	-
+ARMOR	Field Plate	2000	GOLD	550	60	2		-1	1	12	100
+ARMOR	Full Plate	4000	GOLD	650	60	1		-1	2	26	200
+ARMOR	Leather	5	GOLD	150	120	8		-1	-	-	-
+ARMOR	Padded	4	GOLD	100	90	8		-1	-	-	-
+ARMOR	Ring Mail	30	GOLD	250	90	7		-1	-	-	-
+ARMOR	Scale Mail	45	GOLD	400	60	6		-1	-	-	-
+ARMOR	Splint Mail	80	GOLD	400	60	4		-1	-	-	-
+ARMOR	Studded Leather	15	GOLD	200	90	7		-1	-	-	-
+SHIELD	Buckler	5	GOLD	30			-1	1	-	-	-
+SHIELD	Small Wood	1	GOLD	30			-1	1	-	-	-
+SHIELD	Small	10	GOLD	50			-1	2	-	-	-
+SHIELD	Large	15	GOLD	100			-1	3	-	-	-

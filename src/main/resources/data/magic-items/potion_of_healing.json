@@ -3,7 +3,7 @@
   "itemName":"Potion of Healing",
   "itemType":"MagicItemType.POTION",
   "itemValue":250,
-  "weight":1,
+  "itemEncumbrance":1,
   "isMagic":true,
   "isTreasure":true,
   "isWeapon":false,

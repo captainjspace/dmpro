@@ -27,7 +27,7 @@ public abstract class Item implements Modifiable {
 	int itemCount;
 	int itemValue; //gold piece value
 	String itemCurrency;
-	int weight; //in gp
+	int itemEncumbrance; //in gp
 	boolean isMagic;
 	boolean isTreasure;
 	boolean isWeapon;
@@ -63,11 +63,11 @@ public abstract class Item implements Modifiable {
 	public void setItemValue(int itemValue) {
 		this.itemValue = itemValue;
 	}
-	public int getWeight() {
-		return weight;
+	public int getItemEncumbrance() {
+		return itemEncumbrance;
 	}
-	public void setWeight(int weight) {
-		this.weight = weight;
+	public void setItemEncumbrance(int weight) {
+		this.itemEncumbrance = weight;
 	}
 	
 	public int getItemId() {
@@ -97,7 +97,7 @@ public abstract class Item implements Modifiable {
 	@Override
 	public String toString() {
 		return "Item [itemName=" + itemName + ", itemType=" + itemType + ", itemValue=" + itemValue + ", weight="
-				+ weight + "]";
+				+ itemEncumbrance + "]";
 	}
 
 	/**

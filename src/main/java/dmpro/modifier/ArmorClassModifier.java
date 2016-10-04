@@ -7,7 +7,8 @@ public class ArmorClassModifier extends AbilityModifier {
 		MISSILE, //shield +1, +4 vs missiles
 		FRONT, //shields...
 		REAR,// generally a negative
-		FLANK;//also likely negative - discounting shields and sych
+		FLANK,//also likely negative - discounting shields and sych
+		DAMAGE; //field plate/fullplate
 	}
 
 	public ArmorClassModifierType armorClassModifierType;

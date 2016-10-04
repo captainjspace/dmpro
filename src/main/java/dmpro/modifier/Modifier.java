@@ -89,7 +89,8 @@ public class Modifier {
 		ATTRIBUTE,
 		ENCHANTMENT,
 		MAGICITEM,
-		SPELLEFFECT;
+		SPELLEFFECT,
+		ARMOR;
 	}
 
 	public enum ModifierPriority {
