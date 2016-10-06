@@ -14,11 +14,11 @@ import java.util.NoSuchElementException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import dmpro.items.GSonItemAdapter;
-import dmpro.items.GSonModifierAdapter;
 import dmpro.items.Item;
 import dmpro.items.MagicItem;
 import dmpro.modifier.*;
+import dmpro.serializers.GSonItemAdapter;
+import dmpro.serializers.GSonModifierAdapter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

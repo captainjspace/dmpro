@@ -1,5 +1,6 @@
 package dmpro.items;
 
+import dmpro.items.CoinItem.CoinType;
 import dmpro.modifier.Modifiable;
 import dmpro.modifier.Modifier;
 
@@ -26,7 +27,7 @@ public abstract class Item implements Modifiable {
 	ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
 	int itemCount;
 	int itemValue; //gold piece value
-	String itemCurrency;
+	protected CoinType itemCurrency;
 	int itemEncumbrance; //in gp
 	boolean isMagic;
 	boolean isTreasure;
@@ -117,7 +118,7 @@ public abstract class Item implements Modifiable {
 	/**
 	 * @return the itemCurrency
 	 */
-	public String getItemCurrency() {
+	public CoinType getItemCurrency() {
 		return itemCurrency;
 	}
 
@@ -125,9 +126,16 @@ public abstract class Item implements Modifiable {
 	 * @param itemCurrency the itemCurrency to set
 	 */
 	public void setItemCurrency(String itemCurrency) {
-		this.itemCurrency = itemCurrency;
+		try {
+		this.itemCurrency = CoinType.valueOf(itemCurrency);
+		} catch (IllegalArgumentException e) {
+			this.itemCurrency = CoinType.GOLD.getByShortName(itemCurrency);
+		}
 	}
 
+	public void setItemCurrency(CoinType coinType) {
+		this.itemCurrency = coinType;
+	}
 	/**
 	 * @param itemType the itemType to set
 	 */

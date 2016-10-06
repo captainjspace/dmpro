@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import dmpro.items.ItemGsonExclusion;
 import dmpro.items.WeaponItem;
+import dmpro.serializers.ItemGsonExclusion;
 
 public class WeaponItemLoader implements ResourceLoader {
 	
@@ -42,6 +42,16 @@ public class WeaponItemLoader implements ResourceLoader {
 			weapons.add( new WeaponItem(scanner.nextLine().split("\t",fieldCount)));
 		
 		scanner.close();
+	}
+	public List<WeaponItem> listWeapons() {
+		return weapons;
+	}
+	
+	//throws no such element exception
+	public List<WeaponItem> listWeaponByClass(WeaponItem.WeaponType weaponType) {
+		return weapons.stream()
+				.filter(p -> p.getWeaponType() == weaponType)
+				.collect(Collectors.toList());		
 	}
 	
 	public List<WeaponItem> searchWeaponItem(String weaponName) {
@@ -120,5 +130,14 @@ public class WeaponItemLoader implements ResourceLoader {
 	 */
 	public int getFieldCount() {
 		return fieldCount;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "WeaponItemLoader [" + (weapons != null ? "weapons=" + weapons + ", " : "")
+				+ (weaponFile != null ? "weaponFile=" + weaponFile + ", " : "") + "fieldCount=" + fieldCount + "]";
 	}
 }

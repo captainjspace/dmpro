@@ -83,6 +83,11 @@ public class CoinItem extends Item {
 		this.coinType = coinType;
 	}
 
+	public static float getGoldValue(int itemValue, String itemCurrency) {
+		int i = itemValue;
+		float f = CoinType.GOLD.getByShortName(itemCurrency).getGoldValue();
+		return f*i;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

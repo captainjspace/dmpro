@@ -60,7 +60,7 @@ public class WeaponItem extends Item {
 		this.weaponType=WeaponType.valueOf(fields[1]);
 		this.itemEncumbrance=Integer.parseInt(fields[4]);
 		this.itemValue = Integer.parseInt(fields[2].split(" ")[0]);
-		this.itemCurrency = fields[2].split(" ")[1];
+		setItemCurrency(fields[2].split(" ")[1]); //converts to CoinType
 		if (this.weaponType != WeaponType.MISSILE) this.speedFactor=Integer.parseInt(fields[7]);
 		else this.fireRate=ParseUtils.expressionToFloat(fields[7]);
 		this.damageMap.put(Size.S, new DamageRoll(fields[8]));

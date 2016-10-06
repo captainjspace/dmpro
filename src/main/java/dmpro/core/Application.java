@@ -80,11 +80,13 @@ public class Application implements Server {
 	public void start() {
 		
 		//main loop
+		getMemoryStats();
 		startReferenceDataSet();
 		startCommandLineService();
 		startCharacterService();
 		startCharacterModifierEngine();
 		startNodeWrapperService();
+		getMemoryStats();
 		
 		int threads =  ((ThreadPoolExecutor) subsystem).getActiveCount();
 		logger.log(Level.INFO, "Dungeon Master pro is here: Subsystem Thread Count:" + threads);
@@ -122,7 +124,20 @@ public class Application implements Server {
 			}
 		}
 	}
-
+	
+	/**
+	 * Get Heap Data
+	 * @return
+	 */
+	private String getMemoryStats() {
+		String memInfo= "";
+		memInfo = memInfo.format("Total Memory: %s\tFree Momory %s\n", 
+				server.totalMemory(),
+				server.freeMemory());
+		logger.log(Level.INFO, memInfo);
+		return memInfo;
+	}
+	
 	private void startReferenceDataSet() {
 		this.referenceDataSet = new ReferenceDataSet();
 		subsystem.execute(this.referenceDataSet);

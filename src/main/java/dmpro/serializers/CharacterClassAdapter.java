@@ -1,4 +1,4 @@
-package dmpro.character;
+package dmpro.serializers;
 
 import java.lang.reflect.Type;
 

@@ -37,6 +37,7 @@ import dmpro.core.StubApp;
 import dmpro.data.loaders.ResourceLoader;
 import dmpro.data.loaders.WeaponItemLoader;
 import dmpro.items.TreasureItemViewer;
+import dmpro.serializers.CharacterGsonService;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;
 
@@ -192,7 +193,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 	
 	public Character loadCharacter(String characterId){
 		Character load = null;
-		String file = dataDirectory + "data/characters/c" + characterId + ".json";
+		String file = dataDirectory + "characters/c" + characterId + ".json";
 		try {
 			FileReader reader = new FileReader(file);
 			load = gson.fromJson(reader, Character.class);

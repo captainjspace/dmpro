@@ -18,7 +18,7 @@ public class DungeonMasterProHandler implements Runnable {
 	
 	Application application;
 	private Logger logger = Logger.getLogger(this.getClass().getName());
-	private final String EXIT = ".exit.";
+	public static final String EXIT = ".exit.";
 	boolean isRunning;
 	Socket clientSocket;
 	Scanner input = null;

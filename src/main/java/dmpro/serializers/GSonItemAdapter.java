@@ -1,4 +1,4 @@
-package dmpro.items;
+package dmpro.serializers;
 import java.lang.reflect.Type;
 
 import com.google.gson.JsonDeserializationContext;
@@ -10,6 +10,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
+import dmpro.items.Item;
 import dmpro.modifier.Modifier;
 
 public class GSonItemAdapter  implements JsonSerializer<Item>, JsonDeserializer<Item> {
