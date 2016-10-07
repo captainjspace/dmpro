@@ -85,7 +85,7 @@ public class Application implements Server {
 		startCommandLineService();
 		startCharacterService();
 		startCharacterModifierEngine();
-		startNodeWrapperService();
+		//startNodeWrapperService();
 		getMemoryStats();
 		
 		int threads =  ((ThreadPoolExecutor) subsystem).getActiveCount();
@@ -130,10 +130,10 @@ public class Application implements Server {
 	 * @return
 	 */
 	private String getMemoryStats() {
-		String memInfo= "";
-		memInfo = memInfo.format("Total Memory: %s\tFree Momory %s\n", 
+		String memInfo = String.format("Total Memory: %s\tFree Memory %s\t Used Memory %s:\n", 
 				server.totalMemory(),
-				server.freeMemory());
+				server.freeMemory(), server.totalMemory()-server.freeMemory());
+		
 		logger.log(Level.INFO, memInfo);
 		return memInfo;
 	}

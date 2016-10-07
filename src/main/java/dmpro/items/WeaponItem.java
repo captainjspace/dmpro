@@ -8,26 +8,28 @@ import dmpro.utils.ParseUtils;
 public class WeaponItem extends Item {
 	
 	public enum WeaponType {
-		ONEHANDEDSWORD(1, "One Handed Swords"),
-		TWOHANDEDSWORD(2, "The Venerable Two Handed Sword - Bane of all big beasts!"),
-		DAGGER(3,"Daggers, Knives, Stilletto's for sneaking in the night or hurling at your enemy"),
-		POLEARMCLASS(4, "Polearms for War!"),
-		SPEAR(5, "Spears, Javelins for both Pole and Missile attacks!"),
-		ONEHANDEDAXE(6, "One handed Axes - for chopping wood, and throwing on occasion"),
-		TWOHANDEDAXE(7,"The Battle Axe - Crush crumble and chomp through Armor!"),
-		HAMMER(8, "The War Hammer - Thrown or Smashed"),
-		BOWCLASS(9, "Bows and Crossbows - no party can be without"),
-		FLAIL(10, "Flails, and whips and all chainy things"),
-		MACE(11, "Mace, Club and One-handed crushy stuff!"),
-		STAFF(12, "No Mage should be without his trusty Staff!"),
-		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!");
+		ONEHANDEDSWORD(1, "One Handed Swords",1),
+		TWOHANDEDSWORD(2, "The Venerable Two Handed Sword - Bane of all big beasts!",2),
+		DAGGER(3,"Daggers, Knives, Stilletto's for sneaking in the night or hurling at your enemy",1),
+		POLEARMCLASS(4, "Polearms for War!",1),
+		SPEAR(5, "Spears, Javelins for both Pole and Missile attacks!",1),
+		ONEHANDEDAXE(6, "One handed Axes - for chopping wood, and throwing on occasion",1),
+		TWOHANDEDAXE(7,"The Battle Axe - Crush crumble and chomp through Armor!",2),
+		HAMMER(8, "The War Hammer - Thrown or Smashed",1),
+		BOWCLASS(9, "Bows and Crossbows - no party can be without",2),
+		FLAIL(10, "Flails, and whips and all chainy things",1),
+		MACE(11, "Mace, Club and One-handed crushy stuff!",1),
+		STAFF(12, "No Mage should be without his trusty Staff!",2),
+		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!",1);
 		
 		int weaponTypeIndex;
 		String weaponTypeDescription;
+		int handsRequired;
 		
-		WeaponType ( int weaponTypeIndex, String weaponTypeDescription) {
+		WeaponType ( int weaponTypeIndex, String weaponTypeDescription, int handsRequired) {
 			this.weaponTypeIndex = weaponTypeIndex;
 			this.weaponTypeDescription = weaponTypeDescription;
+			this.handsRequired = handsRequired;
 		}
 		
 		public int weaponTypeIndex() {
@@ -36,11 +38,15 @@ public class WeaponItem extends Item {
 		public String weaponTypeDescription() {
 			return weaponTypeDescription;
 		}
+		public int handsRequired() {
+			return handsRequired;
+		}
 	}
 	
 	public enum Size {S,M,L;}
 	WeaponType weaponType;
-	Map <Size, DamageRoll>damageMap = new HashMap<Size,DamageRoll>();
+	//Map <Size, DamageRoll>damageMap = new HashMap<Size,DamageRoll>();
+	Map <Size, String>damageMap = new HashMap<Size,String>();
 	float length;
 	float spaceRequired;
 	int speedFactor; //segment of round impact is made.
@@ -63,9 +69,9 @@ public class WeaponItem extends Item {
 		setItemCurrency(fields[2].split(" ")[1]); //converts to CoinType
 		if (this.weaponType != WeaponType.MISSILE) this.speedFactor=Integer.parseInt(fields[7]);
 		else this.fireRate=ParseUtils.expressionToFloat(fields[7]);
-		this.damageMap.put(Size.S, new DamageRoll(fields[8]));
-		this.damageMap.put(Size.M, new DamageRoll(fields[8]));
-		this.damageMap.put(Size.L, new DamageRoll(fields[9]));
+		this.damageMap.put(Size.S, fields[8]); //new DamageRoll(fields[8]));
+		this.damageMap.put(Size.M, fields[8]); //new DamageRoll(fields[8]));
+		this.damageMap.put(Size.L, fields[9]); //new DamageRoll(fields[9]));
 		if (this.weaponType == WeaponType.MISSILE || this.weaponType == WeaponType.BOWCLASS)
 			this.range = new MissileRange (fields[10],fields[11], fields[12]);
 		
@@ -88,14 +94,14 @@ public class WeaponItem extends Item {
 	/**
 	 * @return the damageMap
 	 */
-	public Map<Size, DamageRoll> getDamageMap() {
+	public Map<Size, String> getDamageMap() {
 		return damageMap;
 	}
 
 	/**
 	 * @param damageMap the damageMap to set
 	 */
-	public void setDamageMap(Map<Size, DamageRoll> damageMap) {
+	public void setDamageMap(Map<Size, String> damageMap) {
 		this.damageMap = damageMap;
 	}
 

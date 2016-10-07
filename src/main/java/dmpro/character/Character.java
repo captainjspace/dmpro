@@ -88,6 +88,7 @@ public class Character implements Modifiable {
 	Dexterity dexterity;
 	Constitution constitution;
 	Charisma charisma;
+	int resurrectionCount;
 	//boolean experienceBonus; //does not belong here 
 	
 	Race race;
@@ -96,12 +97,13 @@ public class Character implements Modifiable {
 	//alignment
 	Alignment alignment;
 	
+	CombatStatistics combatStats;
 	//level data
 	int maxHitPoints;
-	int armorClass = 10;
+	//int armorClass = 10;
 	
 	//active effects.
-	List <Modifier> activeModifiers = new ArrayList<Modifier>();
+	List<Modifier> activeModifiers = new ArrayList<Modifier>();
 	
 	//change later -- list of actions -- add spells, choose proficiencies, equip character, visit pc shop,etc.
 	List<CharacterManagementActions> requiredActions = new ArrayList<CharacterManagementActions>();
@@ -441,11 +443,11 @@ public class Character implements Modifiable {
 		this.maxHitPoints = maxHitPoints;
 	}
 	public int getArmorClass() {
-		return armorClass;
+		return getCombatStats().getArmorClass();
 	}
-	public void setArmorClass(int armorClass) {
-		this.armorClass = armorClass;
-	}
+//	public void setArmorClass(int armorClass) {
+//		this.armorClass = armorClass;
+//	}
 	public List<Language> getLanguages() {
 		return languages;
 	}
@@ -764,6 +766,38 @@ public class Character implements Modifiable {
 	 */
 	public void setInventory(List<Item> inventory) {
 		this.inventory = inventory;
+	}
+
+
+	/**
+	 * @return the combatStats
+	 */
+	public CombatStatistics getCombatStats() {
+		return combatStats;
+	}
+
+
+	/**
+	 * @param combatStats the combatStats to set
+	 */
+	public void setCombatStats(CombatStatistics combatStats) {
+		this.combatStats = combatStats;
+	}
+
+
+	/**
+	 * @return the resurrectionCount
+	 */
+	public int getResurrectionCount() {
+		return resurrectionCount;
+	}
+
+
+	/**
+	 * @param resurrectionCount the resurrectionCount to set
+	 */
+	public void setResurrectionCount(int resurrectionCount) {
+		this.resurrectionCount = resurrectionCount;
 	}
 	
 }

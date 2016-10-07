@@ -10,9 +10,9 @@ import dmpro.character.Character;
 public class UpdateLevel implements ManagementAction {
 
 	@Override
-	public Character execute(Character c, Server application, Scanner input, Formatter output) {
+	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		// TODO Auto-generated method stub
-		return null;
+		return character;
 	}
 
 }

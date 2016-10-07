@@ -31,7 +31,8 @@ public class ArmorRecord extends Item implements TSVData {
 	//private List<ArmorClassModifier> armorClassmodifiers = new ArrayList<ArmorClassModifier>();
 
 	public ArmorRecord(String [] fields) {
-		armorType = ArmorType.valueOf(fields[0]);
+		itemType = ItemType.ARMOR;
+		armorType = ArmorType.valueOf(fields[0]); //distinguish between ARMOR, SHIELD
 		setItemName(fields[1]);
 		setItemValue(Integer.parseInt(fields[2]));
 		itemCurrency= CoinType.valueOf(fields[3]);

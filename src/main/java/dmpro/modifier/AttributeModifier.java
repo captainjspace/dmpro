@@ -83,5 +83,60 @@ public class AttributeModifier extends Modifier {
 	public void setModifiesAbilityScore(boolean modifiesAbilityScore) {
 		this.modifiesAbilityScore = modifiesAbilityScore;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((attributeToModify == null) ? 0 : attributeToModify.hashCode());
+		result = prime * result + ((attributeType == null) ? 0 : attributeType.hashCode());
+		result = prime * result + bonus;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + (modifiesAbilityScore ? 1231 : 1237);
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof AttributeModifier)) {
+			return false;
+		}
+		AttributeModifier other = (AttributeModifier) obj;
+		if (attributeToModify == null) {
+			if (other.attributeToModify != null) {
+				return false;
+			}
+		} else if (!attributeToModify.equals(other.attributeToModify)) {
+			return false;
+		}
+		if (attributeType != other.attributeType) {
+			return false;
+		}
+		if (bonus != other.bonus) {
+			return false;
+		}
+		if (description == null) {
+			if (other.description != null) {
+				return false;
+			}
+		} else if (!description.equals(other.description)) {
+			return false;
+		}
+		if (modifiesAbilityScore != other.modifiesAbilityScore) {
+			return false;
+		}
+		return true;
+	}
 
+	
 }

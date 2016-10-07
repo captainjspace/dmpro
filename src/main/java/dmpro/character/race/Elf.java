@@ -11,6 +11,9 @@ import dmpro.character.Language;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.MagicResistanceModifier;
+import dmpro.modifier.Modifier;
+import dmpro.modifier.Modifier.ModifierPriority;
+import dmpro.modifier.Modifier.ModifierSource;
 import dmpro.modifier.SpellEffectModifier;
 import dmpro.spells.SpellLibrary;
 //import dmpro.spells.SpellEffect;
@@ -34,7 +37,10 @@ public class Elf extends Race {
 			this.languages.add(new Language(s));
 		}
 		
+		//TODO:  add modifier details in other character classes
 		AttributeModifier a = new AttributeModifier();
+		a.modifierSource = ModifierSource.RACE;
+		a.modifierPriority = ModifierPriority.HIGH;
 		a.setAttributeToModify(Dexterity.class);
 		a.setAttributeType(AttributeType.DEXTERITY);
 		a.setBonus(1);
@@ -42,6 +48,8 @@ public class Elf extends Race {
 		raceAttributes.add(a);
 		
 		a = new AttributeModifier();
+		a.modifierSource = ModifierSource.RACE;
+		a.modifierPriority = ModifierPriority.HIGH;
 		a.setAttributeToModify(Constitution.class);
 		a.setAttributeType(AttributeType.CONSTITUTION);
 		a.setBonus(-1);
@@ -59,22 +67,30 @@ public class Elf extends Race {
 		
 		/* these might be abilities */
 		a = new AttributeModifier();
+		a.modifierSource = ModifierSource.RACE;
+		a.modifierPriority = ModifierPriority.HIGH;
 		a.setAttributeToModify(Strength.class);
 		a.setAttributeType(AttributeType.STRENGTH);
 		a.setBonus(0);
+		a.setModifiesAbilityScore(false);
 //		 ((Strength) a.getA() ). get Character Stength - get current to hit, increment++ if using sword
 		a.setDescription("	-->	Elf gets +1 to hit with one handed swords (hitProbabilityModifier+1) - need to look at weapon");
 		raceAttributes.add(a);
 		
 		//need to split missile Attack and initiative
 		a = new AttributeModifier();
+		a.modifierSource = ModifierSource.RACE;
+		a.modifierPriority = ModifierPriority.HIGH;
 		a.setAttributeToModify(Dexterity.class);
 		a.setAttributeType(AttributeType.DEXTERITY);
 		a.setBonus(0);
+		a.setModifiesAbilityScore(false);
 		a.setDescription("	-->	Elf gets +1 to hit with bows (missileAttackAdjustment+1) - need to look at weapon");
 		raceAttributes.add(a);
 		
 		a= new AttributeModifier();
+		a.modifierSource = ModifierSource.RACE;
+		a.modifierPriority = ModifierPriority.HIGH;
 		a.setAttributeToModify(Intelligence.class);
 		a.setAttributeType(AttributeType.INTELLIGENCE);
 		//a.setBonus(intelligence); DETERMINED BY CHARACTER AT RUNTIME, CONSIDER OTHER MODIFIERS
@@ -84,7 +100,10 @@ public class Elf extends Race {
 		a = null;
 		
 		SpellLibrary sl = SpellLibrary.getSpellLibrary();
+
 		SpellEffectModifier abilityModifier = new SpellEffectModifier();
+		abilityModifier.modifierSource = ModifierSource.RACE;
+		abilityModifier.modifierPriority = ModifierPriority.HIGH;
 		abilityModifier.getAbility().setAbilityName("Infravision 60'");
 		abilityModifier.getAbility().setAbilityType(AbilityType.SPELL);
 		abilityModifier.setPermanent(true);
@@ -94,6 +113,8 @@ public class Elf extends Race {
 		abilityModifier = null;
 		
 		MagicResistanceModifier resistance= new MagicResistanceModifier();
+		resistance.modifierSource = ModifierSource.RACE;
+		resistance.modifierPriority = ModifierPriority.HIGH;
 		resistance.getAbility().setAbilityName("Sleep Resistance");
 		resistance.getAbility().setAbilityType(AbilityType.MAGICRESISTANCE);
 		resistance.setPermanent(true);
@@ -104,6 +125,8 @@ public class Elf extends Race {
 		raceAbilities.add(resistance);
 		
 		resistance= new MagicResistanceModifier();
+		resistance.modifierSource = ModifierSource.RACE;
+		resistance.modifierPriority = ModifierPriority.HIGH;
 		resistance.getAbility().setAbilityName("Elven Charm Resistance");
 		resistance.getAbility().setAbilityType(AbilityType.MAGICRESISTANCE);
 		resistance.setPermanent(true);
@@ -114,6 +137,8 @@ public class Elf extends Race {
 		raceAbilities.add(resistance);
 		
 		AbilityModifier secret = new AbilityModifier();
+		secret.modifierSource = ModifierSource.RACE;
+		secret.modifierPriority = ModifierPriority.HIGH;
 		secret.getAbility().setAbilityName("Secret Door Detection");
 		secret.getAbility().setAbilityType(AbilityType.SECRETDOORS);
 		secret.getAbility().setAbilityDie(Dice.d6);
@@ -125,6 +150,8 @@ public class Elf extends Race {
 		raceAbilities.add(secret);
 		
 		secret = new AbilityModifier();
+		secret.modifierSource = ModifierSource.RACE;
+		secret.modifierPriority = ModifierPriority.HIGH;
 		secret.getAbility().setAbilityName("Concealed Door Detection");
 		secret.getAbility().setAbilityType(AbilityType.SECRETDOORS);
 		secret.getAbility().setAbilityDie(Dice.d6);
@@ -136,6 +163,8 @@ public class Elf extends Race {
 		raceAbilities.add(secret);
 		
 		secret = new AbilityModifier();
+		secret.modifierSource = ModifierSource.RACE;
+		secret.modifierPriority = ModifierPriority.HIGH;
 		secret.getAbility().setAbilityName("Silence Movement and Surprise");
 		secret.getAbility().setAbilityType(AbilityType.SURPRISE);
 		secret.getAbility().setAbilityDie(Dice.d6);

@@ -18,7 +18,9 @@ public enum CharacterManagementActions {
 	SPENDGOLD(new SpendGold()),
 	UPDATEPROFICIENCIES( new UpdateProficiencies()),
 	ADDCHARACTERBACKGROUND( new AddCharacterBackground()),
-	UPDATETURNUNDEAD(new UpdateTurnUndead());
+	UPDATETURNUNDEAD(new UpdateTurnUndead()),
+	ACCUMULATEMODIFIERS(new AccumulateModifiers()),
+	UPDATECOMBATSTATS(new UpdateCombatStats());
 	
 	private ManagementAction managementAction;
 	

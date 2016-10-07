@@ -1,9 +1,11 @@
 package dmpro.character;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
-
+import java.util.Set;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import java.util.logging.Level;
 import dmpro.modifier.*;
 import dmpro.modifier.ArmorClassModifier.ArmorClassModifierType;
@@ -15,6 +17,8 @@ import dmpro.modifier.MovementModifier.MovementModifierType;
 
 /** 
  * CharacterAttributeToAbilityModifierProducer.java
+ * Helper class for the Modifier Engine - convert non boosting attribute modifiers to abilities.
+ * Could also rebuild base character classes but this seems useful on the whole.
  * 
  * <table>
  * <tr>
@@ -45,7 +49,7 @@ import dmpro.modifier.MovementModifier.MovementModifierType;
  * </table>
  * Take each Attributes raw scores and generate an ability modifier for the ModifierEngine
  * 
- * TODO -- refactor ... use constructors, abstract attributes?, reflection?
+ * TODO -- refactor ... use constructors, abstract attributes?, reflection?, finish constitution and charisma
  * @author joshualandman
  * @version
  * @since
@@ -56,7 +60,7 @@ public class CharacterAttributeToAbilityModifierProducer implements ModifierProd
 
 	private Logger logger = Logger.getLogger(this.getClass().getName());
 	private Character character;
-	List<Modifier> modifiers = new ArrayList<Modifier>();
+	Set <Modifier> modifiers = new LinkedHashSet<Modifier>();
 	
 	public CharacterAttributeToAbilityModifierProducer(Character character) {
 		this.character = character;
@@ -74,6 +78,8 @@ public class CharacterAttributeToAbilityModifierProducer implements ModifierProd
 		processConstitution();
 		processCharisma();
 		modifiers.forEach(p -> logger.log(Level.INFO, p.modifierSource.toString()));
+		
+		/* Add all created AbilityModifiers */
 		character.activeModifiers.addAll(modifiers);
 	}
 	

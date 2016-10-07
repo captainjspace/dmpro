@@ -63,14 +63,15 @@ public class InitializeEquipment implements ManagementAction {
 		proficiencies.entrySet().stream().forEach(p -> output.format("Proficiency: %s, %d\n",p.getKey(),p.getValue()));
 		
 		WeaponItemLoader weaponItems  = application.getReferenceDataSet().getWeaponItemLoader();
-
-		output.format("Weapons you can afford \n");
+	
 		weaponItems.getWeapons().stream()
-		.filter( p -> p.getItemValue() < totalValue)
+		.filter( p -> p.getItemValue() < afterValue)
 		.forEach(p -> output.format("\t%s \t\t %d%s\n" , p.getItemName(), p.getItemValue() , p.getItemCurrency()));
 		
 		List<WeaponItem> weapons;
 		while (true) {
+			output.format("Weapons you can afford \n");
+			
 			output.format("Enter a weapon name to purchase or .exit.>");
 			output.flush();
 			String weapon = input.nextLine();
@@ -85,6 +86,10 @@ public class InitializeEquipment implements ManagementAction {
 				cart.add(weapons.get(0));
 				output.format("%s added to cart\n%s\n", weapons.get(0).getItemName(),weapons.get(0).toString() );
 				afterValue -= weapons.get(0).getItemValue();
+				weaponItems.getWeapons().stream()
+				.filter( p -> p.getItemValue() < afterValue)
+				.forEach(p -> output.format("\t%s \t\t %d%s\n" , p.getItemName(), p.getItemValue() , p.getItemCurrency()));
+				
 			}
 		}
 		
@@ -101,6 +106,7 @@ public class InitializeEquipment implements ManagementAction {
 		
 		List<ArmorRecord> armors;
 		while (true) {
+			
 			output.format("Enter armor name to purchase or .exit.>");
 			output.flush();
 			String armor = input.nextLine();
@@ -115,6 +121,10 @@ public class InitializeEquipment implements ManagementAction {
 				cart.add(armors.get(0));
 				output.format("%s added to cart\n%s\n", armors.get(0).getItemName(), armors.get(0).toString());
 				afterValue -= armors.get(0).getItemValue();
+				armorTableLoader.getArmorItems().stream()
+				.filter( p -> p.getItemValue() < afterValue)
+				.forEach(p -> output.format("\t%s \t\t %d%s\n" , p.getItemName(), p.getItemValue() , p.getItemCurrency()));
+				
 			}
 		}
 		/* shop supplies */
@@ -172,7 +182,7 @@ public class InitializeEquipment implements ManagementAction {
 
 	public static void main (String [] args) {
 		Server application = new StubApp();
-		Character character = application.getCharacterService().loadCharacter("1475618677181019861205");
+		Character character = application.getCharacterService().loadCharacter("1475876181862019861205");
 		InitializeEquipment initializeEquipment = new InitializeEquipment();
 		Scanner input = new Scanner(System.in);
 		Formatter output = new Formatter(System.out);

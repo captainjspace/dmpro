@@ -172,7 +172,7 @@ public class CharacterBuildDirector {
 		output.format("Autogen it is!!!\n");
 		AttributeRoller attributeRoller = new AttributeRoller();
 		int[] attributeRolls = attributeRoller.attributeRolls();
-		
+		attributeRolls = new int[] {18,18,18,18,18,18};
 		//TODO: hook up to central.
 		//attributeLoader = new StrengthLoader();
 		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));

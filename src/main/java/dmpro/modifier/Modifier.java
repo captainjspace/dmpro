@@ -75,7 +75,8 @@ public class Modifier {
 		SURPRISE, // encounters
 		ARMORCLASS, //armor class boost/reduce
 		MOVEMENT,//impacts movement rate
-		ENVIRONMENT//impacts what actions are allowed in this env;
+		ENVIRONMENT,//impacts what actions are allowed in this env;
+		DAMAGE;
 	}
 	
 	public enum ModifierSource {
@@ -114,4 +115,46 @@ public class Modifier {
 	public ModifierType getModifierType() {
 		return modifierType;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((modifierPriority == null) ? 0 : modifierPriority.hashCode());
+		result = prime * result + ((modifierSource == null) ? 0 : modifierSource.hashCode());
+		result = prime * result + ((modifierType == null) ? 0 : modifierType.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Modifier)) {
+			return false;
+		}
+		Modifier other = (Modifier) obj;
+		if (modifierPriority != other.modifierPriority) {
+			return false;
+		}
+		if (modifierSource != other.modifierSource) {
+			return false;
+		}
+		if (modifierType != other.modifierType) {
+			return false;
+		}
+		return true;
+	}
+	
+	
 }

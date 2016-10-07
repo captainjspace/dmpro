@@ -12,6 +12,7 @@ public abstract class Item implements Modifiable {
 	public enum ItemType {
 		WEAPON,
 		ARMOR,
+		SHIELD,
 		TREASURE,
 		MAGIC,
 		STANDARD,
@@ -24,7 +25,7 @@ public abstract class Item implements Modifiable {
 	
 	int itemId;
 	String itemName;
-	ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
+	protected ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
 	int itemCount;
 	int itemValue; //gold piece value
 	protected CoinType itemCurrency;

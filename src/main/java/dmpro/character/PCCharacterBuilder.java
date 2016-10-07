@@ -102,6 +102,15 @@ public class PCCharacterBuilder implements CharacterBuilder {
 			) {
 				character.addRequiredAction(CharacterManagementActions.INITIALIZESPELLBOOK);
 		}
+		if ( 
+				(character.getClasses().containsKey(CharacterClassType.CLERIC)) ||
+				(character.getClasses().containsKey(CharacterClassType.PALADIN))
+				) {
+			character.addRequiredAction(CharacterManagementActions.UPDATETURNUNDEAD);
+		}
+		if (character.getClasses().containsKey(CharacterClassType.THIEF)) {
+			character.addRequiredAction(CharacterManagementActions.UPDATETHIEFSKILLS);
+		}
 		logger.log(Level.INFO, "Build Added Classes Character Id: " + character.getCharacterId());
 		
 	}
