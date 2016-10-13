@@ -22,10 +22,10 @@ import dmpro.data.loaders.ClassRaceLoader;
 import dmpro.data.loaders.RaceAttributeLoader;
 import dmpro.data.loaders.ClassAttributeLoader.ClassAttributeRecord;
 import dmpro.data.loaders.ClassAttributeLoader.ListPossibleClassResults;
-import dmpro.data.loaders.ClassRaceLoader.ClassRaceRecord;
+import dmpro.data.loaders.ClassRaceRecord;
 import dmpro.data.loaders.ClassRaceLoader.ListPossibleClassRaceResults;
 import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
-import dmpro.data.loaders.RaceAttributeLoader.RaceAttributeRecord;
+import dmpro.data.loaders.RaceAttributeRecord;
 import dmpro.data.loaders.RaceClassAgeLoader;
 import dmpro.data.loaders.RaceSizeLoader;
 

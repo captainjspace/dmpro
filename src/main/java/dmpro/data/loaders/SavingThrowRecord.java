@@ -1,9 +1,9 @@
 package dmpro.data.loaders;
 
-public class SavingThrowRecord {
+public class SavingThrowRecord implements TSVData {
 
 	//	CharacterClass characterClass;
-	
+	static final int fieldCount = 7;
 	int characterClassId;
 	String characterClassName;
 	int characterClassExperienceLevel;
@@ -15,16 +15,15 @@ public class SavingThrowRecord {
 
 	public SavingThrowRecord () {};
 	
-	public SavingThrowRecord(String lineInput) {
-		String[] field = lineInput.split("\t",7);
+	public SavingThrowRecord(String [] fields) {
 		
-		this.characterClassName = field[0];
-		this.characterClassExperienceLevel=Integer.parseInt(field[1]);
-		this.paralyzationPoisonOrDeathMagic=Integer.parseInt(field[2]);
-		this.petrifactionOrPolymorph=Integer.parseInt(field[3]);
-		this.rodStaffOrWand=Integer.parseInt(field[4]);
-		this.breathWeapon=Integer.parseInt(field[5]);
-		this.spell=Integer.parseInt(field[6]);
+		this.characterClassName = fields[0];
+		this.characterClassExperienceLevel=Integer.parseInt(fields[1]);
+		this.paralyzationPoisonOrDeathMagic=Integer.parseInt(fields[2]);
+		this.petrifactionOrPolymorph=Integer.parseInt(fields[3]);
+		this.rodStaffOrWand=Integer.parseInt(fields[4]);
+		this.breathWeapon=Integer.parseInt(fields[5]);
+		this.spell=Integer.parseInt(fields[6]);
 	}
 
 	public int getCharacterClassId() {

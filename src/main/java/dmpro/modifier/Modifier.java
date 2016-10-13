@@ -76,7 +76,8 @@ public class Modifier {
 		ARMORCLASS, //armor class boost/reduce
 		MOVEMENT,//impacts movement rate
 		ENVIRONMENT,//impacts what actions are allowed in this env;
-		DAMAGE;
+		DAMAGE,
+		WEAPONSKILL;
 	}
 	
 	public enum ModifierSource {

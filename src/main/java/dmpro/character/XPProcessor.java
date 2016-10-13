@@ -90,7 +90,7 @@ public class XPProcessor {
 	
 	public void processExperienceLevel(CharacterClass characterClass) {
 		int currentLevel  = characterClass.getExperienceLevel();
-		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.getExperiencePoints());
+		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.toString(), characterClass.getExperiencePoints());
 	
 		//TODO: implement race checks for max
 		//TODO: implement max 1 level increase and cap XP.

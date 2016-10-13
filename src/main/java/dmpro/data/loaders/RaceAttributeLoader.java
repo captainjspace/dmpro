@@ -26,64 +26,19 @@ import dmpro.character.race.RaceType;
  *
  */
 
-public class RaceAttributeLoader implements ResourceLoader{
+public class RaceAttributeLoader extends TSVLoader implements ResourceLoader{
 	
-	private List<RaceAttributeRecord> raceAttributeTable = new ArrayList<RaceAttributeRecord>();
-	private final String raceAttributeFile = dataDirectory + "tables/race-attribute-limits.tsv";
-	private final int fieldCount = 5;
+//	private List<RaceAttributeRecord> raceAttributeTable = new ArrayList<RaceAttributeRecord>();
+//	private final String raceAttributeFile = dataDirectory + "tables/race-attribute-limits.tsv";
+//	private final int fieldCount = 5;
 	
-	public class RaceAttributeRecord {
-
-		RaceType raceType;
-		String sex;
-		String attribute;
-		int min;
-		int max;
-		
-		public RaceAttributeRecord(String[] fields) {
-			raceType = RaceType.valueOf(fields[0]);
-			sex = fields[1];
-			attribute = fields[2];
-			min = Integer.parseInt(fields[3]);
-			max = Integer.parseInt(fields[4]);
-		}
-		public String toString() {
-			Formatter formatter = new Formatter();
-			String record = 
-				formatter.format("Attribute Limit: Attribute: %s, Race:%s, Sex:%s, Min:%d, Max:%d",
-						attribute, raceType, sex, min, max).toString();
-			formatter.close();
-			return record;
-
-		}
-
-	}
-
+	
 
 	public RaceAttributeLoader () {
-		load();
+		super(RaceAttributeRecord.class, "race-attribute-limits.tsv");
 	}
 	
-	public void load() {
-		FileReader reader=null;
-		Scanner scanner;
-		
-		try {
-			reader = new FileReader(raceAttributeFile);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			System.out.printf("RaceAttributeLoader: File Not found %s\n", raceAttributeFile);
-		}
-		scanner = new Scanner(reader);
-		scanner.nextLine();
-		
-		while (scanner.hasNextLine())
-			raceAttributeTable.add( new RaceAttributeRecord(scanner.nextLine().split("\t",fieldCount)));
-		
-		scanner.close();
-		//raceAttributeTable.stream().forEach(p -> System.out.println(p.toString()));
-	}
-
+	
 	public class IsInRangeResults {
 		boolean isInRange;
 		RaceAttributeRecord raceAttributeRecord;
@@ -99,8 +54,8 @@ public class RaceAttributeLoader implements ResourceLoader{
 		
 		RaceAttributeRecord raceAttributeRecord;
 		try {
-			raceAttributeRecord = raceAttributeTable.stream()
-		
+			raceAttributeRecord = tsvTable.stream()
+				.map(p -> (RaceAttributeRecord) p)
 				.filter(p -> p.raceType == raceType)
 				.filter(p -> p.sex.equals(gender))
 				.filter(p -> p.attribute.equals(attributeName))
@@ -140,4 +95,8 @@ public class RaceAttributeLoader implements ResourceLoader{
 		}
 		return listPossibleRaceResults;
 	}	
+	
+	public static void main (String[] args) {
+		RaceAttributeLoader ral = new RaceAttributeLoader();
+	}
 }

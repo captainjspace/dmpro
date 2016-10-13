@@ -1,6 +1,7 @@
 package dmpro.character;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,8 +12,14 @@ import java.util.stream.Collectors;
 import dmpro.core.*;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.Modifier;
+import dmpro.modifier.Modifier.ModifierPriority;
+import dmpro.modifier.Modifier.ModifierSource;
 import dmpro.modifier.Modifier.ModifierType;
+import dmpro.modifier.WeaponSkillModifier;
+import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
 import dmpro.attributes.*;
+import dmpro.items.WeaponItem.WeaponClass;
+import dmpro.items.WeaponItem.WeaponType;
 
 /**
  * CharacterModifierEngine.java
@@ -82,6 +89,25 @@ public class CharacterModifierEngine implements ModifierEngine {
  		modifierProducer.run();
  		this.character = modifierProducer.getCharacter();
  		
+ 		/* check for proficiency */
+ 		//character.getProficiencies().stream().distinct();
+ 		
+ 		/* check for specialization */
+ 		List<WeaponType> specialized = character.getProficiencies().stream()
+ 		.collect(Collectors.groupingBy(p ->p.name(), Collectors.counting()))
+ 		.entrySet()
+ 		.stream()
+ 		.filter( p -> p.getValue() > 1)
+ 		.map(p -> WeaponType.valueOf(p.getKey()))
+ 		.collect(Collectors.toList());
+ 		
+ 		specialized.stream().forEach(p -> System.out.printf("Specialized: %s\n", p.name()));
+ 		specialized.stream()
+ 		.forEach(p -> character.getActiveModifiers()
+ 				.addAll( generateSpecialization(p)));
+ 		
+ 		
+ 		
  		/* now add all non attribute modifiers back in*/
  		character.getActiveModifiers().addAll(
  		activeModifiers.stream()
@@ -93,6 +119,47 @@ public class CharacterModifierEngine implements ModifierEngine {
  		return character;
     }
 	
+	/**
+	 * @param name
+	 * @return
+	 */
+	private List<WeaponSkillModifier> generateSpecialization(WeaponType weaponType) {
+		
+		List<WeaponSkillModifier> sp = new ArrayList<WeaponSkillModifier>();
+		
+		/***TODO: this needs to be expanded to cover specialization effectively ***/
+		if ( weaponType.weaponClass() == WeaponClass.MELEE || weaponType.weaponClass() == WeaponClass.BOTH) {
+			/* it's strange that this object cannot be re-used - after insertion */
+			WeaponSkillModifier wsm = new WeaponSkillModifier();
+			wsm.modifierPriority = ModifierPriority.HIGH;
+			wsm.modifierSource = ModifierSource.CLASS;
+			wsm.modifierType = ModifierType.WEAPONSKILL;
+			wsm.setWeaponType(weaponType);
+			wsm.setWeaponSkillModifierType(WeaponSkillModifierType.TOHIT);
+			wsm.setModifier(1);
+			wsm.setDescription("Fighter Weapon Specialization");
+			sp.add(wsm);
+
+			//sp.stream().forEach(p -> System.out.println(p.toString()));
+
+			WeaponSkillModifier wsmD = new WeaponSkillModifier();
+			wsmD.modifierPriority = ModifierPriority.HIGH;
+			wsmD.modifierSource = ModifierSource.CLASS;
+			wsmD.modifierType = ModifierType.WEAPONSKILL;
+			wsmD.setWeaponType(weaponType);
+			wsmD.setWeaponSkillModifierType(WeaponSkillModifierType.DAMAGE);
+			wsmD.setModifier(2);
+			wsmD.setDescription("Fighter Weapon Specialization");
+			sp.add(wsmD);
+		}
+		
+		//TODO: Look up Attacks in Data table.
+//		wsm.setWeaponType(weaponType);
+//		wsm.setWeaponSkillModifierType(WeaponSkillModifierType.ATTACKS);
+//		wsm.setModifier(2);
+		sp.stream().forEach(p -> System.out.println(p.toString()));
+		return sp;
+	}
 	private void assembleAllModifiers() {
 		
 		
@@ -110,7 +177,7 @@ public class CharacterModifierEngine implements ModifierEngine {
 		character.getEquippedItems().stream()
 		 .forEach(c -> c.getModifiers().stream()
 				 .forEach(m -> System.out.println(m.toString())));
-		 
+		
 
 		character.getEquippedItems().stream()
 				 //.filter(ei -> !ei.getModifiers().isEmpty())

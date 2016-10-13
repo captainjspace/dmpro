@@ -38,4 +38,16 @@ public class RaceClassAgeRecord implements TSVData{
 		return ageRoll;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "RaceClassAgeRecord [" + (raceType != null ? "raceType=" + raceType + ", " : "")
+				+ (characterClassType != null ? "characterClassType=" + characterClassType + ", " : "")
+				+ (ageRoll != null ? "ageRoll=" + ageRoll : "") + "]";
+	}
+	
+	
+
 }

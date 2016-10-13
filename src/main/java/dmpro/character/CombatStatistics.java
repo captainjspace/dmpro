@@ -3,41 +3,61 @@
  */
 package dmpro.character;
 
-import dmpro.modifier.ArmorClassModifier;
+
 import dmpro.modifier.Modifier;
-import java.util.ArrayList;
-import java.util.List;
+
+
+
+import java.util.Set;
 import java.util.Date;
+import java.util.HashSet;
 
 /**
  * @author Joshua Landman, <joshua.s.landman@gmail.com>
  * created on Oct 6, 2016
- * pojo for combat stats
+ * Pojo for combat stats
+ * Created by the CharacterService when executing UpdateCombatStats
+ * Triggered by the UPDATECOMBATSTATS message 
+ * Currently directly queued in the Character requiredActions Set
+ * 
+ * @see UpdateCombatStats
+ * @see CharacterManagementActions
+ * @see CharacterService
+ * @see Character
+ * 
+ * Active modifiers will be filtered down, and cast to subtypes and summed to get values.
+ * Values can be used for standard reference or in the combat loop / applied to random rolls
+ * Modifiers are retained and attached to "dice modifiers" for reference and display
+ * Use of Sets prevents duplicates.
+ * 
  */
 public class CombatStatistics {
 	
 	private Date timestamp;
 	
 	private int meleeToHitBonus;
-	private List<Modifier> meleeToHitFactors = new ArrayList<Modifier>();
+	private Set<Modifier> meleeToHitFactors = new HashSet<Modifier>();
 	
 	private int missileToHitBonus;
-	private List<Modifier> missileToHitFactors = new ArrayList<Modifier>();
+	private Set<Modifier> missileToHitFactors = new HashSet<Modifier>();
 	
-	private int damageBonus;
-	private List<Modifier> damageFactors = new ArrayList();
+	private int meleeDamageBonus;
+	private Set<Modifier> meleeDamageFactors = new HashSet<Modifier>();
+	
+	private int missileDamageBonus;
+	private Set<Modifier> missileDamageFactors = new HashSet<Modifier>();
 	
 	private int armorClass;
-	private List<ArmorClassModifier> armorClassFactors = new ArrayList<ArmorClassModifier>();
+	private Set<Modifier> armorClassFactors = new HashSet<Modifier>();
 	
 	private int movement;
-	private List<Modifier> movementFactors = new ArrayList<Modifier>();
+	private Set<Modifier> movementFactors = new HashSet<Modifier>();
 	
 	private int initiativeModifier;
-	private List<Modifier> initiativeFactors = new ArrayList<Modifier>();
+	private Set<Modifier> initiativeFactors = new HashSet<Modifier>();
 	
 	private int supriseRoll;
-	private List<Modifier> surpriseFactors = new ArrayList<Modifier>();
+	private Set<Modifier> surpriseFactors = new HashSet<Modifier>();
 	
 	
 	/**
@@ -67,13 +87,13 @@ public class CombatStatistics {
 	/**
 	 * @return the meleeToHitFactors
 	 */
-	public List<Modifier> getMeleeToHitFactors() {
+	public Set<Modifier> getMeleeToHitFactors() {
 		return meleeToHitFactors;
 	}
 	/**
 	 * @param meleeToHitFactors the meleeToHitFactors to set
 	 */
-	public void setMeleeToHitFactors(List<Modifier> meleeToHitFactors) {
+	public void setMeleeToHitFactors(Set<Modifier> meleeToHitFactors) {
 		this.meleeToHitFactors = meleeToHitFactors;
 	}
 	/**
@@ -91,13 +111,13 @@ public class CombatStatistics {
 	/**
 	 * @return the missileToHitFactors
 	 */
-	public List<Modifier> getMissileToHitFactors() {
+	public Set<Modifier> getMissileToHitFactors() {
 		return missileToHitFactors;
 	}
 	/**
 	 * @param missileToHitFactors the missileToHitFactors to set
 	 */
-	public void setMissileToHitFactors(List<Modifier> missileToHitFactors) {
+	public void setMissileToHitFactors(Set<Modifier> missileToHitFactors) {
 		this.missileToHitFactors = missileToHitFactors;
 	}
 	/**
@@ -115,13 +135,13 @@ public class CombatStatistics {
 	/**
 	 * @return the armorClassFactors
 	 */
-	public List<ArmorClassModifier> getArmorClassFactors() {
+	public Set<Modifier> getArmorClassFactors() {
 		return armorClassFactors;
 	}
 	/**
 	 * @param acMod the armorClassFactors to set
 	 */
-	public void setArmorClassFactors(List<ArmorClassModifier> acMod) {
+	public void setArmorClassFactors(Set<Modifier> acMod) {
 		this.armorClassFactors = acMod;
 	}
 	/**
@@ -139,13 +159,13 @@ public class CombatStatistics {
 	/**
 	 * @return the movementFactors
 	 */
-	public List<Modifier> getMovementFactors() {
+	public Set<Modifier> getMovementFactors() {
 		return movementFactors;
 	}
 	/**
 	 * @param movementFactors the movementFactors to set
 	 */
-	public void setMovementFactors(List<Modifier> movementFactors) {
+	public void setMovementFactors(Set<Modifier> movementFactors) {
 		this.movementFactors = movementFactors;
 	}
 	/**
@@ -163,13 +183,13 @@ public class CombatStatistics {
 	/**
 	 * @return the initiativeFactors
 	 */
-	public List<Modifier> getInitiativeFactors() {
+	public Set<Modifier> getInitiativeFactors() {
 		return initiativeFactors;
 	}
 	/**
 	 * @param initiativeFactors the initiativeFactors to set
 	 */
-	public void setInitiativeFactors(List<Modifier> initiativeFactors) {
+	public void setInitiativeFactors(Set<Modifier> initiativeFactors) {
 		this.initiativeFactors = initiativeFactors;
 	}
 	/**
@@ -187,39 +207,78 @@ public class CombatStatistics {
 	/**
 	 * @return the surpriseFactors
 	 */
-	public List<Modifier> getSurpriseFactors() {
+	public Set<Modifier> getSurpriseFactors() {
 		return surpriseFactors;
 	}
 	/**
 	 * @param surpriseFactors the surpriseFactors to set
 	 */
-	public void setSurpriseFactors(List<Modifier> surpriseFactors) {
+	public void setSurpriseFactors(Set<Modifier> surpriseFactors) {
 		this.surpriseFactors = surpriseFactors;
 	}
 	/**
 	 * @return the damageBonus
 	 */
 	public int getDamageBonus() {
-		return damageBonus;
+		return meleeDamageBonus;
 	}
 	/**
 	 * @param damageBonus the damageBonus to set
 	 */
 	public void setDamageBonus(int damageBonus) {
-		this.damageBonus = damageBonus;
+		this.meleeDamageBonus = damageBonus;
+	}
+
+
+	/**
+	 * @return the meleeDamageBonus
+	 */
+	public int getMeleeDamageBonus() {
+		return meleeDamageBonus;
 	}
 	/**
-	 * @return the damageFactors
+	 * @param meleeDamageBonus the meleeDamageBonus to set
 	 */
-	public List<Modifier> getDamageFactors() {
-		return damageFactors;
+	public void setMeleeDamageBonus(int meleeDamageBonus) {
+		this.meleeDamageBonus = meleeDamageBonus;
 	}
 	/**
-	 * @param damageFactors the damageFactors to set
+	 * @return the meleeDamageFactors
 	 */
-	public void setDamageFactors(List<Modifier> damageFactors) {
-		this.damageFactors = damageFactors;
+	public Set<Modifier> getMeleeDamageFactors() {
+		return meleeDamageFactors;
 	}
+	/**
+	 * @param meleeDamageFactors the meleeDamageFactors to set
+	 */
+	public void setMeleeDamageFactors(Set<Modifier> meleeDamageFactors) {
+		this.meleeDamageFactors = meleeDamageFactors;
+	}
+	/**
+	 * @return the missileDamageBonus
+	 */
+	public int getMissileDamageBonus() {
+		return missileDamageBonus;
+	}
+	/**
+	 * @param missileDamageBonus the missileDamageBonus to set
+	 */
+	public void setMissileDamageBonus(int missileDamageBonus) {
+		this.missileDamageBonus = missileDamageBonus;
+	}
+	/**
+	 * @return the missileDamageFactors
+	 */
+	public Set<Modifier> getMissileDamageFactors() {
+		return missileDamageFactors;
+	}
+	/**
+	 * @param missileDamageFactors the missileDamageFactors to set
+	 */
+	public void setMissileDamageFactors(Set<Modifier> missileDamageFactors) {
+		this.missileDamageFactors = missileDamageFactors;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -230,12 +289,14 @@ public class CombatStatistics {
 				+ (meleeToHitFactors != null ? "meleeToHitFactors=" + meleeToHitFactors + ", " : "")
 				+ "missileToHitBonus=" + missileToHitBonus + ", "
 				+ (missileToHitFactors != null ? "missileToHitFactors=" + missileToHitFactors + ", " : "")
-				+ "damageBonus=" + damageBonus + ", "
-				+ (damageFactors != null ? "damageFactors=" + damageFactors + ", " : "") + "armorClass=" + armorClass
-				+ ", " + (armorClassFactors != null ? "armorClassFactors=" + armorClassFactors + ", " : "")
-				+ "movement=" + movement + ", "
-				+ (movementFactors != null ? "movementFactors=" + movementFactors + ", " : "") + "initiativeModifier="
-				+ initiativeModifier + ", "
+				+ "meleeDamageBonus=" + meleeDamageBonus + ", "
+				+ (meleeDamageFactors != null ? "meleeDamageFactors=" + meleeDamageFactors + ", " : "")
+				+ "missileDamageBonus=" + missileDamageBonus + ", "
+				+ (missileDamageFactors != null ? "missileDamageFactors=" + missileDamageFactors + ", " : "")
+				+ "armorClass=" + armorClass + ", "
+				+ (armorClassFactors != null ? "armorClassFactors=" + armorClassFactors + ", " : "") + "movement="
+				+ movement + ", " + (movementFactors != null ? "movementFactors=" + movementFactors + ", " : "")
+				+ "initiativeModifier=" + initiativeModifier + ", "
 				+ (initiativeFactors != null ? "initiativeFactors=" + initiativeFactors + ", " : "") + "supriseRoll="
 				+ supriseRoll + ", " + (surpriseFactors != null ? "surpriseFactors=" + surpriseFactors : "") + "]";
 	}	

@@ -6,30 +6,37 @@ import java.util.Map;
 import dmpro.utils.ParseUtils;
 
 public class WeaponItem extends Item {
+	public enum WeaponClass {
+		MELEE,
+		MISSILE,
+		BOTH;
+	}
 	
 	public enum WeaponType {
-		ONEHANDEDSWORD(1, "One Handed Swords",1),
-		TWOHANDEDSWORD(2, "The Venerable Two Handed Sword - Bane of all big beasts!",2),
-		DAGGER(3,"Daggers, Knives, Stilletto's for sneaking in the night or hurling at your enemy",1),
-		POLEARMCLASS(4, "Polearms for War!",1),
-		SPEAR(5, "Spears, Javelins for both Pole and Missile attacks!",1),
-		ONEHANDEDAXE(6, "One handed Axes - for chopping wood, and throwing on occasion",1),
-		TWOHANDEDAXE(7,"The Battle Axe - Crush crumble and chomp through Armor!",2),
-		HAMMER(8, "The War Hammer - Thrown or Smashed",1),
-		BOWCLASS(9, "Bows and Crossbows - no party can be without",2),
-		FLAIL(10, "Flails, and whips and all chainy things",1),
-		MACE(11, "Mace, Club and One-handed crushy stuff!",1),
-		STAFF(12, "No Mage should be without his trusty Staff!",2),
-		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!",1);
+		ONEHANDEDSWORD(1, "One Handed Swords",1, WeaponClass.MELEE),
+		TWOHANDEDSWORD(2, "The Venerable Two Handed Sword - Bane of all big beasts!",2,WeaponClass.MELEE),
+		DAGGER(3,"Daggers, Knives, Stilletto's for sneaking in the night or hurling at your enemy",1, WeaponClass.MELEE),
+		POLEARMCLASS(4, "Polearms for War!",1, WeaponClass.MELEE),
+		SPEAR(5, "Spears, Javelins for both Pole and Missile attacks!",1, WeaponClass.BOTH),
+		ONEHANDEDAXE(6, "One handed Axes - for chopping wood, and throwing on occasion",1, WeaponClass.MELEE),
+		TWOHANDEDAXE(7,"The Battle Axe - Crush crumble and chomp through Armor!",2, WeaponClass.MELEE),
+		HAMMER(8, "The War Hammer - Thrown or Smashed",1, WeaponClass.MELEE),
+		BOWCLASS(9, "Bows and Crossbows - no party can be without",2, WeaponClass.MISSILE),
+		FLAIL(10, "Flails, and whips and all chainy things",1, WeaponClass.MELEE),
+		MACE(11, "Mace, Club and One-handed crushy stuff!",1, WeaponClass.MELEE),
+		STAFF(12, "No Mage should be without his trusty Staff!",2, WeaponClass.MELEE),
+		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!",1,WeaponClass.MISSILE);
 		
 		int weaponTypeIndex;
 		String weaponTypeDescription;
 		int handsRequired;
+		WeaponClass weaponClass;
 		
-		WeaponType ( int weaponTypeIndex, String weaponTypeDescription, int handsRequired) {
+		WeaponType ( int weaponTypeIndex, String weaponTypeDescription, int handsRequired, WeaponClass weaponClass) {
 			this.weaponTypeIndex = weaponTypeIndex;
 			this.weaponTypeDescription = weaponTypeDescription;
 			this.handsRequired = handsRequired;
+			this.weaponClass = weaponClass;
 		}
 		
 		public int weaponTypeIndex() {
@@ -40,6 +47,9 @@ public class WeaponItem extends Item {
 		}
 		public int handsRequired() {
 			return handsRequired;
+		}
+		public WeaponClass weaponClass() {
+			return weaponClass;
 		}
 	}
 	

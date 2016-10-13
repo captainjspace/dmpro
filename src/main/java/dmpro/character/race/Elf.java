@@ -8,13 +8,17 @@ import dmpro.attributes.Intelligence;
 import dmpro.attributes.Strength;
 import dmpro.attributes.Attribute.AttributeType;
 import dmpro.character.Language;
+import dmpro.items.WeaponItem.WeaponType;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.MagicResistanceModifier;
 import dmpro.modifier.Modifier;
 import dmpro.modifier.Modifier.ModifierPriority;
 import dmpro.modifier.Modifier.ModifierSource;
+import dmpro.modifier.Modifier.ModifierType;
 import dmpro.modifier.SpellEffectModifier;
+import dmpro.modifier.WeaponSkillModifier;
+import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
 import dmpro.spells.SpellLibrary;
 //import dmpro.spells.SpellEffect;
 //import dmpro.Character;
@@ -66,27 +70,26 @@ public class Elf extends Race {
 //		}
 		
 		/* these might be abilities */
-		a = new AttributeModifier();
-		a.modifierSource = ModifierSource.RACE;
-		a.modifierPriority = ModifierPriority.HIGH;
-		a.setAttributeToModify(Strength.class);
-		a.setAttributeType(AttributeType.STRENGTH);
-		a.setBonus(0);
-		a.setModifiesAbilityScore(false);
-//		 ((Strength) a.getA() ). get Character Stength - get current to hit, increment++ if using sword
-		a.setDescription("	-->	Elf gets +1 to hit with one handed swords (hitProbabilityModifier+1) - need to look at weapon");
-		raceAttributes.add(a);
+		WeaponSkillModifier w = new WeaponSkillModifier();
+		w.modifierSource = ModifierSource.RACE;
+		w.modifierPriority = ModifierPriority.HIGH;
+		w.modifierType = ModifierType.WEAPONSKILL;
+		w.setWeaponType(WeaponType.ONEHANDEDSWORD);
+		w.setWeaponSkillModifierType(WeaponSkillModifierType.TOHIT);
+		w.setModifier(1);
+		w.setDescription("	-->	Elf gets +1 to hit with one handed swords WeaponType.ONEHANDEDSWORD");
+		raceAbilities.add(w);
 		
 		//need to split missile Attack and initiative
-		a = new AttributeModifier();
-		a.modifierSource = ModifierSource.RACE;
-		a.modifierPriority = ModifierPriority.HIGH;
-		a.setAttributeToModify(Dexterity.class);
-		a.setAttributeType(AttributeType.DEXTERITY);
-		a.setBonus(0);
-		a.setModifiesAbilityScore(false);
-		a.setDescription("	-->	Elf gets +1 to hit with bows (missileAttackAdjustment+1) - need to look at weapon");
-		raceAttributes.add(a);
+		w = new WeaponSkillModifier();
+		w.modifierSource = ModifierSource.RACE;
+		w.modifierPriority = ModifierPriority.HIGH;
+		w.modifierType = ModifierType.WEAPONSKILL;
+		w.setWeaponType(WeaponType.BOWCLASS);
+		w.setWeaponSkillModifierType(WeaponSkillModifierType.TOHIT);
+		w.setModifier(1);
+		w.setDescription("	-->	Elf gets +1 to hit with bows WeaponType.BOWCLASS");
+		raceAbilities.add(w);
 		
 		a= new AttributeModifier();
 		a.modifierSource = ModifierSource.RACE;
@@ -99,6 +102,7 @@ public class Elf extends Race {
 		raceAttributes.add(a);
 		a = null;
 		
+		/* TODO:  This should be referencing the application */
 		SpellLibrary sl = SpellLibrary.getSpellLibrary();
 
 		SpellEffectModifier abilityModifier = new SpellEffectModifier();

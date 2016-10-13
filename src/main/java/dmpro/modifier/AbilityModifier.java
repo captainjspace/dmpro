@@ -18,14 +18,14 @@ import dmpro.character.Character;
  *  AttributeModifiers are narrow and of higher priority in comparison.
  *  
  */
-public class AbilityModifier extends Modifier{
+public class AbilityModifier extends Modifier {
 
 	public AbilityModifier() {
 		this.modifierType = ModifierType.ABILITY;
 	}
 	
+	//probably better off with an enum caommand pattern if needed
 	Class<? extends Ability> abilityClass; //a place to introduce custom character operations
-	
 	private Ability ability=new Ability();
 	private int modifier; //amount to add-subtract
 	private String modifierFormula;
@@ -91,6 +91,7 @@ public class AbilityModifier extends Modifier{
 	public void setModifierFormula(String modifierFormula) {
 		this.modifierFormula = modifierFormula;
 	}
+	
 	
 
 }

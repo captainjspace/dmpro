@@ -53,6 +53,17 @@ public class RaceSizeRecord implements TSVData {
 	public float getFemaleWeightMultiplier() {
 		return femaleWeightMultiplier;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "RaceSizeRecord [" + (raceType != null ? "raceType=" + raceType + ", " : "")
+				+ (heightRoll != null ? "heightRoll=" + heightRoll + ", " : "")
+				+ (weightRoll != null ? "weightRoll=" + weightRoll + ", " : "") + "femaleHeightMultiplier="
+				+ femaleHeightMultiplier + ", femaleWeightMultiplier=" + femaleWeightMultiplier + "]";
+	}
 			
 
 }

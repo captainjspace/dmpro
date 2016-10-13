@@ -1,7 +1,8 @@
 package dmpro.data.loaders;
 
-public class SpellsAllowedRecord {
+public class SpellsAllowedRecord implements TSVData {
 	
+	static final int fieldCount = 11;
 	private String characterClassName;
 	int experienceLevel;
 	
@@ -15,21 +16,19 @@ public class SpellsAllowedRecord {
 	int Level8;
 	int Level9;
 
-	public SpellsAllowedRecord(String lineInput) {
+	public SpellsAllowedRecord(String [] fields) {
 		
-		String[] field = lineInput.split("\t", 11);
-		
-		characterClassName = field[0];
-		experienceLevel = Integer.parseInt(field[1]);
-		Level1 = (!field[2].isEmpty()) ? Integer.parseInt(field[2]) : 0;
-		Level2 = (!field[3].isEmpty()) ? Integer.parseInt(field[3]) : 0;
-		Level3 = (!field[4].isEmpty()) ? Integer.parseInt(field[4]) : 0;
-		Level4 = (!field[5].isEmpty()) ? Integer.parseInt(field[5]) : 0;
-		Level5 = (!field[6].isEmpty()) ? Integer.parseInt(field[6]) : 0;
-		Level6 = (!field[7].isEmpty()) ? Integer.parseInt(field[7]) : 0;
-		Level7 = (!field[8].isEmpty()) ? Integer.parseInt(field[8]) : 0;
-		Level8 = (!field[9].isEmpty()) ? Integer.parseInt(field[9]) : 0;
-		Level9 = (!field[10].isEmpty()) ? Integer.parseInt(field[10]) : 0;
+		characterClassName = fields[0];
+		experienceLevel = Integer.parseInt(fields[1]);
+		Level1 = (!fields[2].isEmpty()) ? Integer.parseInt(fields[2]) : 0;
+		Level2 = (!fields[3].isEmpty()) ? Integer.parseInt(fields[3]) : 0;
+		Level3 = (!fields[4].isEmpty()) ? Integer.parseInt(fields[4]) : 0;
+		Level4 = (!fields[5].isEmpty()) ? Integer.parseInt(fields[5]) : 0;
+		Level5 = (!fields[6].isEmpty()) ? Integer.parseInt(fields[6]) : 0;
+		Level6 = (!fields[7].isEmpty()) ? Integer.parseInt(fields[7]) : 0;
+		Level7 = (!fields[8].isEmpty()) ? Integer.parseInt(fields[8]) : 0;
+		Level8 = (!fields[9].isEmpty()) ? Integer.parseInt(fields[9]) : 0;
+		Level9 = (!fields[10].isEmpty()) ? Integer.parseInt(fields[10]) : 0;
 		
 		
 		

@@ -1,7 +1,9 @@
 package dmpro.data.loaders;
 
-public class ExperienceTableRecord {
+public class ExperienceTableRecord implements TSVData{
 	private final boolean DEBUG = false;
+	
+	static final int fieldCount = 7;
 	
 	String characterClass;
 	long minExperiencePoints;
@@ -61,10 +63,9 @@ public class ExperienceTableRecord {
 		this.bonusXP = bonusXP;
 		this.levelTitle = levelTitle;
 	}
-	public ExperienceTableRecord(String lineInput) {
-		// TODO Auto-generated constructor stub
-		if (DEBUG) System.out.println(lineInput);
-		String[] fields = lineInput.split("\t",7);
+	
+	public ExperienceTableRecord(String [] fields) {
+		
 		this.characterClass = fields[0];
 		this.minExperiencePoints = Integer.parseInt(fields[1]);
 		this.maxExperiencePoint = Integer.parseInt(fields[2]);

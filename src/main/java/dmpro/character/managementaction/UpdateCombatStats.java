@@ -9,20 +9,38 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
 import dmpro.character.Character;
 import dmpro.character.CharacterModifierEngine;
 import dmpro.character.CombatStatistics;
+import dmpro.character.classes.CharacterClass.CharacterClassType;
 import dmpro.core.Server;
 import dmpro.core.StubApp;
+import dmpro.items.Item.ItemType;
+import dmpro.items.WeaponItem;
+import dmpro.items.WeaponItem.WeaponClass;
+import dmpro.items.WeaponItem.WeaponType;
 import dmpro.modifier.*;
 import dmpro.modifier.ArmorClassModifier.ArmorClassModifierType;
+import dmpro.modifier.MeleeModifier.MeleeModifierType;
+import dmpro.modifier.MissileModifier.MissileModifierType;
 import dmpro.modifier.Modifier.ModifierPriority;
 import dmpro.modifier.Modifier.ModifierSource;
 import dmpro.modifier.Modifier.ModifierType;
+import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
+
 
 /**
  * @author Joshua Landman, <joshua.s.landman@gmail.com>
  * created on Oct 6, 2016
+ * 
+ * character <update combat statistics>
+ * evaluate all active modifiers that pertain specifically to the combat loop
+ * surprise - could be moved
+ * initiative, melee, missile (to hit) and damage and armor class are relevant every round of combat
+ * 
+ * TODO: attacks per round - really only matter for fighters and multiclass that gain 
+ * multiple attacks or can use a weapon that allows it.
  */
 public class UpdateCombatStats implements ManagementAction {
 
@@ -37,7 +55,7 @@ public class UpdateCombatStats implements ManagementAction {
 		/* 
 		 * Big Distinctions:
 		 * Fixed AC -  Source ARMOR
-		 * Modifier ALL - +/- Souce ATTRIBUTE,ABILITY,MAGIC
+		 * Modifier ALL - +/- Source ATTRIBUTE,ABILITY,MAGIC
 		 * Modifier directional - SHIELD
 		 */
 		
@@ -74,37 +92,143 @@ public class UpdateCombatStats implements ManagementAction {
 				.mapToInt( p -> p.getModifier()).sum();
 		
 		combatStats.setArmorClass(base + all + front);
-		combatStats.setArmorClassFactors(acMod);
-		output.format("ArmorClass: %d, %d, %d - %s", base, all, front ,combatStats.toString());
+		combatStats.getArmorClassFactors().addAll(acMod);
+		output.format("ArmorClass: %d, %d, %d - %s\n", base, all, front ,combatStats.toString());
 		character.setCombatStats(combatStats);
 		
 		
+		/* Melee Modifiers */
+		int specializedMeleeBonus = 0, specializedDamageBonus = 0;
+		/* specialization check for fighters*/
+		character.getClasses().keySet().stream().forEach( p -> System.out.println(p));
 		
+		if (character.getClasses().containsKey(CharacterClassType.FIGHTER)) {
+			System.out.println("I AM A FIGHTER");
+			//TODO:  think about programming individual classes for different specialization types
+			
+			List<WeaponSkillModifier> specializationMod = 
+					character.getActiveModifiers().stream()
+					.filter(p -> p.modifierType == ModifierType.WEAPONSKILL)
+					.map(p -> (WeaponSkillModifier) p )
+					.filter(p -> p.getWeaponType().weaponClass() != WeaponClass.MISSILE)
+					.collect(Collectors.toList());
+			specializationMod.stream().forEach(p -> System.out.println(p.toString()));
+			
+			combatStats.getMeleeToHitFactors().addAll(
+					specializationMod.stream().filter(p -> p.getWeaponSkillModifierType() == WeaponSkillModifierType.TOHIT).collect(Collectors.toList())
+					);
+			combatStats.getMeleeDamageFactors().addAll( 
+					specializationMod.stream().filter(p -> p.getWeaponSkillModifierType() == WeaponSkillModifierType.DAMAGE).collect(Collectors.toList())
+					);
+
+			
+			List<WeaponItem> weapons = character.getEquippedItems()
+					.stream()
+					.filter(p -> p.getItemType() == ItemType.WEAPON)
+					.map(p -> (WeaponItem) p)
+					//.filter(p -> p.getWeaponType() == WeaponType.ONEHANDEDSWORD)
+					.collect(Collectors.toList());
+			weapons.stream().forEach(p -> System.out.println(p.toString()));
+			
+			List<WeaponSkillModifier> specializedEquipped = weapons.stream()
+					.flatMap(p -> specializationMod.stream()
+							.filter(s -> p.getWeaponType() == s.getWeaponType()))
+					.collect(Collectors.toList());
+			
+			specializedEquipped.stream().forEach(p -> System.out.println("SpecializedMATCH: " + p.toString()));
+
+			/* melee specialization */
+			if ( specializedEquipped.size() >= 1) {
+				specializedMeleeBonus = specializationMod.stream().filter(p -> p.getWeaponSkillModifierType() == WeaponSkillModifierType.TOHIT).mapToInt(p -> p.getModifier()).sum();
+				specializedDamageBonus = specializationMod.stream().filter(p -> p.getWeaponSkillModifierType() == WeaponSkillModifierType.DAMAGE).mapToInt(p -> p.getModifier()).sum();
+			}
+			output.format("Specialized to Hit: +%d\tSpecialized Damage: +%d\n", specializedMeleeBonus, specializedDamageBonus);
+			output.flush();
+		}
+		
+		/* To hit */
 		List<MeleeModifier> meleeMod = character.getActiveModifiers()
 				.stream().filter(p -> p.getModifierType() == ModifierType.MELEE)
 				.map(p -> (MeleeModifier) p)
+				.filter(p -> p.meleeModifierType == MeleeModifierType.TOHIT)
 				.collect(Collectors.toList());
+		int toHitMelee = meleeMod.stream().mapToInt(p -> p.getModifier()).sum();
+		meleeMod.stream().forEach(p -> output.format("MeleeMod:%s\n", p.toString()));
+		output.flush();
+		combatStats.setMeleeToHitBonus(toHitMelee + specializedMeleeBonus);
+		combatStats.getMeleeToHitFactors().addAll(meleeMod);
 		
+		/* Damage */
+		List<MeleeModifier> meleeDamageMod = character.getActiveModifiers()
+				.stream().filter(p -> p.getModifierType() == ModifierType.MELEE)
+				.map(p -> (MeleeModifier) p)
+				.filter(p -> p.meleeModifierType == MeleeModifierType.DAMAGE)
+				.collect(Collectors.toList());
+		int meleeDamageBonus = meleeMod.stream().mapToInt(p -> p.getModifier()).sum();
+		meleeMod.stream().forEach(p -> output.format("Melee Damage:%s\n", p.toString()));
+		output.flush();
+		
+		
+		combatStats.setMeleeDamageBonus(meleeDamageBonus + specializedDamageBonus);
+		combatStats.getMeleeDamageFactors().addAll(meleeDamageMod);
+		
+		/*
+		 * Missile Modifiers 
+		 */
+		
+		/* to hit */
 		List<MissileModifier> missileMod = character.getActiveModifiers()
 				.stream().filter(p -> p.getModifierType() == ModifierType.MISSILE)
 				.map(p -> (MissileModifier) p)
+				.filter(p -> p.missileModifierType == MissileModifierType.TOHIT)
 				.collect(Collectors.toList());
+		int toHitMissile = missileMod.stream().mapToInt(p -> p.getModifier()).sum();
+		missileMod.stream().forEach(p -> output.format("MissileMod:%s\n", p.toString()));
+		output.flush();
+		combatStats.setMissileToHitBonus(toHitMissile);
+		combatStats.getMissileToHitFactors().addAll(missileMod);
+		
+		/* Damage */
+		List<MissileModifier> missileDamageMod = character.getActiveModifiers()
+				.stream().filter(p -> p.getModifierType() == ModifierType.MISSILE)
+				.map(p -> (MissileModifier) p)
+				.filter(p -> p.missileModifierType == MissileModifierType.DAMAGE)
+				.collect(Collectors.toList());
+		int missileDamageBonus = missileMod.stream().mapToInt(p -> p.getModifier()).sum();
+		missileMod.stream().forEach(p -> output.format("Missile Damage:%s\n", p.toString()));
+		output.flush();
+		combatStats.setMissileDamageBonus(missileDamageBonus);
+		combatStats.getMissileDamageFactors().addAll(missileDamageMod);
+		
+		
+		/*
+		 * Initiative Modifiers 
+		 */
 		
 		List<InitiativeModifier> initiativeMod = character.getActiveModifiers()
 				.stream().filter(p -> p.getModifierType() == ModifierType.INITIATIVE)
 				.map(p -> (InitiativeModifier) p)
 				.collect(Collectors.toList());
-
-		List<SurpriseModifier> surpriseMod = character.getActiveModifiers()
-				.stream().filter(p -> p.getModifierType() == ModifierType.SURPRISE)
-				.map(p -> (SurpriseModifier) p)
-				.collect(Collectors.toList());
+		int initiativeBonus = initiativeMod.stream().mapToInt(p -> p.getModifier()).sum();
+		initiativeMod.stream().forEach(p -> output.format("InitiativeMod:%s\n", p.toString()));
+		output.flush();
+		combatStats.setInitiativeModifier(initiativeBonus);
+		combatStats.getInitiativeFactors().addAll(initiativeMod);
+		
+		output.format("%s\n", combatStats.toString());
+		
+		/* TODO: Surprise should be moved to start of encounter - */
+//		List<SurpriseModifier> surpriseMod = character.getActiveModifiers()
+//				.stream().filter(p -> p.getModifierType() == ModifierType.SURPRISE)
+//				.map(p -> (SurpriseModifier) p)
+//				.collect(Collectors.toList());
+		
 		return character;
 	}
 
 	public static void main (String [] args) {
 		Server application = new StubApp();
-		String charID = "1475876181862019861205";
+		String charID = "1476224446343019861205";
 		Character character = application.getCharacterService().loadCharacter(charID);
 		character = (new CharacterModifierEngine(application)).processModifiers(character);
 		character = application.getCharacterService().saveCharacter(character);

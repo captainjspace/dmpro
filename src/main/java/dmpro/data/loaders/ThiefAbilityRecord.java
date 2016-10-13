@@ -1,9 +1,10 @@
 package dmpro.data.loaders;
 
-public class ThiefAbilityRecord {
+public class ThiefAbilityRecord implements TSVData {
 	/**
 	 * a data record - could be an inner class
 	 */
+	static final int fieldCount = 9;
 	int experienceLevel;
 	float pickPockets;
 	float openLocks;
@@ -14,17 +15,17 @@ public class ThiefAbilityRecord {
 	float climbWalls;
 	float readLanguages;
 	
-	public ThiefAbilityRecord(String lineInput) {
-		String[] field = lineInput.split("\t",9);
-		this.experienceLevel = Integer.parseInt(field[0]);
-		this.pickPockets = Float.parseFloat(field[1]);
-		this.openLocks = Float.parseFloat(field[2]);
-		this.findAndRemoveTraps = Float.parseFloat(field[3]);
-		this.moveSilently = Float.parseFloat(field[4]);
-		this.hideInShadows = Float.parseFloat(field[5]);
-		this.hearNoise = Float.parseFloat(field[6]);
-		this.climbWalls = Float.parseFloat(field[7]);
-		this.readLanguages = Float.parseFloat(field[8]);
+	public ThiefAbilityRecord(String[] fields) {
+		
+		this.experienceLevel = Integer.parseInt(fields[0]);
+		this.pickPockets = Float.parseFloat(fields[1]);
+		this.openLocks = Float.parseFloat(fields[2]);
+		this.findAndRemoveTraps = Float.parseFloat(fields[3]);
+		this.moveSilently = Float.parseFloat(fields[4]);
+		this.hideInShadows = Float.parseFloat(fields[5]);
+		this.hearNoise = Float.parseFloat(fields[6]);
+		this.climbWalls = Float.parseFloat(fields[7]);
+		this.readLanguages = Float.parseFloat(fields[8]);
 	}
 
 	/**

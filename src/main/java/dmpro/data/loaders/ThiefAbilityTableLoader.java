@@ -6,40 +6,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ThiefAbilityTableLoader implements ResourceLoader {
+public class ThiefAbilityTableLoader extends TSVLoader implements ResourceLoader {
 	/**
 	 * data container
 	 */
 	
-	Map<Integer, ThiefAbilityRecord> thiefAbilityMap = new HashMap<Integer, ThiefAbilityRecord>();
-	
 	public ThiefAbilityTableLoader() {
-		load();
+		super(ThiefAbilityRecord.class,"thief-abilities.tsv");
 	}
 
-	public void load() {
-		String file = dataDirectory + "tables/thief-abilities.tsv";
-		FileReader reader;
-		Scanner scanner;
-		
-		
-		try {
-			reader = new FileReader(file);
-			scanner = new Scanner(reader);
-			scanner.nextLine(); //skip header
-			while (scanner.hasNextLine()) {
-				ThiefAbilityRecord tar = new ThiefAbilityRecord(scanner.nextLine());
-				thiefAbilityMap.put(tar.getExperienceLevel(), tar);
-			}
-			scanner.close();
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	public ThiefAbilityRecord getRecord(int experienceLevel) {
-		return this.thiefAbilityMap.get(experienceLevel);
+		return tsvTable.stream()
+				.map(p -> (ThiefAbilityRecord) p )
+				.filter(p -> p.getExperienceLevel() == experienceLevel)
+				.findFirst()
+				.get();
 	}
 	
 	public static void main (String[] args) {
@@ -59,17 +40,4 @@ public class ThiefAbilityTableLoader implements ResourceLoader {
 		s.close();
 	}
 
-	/**
-	 * @return the thiefAbilityMap
-	 */
-	public Map<Integer, ThiefAbilityRecord> getThiefAbilityMap() {
-		return thiefAbilityMap;
-	}
-
-	/**
-	 * @param thiefAbilityMap the thiefAbilityMap to set
-	 */
-	public void setThiefAbilityMap(Map<Integer, ThiefAbilityRecord> thiefAbilityMap) {
-		this.thiefAbilityMap = thiefAbilityMap;
-	}
 }

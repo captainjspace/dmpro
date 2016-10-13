@@ -18,9 +18,9 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
-import dmpro.GSonModifierListAdapter;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.Modifier;
+import dmpro.serializers.GSonModifierListAdapter;
 import dmpro.world.Location;
 
 //TODO - this does not work - need to get it sorted - also need to add deserialize
