@@ -22,6 +22,7 @@ import dmpro.serializers.GSonModifierAdapter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class MagicItemLoader implements ResourceLoader {
 	private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -40,6 +41,11 @@ public class MagicItemLoader implements ResourceLoader {
 		}
 		return magicItem;
 	}
+	
+	public List<MagicItem> searchMagicItem(String magicItemName){
+		return magicItems.stream().filter(p -> p.getItemName().contains(magicItemName)).collect(Collectors.toList());
+	}
+
 	public MagicItemLoader() {
 		load();
 	};
@@ -103,6 +109,20 @@ public class MagicItemLoader implements ResourceLoader {
 		MagicItemLoader magicItemLoader = new MagicItemLoader();
 		magicItemLoader.load();
 		//System.out.println(magicItemLoader.getMagicItem("ring of dexterity").toString());
+	}
+
+	/**
+	 * @return the magicItems
+	 */
+	public List<MagicItem> getMagicItems() {
+		return magicItems;
+	}
+
+	/**
+	 * @param magicItems the magicItems to set
+	 */
+	public void setMagicItems(List<MagicItem> magicItems) {
+		this.magicItems = magicItems;
 	}
 
 }

@@ -7,7 +7,7 @@ import dmpro.modifier.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Item implements Modifiable {
+public abstract class Item implements Comparable<Item>, Modifiable {
 	
 	public enum ItemType {
 		WEAPON,
@@ -192,6 +192,13 @@ public abstract class Item implements Modifiable {
 	 */
 	public void setItemCount(int itemCount) {
 		this.itemCount = itemCount;
+	}
+	
+	/**
+	 * @param item item to compare name(alpha) to this one
+	 */
+	public int compareTo(Item item) {
+		return this.itemName.toLowerCase().compareTo(item.itemName.toLowerCase());
 	}
 
 }

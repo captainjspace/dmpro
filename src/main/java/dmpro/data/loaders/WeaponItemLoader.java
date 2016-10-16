@@ -108,7 +108,7 @@ public class WeaponItemLoader implements ResourceLoader {
 	 * @return the weapons
 	 */
 	public List<WeaponItem> getWeapons() {
-		return weapons;
+		return weapons.stream().map(p -> (WeaponItem)p).collect(Collectors.toList());
 	}
 
 	/**

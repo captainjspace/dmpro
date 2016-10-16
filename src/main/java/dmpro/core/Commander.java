@@ -115,8 +115,21 @@ public class Commander implements Runnable {
 				break;
 			case MAGIC:
 				//logger.log(Level.INFO, "trying to get " + commandObject.varString);
-				dmpro.items.MagicItem magicItem = application.getReferenceDataSet().getMagicItemLoader().getMagicItem(commandObject.varString);
-				results = gson.toJson(magicItem);
+				switch(commandObject.commandSet) {
+				case GET:
+					dmpro.items.MagicItem magicItem = application.getReferenceDataSet().getMagicItemLoader().getMagicItem(commandObject.varString);
+					results = gson.toJson(magicItem);
+					break;
+				case SEARCH:
+					List<dmpro.items.MagicItem> magicItems = application.getReferenceDataSet().getMagicItemLoader().searchMagicItem(commandObject.varString);
+					results = gson.toJson(magicItems);
+					break;
+				case LIST:
+					magicItems = application.getReferenceDataSet().getMagicItemLoader().getMagicItems();
+					results = gson.toJson(magicItems);
+					break;
+				}
+				
 				break;
 			case WEAPONS:
 				switch(commandObject.commandSet) {

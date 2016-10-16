@@ -50,7 +50,7 @@ public class TSVLoader implements ResourceLoader {
 				tsvTable.add(tsvData);
 			}
 			
-			tsvTable.stream().forEach(a -> System.out.println(a.toString()));
+			//tsvTable.stream().forEach(a -> System.out.println(a.toString()));
 		
 		} catch (FileNotFoundException fnf) {;
 			logger.log(Level.INFO, "Where is that file " + file, fnf);

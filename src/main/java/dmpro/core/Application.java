@@ -18,7 +18,7 @@ import dmpro.character.Character;
 
 public class Application implements Server {
 	
-	//Class memebers
+	//Class members
 	private static final String APPLICATION_NAME = "Dungeon Master Pro";
 	private static final String SECRETDOOR = "3 taps, a level and a gem of seeing";
 	private static final String SHUTDOWN = "dmpro-shutdown";
@@ -43,6 +43,8 @@ public class Application implements Server {
 	private ModifierEngine characterModifierEngine;
 	private CommandLineService commandLineService;
 	private NodeWrapperService nodeWrapperService;
+	private JettyServer jetty;
+	
 //	private GeoFactory geoFactory;
 	
 //	private CharacterStateEngine characterStateEngine;
@@ -85,6 +87,7 @@ public class Application implements Server {
 		startCommandLineService();
 		startCharacterService();
 		startCharacterModifierEngine();
+		startJetty();
 		//startNodeWrapperService();
 		getMemoryStats();
 		
@@ -125,6 +128,20 @@ public class Application implements Server {
 		}
 	}
 	
+	/**
+	 * 
+	 */
+	private void startJetty() {
+		try {
+			this.jetty = new JettyServer();
+			subsystem.execute(this.jetty);
+			logger.log(Level.INFO, "Jetty  is online");
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, "Jetty failed - investigate", e);
+		}
+		
+	}
+
 	/**
 	 * Get Heap Data
 	 * @return
