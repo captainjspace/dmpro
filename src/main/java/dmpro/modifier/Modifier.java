@@ -12,7 +12,7 @@ package dmpro.modifier;
  * There are numerous permutations of known modifiers.
  * I've cataloged as many as I could off the top of my head and intend by brute force
  * to evaluate the enumerations and determine what the die roll to apply the modifiers to.
- * Ultimate game play is driven by entered die rolls or ramdomly generated die rolls.
+ * Ultimate game play is driven by entered die rolls or randomly generated die rolls.
  * Options for both are included.
  * 
  * <p> There is a distinction between the "damage" bonus of strength.
@@ -47,7 +47,7 @@ package dmpro.modifier;
 			"INSTANCE": {
 				"attributeType": "DEXTERITY",
 				"bonus": 1,
-				"description": "\t--\u003e\tRing of Dexterity +1",
+				"description": "Ring of Dexterity +1",
 				"modifiesAbilityScore": true,
 				"modifierType": "ATTRIBUTE"
 			}
@@ -58,7 +58,7 @@ package dmpro.modifier;
  *  
  * 
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class Modifier {

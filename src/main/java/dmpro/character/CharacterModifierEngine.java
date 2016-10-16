@@ -39,9 +39,9 @@ import dmpro.items.WeaponItem.WeaponType;
  * 
  * Should be event driven -- onCharacterChange....
  * Character should have 
- * @author joshualandman
- * @version
- * @since
+ * @author Joshua Landman, joshua.s.landman@gmail.com
+ * @version v0.1
+ * @since 9/21/2016
  */
 
 public class CharacterModifierEngine implements ModifierEngine {

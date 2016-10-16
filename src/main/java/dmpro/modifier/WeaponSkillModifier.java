@@ -7,7 +7,7 @@ import dmpro.items.WeaponItem;
 import dmpro.items.WeaponItem.WeaponType;
 
 /**
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 10, 2016
  * 
  * This class will handle non-proficiency penalties and specialization

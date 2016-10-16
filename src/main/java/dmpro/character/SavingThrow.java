@@ -23,7 +23,7 @@ import dmpro.modifier.SavingThrowModifier;
  * 
  * Character state will maintain the active collection of SavingThrows.
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 

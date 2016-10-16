@@ -6,7 +6,7 @@ package dmpro;
 import dmpro.modifier.Modifier;
 
 /**
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public interface IModify {

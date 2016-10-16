@@ -5,7 +5,7 @@ import java.util.Formatter;
  * 
  * I figured it would be easy enough to break up later.
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  */
 import java.util.List;
 import java.util.Map;
@@ -47,13 +47,13 @@ public class Commander implements Runnable {
 	}
 	/**
 	 * TODO: break this out into a full command pattern
-	 * @param commandObject
+	 * @param commandObject command object resolves to executable path
 	 * @return String
 	 */
 	public String execute(CommandObject commandObject) throws NullPointerException {
 		String results = null;
 		if (commandObject.commandSet == CommandSet.HELP) {
-			return DungeonMasterProHandler.ascii.art.get("help");
+			return application.getReferenceDataSet().getAsciiArt().art.get("help-file");
 		}
 		switch (commandObject.subsystem) {
 		case CHARACTER:

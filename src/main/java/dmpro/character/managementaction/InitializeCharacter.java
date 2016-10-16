@@ -17,7 +17,7 @@ import dmpro.character.classes.CharacterClass;
  *   <li> Initialize Gold and Gear from class(es) [spellbook, thieves tools, holy symbol, etc.] </li>
  *   <li> Run Shop@Keep interaction </li>
  * </ol>
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 

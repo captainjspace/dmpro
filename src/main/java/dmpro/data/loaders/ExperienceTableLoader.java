@@ -18,19 +18,12 @@ public class ExperienceTableLoader extends TSVLoader implements ResourceLoader {
 	}
 	
 	public ExperienceTableRecord getRecordByXP(String characterClass, long experiencePoints) {
-		ExperienceTableRecord experienceTableRecord=new ExperienceTableRecord();
-		try {
-			//deal with off the charts
-			experienceTableRecord = this.tsvTable.stream()
+		return
+			this.tsvTable.stream()
 					.map(p -> (ExperienceTableRecord) p)
 					.filter(p -> p.getCharacterClass().equalsIgnoreCase(characterClass.toLowerCase()))
 					.filter(p -> p.getMinExperiencePoints() <= experiencePoints && p.getMaxExperiencePoint() > experiencePoints)
 					.findFirst().get();
-		} catch (NoSuchElementException e) {
-			System.out.printf("Could not find record for %d experience Points\n", experiencePoints);
-			
-		}
-		return experienceTableRecord;
 	}
 	
 	public ExperienceTableRecord getRecord(String characterClass, int level) {

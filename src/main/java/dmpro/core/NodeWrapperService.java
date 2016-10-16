@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * just trying to make the server aware that node is running and that node is shutdown in concert
  * with other systems - even if I sent an Ctrl + c
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class NodeWrapperService implements Runnable {

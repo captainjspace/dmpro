@@ -27,7 +27,7 @@ import dmpro.modifier.Modifier.ModifierSource;
 import dmpro.modifier.Modifier.ModifierType;
 
 /**
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class Location implements IModify{

@@ -8,14 +8,18 @@ import java.util.Scanner;
 
 import dmpro.character.Character;
 import dmpro.character.classes.CharacterClass;
+import dmpro.character.classes.CharacterClass.CharacterClassType;
 
 public class InitializeProficiencies implements ManagementAction {
 
 	@Override
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		int initialProficiencySlots = 0;
+		boolean isFighter = false;
 		for (CharacterClass characterClass : character.getClasses().values()) {
 			initialProficiencySlots += characterClass.getStartingProficiencies();
+			if (characterClass.getCharacterClassType() == CharacterClassType.FIGHTER)
+				isFighter = true;
 		}
 		output.format("\n Good Sirs and Ladies - you have arrived at weapons training camp\n" +
 		"Please select some weapons type to train in!\nYou have %d proficiency slots\n", initialProficiencySlots);
@@ -41,8 +45,14 @@ public class InitializeProficiencies implements ManagementAction {
 					} else continue;
 				}
 				if (proficiency != null) {
-					character.addProficiency(proficiency);
-					initialProficiencySlots--;
+					boolean isAlreadyProficient = false;
+					isAlreadyProficient = character.getProficiencies().contains(proficiency);
+					if ( (isAlreadyProficient) && (!isFighter) ) {
+						output.format("You are already proficient in that %s.  Only Fighters can specialize.\n", proficiency);
+					} else {
+						character.addProficiency(proficiency);
+						initialProficiencySlots--;
+					}
 				} else {
 					throw new Exception("Looks like that Number is out of range!");
 				}

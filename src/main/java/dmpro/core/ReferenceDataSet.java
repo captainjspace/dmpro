@@ -191,7 +191,7 @@ public class ReferenceDataSet implements Runnable{
 		return raceClassAgeLoader;
 	}
 	/**
-	 * @return
+	 * @return the armorTableLoader
 	 */
 	public ArmorTableLoader getArmorTableLoader() {
 		// TODO Auto-generated method stub

@@ -1,7 +1,7 @@
 package dmpro.character.classes;
 /**
  * simple container for xp bonus
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class XPBonus {

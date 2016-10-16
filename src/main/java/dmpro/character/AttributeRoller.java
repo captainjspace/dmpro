@@ -12,7 +12,7 @@ import dmpro.utils.Die;
  * The class uses the die class and sets up a 6 sided die for best 3 our of 4 rolls
  * It also sets up a simple int array for 6 values to be allocated by the PC.
  * NPC can allocate in order.
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 

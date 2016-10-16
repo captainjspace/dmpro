@@ -4,7 +4,7 @@ import dmpro.spells.Spell;
 
 /***
  * this may already be deprecated...
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class MagicResistanceModifier extends AbilityModifier {

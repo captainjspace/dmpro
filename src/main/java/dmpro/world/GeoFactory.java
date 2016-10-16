@@ -1,7 +1,7 @@
 package dmpro.world;
 /**
  * A world instance maker :)
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  * TODO: create a world instance maker...
  */

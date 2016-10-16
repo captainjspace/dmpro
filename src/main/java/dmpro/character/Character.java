@@ -50,7 +50,7 @@ import dmpro.world.Environment;
  * Character current state is output to JSON.  
  * Node watches the JSON files - and auto-updates the player, and dm's applications (angular)
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * 
  */
 
@@ -114,6 +114,7 @@ public class Character implements Modifiable {
 	//need slots for certain equipment
 	//also all equippedItems must be from inventory..
 	List<Item> equippedItems = new ArrayList<Item>();
+	SlottedItems slottedItems = new SlottedItems();
 	
 	//Saving Throws
 	//determined by level and class, race, and modifiers
@@ -569,7 +570,7 @@ public class Character implements Modifiable {
 
 	/**
 	 * Attribute Helper Functions
-	 * @return
+	 * @return dmpro.attributes.Attribute[]
 	 */
 	public Attribute[] getAttributes() {
 		return new Attribute[] { this.strength,this.intelligence,this.wisdom,
@@ -798,6 +799,22 @@ public class Character implements Modifiable {
 	 */
 	public void setResurrectionCount(int resurrectionCount) {
 		this.resurrectionCount = resurrectionCount;
+	}
+
+
+	/**
+	 * @return the slottedItems
+	 */
+	public SlottedItems getSlottedItems() {
+		return slottedItems;
+	}
+
+
+	/**
+	 * @param slottedItems the slottedItems to set
+	 */
+	public void setSlottedItems(SlottedItems slottedItems) {
+		this.slottedItems = slottedItems;
 	}
 	
 }

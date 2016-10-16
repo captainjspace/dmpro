@@ -19,7 +19,7 @@ import com.google.gson.JsonSerializer;
 import dmpro.modifier.Modifier;
 
 /**
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 11, 2016
  * 
  * - just reuse the list adapter.

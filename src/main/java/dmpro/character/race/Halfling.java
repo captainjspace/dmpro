@@ -18,13 +18,13 @@ public class Halfling extends Race {
 	 * Fighter max 6, Thief or Fighter/Thief
 	 * restricted to thief equipment when operating as thief
 	 * 
-	 * Attribute Modifier - Magic Resistance & Poison Resistance X
+	 * Attribute Modifier - Magic Resistance &amp; Poison Resistance X
 	 *  (1-5) +1 Save against Rod, Staff, Wands | Spells | Poison -  per Constitution.getAbilityScore() / 3.5
 	 * language: common, dwarven, elven, gnome, goblin, halfling, orcish
 	 * 
 	 * Attribute Modifiers: -1 Strength, +1 Dexterity X
 	 * 
-	 * Attribute Modifier = + 1 language per Int > 16 X
+	 * Attribute Modifier = + 1 language per Int &gt; 16 X
 	 * 
 	 * Infravision Stout - 60', Mixed 30' X ignore mixed
 	 * 

@@ -32,6 +32,7 @@ public interface ModifierEngine {
 	 * combines two methods from character -- but i hate the code...
 	 * refactor me please!
 	 * 
+	 * @param modifier attribute modifier to process
 	 */
 	void processAttributeModifier(Modifier modifier);
 

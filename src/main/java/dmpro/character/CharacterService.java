@@ -90,7 +90,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 	
 	/**
 	 * application mode
-	 * @param application
+	 * @param application handle to application 
 	 */
 	public CharacterService(Server application) {
 		this.application = application;

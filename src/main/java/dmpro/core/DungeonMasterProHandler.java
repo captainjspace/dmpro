@@ -1,7 +1,6 @@
 package dmpro.core;
 
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -13,9 +12,7 @@ import java.util.stream.IntStream;
 
 public class DungeonMasterProHandler implements Runnable {
 	
-	//TODO: cheap and tawdry - getting lazy - although technically this really is static...
-	public static AsciiArt ascii = new AsciiArt();
-	
+	public AsciiArt ascii;
 	Application application;
 	private Logger logger = Logger.getLogger(this.getClass().getName());
 	public static final String EXIT = ".exit.";
@@ -28,6 +25,7 @@ public class DungeonMasterProHandler implements Runnable {
 	public DungeonMasterProHandler(Socket clientSocket, Application application) {
 		this.clientSocket = clientSocket;
 		this.application = application;
+		this.ascii = application.getReferenceDataSet().getAsciiArt();
 	}
 
 	@Override
@@ -78,6 +76,8 @@ public class DungeonMasterProHandler implements Runnable {
 			String inputToken = input.next();
 			commands.add(inputToken);
 			commands.get(commands.size()-1).chars().forEach(p -> System.out.println(p));
+			
+			/* trap telnet control c */
 			String telnetControlC = IntStream.of(65533,65533,65533,65533,6).collect(StringBuilder::new,
 					StringBuilder::appendCodePoint, StringBuilder::append).toString();
 			if (inputToken.contains(telnetControlC)) { 
@@ -88,19 +88,14 @@ public class DungeonMasterProHandler implements Runnable {
 				commands.remove(commands.size()-1);
 				break;
 			}
-//			int [] ctrlc = {65533,65533,65533,65533,6};
-			
-			//IntStream is = Arrays.stream(ctrlc).boxed().collect(Collectors.toList()))) 
-			
-//			if (commands.stream().anyMatch(p -> p.chars() == IntStream.of(ctrlc))) {
-//				return EXIT;
-//			}
 			
 			if (commands.get(commands.size()-1).equals(EXIT)) return EXIT;
 			
 		}
 		
 		String response = "";
+		/* I'm not sure if I want to trap an error or let it percolate up yet */
+		
 //		try {
 			response = commandInterpreter.interpretCommands(commands);
 //		} catch (IOException e) {
@@ -110,21 +105,6 @@ public class DungeonMasterProHandler implements Runnable {
 		output.format("%s\n>",response);
 		output.flush();
 		
-//		output.format(application.getReferenceDataSet().getMagicItemLoader().getMagicItem("potion of animal control").toString());
-//		output.flush();
-//
-//		try { 
-//			commands.stream()
-//			.forEach(cmd -> 
-//			output.format("%s\n>",application.getReferenceDataSet()
-//					.getSpellLibrary().getSpell(cmd).getFullSpellText()).flush());
-//		} catch (NullPointerException e) {
-//			output.format("spelling error!");
-//			logger.log(Level.INFO, "No spell found");
-//		}
-//		commands.stream().forEach(cmd -> logger.log(Level.INFO, cmd));
-//		output.flush();
-//
 
 		return "";
 

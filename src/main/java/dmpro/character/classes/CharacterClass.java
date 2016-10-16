@@ -22,7 +22,7 @@ public class CharacterClass {
 	/**
 	 * TODO:	Add Unearthed Arcana classes
 	 * 			Finish Monk and Bard
-	 * @author joshualandman
+	 * @author Joshua Landman, joshua.s.landman@gmail.com
 	 *
 	 */
 	public enum CharacterClassType {

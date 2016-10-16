@@ -3,7 +3,7 @@ package dmpro.core;
 import dmpro.character.CharacterService;
 /**
  * For testing 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class StubApp implements Server {

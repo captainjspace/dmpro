@@ -56,7 +56,7 @@ public class XPProcessor {
 	 * TODO:	add in non-distribution for human 2 class -- pretty rare...
 	 * 			probably an isActive..
 	 * TODO: energy drain combat 
-	 * @param newXPpoints
+	 * @param newXPpoints XP to add
 	 */
 	public void addExperiencePoints(int newXPpoints) {
 
@@ -90,7 +90,7 @@ public class XPProcessor {
 	
 	public void processExperienceLevel(CharacterClass characterClass) {
 		int currentLevel  = characterClass.getExperienceLevel();
-		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.toString(), characterClass.getExperiencePoints());
+		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.getClassName(), characterClass.getExperiencePoints());
 	
 		//TODO: implement race checks for max
 		//TODO: implement max 1 level increase and cap XP.
@@ -167,8 +167,9 @@ public class XPProcessor {
 	
 	/**
 	 * These methods may belong in a more generic location if there are magical temporary level bumps
+	 * for example potion of heroism or ioun stones...
 	 * they will live here for now.
-	 * @param characterClass
+	 * @param characterClass class to check saving throws table
 	 */
 	public void processClassSavingThrows(CharacterClass characterClass) {
 		logger.log(Level.INFO,  "Class Saving Throw Check");

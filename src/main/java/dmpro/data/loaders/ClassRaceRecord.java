@@ -10,7 +10,7 @@ import dmpro.character.race.RaceType;
 
 
 /**
- * @author  Joshua Landman, <joshua.s.landman@gmail.com> created on Oct 13, 2016
+ * @author  Joshua Landman, joshua.s.landman@gmail.com created on Oct 13, 2016
  */
 
 public class ClassRaceRecord implements TSVData {

@@ -19,8 +19,8 @@ import dmpro.utils.ParseUtils;
  * CommandInterpreter.java
  * 
  * Yep
- * expression::= <command> | <subsystem>  & <subsystem command> |  parameters '*'
- * @author joshualandman
+ * expression::= &lt;command&gt; | &lt;subsystem&gt;  &amp; subsystem command |  parameters '*'
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class CommandInterpreter {
@@ -46,12 +46,7 @@ public class CommandInterpreter {
 		this.rds = application.getReferenceDataSet();
 	}
 	
-	/**
-	 * * Helper function to generate lookups - not for runtime really
-	 * @return
-	 * @throws SecurityException
-	 * @throws ClassNotFoundException
-	 */
+	
 
 	public enum CommandSet {
 		CREATE("create"),
@@ -125,6 +120,11 @@ public class CommandInterpreter {
 		}
 	}
 	
+	/**
+	 * * Helper function to generate lookups - not for runtime really
+	 * @return java.lang.String
+	 * @param commands  a list of commands 
+	 */
 	protected String interpretCommands(List<String> commands)  {
 		logger.log(Level.INFO, "interpreting commands");
 		if (commands.size() == 0) return " Received No Commands ";

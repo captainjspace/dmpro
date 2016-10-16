@@ -11,7 +11,7 @@ import dmpro.character.CharacterModifierEngine;
 import dmpro.core.Server;
 
 /**
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 6, 2016
  */
 public class AccumulateModifiers implements ManagementAction {

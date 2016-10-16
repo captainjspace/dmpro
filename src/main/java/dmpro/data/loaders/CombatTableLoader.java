@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 4, 2016
  */
 public class CombatTableLoader extends TSVLoader implements ResourceLoader {
@@ -32,13 +32,13 @@ public class CombatTableLoader extends TSVLoader implements ResourceLoader {
 				.findFirst().get();
 	}
 	
-	public CombatRecord getRecord(int level) {
-		//deal with max level for combat
-		return tsvTable.stream()
-				.map(p -> (CombatRecord)p)
-				.filter (p -> p.getExperienceLevel() == level)
-				.findFirst().get();
-	}
+//	public CombatRecord getRecord(int level) {
+//		//deal with max level for combat
+//		return tsvTable.stream()
+//				.map(p -> (CombatRecord)p)
+//				.filter (p -> p.getExperienceLevel() == level)
+//				.findFirst().get();
+//	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -7,7 +7,7 @@ public class Ability {
 	 * not quite sure if I need this but I think so.
 	 * certain abilities will be complicated at likely require a specific subclass to handle implementation
 	 * 
-	 * @author joshualandman
+	 * @author Joshua Landman, joshua.s.landman@gmail.com
 	 *
 	 */
 	

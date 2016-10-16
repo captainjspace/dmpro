@@ -8,9 +8,11 @@ import dmpro.character.classes.CharacterClass;
 import dmpro.character.race.Race;
 
 /**
+ * 
+ * <p>
  * Interface for CharacterBuilder.
  * Building a character requires a step by step execution 
- * <li>
+ * <ul>
  *   <li> Generate or Acquire Basic Character Personal Information </li>
  *   <li> Roll or Enter Character Attributes </li>
  *   <li> Generate or Select Character Race 
@@ -22,10 +24,10 @@ import dmpro.character.race.Race;
  *   </li>
  *   <li> Generate or acquire character history - optional </li>
  *   <li> ? Modification - changing of character class (i.e., Bard construction )</li>
- *  </li>
+ *  </ul>
  *  <p>
  *  
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * @version 0.1;
  *
  */

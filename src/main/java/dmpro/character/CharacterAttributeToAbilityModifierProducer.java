@@ -21,11 +21,12 @@ import dmpro.modifier.MovementModifier.MovementModifierType;
  * Could also rebuild base character classes but this seems useful on the whole.
  * 
  * <table>
+ * <caption> Mapping of Attributes to Ability Modifiers</caption>
  * <tr>
  * <td>Strength</td>
  * <td>hitProbabilityModifier = MELEE</td>
  * <td>damageAdjustmentModifier = MELEE and MISSILE</td>
- * <td>weightAllowanceModifier = ENCUMBRANCE, ENCUMBRANCE->MOVEMENT </td>
+ * <td>weightAllowanceModifier = ENCUMBRANCE, ENCUMBRANCE=MOVEMENT </td>
  * </tr>
  * <tr>
  * <td>Intelligence</td>
@@ -33,26 +34,24 @@ import dmpro.modifier.MovementModifier.MovementModifierType;
  * </tr>
  * <tr>
  * <td>Wisdom</td>
- * <td>bonusLanguageModifier -> SAVINGTHROW</td>
+ * <td>bonusLanguageModifier = SAVINGTHROW</td>
  * </tr>
  * <tr>
  * <td>Dexterity</td>
- * <td>initiativeAdjustment -> INITIATIVE</td>
- * <td>missileAttackAdjustment -> MISSILE TOHIT</td>
- * <td>defensiveAdjustment -> ARMORCLASS </td>
+ * <td>initiativeAdjustment = INITIATIVE</td>
+ * <td>missileAttackAdjustment = MISSILE TOHIT</td>
+ * <td>defensiveAdjustment = ARMORCLASS </td>
  * </tr>
  * <tr>
  * </table>
  * 
- * 
- * 
- * </table>
+ * <p>
  * Take each Attributes raw scores and generate an ability modifier for the ModifierEngine
  * 
  * TODO -- refactor ... use constructors, abstract attributes?, reflection?, finish constitution and charisma
- * @author joshualandman
- * @version
- * @since
+ * @author Joshua Landman, joshua.s.landman@gmail.com
+ * @version v.01
+ * @since 9/24/2016
  *
  */
 

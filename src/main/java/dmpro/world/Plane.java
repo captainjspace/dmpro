@@ -13,7 +13,7 @@ import dmpro.IModify;
 import dmpro.modifier.Modifier;
 
 /**
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 public class Plane implements IModify {
@@ -114,7 +114,7 @@ public class Plane implements IModify {
 	}
 
 	/**
-	 * @param locations the locations to set
+	 * @param location the locations to set
 	 */
 	public void addLocation(Location location) {
 		int nextId = this.locations.size()+1;

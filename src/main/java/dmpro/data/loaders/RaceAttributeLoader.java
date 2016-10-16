@@ -22,7 +22,7 @@ import dmpro.character.race.RaceType;
  *  build process.
  *  these are used by the CharacterBuildDirector to determine race exclusions after attributes have been entered.
  *  
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 

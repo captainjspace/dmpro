@@ -8,7 +8,7 @@ package dmpro.character;
  * So if a ring wearer has a +2 ring and a +3 ring -- they get +3 ALL
  * But a a ring wearer with a +3 ring, and +3 armor -- gets +6 ALL
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
 

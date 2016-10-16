@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import dmpro.character.Character;
+import dmpro.character.SlottedItems.EquipmentSlotKey;
 
 public class EquipCharacter implements ManagementAction {
 
@@ -52,7 +53,7 @@ public class EquipCharacter implements ManagementAction {
 
 		/* select weapon */
 		while (true) {
-			output.format("Choose your weapon or .exit.>");
+			output.format("Choose your primary weapon or .exit.>");
 			output.flush();
 			String equip = input.nextLine();
 			if (equip.equals(DungeonMasterProHandler.EXIT)) break;
@@ -66,7 +67,9 @@ public class EquipCharacter implements ManagementAction {
 			} else if (wpns.size() == 0) {
 				output.format("No match for %s\n", equip);
 			} else {
+				
 				character.getEquippedItems().add(wpns.get(0));
+				character.getSlottedItems().slots.put(EquipmentSlotKey.MAINHAND, wpns.get(0));
 				output.format("Equipped: %s \n%s\n", 
 						wpns.get(0).getItemName(), 
 						wpns.get(0).toString());

@@ -13,17 +13,17 @@ import java.util.Date;
 import java.util.HashSet;
 
 /**
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 6, 2016
  * Pojo for combat stats
  * Created by the CharacterService when executing UpdateCombatStats
  * Triggered by the UPDATECOMBATSTATS message 
  * Currently directly queued in the Character requiredActions Set
  * 
- * @see UpdateCombatStats
- * @see CharacterManagementActions
- * @see CharacterService
- * @see Character
+ * @see dmpro.character.managementaction.UpdateCombatStats
+ * @see dmpro.character.managementaction.CharacterManagementActions
+ * @see dmpro.character.CharacterService
+ * @see dmpro.character.Character
  * 
  * Active modifiers will be filtered down, and cast to subtypes and summed to get values.
  * Values can be used for standard reference or in the combat loop / applied to random rolls

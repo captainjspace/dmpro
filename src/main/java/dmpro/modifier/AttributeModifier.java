@@ -36,9 +36,9 @@ import dmpro.attributes.Attribute.AttributeType;
  * 
  * 
  * AttributeModifiers are 
- * @author joshualandman
- * @version
- * @since
+ * @author Joshua Landman, joshua.s.landman@gmail.com
+ * @version v0.1
+ * @since 9/1/2016
  *
  */
 public class AttributeModifier extends Modifier {

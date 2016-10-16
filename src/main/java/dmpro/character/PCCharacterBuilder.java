@@ -20,7 +20,7 @@ import dmpro.character.race.Race;
  * the Builder remains unaware of how the data required to instance a valid character was assembled
  * 
  * 
- * @author joshualandman
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * @version 0.1
  */
 

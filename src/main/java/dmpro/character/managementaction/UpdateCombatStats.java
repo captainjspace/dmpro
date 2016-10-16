@@ -31,15 +31,16 @@ import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
 
 
 /**
- * @author Joshua Landman, <joshua.s.landman@gmail.com>
+ * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 6, 2016
  * 
- * character <update combat statistics>
- * evaluate all active modifiers that pertain specifically to the combat loop
- * surprise - could be moved
+ * character -update combat statistics-<br>
+ * <p>
+ * evaluate all active modifiers that pertain specifically to the combat loop<br>
+ * surprise - could be moved<br>
  * initiative, melee, missile (to hit) and damage and armor class are relevant every round of combat
- * 
- * TODO: attacks per round - really only matter for fighters and multiclass that gain 
+ * <p>
+ * TODO: attacks per round - really only matter for fighters and multiclass that gain <br>
  * multiple attacks or can use a weapon that allows it.
  */
 public class UpdateCombatStats implements ManagementAction {
@@ -99,8 +100,32 @@ public class UpdateCombatStats implements ManagementAction {
 		
 		/* Melee Modifiers */
 		int specializedMeleeBonus = 0, specializedDamageBonus = 0;
+		int proficiencyPenalty = 0;
+		
+		
+		
 		/* specialization check for fighters*/
 		character.getClasses().keySet().stream().forEach( p -> System.out.println(p));
+		int nonProficiencyPenalty = character.getClasses().entrySet().stream().mapToInt(p -> p.getValue().getNonProficiencyPenalty()).min().orElse(proficiencyPenalty);
+		System.out.printf("NON-PROFICIENCY PENALTY = %d\n", nonProficiencyPenalty);
+		/* check that equipped weapon is in proficiency list */
+
+		List<WeaponItem> equippedWeapons = character.getEquippedItems().stream()
+		.filter(w -> w.getItemType() == ItemType.WEAPON)
+		.map(w -> (WeaponItem) w)
+		.collect(Collectors.toList());
+		
+		equippedWeapons.stream().forEach( w -> System.out.printf("%s - %s - %s\n", 
+				w.getItemName(), 
+				w.getWeaponType(), 
+				character.getProficiencies().stream().anyMatch(p -> p.equals(w.getWeaponType()))));
+		
+//		
+//				 {
+//			System.out.println("Proficient");
+//		} else {
+//			System.out.println("Not - Proficient");
+//		}
 		
 		if (character.getClasses().containsKey(CharacterClassType.FIGHTER)) {
 			System.out.println("I AM A FIGHTER");
@@ -121,16 +146,7 @@ public class UpdateCombatStats implements ManagementAction {
 					specializationMod.stream().filter(p -> p.getWeaponSkillModifierType() == WeaponSkillModifierType.DAMAGE).collect(Collectors.toList())
 					);
 
-			
-			List<WeaponItem> weapons = character.getEquippedItems()
-					.stream()
-					.filter(p -> p.getItemType() == ItemType.WEAPON)
-					.map(p -> (WeaponItem) p)
-					//.filter(p -> p.getWeaponType() == WeaponType.ONEHANDEDSWORD)
-					.collect(Collectors.toList());
-			weapons.stream().forEach(p -> System.out.println(p.toString()));
-			
-			List<WeaponSkillModifier> specializedEquipped = weapons.stream()
+			List<WeaponSkillModifier> specializedEquipped = equippedWeapons.stream()
 					.flatMap(p -> specializationMod.stream()
 							.filter(s -> p.getWeaponType() == s.getWeaponType()))
 					.collect(Collectors.toList());
@@ -144,6 +160,8 @@ public class UpdateCombatStats implements ManagementAction {
 			}
 			output.format("Specialized to Hit: +%d\tSpecialized Damage: +%d\n", specializedMeleeBonus, specializedDamageBonus);
 			output.flush();
+		} else {
+			System.out.println("I HAVE NOT FIGHTER IN ME!");
 		}
 		
 		/* To hit */
@@ -165,7 +183,7 @@ public class UpdateCombatStats implements ManagementAction {
 				.filter(p -> p.meleeModifierType == MeleeModifierType.DAMAGE)
 				.collect(Collectors.toList());
 		int meleeDamageBonus = meleeMod.stream().mapToInt(p -> p.getModifier()).sum();
-		meleeMod.stream().forEach(p -> output.format("Melee Damage:%s\n", p.toString()));
+		meleeDamageMod.stream().forEach(p -> output.format("Melee Damage:%s\n", p.toString()));
 		output.flush();
 		
 		
@@ -195,9 +213,9 @@ public class UpdateCombatStats implements ManagementAction {
 				.filter(p -> p.missileModifierType == MissileModifierType.DAMAGE)
 				.collect(Collectors.toList());
 		int missileDamageBonus = missileMod.stream().mapToInt(p -> p.getModifier()).sum();
-		missileMod.stream().forEach(p -> output.format("Missile Damage:%s\n", p.toString()));
+		missileDamageMod.stream().forEach(p -> output.format("Missile Damage:%s\n", p.toString()));
 		output.flush();
-		combatStats.setMissileDamageBonus(missileDamageBonus);
+		combatStats.setMissileDamageBonus(missileDamageBonus + specializedDamageBonus);
 		combatStats.getMissileDamageFactors().addAll(missileDamageMod);
 		
 		
@@ -228,7 +246,7 @@ public class UpdateCombatStats implements ManagementAction {
 
 	public static void main (String [] args) {
 		Server application = new StubApp();
-		String charID = "1476224446343019861205";
+		String charID = "1476384327380019861205";
 		Character character = application.getCharacterService().loadCharacter(charID);
 		character = (new CharacterModifierEngine(application)).processModifiers(character);
 		character = application.getCharacterService().saveCharacter(character);
