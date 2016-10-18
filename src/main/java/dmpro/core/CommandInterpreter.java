@@ -46,8 +46,6 @@ public class CommandInterpreter {
 		this.rds = application.getReferenceDataSet();
 	}
 	
-	
-
 	public enum CommandSet {
 		CREATE("create"),
 		LOAD("load"),

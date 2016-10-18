@@ -78,7 +78,7 @@ public class Commander implements Runnable {
 					StringBuilder combat = new StringBuilder();
 					combatRecord.getArmorClass().entrySet().stream().sorted(Map.Entry.comparingByKey())
 					.forEach(a -> combat.append("AC:").append(a.getKey()).append(" To Hit:").append(a.getValue()).append('\n'));
-					results = combat.toString();
+					results = gson.toJson(combat); //combat.toString();
 					break;
 				case SEARCH:
 					//implement me
@@ -101,15 +101,15 @@ public class Commander implements Runnable {
 				switch (commandObject.commandSet) {
 				case GET:
 					dmpro.spells.Spell spell = application.getReferenceDataSet().getSpellLibrary().getSpell(commandObject.varString);
-					results = spell.getFullSpellText();
+					results = gson.toJson(spell); //spell.getFullSpellText();
 					break;
 				case SEARCH:
 					List<dmpro.spells.Spell> spells = application.getReferenceDataSet().getSpellLibrary().searchSpell(commandObject.varString);
-					results = spells.stream().map(w -> w.getSpellName() 
+					results = gson.toJson( spells.stream().map(w -> w.getSpellName() 
 							+ "\t" 
 							+ w.getSpellAbilityClassName() 
 							+ ":" +  w.getSpellAbilityClassLevel())
-							.collect(Collectors.joining("\n"));
+							.collect(Collectors.joining("\n")));
 					break;
 				}
 				break;
@@ -139,13 +139,13 @@ public class Commander implements Runnable {
 					break;
 				case SEARCH:
 					List<dmpro.items.WeaponItem> weapons = application.getReferenceDataSet().getWeaponItemLoader().searchWeaponItem(commandObject.varString);
-					results = weapons.stream().map(w -> w.getItemName()).collect(Collectors.joining("\n"));
+					results = gson.toJson(weapons.stream().map(w -> w.getItemName()).collect(Collectors.joining("\n")));
 					break;
 				case LIST:
 					weapons = application.getReferenceDataSet().getWeaponItemLoader().getWeapons();
 					StringBuilder sb = new StringBuilder();
 			    	weapons.stream().sorted().forEach(w -> sb.append(w.getItemName()).append('\n'));
-			    	results = sb.toString();
+			    	results = gson.toJson(sb.toString());
 					break;
 			    }
 				break;
@@ -180,7 +180,7 @@ public class Commander implements Runnable {
 				results = gson.toJson(attribute);
 				break;
 			default:
-				results = " hmmmm not implemented yet ";
+				results = gson.toJson("hmmmm not implemented yet");
 				break;
 			}
 		}

@@ -22,7 +22,7 @@ public class Application implements Server {
 	private static final String APPLICATION_NAME = "Dungeon Master Pro";
 	private static final String SECRETDOOR = "3 taps, a level and a gem of seeing";
 	private static final String SHUTDOWN = "dmpro-shutdown";
-	private static final int SHUTDOWNWAIT = 5;
+	private static final int SHUTDOWNWAIT = 8;
 	
 	//the logger
 	private Logger logger= Logger.getLogger(APPLICATION_NAME);
@@ -44,6 +44,7 @@ public class Application implements Server {
 	private CommandLineService commandLineService;
 	private NodeWrapperService nodeWrapperService;
 	private JettyServer jetty;
+	//private RestServer dropwizard;
 	
 //	private GeoFactory geoFactory;
 	
@@ -88,28 +89,14 @@ public class Application implements Server {
 		startCharacterService();
 		startCharacterModifierEngine();
 		startJetty();
+		//startRestServer();
+		
 		//startNodeWrapperService();
 		getMemoryStats();
 		
 		int threads =  ((ThreadPoolExecutor) subsystem).getActiveCount();
 		logger.log(Level.INFO, "Dungeon Master pro is here: Subsystem Thread Count:" + threads);
 
-//		//test
-//		dmpro.character.Character t = characterService.saveCharacter(
-//				characterModifierEngine.processModifiers(
-//						characterService.createCharacter()
-//						)
-//				);
-//		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("ring of dexterity"));
-//		t.getEquippedItems().add(referenceDataSet.getMagicItemLoader().getMagicItem("potion of animal control"));
-//		characterService.saveCharacter(characterModifierEngine.processModifiers(t));
-//		
-//		for (int i =0 ; i<=5; i++) 
-//			characterService.saveCharacter(
-//					characterModifierEngine.processModifiers(t));
-
-//		characterService.saveCharacter(t);
-		
 		//hangout and wait for shutdown command
 		while (true) {
 			System.out.println(">>> Exit with dmpro-shutdown");
@@ -130,10 +117,27 @@ public class Application implements Server {
 	
 	/**
 	 * 
+//	 */
+//	private void startRestServer() {
+//		return; //this is not doing what I want...
+//		try {
+//			//this.dropwizard = new RestServer(this);
+//			String [] args = { "server", "dmpro.yml"};
+//			RestServer.main(args);
+//			logger.log(Level.INFO, "Dropwizard is online");
+//		} catch (Exception e) {
+//			logger.log(Level.SEVERE, "Dropwizard failed - investigate", e);
+//		}
+//		
+//		
+//	}
+
+	/**
+	 * 
 	 */
 	private void startJetty() {
 		try {
-			this.jetty = new JettyServer();
+			this.jetty = new JettyServer(this);
 			subsystem.execute(this.jetty);
 			logger.log(Level.INFO, "Jetty  is online");
 		} catch (Exception e) {
@@ -207,6 +211,11 @@ public class Application implements Server {
 
 	void shutdownAndAwaitTermination() {
 		logger.log(Level.WARNING, "System shutting down");
+		try {
+		  jetty.stop();
+		} catch (Exception e) {
+			logger.log(Level.WARNING,"Jetty close is messy...", e);
+		}
 		subsystem.shutdown(); // Disable new tasks from being submitted
 		try {
 			// Wait a while for existing tasks to terminate

@@ -105,6 +105,9 @@ public class CharacterService implements Runnable, ResourceLoader {
 	public void loadAllCharacters() {
 		
 	}
+	public Map<String,Character> getAll() {
+		return characters;
+	}
 	
 	public Character getCharacter(String characterId) {
 		// need to offer a reference
