@@ -15,7 +15,7 @@
 			"INSTANCE": {
 				"attributeType": "DEXTERITY",
 				"bonus": 1,
-				"description": "\t--\u003e\tRing of Dexterity +1",
+				"description": "Ring of Dexterity +1",
 				"modifiesAbilityScore": true,
 				"modifierType": "ATTRIBUTE"
 			}
