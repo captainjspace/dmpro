@@ -1,0 +1,11 @@
+
+<div ng-controller="CharacterListController">
+ <ul class="characterList">
+   <li ng-repeat="key in characterList"> <a href="/app/#/{{key}}">{{ key }}</a><li>
+ </ul>
+</div>
+<!--<md-list ng-controller="CharacterListController">
+  <md-list-item class="md-2-line" ng-repeat="key in characterList">
+    <div class="md-list-item-text"><a href="/app/#/{{key}}">{{ key }}</a></div>
+  </md-list-item>
+</md-list>-->

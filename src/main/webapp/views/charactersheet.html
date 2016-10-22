@@ -1,0 +1,292 @@
+<div id="character-content" ng-controller="CharacterController">
+  <!--[if lt IE 8]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!--
+  <md-tabs md-selected="selectedIndex">
+  <img ng-src="img/angular.png" class="centered">
+  <md-tab ng-repeat="tab in ['Character','Inventory']" md-on-select="onTabSelected(tab)" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled">
+    <md-tab-label>
+      {{tab}}
+    </md-tab-label>
+    <md-tab-body>
+      testing
+    </md-tab-body>
+  </md-tab>
+</md-tabs>
+-->
+   <div id="villagers">
+   <hr>
+   <h3>Character Personal Information</h3>
+   <hr>
+  </div>
+  <div id="personal" class="content">
+    <table class="character">
+      <tr ng-repeat="(key, class) in character.classes">
+        <td>Race: {{ character.race.raceType }}</td>
+          <td>Class/Level:{{class.className }} / {{class.experienceLevel}}</td>
+          <td>Total Exp: {{ class.experiencePoints }}</td>
+        </td>
+     </tr>
+      <tr>
+        <td><font color="blue">Full Name: {{character.prefix}} {{character.firstName}} {{ character.lastName }} <span ng-repeat="suffix in character.suffixes">{{suffix}}&nbsp;</span></font></td>
+        <td>Title {{chracter.title}} </td>
+        <td>Nick name: {{character.name }} </td>
+      </tr>
+      <tr>
+        <td>Age: {{character.age}}</td>
+        <td>Height (in.):  {{character.height}}</td>
+        <td>Weight (lbs.): {{ character.weight }}</td>
+      </tr>
+      <tr>
+
+        <td>Character Id: {{character.characterId}}</td>
+        <td>Created Date: {{character.created}}</td>
+        <td>Modified Date: {{ character.modified}}</td>
+
+      </tr>
+    </table>
+  </div>
+  <div id="character-stat-cont" class="container">
+
+   <div id="dragon">
+   <hr>
+   <h3>Key Statistics</h3>
+   <hr>
+   </div>
+
+      <div id="character-stats" class="content">
+        <table class="character">
+          <tr>
+            <td colspan="2">Hit Points:</td><td> {{character.maxHitPoints}} / {{ character.maxHitPoints }}</td>
+            <td colspan="2">Armor Class:</td><td> {{ character.combatStats.armorClass }}</td>
+            <td colspan="2">Lifetime Resurrection Count:</td><td> {{character.resurrectionCount}} / {{character.constitution.abilityScore}}</td>
+          </tr>
+
+
+
+        <tr><td colspan="10" style="text-align:center;"><span class="bold-text">Saving Throws</span></td></tr>
+
+          <tr ng-repeat="class in character.classes">
+            <td>Paralyzation-Poison:</td><td>{{class.savingThrowRecord.paralyzationPoisonOrDeathMagic}}</td>
+            <td>Pertification-Polymorph:</td><td>{{class.savingThrowRecord.petrifactionOrPolymorph}}</td>
+            <td>Rod, Staff, or Wand:</td><td>{{class.savingThrowRecord.rodStaffOrWand}}</td>
+            <td>Breath Weapon:</td><td>{{class.savingThrowRecord.breathWeapon}}</td>
+            <td>Spell:</td><td>{{class.savingThrowRecord.spell}}</td>
+          </tr>
+
+        <tr>
+        <td colspan="10" style="text-align:center;"><span class="bold-text">Combat Statistics</span></td>
+      </tr>
+            <tr>
+            <td>Melee To Hit:</td><td>+{{ character.combatStats.meleeToHitBonus }} </td>
+            <td>Missile To Hit:</td><td>+{{ character.combatStats.missileToHitBonus }} </td>
+            <td>Melee Damage:</td><td>+{{ character.combatStats.meleeDamageBonus }} </td>
+            <td>Missile Damage:</td><td>+{{ character.combatStats.missileDamageBonus }} </td>
+            <td>Initiative Bonus:</td><td>+{{ character.combatStats.initiativeModifier }} </td>
+            </tr>
+          </table>
+          <span class="language">
+            <font ng-repeat="lang in character.languages">{{lang}}</font>
+          </span>
+          <span class="requiredActions">
+            <font ng-repeat="action in character.requiredActions">{{action}}</font>
+          </span>
+
+      </div> <!-- End key stats content -->
+  </div> <!-- End key stats container -->
+
+  <!-- main character attributes -->
+  <div id="attributes-cont" class="container">
+
+    <div id="sword">
+     <hr>
+     <h3>Attributes</h3>
+     <hr>
+    </div>
+
+    <div id="attributes" class="content">
+
+      <table class="character">
+        <tr>
+          <td>Strength: {{character.strength.modifiedAbilityScore}} / {{character.strength.percentOverHuman}} (%)</td>
+          <td>To Hit:{{character.strength.hitProbabilityModifier}}</td>
+          <td>Dmg Adj: {{character.strength.damageAdjustmentModifier}}</td>
+          <td>Open Doors: {{character.strength.openDoorDieRoll}} ({{character.strength.doorDie}})
+          <td>Bend Bars: {{character.strength.bendBarsLiftGates}}</td>
+          <!--
+          <td>
+            <ul class="attribute">
+              <li ng-repeat="(key, value) in character.strength">
+                {{key}} : {{ value }}
+              </li>
+            </ul>
+          </td>
+            -->
+        <tr>
+
+          <td>Intelligence: {{character.intelligence.modifiedAbilityScore}}</td>
+          <td>Additional Languages : {{character.intelligence.bonusLanguageModifier}}</td>
+          <td>% Know Spell: {{character.intelligence.percentKnowSpell}}</td>
+          <td>Min Spells: {{character.intelligence.minSpellLevel}}</td>
+          <td>Max Spells: {{character.intelligence.maxSpellLevel}}</td>
+          <!--
+          <td>
+              <ul class="attribute">
+                <li ng-repeat="(key, value) in character.intelligence">
+                  {{key}} : {{ value }}
+                </li>
+              </ul>
+          </td>
+          -->
+        </tr>
+
+        <tr>
+            <td>Wisdom {{character.wisdom.modifiedAbilityScore}}</td>
+            <td>Magical Attack Adjustment: {{character.wisdom.magicalAttackAdjustment}} </td>
+            <td>Spell Bonus: {{character.wisdom.bonusSpells}} </td>
+            <td>% Spell Failure: {{character.wisdom.percentSpellFailure}}</td>
+            <!--
+            <td>
+              <ul class="attribute">
+                <li ng-repeat="(key, value) in character.wisdom">
+                  {{key}} : {{ value }}
+                </li>
+              </ul>
+            </td>
+            -->
+
+          </tr>
+
+          <tr>
+              <td>Dexterity: {{character.dexterity.modifiedAbilityScore}}</td>
+              <td>Reaction Adj: {{character.dexterity.initiativeAdjustment}}</td>
+              <td>Missile To Hit: {{character.dexterity.missileAttackAdjustment}}</td>
+              <td>AC Bonus: {{character.dexterity.defensiveAdjustment}}</td>
+              <!--
+              <td>
+              <ul class="attribute">
+                <li ng-repeat="(key, value) in character.dexterity">
+                  {{key}} : {{ value }}
+                </li>
+              </ul>
+            </td>
+              -->
+          </tr>
+
+          <tr>
+            <td>Constitution: {{character.constitution.modifiedAbilityScore}}</td>
+            <td>Hit Point Adj: {{character.constitution.hitPointAdjustment}}</td>
+            <td>System Shock: {{character.constitution.systemShock}}</td>
+            <td>Resurrection Survival: {{character.constitution.resurrectionSurvival}}
+              <!--
+            <td>
+              <ul class="attribute">
+                <li ng-repeat="(key, value) in character.constitution">
+                  {{key}} : {{ value }}
+                </li>
+              </ul>
+            </td>
+          -->
+          </tr>
+
+          <tr>
+            <td>Charisma: {{character.charisma.modifiedAbilityScore}}</td>
+            <td>Max Henchmane: {{character.charisma.maxHenchmen}}</td>
+            <td>Loyalty Base: {{character.charisma.loyaltyBase}}</td>
+            <td>Reaction Adj: {{character.charisma.reactionAdjustment}}</td>
+            <!--
+            <td>
+              <ul class="attribute">
+                <li ng-repeat="(key, value) in character.charisma">
+                  {{key}} : {{ value }}
+                </li>
+              </ul>
+            </td>
+          -->
+          </tr>
+        </table>
+      </div><!-- End Attributes Content -->
+  </div> <!-- End Attributes Container -->
+
+
+    <div id="inventory-cont" class="container">
+
+      <div id="gear">
+        <hr>
+        <h3>Inventory &amp; Equipment</h3>
+        <hr>
+      </div>
+
+        <div id="inventory" class="content">
+        <h4> Weapon Proficiencies </h4>
+        <ul>
+          <!-- index required for dupes - when specialized -->
+          <li ng-repeat="weaponType in character.proficiencies track by $index">
+              {{weaponType}}
+          </li>
+        </ul>
+        <h4> Single Slot Equipment </h4>
+        <ul>
+          <li ng-repeat="(slotKey, item) in character.slottedItems.slots">
+            {{slotKey}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} )
+          </li>
+        </ul>
+        <h4>Equipped Items </h4>
+        <ul>
+          <li ng-repeat="(index, item) in character.equippedItems">
+            {{index+1}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} ) | Encumbrance: {{ item.INSTANCE.itemEncumbrance}}
+          </li>
+        </ul>
+        <h4> Inventory </h4>
+        <ul>
+          <li ng-repeat="(index, item) in character.inventory">
+            {{item.CLASSNAME}} : {{item.INSTANCE.itemName}} : {{item.INSTANCE.itemType}} : {{item.INSTANCE.itemEncumbrance}}
+            {{item.INSTANCE.itemValue}} ( {{item.INSTANCE.itemCurrency}} )
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+        <div id="spell-cont" class="container">
+
+          <div id="scroll">
+            <hr>
+            <h3> Spells </h3>
+            <hr>
+          </div>
+
+          <div id="spells" class="content">
+              <h4> Daily Spell List </h4>
+              <ul>
+                <li ng-repeat="spell in character.dailySpells">
+                  {{spell.spellName}}
+                </li>
+              </ul>
+
+              <h4> Spell Book </h4>
+              <ul>
+                <li ng-repeat="spell in character.spellBook">
+                  Spell: {{spell.spellName}} / Level:{{ spell.spellAbilityClassLevel }}
+                  / Type: {{ spell.spellCategory}} / Reversible: {{spell.reversible}}
+                <!--	<p> {{ spell.description }} -->
+
+                  </li>
+                </ul>
+          </div> <!-- End Spell Content -->
+        </div> <!-- End Spell Container -->
+
+
+        <div class="activeModifiers">
+          <h4> Active Modifiers </h4>
+          <ul>
+            <li ng-repeat="(index, modifier) in character.activeModifiers">
+              {{modifier.CLASSNAME}}: {{modifier.INSTANCE.description}}  : ( {{modifier.INSTANCE.modifier}} )
+            </li>
+          </ul>
+        </div>
+
+
+    </div> <!-- End of CharacterController -->

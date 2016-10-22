@@ -1,0 +1,24 @@
+<md-menu-bar>
+  <md-menu>
+    <button ng-click="$mdOpenMenu()">
+      Character
+    </button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button ng-click="ctrl.sampleAction('share', $event)">
+          Share...
+        </md-button>
+      </md-menu-item>
+      <md-menu-divider></md-menu-divider>
+      <md-menu-item>
+      <md-menu-item>
+        <md-menu>
+          <md-button ng-click="$mdOpenMenu()">New</md-button>
+          <md-menu-content>
+            <md-menu-item><md-button ng-click="alert('heelo')">Document</md-button></md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </md-menu-item>
+    </md-menu-item></md-menu-content>
+  </md-menu>
+</md-menu-bar>

@@ -1,0 +1,395 @@
+<!doctype html>
+<html ng-app="App" class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Dungeon Master Pro Start Page</title>
+	<meta name="description" content="dmpro">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/dmpro.css">
+	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+-->
+
+<!-- Angular Material Library -->
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+-->
+</head>
+<body>
+
+	<div id="header"><h1>Dungeon Master Pro Boilerplate Character Sheet </h1></div>
+	<div id="menu"></div>
+	<!-- Add your site or application content here -->
+
+	<div id="character-content" ng-controller="CharacterController">
+		<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<hr>
+		<span><h3>Character Personal Information</h3></span>
+		<hr>
+		<div id="personal" class="content">
+			<table class="character">
+				<tr ng-repeat="(key, class) in character.classes">
+					<td>Race: {{ character.race.raceType }}</td>
+						<td>Class/Level:{{class.className }} / {{class.experienceLevel}}</td>
+						<td>Total Exp: {{ class.experiencePoints }}</td>
+					</td>
+			 </tr>
+				<tr>
+					<td><font color="blue">Full Name: {{character.prefix}} {{character.firstName}} {{ character.lastName }} <span ng-repeat="suffix in character.suffixes">{{suffix}}&nbsp;</span></font></td>
+					<td>Title {{chracter.title}} </td>
+					<td>Nick name: {{character.name }} </td>
+				</tr>
+				<tr>
+					<td>Age: {{character.age}}</td>
+					<td>Height (in.):  {{character.height}}</td>
+					<td>Weight (lbs.): {{ character.weight }}</td>
+				</tr>
+				<tr>
+
+					<td>Character Id: {{character.characterId}}</td>
+					<td>Created Date: {{character.created}}</td>
+					<td>Modified Date: {{ character.modified}}</td>
+
+				</tr>
+			</table>
+		</div>
+		<div id="character-stat-cont" class="container">
+
+     <div id="dragon">
+     <hr>
+		 <h3>Key Statistics</h3>
+		 <hr>
+	   </div>
+
+			<div id="character-stats" class="content">
+				<div class="keystats-left">
+					<table class="character">
+						<tr>
+							<td>Hit Points: {{character.maxHitPoints}} / {{ character.maxHitPoints }}</td>
+							<td>Armor Class: {{ character.combatStats.armorClass }}</td>
+							<td>Lifetime Resurrection Count: {{character.resurrectionCount}} / {{character.constitution.abilityScore}}</td>
+						</tr>
+					<table>
+
+					<span class="language">
+						<font ng-repeat="lang in character.languages">{{lang}}</font>
+					</span>
+					<span class="requiredActions">
+						<font ng-repeat="action in character.requiredActions">{{action}}</font>
+					</span>
+
+		    </div>
+				<div class="keystats-right">
+					<table class="character">
+					<hr>
+						<caption>Saving Throws</caption>
+						<tr ng-repeat="class in character.classes">
+							<td>Paralyzation/Poison: {{class.savingThrowRecord.paralyzationPoisonOrDeathMagic}}</td>
+							<td>Pertification/Polymorph: {{class.savingThrowRecord.petrifactionOrPolymorph}}</td>
+							<td>Rod, Staff, or Wand: {{class.savingThrowRecord.rodStaffOrWand}}</td>
+							<td>Breath Weapon: {{class.savingThrowRecord.breathWeapon}}</td>
+							<td>Spell: {{class.savingThrowRecord.spell}}</td>
+						</tr>
+					</table>
+					<hr>
+					<table class="character">
+						  <caption>Combat Statistics</caption>
+						  <tr>
+						  <td>Melee To Hit:</td><td>+{{ character.combatStats.meleeToHitBonus }} </td>
+						  <td>Missile To Hit:</td><td>+{{ character.combatStats.missileToHitBonus }} </td>
+						  <td>Melee Damage:</td><td>+{{ character.combatStats.meleeDamageBonus }} </td>
+						  <td>Missile Damage:</td><td>+{{ character.combatStats.missileDamageBonus }} </td>
+						  <td>Initiative Bonus:</td><td>+{{ character.combatStats.initiativeModifier }} </td>
+						  </tr>
+						</table>
+				</div>
+			</div> <!-- End key stats content -->
+		</div> <!-- End key stats container -->
+
+		<!-- main character attributes -->
+		<div id="attributes-cont" class="container">
+
+			<div id="sword">
+			 <hr>
+			 <h3>Attributes</h3>
+			 <hr>
+		  </div>
+
+		  <div id="attributes" class="content">
+
+				<table class="character">
+					<tr>
+						<td>Strength: {{character.strength.modifiedAbilityScore}} / {{character.strength.percentOverHuman}} (%)</td>
+						<td>To Hit:{{character.strength.hitProbabilityModifier}}</td>
+						<td>Dmg Adj: {{character.strength.damageAdjustmentModifier}}</td>
+						<td>Open Doors: {{character.strength.openDoorDieRoll}} ({{character.strength.doorDie}})
+						<td>Bend Bars: {{character.strength.bendBarsLiftGates}}</td>
+						<!--
+						<td>
+							<ul class="attribute">
+								<li ng-repeat="(key, value) in character.strength">
+									{{key}} : {{ value }}
+								</li>
+							</ul>
+						</td>
+							-->
+					<tr>
+
+						<td>Intelligence: {{character.intelligence.modifiedAbilityScore}}</td>
+						<td>Additional Languages : {{character.intelligence.bonusLanguageModifier}}</td>
+						<td>% Know Spell: {{character.intelligence.percentKnowSpell}}</td>
+						<td>Min Spells: {{character.intelligence.minSpellLevel}}</td>
+						<td>Max Spells: {{character.intelligence.maxSpellLevel}}</td>
+						<!--
+						<td>
+								<ul class="attribute">
+									<li ng-repeat="(key, value) in character.intelligence">
+										{{key}} : {{ value }}
+									</li>
+								</ul>
+						</td>
+						-->
+					</tr>
+
+					<tr>
+							<td>Wisdom {{character.wisdom.modifiedAbilityScore}}</td>
+							<td>Magical Attack Adjustment: {{character.wisdom.magicalAttackAdjustment}} </td>
+							<td>Spell Bonus: {{character.wisdom.bonusSpells}} </td>
+							<td>% Spell Failure: {{character.wisdom.percentSpellFailure}}</td>
+							<!--
+							<td>
+								<ul class="attribute">
+									<li ng-repeat="(key, value) in character.wisdom">
+										{{key}} : {{ value }}
+									</li>
+								</ul>
+							</td>
+							-->
+
+						</tr>
+
+						<tr>
+								<td>Dexterity: {{character.dexterity.modifiedAbilityScore}}</td>
+								<td>Reaction Adj: {{character.dexterity.initiativeAdjustment}}</td>
+								<td>Missile To Hit: {{character.dexterity.missileAttackAdjustment}}</td>
+								<td>AC Bonus: {{character.dexterity.defensiveAdjustment}}</td>
+								<!--
+								<td>
+								<ul class="attribute">
+									<li ng-repeat="(key, value) in character.dexterity">
+										{{key}} : {{ value }}
+									</li>
+								</ul>
+							</td>
+								-->
+						</tr>
+
+						<tr>
+							<td>Constitution: {{character.constitution.modifiedAbilityScore}}</td>
+							<td>Hit Point Adj: {{character.constitution.hitPointAdjustment}}</td>
+							<td>System Shock: {{character.constitution.systemShock}}</td>
+							<td>Resurrection Survival: {{character.constitution.resurrectionSurvival}}
+								<!--
+							<td>
+								<ul class="attribute">
+									<li ng-repeat="(key, value) in character.constitution">
+										{{key}} : {{ value }}
+									</li>
+								</ul>
+							</td>
+						-->
+						</tr>
+
+						<tr>
+							<td>Charisma: {{character.charisma.modifiedAbilityScore}}</td>
+							<td>Max Henchmane: {{character.charisma.maxHenchmen}}</td>
+							<td>Loyalty Base: {{character.charisma.loyaltyBase}}</td>
+							<td>Reaction Adj: {{character.charisma.reactionAdjustment}}</td>
+							<!--
+							<td>
+								<ul class="attribute">
+									<li ng-repeat="(key, value) in character.charisma">
+										{{key}} : {{ value }}
+									</li>
+								</ul>
+							</td>
+						-->
+						</tr>
+					</table>
+				</div><!-- End Attributes Content -->
+		</div> <!-- End Attributes Container -->
+
+
+			<div id="inventory-cont" class="container">
+
+				<div id="gear">
+					<hr>
+				  <h3>Inventory &amp; Equipment</h3>
+				  <hr>
+				</div>
+
+			  	<div id="inventory" class="content">
+					<h4> Weapon Proficiencies </h4>
+					<ul>
+						<li ng-repeat="weaponType in character.proficiencies">
+								{{weaponType}}
+						</li>
+					</ul>
+					<h4> Single Slot Equipment </h4>
+					<ul>
+						<li ng-repeat="(slotKey, item) in character.slottedItems.slots">
+							{{slotKey}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} )
+						</li>
+					</ul>
+					<h4>Equipped Items </h4>
+					<ul>
+						<li ng-repeat="(index, item) in character.equippedItems">
+							{{index+1}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} ) | Encumbrance: {{ item.INSTANCE.itemEncumbrance}}
+						</li>
+					</ul>
+					<h4> Inventory </h4>
+					<ul>
+						<li ng-repeat="(index, item) in character.inventory">
+							{{item.CLASSNAME}} : {{item.INSTANCE.itemName}} : {{item.INSTANCE.itemType}} : {{item.INSTANCE.itemEncumbrance}}
+							{{item.INSTANCE.itemValue}} ( {{item.INSTANCE.itemCurrency}} )
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+					<div id="spell-cont" class="container">
+
+						<div id="scroll">
+							<hr>
+						  <h3> Spells </h3>
+							<hr>
+						</div>
+
+						<div id="spells" class="content">
+								<h4> Daily Spell List </h4>
+								<ul>
+									<li ng-repeat="spell in character.dailySpells">
+										{{spell.spellName}}
+									</li>
+								</ul>
+
+								<h4> Spell Book </h4>
+								<ul>
+									<li ng-repeat="spell in character.spellBook">
+										Spell: {{spell.spellName}} / Level:{{ spell.spellAbilityClassLevel }}
+										/ Type: {{ spell.spellCategory}} / Reversible: {{spell.reversible}}
+									<!--	<p> {{ spell.description }} -->
+
+										</li>
+									</ul>
+						</div> <!-- End Spell Content -->
+          </div> <!-- End Spell Container -->
+
+
+					<div class="activeModifiers">
+						<h4> Active Modifiers </h4>
+						<ul>
+							<li ng-repeat="(index, modifier) in character.activeModifiers">
+								{{modifier.CLASSNAME}}: {{modifier.INSTANCE.description}}  : ( {{modifier.INSTANCE.modifier}} )
+							</li>
+						</ul>
+					</div>
+
+
+			</div> <!-- End of CharacterController -->
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+(
+	function(b, o, i, l, e, r) {
+		b.GoogleAnalyticsObject = l;
+		b[l] || (b[l] = function() {
+			(b[l].q = b[l].q || []).push(arguments)
+		});
+		b[l].l = +new Date;
+		e = o.createElement(i);
+		r = o.getElementsByTagName(i)[0];
+		e.src = 'https://www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e, r)
+	}(window, document, 'script', 'ga'));
+	ga('create', 'UA-XXXXX-X', 'auto');
+	ga('send', 'pageview');
+	</script>
+</body>
+
+<script type="text/javascript">
+
+// //JQUERY stuff
+// var character = (function () {
+//    var character = null;
+//    $.ajax({
+//         'async': false,
+//         'global': false,
+//         'url': "/src/main/resources/data/characters/c1476399102957019861205.json",
+//         'dataType': "json",
+//         'success': function (data) {
+//             character = data;
+//         }
+//     });
+//     return character;
+// })();
+// function getObjectAsString(obj) {
+// 	var html = null;
+// 	for (var key in obj) {
+// 		if (obj.hasOwnProperty(key)) {
+// 		  /*   if ( typeof obj[key] == "object" && obj[key] !== null)
+// 		    	html += ('<ul><li>' + getObjectAsString(obj) + '</li></ul>');
+// 		    else */
+// 		    	html += ('<p>' + key + ' -->' + obj[key].toString());
+// 		  }
+// 	}
+// 	return html;
+// }
+// function updateScreen() {
+// 	var html = null;
+// 	html = getObjectAsString(character);
+// 	//document.getElementById("character").innerHTML += character.characterId + html;
+// }
+// updateScreen();
+
+
+var app = angular.module('App', ['ngRoute']);
+app.config(function ($routeProvider) {
+	$routeProvider.when('/app/:characterId', {
+		templateUrl: '/app',
+		controller: 'CharacterController'
+	});
+});
+
+app.controller('CharacterController', function($scope,$http,$location) {
+	//
+	$scope.id = window.location['hash'].split("/").pop();
+	console.log($scope.id);
+	$http.get('/src/main/resources/data/characters/c'+$scope.id+'.json').then(function(response) {
+		$scope.character = response.data;
+	}); // this will return a promise to controller
+});
+
+</script>
+</html>

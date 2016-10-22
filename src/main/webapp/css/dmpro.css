@@ -1,0 +1,115 @@
+html,body {
+  height: auto;
+  width:100%;
+  background: linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+  font-family: 'Bree Serif', serif;
+  font-size: 11pt;
+}
+
+hr {
+  color: white;
+}
+
+table.character td {
+  //border: 1px solid black;
+  //border-collapse: collapse;
+  padding:5px;
+  text-align: left;
+  vertical-align: top;
+  //good flow for mobile
+  display:inline-block;
+}
+div {
+
+}
+#character-content {
+  width: 100%;
+  display: inline-block;
+}
+
+table.character tr:hover td {
+  background-color: white;
+}
+div.
+#villagers {
+  background-image: url('/src/main/webapp/img/butron-castle.jpg');
+  background-size:  100% 100%;
+  background-repeat:repeat-x;
+}
+#personal {
+    background-image: url('/src/main/webapp/img/IMG_1804.JPG');
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+#dragon {
+  background-image: url('/src/main/webapp/img/asian-dragon.jpg');
+  background-size:100% 100%;
+}
+#sword {
+  background-image: url('/src/main/webapp/img/sword.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+
+}
+#gear{
+  background-image: url('/src/main/webapp/img/gear.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+
+}
+#scroll{
+  background-image: url('/src/main/webapp/img/scroll.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+
+}
+span.attributes {
+  background: radial-gradient(yellow 15%, orange 60%, red 25%); /* Standard syntax */
+}
+span.bold-text {
+  font-size: 12pt;
+  font-weight: bold;
+}
+span.menu-bar {
+  color: blue;
+  font-size:14pt; !important;
+}
+
+.hitDiceHistory {
+  //border: 1px solid black;
+}
+@font-face {
+  font-family: Olde;
+  src:url('/src/main/webapp/fonts/CloisterBlack.ttf');
+}
+#header {
+  margin: 0 auto;
+  padding-top: 0;
+  font-family: Olde, sans-serif;
+  font-size: 14pt;
+  color: red;
+  background-color: black;
+  background-image: url('/src/main/webapp/img/fire-breathing-dragon.jpg');
+  background-size: 100% 100%;
+  //background-repeat: no-repeat;
+  background-position: right;
+  height:auto;
+  width:100%;
+}
+ul.attribute {
+  font-size: 4pt;
+}
+
+#spells {
+  background-image: url('/src/main/webapp/img/spell-book.jpg');
+  background-size:  120px 120px;
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+ul.characterList {
+  list-style-type: none;
+}
