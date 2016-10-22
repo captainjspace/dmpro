@@ -41,6 +41,7 @@ public interface CharacterBuilder {
 	void buildCharacterClass(List<CharacterClass> characterClass);
 	void buildCharacterClassInformation(int age, int height, int weight);
 	void buildCharacterHistory();
+	//TODO add queuing of post create tasks
 	Character getCharacter();
 	
 }

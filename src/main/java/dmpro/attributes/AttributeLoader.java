@@ -60,6 +60,8 @@ public class AttributeLoader {
 			
 		} catch (FileNotFoundException fnf) {;
 			System.err.println("Strength File: " + file + " Not Found!!!");;
+		} finally {
+			scan.close();			
 		}
 		return attributeTable;
 	}

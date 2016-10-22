@@ -18,7 +18,8 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 		STANDARD,
 		COINS,
 		GEMS,
-		JEWELRY;
+		JEWELRY,
+		EMPTY;
 	}
 
 	public List<Modifier> modifiers = new ArrayList<Modifier>();

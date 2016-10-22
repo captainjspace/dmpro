@@ -144,7 +144,7 @@ public class CharacterAttributeToAbilityModifierProducer implements ModifierProd
 	//legitimate combat evaluation
 	void processWisdom() {
 		//bonusLanguageModifier
-		int magic = character.getWisdom().getMagicalAttackAdustment();
+		int magic = character.getWisdom().getMagicalAttackAdjustment();
 		if (magic != 0) {
 			SavingThrowModifier savingThrowModifier = new SavingThrowModifier();
 			savingThrowModifier.savingThrowType = SavingThrowType.MENTALATTACK;

@@ -95,7 +95,7 @@ public abstract class Attribute implements Modifiable {
 
 	public int getModifiedAbilityScore() {
 		//if set return modified otherwise just the base
-		return (modifiedAbilityScore != -1) ? modifiedAbilityScore : abilityScore;
+		return modifiedAbilityScore;
 	}
 
 	public void setModifiedAbilityScore(int modifiedAbilityScore) {

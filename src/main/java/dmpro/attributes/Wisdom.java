@@ -14,7 +14,7 @@ public class Wisdom extends Attribute {
 	// beguiling, charmming, fear, hypnosis, illusion,magic jar
 	// mass charm, phanstasmal force, possession, rulership, suggestion, telepathic attack, etc.
 	// general mental attack saving throw modifier
-	int magicalAttackAdustment; 
+	int magicalAttackAdjustment; 
 	float percentSpellFailure;
 	List<Integer> bonusSpells = new ArrayList<Integer>(); //cumulative above 13
 	List<Spell> spellImmunity=new ArrayList<Spell>();
@@ -23,23 +23,23 @@ public class Wisdom extends Attribute {
 	public Wisdom(String[] fields) {
 		attributeName = "Wisdom";
 		abilityScore=Integer.parseInt(fields[0].trim());
-		magicalAttackAdustment = Integer.parseInt(fields[1]);
+		magicalAttackAdjustment = Integer.parseInt(fields[1]);
 		setBonusSpells(fields[2]);
 		setPercentSpellFailure(fields[3]);
 		setSpellImmunity(fields[4]);
 
 	}
 	/**
-	 * @return the magicalAttackAdustment
+	 * @return the magicalAttackAdjustment
 	 */
-	public int getMagicalAttackAdustment() {
-		return magicalAttackAdustment;
+	public int getMagicalAttackAdjustment() {
+		return magicalAttackAdjustment;
 	}
 	/**
-	 * @param magicalAttackAdustment the magicalAttackAdustment to set
+	 * @param magicalAttackAdjustment the magicalAttackAdjustment to set
 	 */
-	public void setMagicalAttackAdustment(int magicalAttackAdustment) {
-		this.magicalAttackAdustment = magicalAttackAdustment;
+	public void setMagicalAttackAdjustment(int magicalAttackAdjustment) {
+		this.magicalAttackAdjustment = magicalAttackAdjustment;
 	}
 	/**
 	 * @return the percentSpellFailure
@@ -118,7 +118,7 @@ public class Wisdom extends Attribute {
 	}
 	@Override
 	public String toString() {
-		return "Wisdom [abilityScore=" + abilityScore + ", magicalAttackAdustment=" + magicalAttackAdustment
+		return "Wisdom [abilityScore=" + abilityScore + ", magicalAttackAdjustment=" + magicalAttackAdjustment
 				+ ", percentSpellFailure=" + percentSpellFailure + ", bonusSpells=" + bonusSpells + ", spellImmunity="
 				+ spellImmunity + "]";
 	}

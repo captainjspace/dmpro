@@ -12,7 +12,12 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.DefaultHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
+
+import dmpro.api.RestAPI;
+import dmpro.api.RestApp;
 
 
 /**
@@ -27,7 +32,7 @@ import org.eclipse.jetty.webapp.WebAppContext;
  */
 public class JettyServer implements Runnable {
 	private final Logger log = Logger.getLogger(this.getClass().getName());
-	
+
 	dmpro.core.Server application;
 	final int JETTY_PORT=8086;
 	Server server;
@@ -40,23 +45,38 @@ public class JettyServer implements Runnable {
 	public JettyServer(dmpro.core.Server application) {
 		this.application = application;
 	}
-	
+
 	private void init() {
+		/* jetty web server /app */
 		server = new Server(JETTY_PORT);
 		webapp = new WebAppContext();
-        webapp.setContextPath("/app");
-        webapp.setDescriptor(webappDir + "/WEB-INF/web.xml");
-        webapp.setResourceBase(webappDir);
+		webapp.setContextPath("/app");
+		webapp.setDescriptor(webappDir + "/WEB-INF/web.xml");
+		webapp.setResourceBase(webappDir);
 
+		/* simple jersey config /api */
+		ServletContextHandler restapp = new ServletContextHandler(ServletContextHandler.SESSIONS);
+		restapp.setContextPath("/api");
+		ServletHolder jerseyServlet = restapp.addServlet(
+				org.glassfish.jersey.servlet.ServletContainer.class, "/*");
+		jerseyServlet.setInitOrder(0);
+		// Tells the Jersey Servlet which REST service/class to load.
+		jerseyServlet.setInitParameter(
+				"jersey.config.server.provider.classnames",
+				RestAPI.class.getCanonicalName());
+		restapp.setAttribute("dmpro",  application);
+
+		/* General Web Serving  / (for dev) */
 		resourceHandler = new ResourceHandler();
 		resourceHandler.setDirectoriesListed(true);
 		resourceHandler.setWelcomeFiles(new String[]{ "index.html" });
 		resourceHandler.setResourceBase(".");
 		handlers = new HandlerList();
-		handlers.setHandlers(new Handler[] { webapp, resourceHandler, new DefaultHandler() });
+		handlers.setHandlers(new Handler[] { webapp, restapp, resourceHandler, new DefaultHandler() });
 		server.setHandler(handlers);
 	}
-	
+
+
 	public void stop() throws Exception {
 		this.server.stop();
 	}

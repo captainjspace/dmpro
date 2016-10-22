@@ -6,6 +6,7 @@ package dmpro.character;
 import java.util.HashMap;
 import java.util.Map;
 
+import dmpro.items.EmptyItem;
 import dmpro.items.Item;
 
 /**
@@ -46,5 +47,10 @@ public class SlottedItems {
 	}
 	
 	public Map<EquipmentSlotKey, Item> slots = new HashMap<EquipmentSlotKey, Item>();
+	
+	public SlottedItems() {
+		for (EquipmentSlotKey e : EquipmentSlotKey.values())
+			slots.put(e, new EmptyItem());
+	}
 	
 }

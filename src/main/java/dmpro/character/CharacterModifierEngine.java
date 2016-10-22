@@ -102,9 +102,7 @@ public class CharacterModifierEngine implements ModifierEngine {
  		.collect(Collectors.toList());
  		
  		specialized.stream().forEach(p -> System.out.printf("Specialized: %s\n", p.name()));
- 		specialized.stream()
- 		.forEach(p -> character.getActiveModifiers()
- 				.addAll( generateSpecialization(p)));
+ 		specialized.stream().forEach(p -> character.getActiveModifiers().addAll( generateSpecialization(p)));
  		
  		
  		
@@ -115,10 +113,33 @@ public class CharacterModifierEngine implements ModifierEngine {
 		.collect(Collectors.toList()));
  		
  		character.getActiveModifiers().stream().forEach(p -> System.out.printf("ActiveMod: %s\t%s\t%s\n", p.modifierSource, p.modifierType, p.modifierPriority));
+ 
+ 		//set all modified values
+ 		logger.log(Level.INFO, "setting modified attribute values");
+ 		logger.log(Level.INFO, "x" + character.getStrength().getModifiedAbilityScore());
+ 		logger.log(Level.INFO, "y" + character.getStrength().getAbilityScore());
+ 		
+ 		if (character.getStrength().getModifiedAbilityScore() == -1)
+			character.getStrength().setModifiedAbilityScore(character.getStrength().getAbilityScore());
+		
+ 		logger.log(Level.INFO, "z" + character.getStrength().getModifiedAbilityScore() );
+ 		logger.log(Level.INFO, "a" + character.getStrength().getAbilityScore());
+ 		
+ 		if (character.getIntelligence().getModifiedAbilityScore() == -1)
+			character.getIntelligence().setModifiedAbilityScore(character.getIntelligence().getAbilityScore());
+		if (character.getWisdom().getModifiedAbilityScore() == -1)
+			character.getWisdom().setModifiedAbilityScore(character.getWisdom().getAbilityScore());
+		if (character.getDexterity().getModifiedAbilityScore() == -1)
+			character.getDexterity().setModifiedAbilityScore(character.getDexterity().getAbilityScore());
+		if (character.getConstitution().getModifiedAbilityScore() == -1)
+			character.getConstitution().setModifiedAbilityScore(character.getConstitution().getAbilityScore());
+		if (character.getCharisma().getModifiedAbilityScore() == -1)
+			character.getCharisma().setModifiedAbilityScore(character.getCharisma().getAbilityScore());
 		
  		return character;
     }
 	
+
 	/**
 	 * @param name
 	 * @return

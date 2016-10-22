@@ -84,8 +84,8 @@ public class MagicItemLoader implements ResourceLoader {
 			} catch (Exception e) {
 				logger.log(Level.WARNING, "Gson error?",e);
 			}
-			System.out.println(magicItem.toString());
-			System.out.println(gson.toJson(magicItem));
+			//System.out.println(magicItem.toString());
+			//System.out.println(gson.toJson(magicItem));
 		}
 	}
 

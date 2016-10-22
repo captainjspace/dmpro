@@ -9,7 +9,7 @@ public class Intelligence extends Attribute {
 	static final int fieldCount = 5;
 	
 	int bonusLanguageModifier;
-	int maxSpelllevel;
+	int minSpellLevel;
 	float percentKnowSpell;
 	int maxSpellLevel;
 	List<Spell> spellImmunity=new ArrayList<Spell>();
@@ -35,12 +35,7 @@ public class Intelligence extends Attribute {
 	public void setBonusLanguageModifier(int bonusLanguageModifier) {
 		this.bonusLanguageModifier = bonusLanguageModifier;
 	}
-	public int getMaxSpelllevel() {
-		return maxSpelllevel;
-	}
-	public void setMaxSpelllevel(int maxSpelllevel) {
-		this.maxSpelllevel = maxSpelllevel;
-	}
+
 	public float getPercentKnowSpell() {
 		return percentKnowSpell;
 	}
@@ -70,9 +65,21 @@ public class Intelligence extends Attribute {
 	
 	@Override
 	public String toString() {
-		return "Intelligence [bonusLanguageModifier=" + bonusLanguageModifier + ", maxSpelllevel=" + maxSpelllevel
+		return "Intelligence [bonusLanguageModifier=" + bonusLanguageModifier + ", minSpellLevel=" + minSpellLevel
 				+ ", percentKnowSpell=" + percentKnowSpell + ", maxSpellLevel=" + maxSpellLevel + ", spellImmunity="
 				+ spellImmunity + "]";
+	}
+	/**
+	 * @return the minSpellLevel
+	 */
+	public int getMinSpellLevel() {
+		return minSpellLevel;
+	}
+	/**
+	 * @param minSpellLevel the minSpellLevel to set
+	 */
+	public void setMinSpellLevel(int minSpellLevel) {
+		this.minSpellLevel = minSpellLevel;
 	}
 	
 	

@@ -50,7 +50,7 @@ public class CharacterResource {
 	@GET
 	@Timed
 	public Map<String,Character> listCharacters() {
-		return characterService.getAll();
+		return characterService.getCharacters();
 	}
 
 	@POST

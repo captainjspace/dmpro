@@ -1,8 +1,14 @@
 package dmpro.character;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Formatter;
@@ -36,10 +42,12 @@ import dmpro.core.Server;
 import dmpro.core.StubApp;
 import dmpro.data.loaders.ResourceLoader;
 import dmpro.data.loaders.WeaponItemLoader;
+import dmpro.items.MagicItem;
 import dmpro.items.TreasureItemViewer;
 import dmpro.serializers.CharacterGsonService;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;
+import dmpro.utils.FileUtils;
 
 
 
@@ -65,10 +73,14 @@ public class CharacterService implements Runnable, ResourceLoader {
 	private XPProcessor xpProcessor;
 	private Scanner input;
 	private Formatter output;
+	private String characterDir = dataDirectory + "characters/";
 	
 	
 	
 	Map<String,Character> characters = new HashMap<String,Character>();
+	Map<String,String> charactersJSON = new HashMap<String,String>();
+	Map<String,String> listCharacters = new HashMap<String,String>();
+	
 	private Die die= new Die();
 	private Character character;
 	private Gson gson = CharacterGsonService.getCharacterGson();
@@ -94,7 +106,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 	 */
 	public CharacterService(Server application) {
 		this.application = application;
-		
+		this.loadAllCharacters();
 		this.characterBuilder = new PCCharacterBuilder();
 		this.characterBuildDirector = new CharacterBuildDirector(characterBuilder, this.application);
 		this.characterModifierEngine = new CharacterModifierEngine(this.application);
@@ -103,11 +115,52 @@ public class CharacterService implements Runnable, ResourceLoader {
 	public void run() {}
 	
 	public void loadAllCharacters() {
+		List<Path> characterFiles = null;
+		try {
+			characterFiles = FileUtils.listSourceFiles(FileSystems.getDefault().getPath(characterDir));
+			//BufferedReader reader;
+			for (Path path : characterFiles) {
+				character = null;
+				try (BufferedReader reader = Files.newBufferedReader(path) ){
+					String chStr = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+					character = gson.fromJson(reader, Character.class);
+					//character = characterModifierEngine.processModifiers(character);
+					this.characters.put(character.getCharacterId(),character);
+					this.charactersJSON.put(character.getCharacterId(), chStr);
+					//for Rest API
+					this.listCharacters.put(character.getCharacterId(),
+							String.join(" ", character.getPrefix() ,
+							                  character.getFirstName(),
+							                  character.getLastName()));
+					
+					//saveCharacter(character);
+					reader.close();
+				} catch (IOException io) {
+					logger.log(Level.WARNING, "File not Found: " + path,io);
+				} catch (Exception e) {
+					logger.log(Level.WARNING, "Gson error?" + character.getCharacterId(),e);
+				} 
+			}
+		} catch (IOException e) {
+			logger.log(Level.SEVERE, " IO Error Loading characters ");
+		}
+		if (characterFiles == null) {
+			logger.log(Level.WARNING, "No character files found " + characterDir);
+			return;
+		}
+		
 		
 	}
-	public Map<String,Character> getAll() {
+	public Map<String,Character> getCharacters() {
 		return characters;
 	}
+	public Map<String,String> getCharactersJSON() {
+		return charactersJSON;
+	}
+	public Map<String,String> getCharacterList(){
+		return listCharacters;
+	}
+	
 	
 	public Character getCharacter(String characterId) {
 		// need to offer a reference
@@ -118,6 +171,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 		} else {
 			//lazyload
 			character = loadCharacter(characterId);
+			characters.put(characterId, character);
 			if (character == null)
 				logger.log(Level.WARNING, "Character " + characterId + " does not exist: Check Id, and Directories");
 			//probably throw exception to create character or evaluate id, config
@@ -159,7 +213,9 @@ public class CharacterService implements Runnable, ResourceLoader {
 			logger.log(Level.INFO, "executing managementAction " + characterManagementAction);
 			ManagementAction action = characterManagementAction.getManagementAction();
 			character = action.execute(character, this.application, this.input, this.output);
+			character = characterModifierEngine.processModifiers(characterBuilder.getCharacter());
 			saveCharacter(character); //save after each mod.
+			this.output.format("Saved Character %s", character.getCharacterId());
 		}
 		return character;
 	}
@@ -190,7 +246,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "Failed to Save Character " + character.getCharacterId(), e);
 		}
-
+		characters.put(character.getCharacterId(), character); //refresh memory map
 		return character;
 	}
 	
@@ -221,14 +277,17 @@ public class CharacterService implements Runnable, ResourceLoader {
 	  Server application = new StubApp();
 	  application.getReferenceDataSet().run();
 	  CharacterService characterService = new CharacterService(application);
-	  Character c = characterService.createCharacter();
-	  //Character c = characterService.loadCharacter(args[0].trim());
-	  //c.characterId=args[1];
-	  characterService.saveCharacter(c);
-	  //diff output current loses dailySpells and spellBook
-	  
-	  System.out.println(c.toString());
-	  
+	  characterService.loadAllCharacters();
+	  characterService.getCharactersJSON().keySet().stream().forEach(key -> System.out.println(key));
+	  //Character c = characterService.createCharacter();
+//	  Character c = characterService.loadCharacter(args[0].trim());
+//	  c = characterService.characterModifierEngine.processModifiers(c);
+//	  //c.characterId=args[1];
+//	  characterService.saveCharacter(c);
+//	  //diff output current loses dailySpells and spellBook
+//	  
+//	  System.out.println(c.toString());
+//	  
 	  System.exit(0);
 	  
 	  
@@ -332,6 +391,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 	public CharacterBuildDirector getCharacterBuildDirector() {
 		return characterBuildDirector;
 	}
+
+
 
 	
 }

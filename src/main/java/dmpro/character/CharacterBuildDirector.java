@@ -33,13 +33,13 @@ import dmpro.data.loaders.RaceSizeLoader;
 public class CharacterBuildDirector {
 	private Logger logger = Logger.getLogger(this.getClass().getName());
 	private Server application;
-	
-//	CharacterModifierEngine characterModifierEngine;
+
+	//	CharacterModifierEngine characterModifierEngine;
 	CharacterBuilder characterBuilder;
 	private Scanner scanner = new Scanner(System.in);
 	private Formatter output = new Formatter(System.out);
 	AttributeLoader attributeLoader;
-	
+
 	//TODO: evalutate if these would be better as locals -- had to force reset them when creating multiple characters.
 	private String sex=null, nickname=null, prefix=null, firstName=null, lastName=null, title=null;
 	private List<String> suffixes;;
@@ -52,7 +52,7 @@ public class CharacterBuildDirector {
 
 	public CharacterBuildDirector(CharacterBuilder characterBuilder, Server application) {
 		this.characterBuilder = characterBuilder;
-//		this.characterModifierEngine = new CharacterModifierEngine();
+		//		this.characterModifierEngine = new CharacterModifierEngine();
 		this.application = application; 
 		this.referenceDataSet = application.getReferenceDataSet();
 	}
@@ -71,29 +71,29 @@ public class CharacterBuildDirector {
 		output.format("-----------We will execute character build in sections using a builder ---\n");
 		output.flush();
 		characterBuilder.buildCharacterInitialize();
-		
-		
+
+
 		getCharacterPersonalInformation();
 		characterBuilder.buildCharacterPersonalInformation(sex, nickname, prefix, firstName, lastName, title, suffixes);
-		
+
 		getCharacterAttributes();
 		characterBuilder.buildCharacterAttributes(attributes);
-		
+
 		getCharacterRace();
 		characterBuilder.buildCharacterRace(race);
-		
+
 		getCharacterRacePersonalInformation();
 		characterBuilder.buildCharacterRacePersonalInformation();
-		
+
 		getCharacterClass();
 		characterBuilder.buildCharacterClass(characterClasses);
-		
+
 		getCharacterClassPersonalInformation();
 		characterBuilder.buildCharacterClassInformation(age, height, weight);
-		
+
 		getCharacterHistory();
 		characterBuilder.buildCharacterHistory();
-		
+
 		output.format("Character Created ID: %s\n", characterBuilder.getCharacter().getCharacterId());
 		output.flush();
 	}
@@ -102,7 +102,7 @@ public class CharacterBuildDirector {
 		//reset
 		sex=null; nickname=null; prefix=null; firstName=null; lastName=null; title=null;
 		suffixes = new ArrayList<String>();
-		
+
 		output.format("----------------------- Character Personal Information ------------------------\n");
 		output.flush();
 		do {
@@ -116,7 +116,7 @@ public class CharacterBuildDirector {
 			output.flush();
 			nickname= scanner.next();
 		} while ( nickname.isEmpty() );
-	
+
 		do { 
 			output.format("Enter Character Prefix (Sir, Mr, Mrs, etc.): >");
 			output.flush();
@@ -128,16 +128,18 @@ public class CharacterBuildDirector {
 			output.flush();
 			firstName = scanner.next();
 		} while (firstName.isEmpty());
-			
+
 		do { 
 			output.format("Enter Character Last or Family Name: >");
 			output.flush();
 			lastName = scanner.next();
 		} while (lastName.isEmpty());
 
-		output.format("Enter Character Title:");
-		output.flush();
-		title = scanner.nextLine();
+		do { 
+			output.format("Enter Character Title:");
+			output.flush();
+			title = scanner.nextLine();
+		}  while (title.isEmpty());
 
 		output.format("Enter Suffixes (i.e. Esq., III, Jr, etc>>");
 		output.flush();
@@ -153,7 +155,7 @@ public class CharacterBuildDirector {
 	 */
 	private void getCharacterAttributes() {
 		attributes = new LinkedHashMap<String,Attribute>();
-		
+
 		output.format("---------------- Character Attributes -------------------\n");
 		int answer=0;
 		String s;
@@ -168,30 +170,26 @@ public class CharacterBuildDirector {
 				//whatever...
 			}
 		} while ( answer!=1 && answer !=2 );
-		
+
 		output.format("Autogen it is!!!\n");
 		AttributeRoller attributeRoller = new AttributeRoller();
 		int[] attributeRolls = attributeRoller.attributeRolls();
-		attributeRolls = new int[] {18,18,18,18,18,18};
-		//TODO: hook up to central.
-		//attributeLoader = new StrengthLoader();
-		//attributes.put("Strength", (Strength) attributeLoader.getRecord( attributeRolls[0] ));
-		//ReferenceDataSet rds = this.application.getReferenceDataSet();
-		
+		//attributeRolls = new int[] {18,18,18,18,18,18}; //for testing
+
 		attributes.put("Strength", referenceDataSet.getStrengthLoader().getRecord(attributeRolls[0]));
-	    attributes.put("Intelligence", referenceDataSet.getIntelligenceLoader().getRecord( attributeRolls[1]));
+		attributes.put("Intelligence", referenceDataSet.getIntelligenceLoader().getRecord( attributeRolls[1]));
 		attributes.put("Wisdom", referenceDataSet.getWisdomLoader().getRecord(attributeRolls[2]));
 		attributes.put("Dexterity", referenceDataSet.getDexterityLoader().getRecord(attributeRolls[3]));
 		attributes.put("Constitution", referenceDataSet.getConstitutionLoader().getRecord( attributeRolls[4]));
 		attributes.put("Charisma", referenceDataSet.getCharismaLoader().getRecord(attributeRolls[5]));
-		
+
 		showAttributes();
-		
+
 	}
 
 	private void getCharacterRace() {
 		race = null;
-		
+
 		output.format("-------------- Character Race ----------------\n");
 		RaceAttributeLoader raceAttributeLoader = referenceDataSet.getRaceAttributeLoader();
 		ListPossibleRaceResults listPossibleRaceResults = raceAttributeLoader.listPossibleRaces(attributes, sex);
@@ -218,10 +216,10 @@ public class CharacterBuildDirector {
 			//raceType = RaceType.ByIndex(raceIndex);
 			if (raceType != null) break;
 		}
-		
+
 		//TODO: Get this to work... for some reason the classes method is not seeing the race..
 		//this.race = raceType.newRace();
-		
+
 		switch(raceType) {
 		case HUMAN:
 			race  = new Human();
@@ -256,16 +254,16 @@ public class CharacterBuildDirector {
 
 	private void getCharacterRacePersonalInformation() {
 		//after class
-	
+
 	}
-	
+
 	/**
 	 * TODO:	Add Multiclass support 
 	 * 			Need Loader with rules.
 	 */
 	private void getCharacterClass() {
 		characterClasses = new ArrayList<CharacterClass>();
-		
+
 		output.format ("------------------------------- Character Class ------------------------\n");
 		//TODO : CLASS RESTRICTION on RACE
 		ClassRaceLoader classRaceLoader = referenceDataSet.getClassRaceLoader();
@@ -282,7 +280,7 @@ public class CharacterBuildDirector {
 		showAttributes();
 		output.format("-------------Checking Attribute Restrictions -----------------\n");
 		output.flush();
-		
+
 		ClassAttributeLoader classAttributeLoader = referenceDataSet.getClassAttributeLoader();
 		ListPossibleClassResults listPossibleClassResults = classAttributeLoader.listPossibleClasses(attributes);
 		if (!listPossibleClassResults.limitRecords.isEmpty()) {
@@ -294,19 +292,19 @@ public class CharacterBuildDirector {
 		output.format("-------------Valid Classes for Given Attributes-----------\n");
 		listPossibleClassResults.possibleClasses.stream()
 		.forEach(p -> output.format("\t%s\n",p.className));
-		
+
 		//Class Restriction by Attribute
 		output.format("-------------Merging Lists-----------\n");
-		
+
 		List<CharacterClassType> possibleClasses = 
 				listPossibleClassResults.possibleClasses.stream()
 				.filter(p -> possibleClassRaceResults.possibleClasses
 						.stream()
 						.anyMatch(b -> b.className.equals(p.className)))
 				.collect(Collectors.toList());
-		
-//		possibleClasses.stream().forEach(p -> output.format("Possible Class: %s\n",p.className));
-		
+
+		//		possibleClasses.stream().forEach(p -> output.format("Possible Class: %s\n",p.className));
+
 		CharacterClassType characterClassType = null;
 		for (CharacterClassType cct : possibleClasses) {
 			output.format("ID: %d\tClass: %s\n" , cct.classIndex, cct.className);
@@ -325,41 +323,41 @@ public class CharacterBuildDirector {
 			//classType = classType.ByIndex(classIndex);
 			if (characterClassType != null) break;
 		}
-//		int classIndex = -1;
-//		while (true) {
-//			output.print("Enter Class ID: ");
-//			classIndex = scanner.nextInt();
-//			characterClassType = CharacterClassType.ByIndex(classIndex);
-//			if ( characterClassType != null) break;
-//		}
+		//		int classIndex = -1;
+		//		while (true) {
+		//			output.print("Enter Class ID: ");
+		//			classIndex = scanner.nextInt();
+		//			characterClassType = CharacterClassType.ByIndex(classIndex);
+		//			if ( characterClassType != null) break;
+		//		}
 		output.format("Character Class Selected is %s, %s, Id=%d\n",
 				characterClassType, characterClassType.className, characterClassType.classIndex);
-		
-		
+
+
 		//TODO: put classes in enum
- 		switch (characterClassType ) {
- 		case MAGICUSER:
- 			characterClass = new MagicUser();
- 			break;
- 		case FIGHTER:
- 			characterClass = new Fighter();
- 			break;
- 		case THIEF:
- 			characterClass = new Thief();
- 			break;
- 		case CLERIC:
- 			characterClass = new Cleric();
- 			break;
- 		default:
- 			logger.log(Level.INFO, "Failed to select class");
- 			output.format("ERROR -- no Class Specificied");
- 		}
- 			
- 		characterClasses.add(characterClass);
- 		//TODO add multiclass;
- 		output.flush();
+		switch (characterClassType ) {
+		case MAGICUSER:
+			characterClass = new MagicUser();
+			break;
+		case FIGHTER:
+			characterClass = new Fighter();
+			break;
+		case THIEF:
+			characterClass = new Thief();
+			break;
+		case CLERIC:
+			characterClass = new Cleric();
+			break;
+		default:
+			logger.log(Level.INFO, "Failed to select class");
+			output.format("ERROR -- no Class Specificied");
+		}
+
+		characterClasses.add(characterClass);
+		//TODO add multiclass;
+		output.flush();
 	}
-	
+
 	private void getCharacterClassPersonalInformation() {
 		// TODO page 12 DMG, probably create loader.
 		age = 0; height = 0; weight = 0;
@@ -372,7 +370,7 @@ public class CharacterBuildDirector {
 		output.format("You are a wee child of %d years old!  and you are %d inches tall and weigh %d lbs\n", age,height,weight);
 		return;
 	}
-	
+
 	private void getCharacterHistory() {
 		// TODO Auto-generated method stub
 
@@ -410,5 +408,5 @@ public class CharacterBuildDirector {
 	public void setOutput(Formatter output) {
 		this.output = output;
 	}
-	
+
 }

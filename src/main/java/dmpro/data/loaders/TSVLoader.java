@@ -54,6 +54,8 @@ public class TSVLoader implements ResourceLoader {
 		
 		} catch (FileNotFoundException fnf) {;
 			logger.log(Level.INFO, "Where is that file " + file, fnf);
+		} finally {
+			scan.close();
 		}
 		return tsvTable;
 	}

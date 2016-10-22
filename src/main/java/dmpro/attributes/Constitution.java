@@ -7,7 +7,7 @@ public class Constitution extends Attribute {
 	int hitPointAdjustment;
 	int fighterHPAdjustment;
 	float systemShock;
-	float ressurectionSurvival;
+	float resurrectionSurvival;
 	int poisonSaveAdjustment;
 	int regenerationRate;  //1 pt per "x" turns
 	
@@ -19,7 +19,7 @@ public class Constitution extends Attribute {
 	  this.hitPointAdjustment = Integer.parseInt(fields[1].trim());
 	  this.fighterHPAdjustment = Integer.parseInt(fields[2].trim());
 	  this.systemShock = Float.parseFloat(fields[3].trim());
-	  this.ressurectionSurvival = Float.parseFloat(fields[4].trim());
+	  this.resurrectionSurvival = Float.parseFloat(fields[4].trim());
 	  this.poisonSaveAdjustment = Integer.parseInt(fields[5].trim());
 	  if (!dashCheck(fields[6]))
 	    this.regenerationRate = Integer.parseInt(fields[6].trim());
@@ -38,11 +38,11 @@ public class Constitution extends Attribute {
 	public void setSystemShock(float systemShock) {
 		this.systemShock = systemShock;
 	}
-	public float getRessurectionSurvival() {
-		return ressurectionSurvival;
+	public float getResurrectionSurvival() {
+		return resurrectionSurvival;
 	}
-	public void setRessurectionSurvival(float ressurectionSurvival) {
-		this.ressurectionSurvival = ressurectionSurvival;
+	public void setResurrectionSurvival(float ressurectionSurvival) {
+		this.resurrectionSurvival = ressurectionSurvival;
 	}
 	public int getPoisonSaveAdjustment() {
 		return poisonSaveAdjustment;
@@ -68,7 +68,7 @@ public class Constitution extends Attribute {
 	@Override
 	public String toString() {
 		return "Constitution [hitPointAdjustment=" + hitPointAdjustment + ", fighterHPAdjustment=" + fighterHPAdjustment
-				+ ", systemShock=" + systemShock + ", ressurectionSurvival=" + ressurectionSurvival
+				+ ", systemShock=" + systemShock + ", ressurectionSurvival=" + resurrectionSurvival
 				+ ", poisonSaveAdjustment=" + poisonSaveAdjustment + ", regenerationRate=" + regenerationRate + "]";
 	}
 	
