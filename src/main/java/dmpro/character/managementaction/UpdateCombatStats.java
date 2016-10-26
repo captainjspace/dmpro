@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import dmpro.character.Character;
 import dmpro.character.CharacterModifierEngine;
 import dmpro.character.CombatStatistics;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.core.Server;
 import dmpro.core.StubApp;
 import dmpro.items.Item.ItemType;

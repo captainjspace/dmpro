@@ -50,7 +50,7 @@ public class HalfElf extends Race {
 		a.setAttributeToModify(Intelligence.class);
 		a.setAttributeType(AttributeType.INTELLIGENCE);
 		//a.setBonus(intelligence); DETERMINED BY CHARACTER AT RUNTIME, CONSIDER OTHER MODIFIERS
-		a.setDescription("	-->	Half-Elf get (Intelligence - 16) additional bonus languages");
+		a.setDescription("Half-Elf get (Intelligence - 16) additional bonus languages");
 		a.setModifiesAbilityScore(false);
 		raceAttributes.add(a);
 		a = null;

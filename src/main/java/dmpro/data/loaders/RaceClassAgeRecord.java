@@ -1,7 +1,7 @@
 package dmpro.data.loaders;
 
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.race.RaceType;
 
 public class RaceClassAgeRecord implements TSVData{

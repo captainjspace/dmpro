@@ -2,6 +2,8 @@ package dmpro.data.loaders;
 
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 
 /**
  * 
@@ -16,10 +18,16 @@ public class CombatTableLoader extends TSVLoader implements ResourceLoader {
 	 */
 	boolean isLoaded = false;
 	//List<CombatRecord> tsvTable = new ArrayList<CombatRecord>();
+	String webCombatTables="";
 	
 	public CombatTableLoader() {
 		super(CombatRecord.class, "combat-table.tsv");
+		webCombatTables = gson.toJson(tsvTable.stream().map(p -> (CombatRecord)p).collect(Collectors.toList()));
 		isLoaded = true;
+	}
+	
+	public String getWebCombatTables() {
+		return webCombatTables;
 	}
 	
 	public CombatRecord getRecord(String characterClass, int level) {

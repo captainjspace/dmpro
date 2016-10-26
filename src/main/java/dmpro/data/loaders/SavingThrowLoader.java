@@ -3,6 +3,7 @@ package dmpro.data.loaders;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class SavingThrowLoader extends TSVLoader implements ResourceLoader{
@@ -11,9 +12,15 @@ public class SavingThrowLoader extends TSVLoader implements ResourceLoader{
 	 */
 	List<SavingThrowRecord> savingThrowTable=new ArrayList<SavingThrowRecord>();
 
+	String webSavingThrowTables="";
+	
 	public SavingThrowLoader() { 
 		super(SavingThrowRecord.class, "saving-throws.tsv");
+		webSavingThrowTables = gson.toJson(tsvTable.stream().map(p -> (SavingThrowRecord)p).collect(Collectors.toList()));
 		
+	}
+	public String getWebSavingThrowTables() {
+		return webSavingThrowTables;
 	}
 	
 	public SavingThrowRecord getRecord(String characterClass, int experienceLevel) {

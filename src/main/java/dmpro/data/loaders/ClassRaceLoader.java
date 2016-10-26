@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.race.RaceType;
 
 public class ClassRaceLoader extends TSVLoader implements ResourceLoader{

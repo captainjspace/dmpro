@@ -20,7 +20,7 @@ public class CoinItem extends Item {
 			this.shortName = shortName;
 		}
 		
-		public CoinType getByShortName(String shortName) {
+		public static CoinType getByShortName(String shortName) {
 			CoinType returnValue = null;
 			for (CoinType coinType: CoinType.values())
 				if (coinType.getShortName().equals(shortName)) {

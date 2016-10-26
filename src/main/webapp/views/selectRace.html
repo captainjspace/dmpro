@@ -1,0 +1,43 @@
+<div id="select-race-cont" ng-controller="SelectRaceController">
+
+
+
+<form>
+  <md-input-container>
+    <md-select ng-change="setRace(raceType)" ng-model="raceType" placeholder="Select Race">
+      <md-option ng-value="raceType" ng-repeat="raceType in possibleRace.possibleRaces">{{ raceType }}</md-option>
+    </md-select>
+    <button ng-click="put(character)" class="blue md-accent md-raised">Raised and Accent Button</button>
+  </md-input-container>
+</form>
+  <pre>{{ raceType | json }}</pre>
+  <pre> {{ character.race }} </pre>
+  <pre>{{ possibleRace | json }}</pre>
+
+
+
+  <div id="attributes" class="content">
+
+    <table class="character">
+      <tr>
+        <td>Strength:</td><td>{{character.strength.modifiedAbilityScore}} </td>
+      </tr>
+      <tr>
+        <td>Intelligence:</td><td>{{character.intelligence.modifiedAbilityScore}} </td>
+      </tr>
+      <tr>
+        <td>Wisdom:</td><td>{{character.wisdom.modifiedAbilityScore}} </td>
+      </tr>
+      <tr>
+        <td>Dexterity:</td><td>{{character.dexterity.modifiedAbilityScore}} </td>
+      </tr>
+      <tr>
+        <td>Constitution</td><td>{{character.constitution.modifiedAbilityScore}} </td>
+      </tr>
+      <tr>
+        <td>Charisma:</td><td>{{character.charisma.modifiedAbilityScore}} </td>
+      </tr>
+    </table>
+  </table>
+
+</div>

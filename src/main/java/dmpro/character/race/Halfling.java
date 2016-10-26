@@ -44,28 +44,28 @@ public class Halfling extends Race {
 		a.setAttributeToModify(Dexterity.class);
 		a.setAttributeType(AttributeType.DEXTERITY);
 		a.setBonus(1);
-		a.setDescription("	-->Halfling gets +1 Dexterity");
+		a.setDescription("Halfling gets +1 Dexterity");
 		raceAttributes.add(a);
 		
 		a = new AttributeModifier();
 		a.setAttributeToModify(Strength.class);
 		a.setAttributeType(AttributeType.STRENGTH);
 		a.setBonus(-1);
-		a.setDescription("	-->Halfling gets -1 Stregnth");
+		a.setDescription("Halfling gets -1 Stregnth");
 		raceAttributes.add(a);
 		
 		a = new AttributeModifier();
 		a.setAttributeToModify(Dexterity.class);
 		a.setAttributeType(AttributeType.DEXTERITY);
 		a.setBonus(0);
-		a.setDescription("	-->Halfling gets +1 to hit with bows (missileAttackAdjustment+1) - need to look at weapon");
+		a.setDescription("Halfling gets +1 to hit with bows (missileAttackAdjustment+1) - need to look at weapon");
 		raceAttributes.add(a);
 		
 		a= new AttributeModifier();
 		a.setAttributeToModify(Intelligence.class);
 		a.setAttributeType(AttributeType.INTELLIGENCE);
 		//a.setBonus(intelligence); DETERMINED BY CHARACTER AT RUNTIME, CONSIDER OTHER MODIFIERS
-		a.setDescription("	-->	Halfling get (Intelligence - 16) additional bonus languages");
+		a.setDescription("Halfling get (Intelligence - 16) additional bonus languages");
 		a.setModifiesAbilityScore(false);
 		raceAttributes.add(a);
 		

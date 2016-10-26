@@ -1,0 +1,32 @@
+<div id="spellList" ng-controller="SpellListController">
+
+  <div id="scroll">
+    <hr>
+    <h3> Spell Library </h3>
+    <hr>
+  </div>
+
+  <p>Search: <input type="text" ng-model="spellSearch"></p>
+
+  <table class="spells" fixed-table-headers="scrollable-area">
+    <caption> Spell Table <caption>
+      <thead>
+      <tr>
+        <th>Spell Name</th>
+        <th>Class Name</th>
+        <th>Level</th>
+        <th>Magic Category</th>
+        <th>Is Reversible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="spell in spellList | filter : { spellName : spellSearch }" ng-click="go(spell.spellName)">
+        <td> {{spell.spellName}} </td>
+        <td> {{spell.spellAbilityClassName}} </td>
+        <td> {{spell.spellAbilityClassLevel}} </td>
+        <td> {{spell.spellCategory}} </td>
+        <td> {{spell.reversible}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

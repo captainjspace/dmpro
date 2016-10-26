@@ -1,0 +1,42 @@
+<div id="select-class-cont" ng-controller="SelectClassController">
+
+
+  <form>
+    <md-input-container>
+      <md-select ng-change="setClass(characterClassType)" ng-model="characterClassType" placeholder="Select Character Class">
+        <md-option ng-value="characterClassType" ng-repeat="characterClassType in selectClass.possibleClasses">{{ characterClassType }}</md-option>
+      </md-select>
+      <button ng-click="put(character)" class="blue md-accent md-raised">Raised and Accent Button</button>
+    </md-input-container>
+  </form>
+    <pre>{{ characterClassType | json }}</pre>
+    <pre> {{ character.classes }} </pre>
+    <pre>{{ selectClass.possibleClasses | json }}</pre>
+
+
+
+    <div id="attributes" class="content">
+
+      <table class="character">
+        <tr>
+          <td>Strength:</td><td>{{character.strength.modifiedAbilityScore}} </td>
+        </tr>
+        <tr>
+          <td>Intelligence:</td><td>{{character.intelligence.modifiedAbilityScore}} </td>
+        </tr>
+        <tr>
+          <td>Wisdom:</td><td>{{character.wisdom.modifiedAbilityScore}} </td>
+        </tr>
+        <tr>
+          <td>Dexterity:</td><td>{{character.dexterity.modifiedAbilityScore}} </td>
+        </tr>
+        <tr>
+          <td>Constitution</td><td>{{character.constitution.modifiedAbilityScore}} </td>
+        </tr>
+        <tr>
+          <td>Charisma:</td><td>{{character.charisma.modifiedAbilityScore}} </td>
+        </tr>
+      </table>
+    </table>
+<pre> {{ character | json }} </pre>
+</div>

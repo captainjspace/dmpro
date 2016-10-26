@@ -25,12 +25,12 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 	public List<Modifier> modifiers = new ArrayList<Modifier>();
 	
 	int itemId;
-	String itemName;
+	protected String itemName;
 	protected ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
 	int itemCount;
-	int itemValue; //gold piece value
+	protected int itemValue; //gold piece value
 	protected CoinType itemCurrency;
-	int itemEncumbrance; //in gp
+	protected int itemEncumbrance; //in gp
 	boolean isMagic;
 	boolean isTreasure;
 	boolean isWeapon;

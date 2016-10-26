@@ -3,7 +3,7 @@ package dmpro.character.classes;
 import java.util.List;
 
 import dmpro.character.Proficiency;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.data.loaders.CombatRecord;
 import dmpro.data.loaders.SavingThrowRecord;
 import dmpro.items.Item;

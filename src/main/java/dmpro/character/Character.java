@@ -23,7 +23,7 @@ import dmpro.attributes.StrengthLoader;
 import dmpro.attributes.Wisdom;
 import dmpro.attributes.WisdomLoader;
 import dmpro.character.classes.CharacterClass;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.classes.ICharacterClass;
 import dmpro.character.race.Race;
@@ -92,7 +92,7 @@ public class Character implements Modifiable {
 	//boolean experienceBonus; //does not belong here 
 	
 	Race race;
-	Map<CharacterClass.CharacterClassType,CharacterClass> classes = new HashMap<CharacterClass.CharacterClassType,CharacterClass>();
+	Map<CharacterClassType,CharacterClass> classes = new HashMap<CharacterClassType,CharacterClass>();
 	
 	//alignment
 	Alignment alignment;
@@ -583,7 +583,15 @@ public class Character implements Modifiable {
 			attributesMap.put(a.attributeName.toLowerCase(), a);
 		return attributesMap;
 	}
-
+    public void initializeModifiedAbilityScores() {
+    	if (strength.modifiedAbilityScore == -1) { strength.modifiedAbilityScore = strength.abilityScore; }
+    	if (intelligence.modifiedAbilityScore == -1) { intelligence.modifiedAbilityScore = intelligence.abilityScore; }
+    	if (wisdom.modifiedAbilityScore == -1) { wisdom.modifiedAbilityScore = wisdom.abilityScore; }
+    	if (constitution.modifiedAbilityScore == -1) { constitution.modifiedAbilityScore = constitution.abilityScore; }
+    	if (dexterity.modifiedAbilityScore == -1) { dexterity.modifiedAbilityScore = dexterity.abilityScore; }
+    	if (charisma.modifiedAbilityScore == -1) { charisma.modifiedAbilityScore = charisma.abilityScore; }
+    }
+	
 	/**
 	 * @param strength the strength to set
 	 */

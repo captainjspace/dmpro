@@ -12,7 +12,8 @@ public class ExperienceTableLoader extends TSVLoader implements ResourceLoader {
 	 */
 	
 	//List<ExperienceTableRecord> experienceTable = new ArrayList<ExperienceTableRecord>();
-
+	String webExperienceTable = "";
+	
 	public ExperienceTableLoader() {
 		super(ExperienceTableRecord.class, "xptable.tsv");
 	}

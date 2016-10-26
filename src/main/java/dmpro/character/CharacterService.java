@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Formatter;
 import java.util.logging.Level;
@@ -33,7 +34,7 @@ import dmpro.attributes.WisdomLoader;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.MagicUser;
 import dmpro.character.classes.Thief;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.managementaction.ManagementAction;
 import dmpro.character.race.Halfling;
@@ -114,6 +115,16 @@ public class CharacterService implements Runnable, ResourceLoader {
 	}
 	public void run() {}
 	
+	private void refreshServiceData() {
+		for ( Entry<String, Character> e: this.characters.entrySet()) {
+			this.charactersJSON.put(e.getKey(), gson.toJson(e.getValue()));
+			this.listCharacters.put(e.getKey(),
+					String.join(" ", e.getValue().getPrefix() ,
+							e.getValue().getFirstName(),
+							e.getValue().getLastName()));
+		}
+	}
+	
 	public void loadAllCharacters() {
 		List<Path> characterFiles = null;
 		try {
@@ -171,7 +182,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 		} else {
 			//lazyload
 			character = loadCharacter(characterId);
-			characters.put(characterId, character);
+			characters.put(character.characterId, character);
 			if (character == null)
 				logger.log(Level.WARNING, "Character " + characterId + " does not exist: Check Id, and Directories");
 			//probably throw exception to create character or evaluate id, config
@@ -192,6 +203,9 @@ public class CharacterService implements Runnable, ResourceLoader {
 		characterBuildDirector.setOutput(output);
 		return createCharacter();
 	}
+	
+	
+	
 	public Character createCharacter() {
 		//CharacterBuilder pCCharacterBuilder = new PCCharacterBuilder();
 		//characterBuildDirector = new CharacterBuildDirector(pCCharacterBuilder);
@@ -221,13 +235,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 	}
 
 	public Character saveCharacter(Character character) {
-		
-//		java.util.Formatter formatter = new java.util.Formatter();
-//		String file = formatter.format("data/characters/c%.0f.json", character.characterId).toString();
-//		formatter.close();
 
 		String file = dataDirectory + "characters/c" + character.characterId + ".json";
-		//String file = "src/main/resources/data/characters/c" + character.getCharacterId() + ".json";
 		//probably should do time/date checks to see if modified version is later than last save
 		character.setModified(System.currentTimeMillis());
 		String json = null;
@@ -247,6 +256,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 			logger.log(Level.SEVERE, "Failed to Save Character " + character.getCharacterId(), e);
 		}
 		characters.put(character.getCharacterId(), character); //refresh memory map
+		refreshServiceData();
 		return character;
 	}
 	
@@ -256,7 +266,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 		try {
 			FileReader reader = new FileReader(file);
 			load = gson.fromJson(reader, Character.class);
-			
+		
+			System.out.println(load.getFirstName());
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "File not Found: " + file +
 					" Character not loaded CharacterId:" + characterId, e);
@@ -267,9 +278,17 @@ public class CharacterService implements Runnable, ResourceLoader {
 		} else {
 			//log warning - already loaded character may be modified
 			logger.log(Level.WARNING, "Character already loaded characterId:" + characterId, characterId);
+			//TODO:check timestamps?
+			load = characters.get(characterId);
 			//should we return character from map?  or ask if the intent is to reload
 		}
 		return load; //null indicates action on other side.
+	}
+	
+	public Character testLoad(String json) {
+		Character test = null;
+		test = gson.fromJson(json, Character.class);
+		return test;
 	}
 	
 	//HACK TESTING CODE...
@@ -277,7 +296,12 @@ public class CharacterService implements Runnable, ResourceLoader {
 	  Server application = new StubApp();
 	  application.getReferenceDataSet().run();
 	  CharacterService characterService = new CharacterService(application);
-	  characterService.loadAllCharacters();
+	  //
+	  String s = "{\"suffixes\":[\"hjkl\"],\"name\":\"hjkl\",\"prefix\":\"hjkl\",\"firstName\":\"hjkl\",\"lastName\":\"hjkl\",\"title\":\"hjkl\",\"sex\":\"M\"}";
+	  Character c = characterService.testLoad(s);
+	  System.out.format("%s ,  %s, %s, %s\n", c.getName(), c.getFirstName(), c.getLastName(), c.getSex());
+	  //System.out.println(characterService.getCharacter("100").toString());
+	  //characterService.loadAllCharacters();
 	  characterService.getCharactersJSON().keySet().stream().forEach(key -> System.out.println(key));
 	  //Character c = characterService.createCharacter();
 //	  Character c = characterService.loadCharacter(args[0].trim());
@@ -390,6 +414,27 @@ public class CharacterService implements Runnable, ResourceLoader {
 	 */
 	public CharacterBuildDirector getCharacterBuildDirector() {
 		return characterBuildDirector;
+	}
+
+	/**
+	 * @return the characterModifierEngine
+	 */
+	public CharacterModifierEngine getCharacterModifierEngine() {
+		return characterModifierEngine;
+	}
+
+	/**
+	 * @return the xpProcessor
+	 */
+	public XPProcessor getXpProcessor() {
+		return xpProcessor;
+	}
+
+	/**
+	 * @param c
+	 */
+	public void initCharacter(Character c) {
+		saveCharacter(xpProcessor.evaluateExperience(characterModifierEngine.processModifiers(c)));
 	}
 
 

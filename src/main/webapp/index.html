@@ -20,10 +20,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
 	<!-- Angular Material Library -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
   <!-- nicer fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
@@ -40,15 +38,18 @@
 			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">CharacterList</span></button>
 			    <md-menu-content width="400px" ng-controller="CharacterListController">
 			      <md-menu-item ng-repeat="(key,value) in characterList">
-			        <md-button ng-click="go(key)">{{value}}</md-button>
+			        <md-button ng-click="go('/character/' + key)">{{value}}</md-button>
 			      </md-menu-item>
+						<md-menu-divider></md-menu-divider>
+						<md-menu-item>
+							  <md-button ng-click="go('/create-character')">Create New ...</md-button>
 			    </md-menu-content>
 			  </md-menu>
 				<md-menu md-offset="0 0">
 			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">Reference Data</span></button>
 			    <md-menu-content width="400px">
-			      <md-menu-item ng-repeat="key in ['Spells','Combat Tables','Saving Throws','Theiving','Turn Undead', 'Race Details', 'Class Details']">
-			        <md-button ng-click="go(key)">{{key}}</md-button>
+			      <md-menu-item ng-repeat="(route, menuItem) in refData">
+			        <md-button ng-click="go(route)">{{menuItem}}</md-button>
 			      </md-menu-item>
 			    </md-menu-content>
 			  </md-menu>
@@ -100,15 +101,61 @@ app.config(function ($routeProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'views/characterList.html',
-		controller: 'CharacterListController'
+		//controller: 'CharacterListController'
 	})
-	.when('/:characterId', {
+	.when('/character/:characterId', {
 		templateUrl: 'views/charactersheet.html',
-		controller: 'CharacterController'
-	}).otherwise( {
+		//controller: 'CharacterController'
+	})
+	.when('/character/:characterId/select-race', {
+		templateUrl: 'views/selectRace.html',
+		//controller: 'CharacterController'
+	})
+	.when('/character/:characterId/select-class', {
+		templateUrl: 'views/selectClass.html',
+		//controller: 'CharacterController'
+	})
+	.when('/spells', {
+		templateUrl: 'views/spellList.html',
+		//controller: 'SpellListController'
+	})
+	.when('/spells/:spellName', {
+		templateUrl: 'views/spellDetail.html',
+		//controller: 'SpellController'
+	})
+	.when('/combat', {
+		templateUrl: 'views/combatTables.html',
+		//controller: 'CombatController'
+	})
+	.when('/saving', {
+		templateUrl: 'views/savingThrowTables.html',
+		//controller: 'SavingThrowController'
+	})
+	.when('/thiefskills', {
+		templateUrl: 'views/thiefSkills.html',
+		//controller: 'ThiefSkillsController'
+	})
+	.when('/turnundead', {
+		templateUrl: 'views/turnUndead.html',
+		//controller: 'ThiefSkillsController'
+	})
+	.when('/race', {
+		templateUrl: 'views/race.html',
+		//controller: 'ThiefSkillsController'
+	})
+	.when('/classes', {
+		templateUrl: 'views/classes.html',
+		//controller: 'ThiefSkillsController'
+	})
+	.when('/create-character', {
+		templateUrl: 'views/build_character.html',
+		//controller: 'ThiefSkillsController'
+	})
+	.otherwise( {
 		template : 'nothing'
 	});
 });
+
 app.controller('LayoutController', function($scope) {
 	$scope.test='test-element';
 });
@@ -121,8 +168,12 @@ app.controller('CharacterController', function($scope,$http,$location,$routePara
 	$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
 		$scope.character = response.data;
 	}); // this will return a promise to controller
+	$scope.go = function ( path ) {
+		$location.path( path );
+	};
 });
 
+//rename to menu controller
 app.controller('CharacterListController', function($scope,$http, $location) {
 	$http.get('/api/allcharacters').then(function(response) {
 		$scope.characterList = response.data;
@@ -133,10 +184,161 @@ app.controller('CharacterListController', function($scope,$http, $location) {
 		$location.path( path );
 	};
 
-	//ui function
+  $scope.refData = { "spells":"Spells","combat":'Combat Tables', 'saving':'Saving Throws', 'thiefskills': 'Thief Skills',
+	 'turnundead':'Turn Undead', 'race':'Race Details','classes':'Class Details'};
 
 });
 
+app.controller('SpellListController', function($scope, $http, $location) {
+	$http.get('/api/allspells').then(function(response) {
+		$scope.spellList = response.data;
+	})
+	$scope.sortType     = 'spellName'; // set the default sort type
+	$scope.sortReverse  = false;  // set the default sort order
+	$scope.searchSpell   = '';     // set the default search/filter term
+	$scope.go = function ( path ) {
+		$location.path( '/spells/' + path );
+	};
+});
+
+app.controller('SpellController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/spells/'+$routeParams.spellName).then(function(response) {
+		$scope.spell = response.data;
+	})
+});
+
+app.controller('CombatController', function($scope, $http,$location,$routeParams) {
+	$scope.classFilter = function(c, classSearch) {
+	  if (classSearch.toLowerCase() == c.toLowerCase()) {
+			return true
+		} else {
+			return false;
+		}
+	}
+	$http.get('/api/allcombat/').then(function(response) {
+		$scope.combat = response.data;
+	})
+});
+
+app.controller('SavingThrowController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/allsavingthrows/').then(function(response) {
+		$scope.savingThrows = response.data;
+	})
+});
+app.controller('ThiefSkillsController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/thiefskills/').then(function(response) {
+		$scope.thiefSkills = response.data;
+	})
+});
+
+app.controller('TurnUndeadController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/turnundead/').then(function(response) {
+		$scope.turnUndead = response.data;
+	})
+});
+
+app.controller('RaceController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/race/').then(function(response) {
+		$scope.races = response.data;
+	})
+});
+
+app.controller('ClassesController', function($scope, $http,$location,$routeParams) {
+	$http.get('/api/classes/').then(function(response) {
+		$scope.characterClasses = response.data;
+	})
+});
+
+app.controller('CreateCharacterFormController', function($scope,$http, $location,$routeParams) {
+	$scope.character = {
+		suffixes: []
+	};
+	$scope.errorMessage = "";
+	$scope.submit = function (character) {
+	  $http.post('/api/character', character)
+		.then(function(response) {
+		  $scope.character = response.data;
+			console.log($scope.character.characterId);
+			$location.path( '/character/' + $scope.character.characterId + '/select-race');
+    })
+	}; //end submit
+});
+
+
+
+	app.controller('SelectRaceController', function($scope,$http,$location,$routeParams) {
+		//
+		//$scope.id = window.location['hash'].split("/").pop();
+		//console.log($scope.id);
+		$scope.warnings = [];
+		$scope.raceMap = {};
+		$http.get('/api/race').then(function(response) {
+			$scope.raceMap = response.data;
+		});
+		console.log($routeParams.characterId);
+		var raceType = {};
+		$http.get('/api/character/'+$routeParams.characterId + '/select-race').then(function(response) {
+			$scope.possibleRace = response.data;
+		});
+		$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
+			$scope.character = response.data;
+		});
+
+
+		$scope.setRace = function(value) {
+			$scope.character.race = $scope.raceMap[value];
+		}
+
+    $scope.put = function (character) {
+			console.log('called put');
+			$http.put('/api/savecharacter', $scope.character).then(function(response) {
+				$scope.character = response.data;
+				$location.path ('/character/'+ $routeParams.characterId + '/select-class');
+			});
+
+		}
+		$scope.go = function ( path ) {
+			$location.path( path );
+		};
+	});
+
+	app.controller('SelectClassController', function($scope,$http,$location,$routeParams) {
+	  $scope.warnings = [];
+	  $scope.characterClassMap = {};
+	  $http.get('/api/classes').then(function(response) {
+	    $scope.characterClassMap = response.data;
+	  });
+	  console.log($routeParams.characterId);
+	  var characterClass = {};
+	  //possible classes
+	  $http.get('/api/character/'+$routeParams.characterId + '/select-class').then(function(response) {
+	    $scope.selectClass = response.data;
+	  });
+	  //current character
+	  $http.get('/api/character/'+$routeParams.characterId).then(function(response) {
+	    $scope.character = response.data;
+	  });
+
+
+	  $scope.setClass = function(value) {
+	    $scope.character.classes[value] = $scope.characterClassMap[value];
+	  };
+
+	  $scope.put = function (character) {
+	    $http.put('/api/savecharacter', character).then(function(response) {
+	      $scope.character = response.data;
+				$http.get('/api/character/'+ $routeParams.characterId + '/setpersonal').then(function(response) {
+		      $scope.character = response.data;
+					$location.path ('/character/'+ $routeParams.characterId);
+		    });
+	    });
+
+	  };
+
+	  $scope.go = function ( path ) {
+	    $location.path( path );
+	  };
+	});
 
 </script>
 </html>

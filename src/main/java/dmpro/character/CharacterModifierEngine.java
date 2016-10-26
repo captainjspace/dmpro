@@ -125,16 +125,17 @@ public class CharacterModifierEngine implements ModifierEngine {
  		logger.log(Level.INFO, "z" + character.getStrength().getModifiedAbilityScore() );
  		logger.log(Level.INFO, "a" + character.getStrength().getAbilityScore());
  		
- 		if (character.getIntelligence().getModifiedAbilityScore() == -1)
-			character.getIntelligence().setModifiedAbilityScore(character.getIntelligence().getAbilityScore());
-		if (character.getWisdom().getModifiedAbilityScore() == -1)
-			character.getWisdom().setModifiedAbilityScore(character.getWisdom().getAbilityScore());
-		if (character.getDexterity().getModifiedAbilityScore() == -1)
-			character.getDexterity().setModifiedAbilityScore(character.getDexterity().getAbilityScore());
-		if (character.getConstitution().getModifiedAbilityScore() == -1)
-			character.getConstitution().setModifiedAbilityScore(character.getConstitution().getAbilityScore());
-		if (character.getCharisma().getModifiedAbilityScore() == -1)
-			character.getCharisma().setModifiedAbilityScore(character.getCharisma().getAbilityScore());
+ 		character.initializeModifiedAbilityScores();
+// 		if (character.getIntelligence().getModifiedAbilityScore() == -1)
+//			character.getIntelligence().setModifiedAbilityScore(character.getIntelligence().getAbilityScore());
+//		if (character.getWisdom().getModifiedAbilityScore() == -1)
+//			character.getWisdom().setModifiedAbilityScore(character.getWisdom().getAbilityScore());
+//		if (character.getDexterity().getModifiedAbilityScore() == -1)
+//			character.getDexterity().setModifiedAbilityScore(character.getDexterity().getAbilityScore());
+//		if (character.getConstitution().getModifiedAbilityScore() == -1)
+//			character.getConstitution().setModifiedAbilityScore(character.getConstitution().getAbilityScore());
+//		if (character.getCharisma().getModifiedAbilityScore() == -1)
+//			character.getCharisma().setModifiedAbilityScore(character.getCharisma().getAbilityScore());
 		
  		return character;
     }

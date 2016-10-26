@@ -3,7 +3,7 @@ package dmpro.data.loaders;
 
 import java.util.NoSuchElementException;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.race.RaceType;
 import dmpro.items.DamageRoll;
 

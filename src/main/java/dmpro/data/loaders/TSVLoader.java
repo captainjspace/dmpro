@@ -11,6 +11,11 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.google.gson.Gson;
+import java.util.stream.Collectors;
+
+import dmpro.serializers.CharacterGsonService;
+
 public class TSVLoader implements ResourceLoader {
 	
 	private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -20,7 +25,8 @@ public class TSVLoader implements ResourceLoader {
 	protected Scanner scan;
 	protected FileReader reader;
 	protected String tablesDir = dataDirectory + "tables/";
-	
+	protected Gson gson = CharacterGsonService.getCharacterGson();
+	protected String webTable = "not initialized"; //JSON data
 	
 	public TSVLoader(Class<? extends TSVData> clazz ,String fileName) {
 		try {
@@ -57,7 +63,11 @@ public class TSVLoader implements ResourceLoader {
 		} finally {
 			scan.close();
 		}
+		webTable = gson.toJson(tsvTable.stream().map(p -> clazz.asSubclass(clazz).cast(p)).collect(Collectors.toList()));
 		return tsvTable;
 	}
-
+	
+    public String getWebTable() {
+    	return webTable;
+    }
 }

@@ -2,9 +2,16 @@ package dmpro.core;
 
 import dmpro.attributes.*;
 import dmpro.data.loaders.*;
+import dmpro.character.race.*;
+import dmpro.character.classes.*;
+import dmpro.character.classes.CharacterClassType;
+
+import java.util.Map;
+import java.util.HashMap;
+
 import dmpro.spells.SpellLibrary;
 
-public class ReferenceDataSet implements Runnable{
+public class ReferenceDataSet implements Runnable {
 
 	public boolean isReady = false;
 	
@@ -34,6 +41,9 @@ public class ReferenceDataSet implements Runnable{
 	private CharismaLoader charismaLoader;
 	private RaceSizeLoader raceSizeLoader;
 	private RaceClassAgeLoader raceClassAgeLoader;
+	private Map<RaceType,Race> race= new HashMap<RaceType, Race>();
+	private Map<CharacterClassType, CharacterClass> classes = new HashMap<CharacterClassType, CharacterClass>();
+	
 
 
 	public void run() {
@@ -62,8 +72,22 @@ public class ReferenceDataSet implements Runnable{
 		asciiArt = new AsciiArt();
 		raceClassAgeLoader = new RaceClassAgeLoader();
 		raceSizeLoader = new RaceSizeLoader();
+		loadMaps();
 		isReady = true;
 	}
+	
+	/**
+	 * quick assembly of Maps
+	 */
+	private void loadMaps() {
+		for(RaceType r : RaceType.values()) {
+			race.put(r, r.newRace());
+		}
+		for(CharacterClassType c : CharacterClassType.values()) {
+			classes.put(c, c.newCharacterClass());
+		}
+	}
+	
 	/**
 	 * @return the combatTableLoader
 	 */
@@ -197,6 +221,41 @@ public class ReferenceDataSet implements Runnable{
 		// TODO Auto-generated method stub
 		return armorTableLoader;
 	}
+	/**
+	 * @return the isReady
+	 */
+	public boolean isReady() {
+		return isReady;
+	}
+	/**
+	 * @return the turnUndeadLoader
+	 */
+	public TurnUndeadLoader getTurnUndeadLoader() {
+		return turnUndeadLoader;
+	}
+	/**
+	 * @return the standardItemLoader
+	 */
+	public StandardItemLoader getStandardItemLoader() {
+		return standardItemLoader;
+	}
 
+	public static void main (String [] args) {
+		ReferenceDataSet rds = new ReferenceDataSet();
+		rds.run();
+	}
 
+	/**
+	 * @return the race
+	 */
+	public Map<RaceType, Race> getRace() {
+		return race;
+	}
+
+	/**
+	 * @return the classes
+	 */
+	public Map<CharacterClassType, CharacterClass> getClasses() {
+		return classes;
+	}
 }

@@ -1,6 +1,6 @@
 package dmpro.character.classes;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+//import dmpro.character.classes.CharacterClassType;
 import dmpro.items.DamageRoll;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;
@@ -8,7 +8,7 @@ import dmpro.utils.Die;
 public class Illusionist extends CharacterClass implements SpellCaster {
 	public Illusionist() {
 		characterClassType = CharacterClassType.ILLUSIONIST;
-		className = characterClassType.className;
+		className = "Illusionist";
 		
 		this.setHitDie(new Die (Dice.d4));
 		this.setHitPointPerLevelAfterMax(1);//read from table?

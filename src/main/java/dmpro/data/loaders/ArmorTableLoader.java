@@ -5,9 +5,12 @@ import java.util.stream.Collectors;
 
 public class ArmorTableLoader extends TSVLoader {
 
+	//String webArmorTable;
+	
 	//List<ArmorRecord> armorItems;
 	public ArmorTableLoader() {
 		super(ArmorRecord.class, "base-armor.tsv");
+		//webArmorTable = gson.toJson(tsvTable.stream().map(p -> (ArmorRecord) p).collect(Collectors.toList()));
 	}
 	
 	public List<ArmorRecord> getArmorItems() {

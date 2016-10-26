@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.HitDieRecord;
 import dmpro.character.classes.XPBonus;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.core.Server;
 import dmpro.data.loaders.ExperienceTableRecord;

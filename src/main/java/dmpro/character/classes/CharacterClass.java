@@ -25,33 +25,6 @@ public class CharacterClass {
 	 * @author Joshua Landman, joshua.s.landman@gmail.com
 	 *
 	 */
-	public enum CharacterClassType {
-		MAGICUSER(1, "Magic-User"),
-		ILLUSIONIST(2, "Illusionist"),
-		FIGHTER(3, "Fighter"),
-		RANGER(4, "Ranger"),
-		PALADIN(5, "Paladin"),
-		THIEF(6, "Thief"),
-		ASSASSIN(7, "Assassin"),
-		CLERIC(8, "Cleric"),
-		DRUID(9, "Druid"),
-		MONK(10,"Monk"),
-		BARD(11,"Bard");
-		
-		public int classIndex;
-		public String className;
-		
-		CharacterClassType(int classIndex, String className) {
-			this.classIndex = classIndex;
-			this.className = className;
-		}
-		
-		public static CharacterClassType ByIndex(int classIndex) {
-			for (CharacterClassType characterClassType : CharacterClassType.values())
-				if ( classIndex == characterClassType.classIndex ) return characterClassType;
-			return null;
-		}
-	}
 
 	CharacterClassType characterClassType;
 	String className;

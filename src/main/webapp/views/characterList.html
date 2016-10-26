@@ -1,7 +1,7 @@
 
 <div ng-controller="CharacterListController">
  <ul class="characterList">
-   <li ng-repeat="key in characterList"> <a href="/app/#/{{key}}">{{ key }}</a><li>
+   <li ng-repeat="(key,value) in characterList"> <a href="/app/#/character/{{key}}">{{ value }}</a><li>
  </ul>
 </div>
 <!--<md-list ng-controller="CharacterListController">

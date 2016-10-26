@@ -49,6 +49,18 @@ public class JettyServer implements Runnable {
 	private void init() {
 		/* jetty web server /app */
 		server = new Server(JETTY_PORT);
+		//System.setProperty("org.eclipse.jetty.LEVEL","INFO");
+		
+		//org.apache.log4j.LogManager.getLogger("org.eclipse.jetty").setLevel(org.apache.log4j.Level.WARN);
+		//java.util.logging.LoggerFactory.getLogger("org.eclipse.jetty").setLevel(Level.WARNING);
+		final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger("org.eclipse.jetty");
+		if (!(logger instanceof ch.qos.logback.classic.Logger)) {
+		    return;
+		}
+		ch.qos.logback.classic.Logger logbackLogger = (ch.qos.logback.classic.Logger) logger;
+		logbackLogger.setLevel(ch.qos.logback.classic.Level.WARN);
+		
+		
 		webapp = new WebAppContext();
 		webapp.setContextPath("/app");
 		webapp.setDescriptor(webappDir + "/WEB-INF/web.xml");

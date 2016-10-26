@@ -1,0 +1,49 @@
+<div id = "thief-skill" ng-controller="ThiefSkillsController">
+
+  <div id="thief-skills-hdr">
+    <hr>
+    <h3> Thief Skills </h3>
+    <hr>
+  </div>
+<!--
+int experienceLevel;
+	float pickPockets;
+	float openLocks;
+	float findAndRemoveTraps;
+	float moveSilently;
+	float hideInShadows;
+	float hearNoise;
+	float climbWalls;
+	float readLanguages;
+-->
+
+  <table class="ref-data" fixed-table-headers="scrollable-area">
+    <caption>Thief Skills<caption>
+      <thead>
+      <tr>
+        <th>Experience Level</th>
+        <th>PickPockets</th>
+        <th>Open Locks</th>
+        <th>Find and Remove Traps</th>
+        <th>Move Silently</th>
+        <th>Hide In Shadows</th>
+        <th>Hear Noise</th>
+        <th>Climb Walls</th>
+        <th>Read Languages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="record in thiefSkills">
+        <td> {{record.experienceLevel}} </td>
+        <td> {{record.pickPockets}} </td>
+        <td> {{record.openLocks}} </td>
+        <td> {{record.findAndRemoveTraps}} </td>
+        <td> {{record.moveSilently}} </td>
+        <td> {{record.hideInShadows}} </td>
+        <td> {{record.hearNoise}} </td>
+        <td> {{record.climbWalls}} </td>
+        <td> {{record.readLanguages}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -48,7 +48,7 @@ public class Elf extends Race {
 		a.setAttributeToModify(Dexterity.class);
 		a.setAttributeType(AttributeType.DEXTERITY);
 		a.setBonus(1);
-		a.setDescription("	-->	Elf gets +1 Dexterity");
+		a.setDescription("Elf gets +1 Dexterity");
 		raceAttributes.add(a);
 		
 		a = new AttributeModifier();
@@ -57,7 +57,7 @@ public class Elf extends Race {
 		a.setAttributeToModify(Constitution.class);
 		a.setAttributeType(AttributeType.CONSTITUTION);
 		a.setBonus(-1);
-		a.setDescription("	-->	Elf gets -1 Constitution");
+		a.setDescription("Elf gets -1 Constitution");
 		raceAttributes.add(a);
 		
 		//Rulebased
@@ -77,7 +77,7 @@ public class Elf extends Race {
 		w.setWeaponType(WeaponType.ONEHANDEDSWORD);
 		w.setWeaponSkillModifierType(WeaponSkillModifierType.TOHIT);
 		w.setModifier(1);
-		w.setDescription("	-->	Elf gets +1 to hit with one handed swords WeaponType.ONEHANDEDSWORD");
+		w.setDescription("Elf gets +1 to hit with one handed swords WeaponType.ONEHANDEDSWORD");
 		raceAbilities.add(w);
 		
 		//need to split missile Attack and initiative
@@ -88,7 +88,7 @@ public class Elf extends Race {
 		w.setWeaponType(WeaponType.BOWCLASS);
 		w.setWeaponSkillModifierType(WeaponSkillModifierType.TOHIT);
 		w.setModifier(1);
-		w.setDescription("	-->	Elf gets +1 to hit with bows WeaponType.BOWCLASS");
+		w.setDescription("Elf gets +1 to hit with bows WeaponType.BOWCLASS");
 		raceAbilities.add(w);
 		
 		a= new AttributeModifier();
@@ -97,7 +97,7 @@ public class Elf extends Race {
 		a.setAttributeToModify(Intelligence.class);
 		a.setAttributeType(AttributeType.INTELLIGENCE);
 		//a.setBonus(intelligence); DETERMINED BY CHARACTER AT RUNTIME, CONSIDER OTHER MODIFIERS
-		a.setDescription("	-->	Elf get (Intelligence - 15) additional bonus languages");
+		a.setDescription("Elf gets (Intelligence - 15) additional bonus languages");
 		a.setModifiesAbilityScore(false);
 		raceAttributes.add(a);
 		a = null;
@@ -181,10 +181,5 @@ public class Elf extends Race {
 //		
 		
 	}
-
-
-
-	
-	
 
 }

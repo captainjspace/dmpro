@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 import dmpro.attributes.Attribute;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 
 public class ClassAttributeLoader {
 

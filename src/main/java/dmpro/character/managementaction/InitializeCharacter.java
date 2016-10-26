@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 import dmpro.character.Character;
 import dmpro.character.classes.CharacterClass;
+import dmpro.character.classes.CharacterClassType;
+
 
 /**
  * Initialize Character Actions

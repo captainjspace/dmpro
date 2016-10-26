@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 import dmpro.attributes.*;
 import dmpro.character.classes.*;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.race.*;
 import dmpro.core.ReferenceDataSet;
 import dmpro.core.Server;
@@ -265,7 +265,7 @@ public class CharacterBuildDirector {
 		characterClasses = new ArrayList<CharacterClass>();
 
 		output.format ("------------------------------- Character Class ------------------------\n");
-		//TODO : CLASS RESTRICTION on RACE
+		//CLASS RESTRICTION on RACE
 		ClassRaceLoader classRaceLoader = referenceDataSet.getClassRaceLoader();
 		ListPossibleClassRaceResults possibleClassRaceResults = classRaceLoader.listPossibleClasses(race.getRaceType());
 		if (!possibleClassRaceResults.limitRecords.isEmpty()) {

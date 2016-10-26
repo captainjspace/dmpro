@@ -1,7 +1,5 @@
 <div id="character-content" ng-controller="CharacterController">
-  <!--[if lt IE 8]>
-  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+  <!-- -->
   <!--
   <md-tabs md-selected="selectedIndex">
   <img ng-src="img/angular.png" class="centered">
@@ -24,7 +22,7 @@
     <table class="character">
       <tr ng-repeat="(key, class) in character.classes">
         <td>Race: {{ character.race.raceType }}</td>
-          <td>Class/Level:{{class.className }} / {{class.experienceLevel}}</td>
+          <td>Class/Level:{{class.className }} {{key}}/ {{class.experienceLevel}}</td>
           <td>Total Exp: {{ class.experiencePoints }}</td>
         </td>
      </tr>
@@ -269,7 +267,7 @@
               <h4> Spell Book </h4>
               <ul>
                 <li ng-repeat="spell in character.spellBook">
-                  Spell: {{spell.spellName}} / Level:{{ spell.spellAbilityClassLevel }}
+                  Spell: <span ng-click="go('/spells/'+spell.spellName)">{{spell.spellName}}</span> / Level:{{ spell.spellAbilityClassLevel }}
                   / Type: {{ spell.spellCategory}} / Reversible: {{spell.reversible}}
                 <!--	<p> {{ spell.description }} -->
 

@@ -5,7 +5,7 @@ package dmpro.data.loaders;
 
 import java.util.Formatter;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.race.RaceType;
 
 

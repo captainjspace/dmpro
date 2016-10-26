@@ -55,7 +55,7 @@ public class Dwarf extends Race {
 		a.setAttributeToModify(Constitution.class);
 		a.setAttributeType(AttributeType.CONSTITUTION);
 		a.setBonus(1);
-		a.setDescription("	-->Dwarven +1 Constitution");
+		a.setDescription("Dwarven +1 Constitution");
 		raceAttributes.add(a);
 		
 		a = new AttributeModifier();
@@ -63,7 +63,7 @@ public class Dwarf extends Race {
 		a.setAttributeToModify(Charisma.class);
 		a.setAttributeType(AttributeType.CHARISMA);
 		a.setBonus(-1);
-		a.setDescription("	-->Dwarven are gruff and mean -1 Charisma");
+		a.setDescription("Dwarven are gruff and mean -1 Charisma");
 		raceAttributes.add(a);
 		
 		//how should i handle limits
@@ -71,13 +71,13 @@ public class Dwarf extends Race {
 		a.setAttributeToModify(Charisma.class);
 		a.setAttributeType(AttributeType.CHARISMA);
 		a.setBonus(0);
-		a.setDescription("	-->Dwarven max Charisma -16");
+		a.setDescription("Dwarven max Charisma -16");
 		raceAttributes.add(a);
 		
 		a= new AttributeModifier();
 		a.setAttributeToModify(Intelligence.class);
 		a.setAttributeType(AttributeType.INTELLIGENCE);
-		a.setDescription("	-->Dwarven has max language bonus of 2 Int:11");
+		a.setDescription("Dwarven has max language bonus of 2 Int:11");
 		a.setModifiesAbilityScore(false);
 		raceAttributes.add(a);
 		
@@ -90,7 +90,7 @@ public class Dwarf extends Race {
 			savingThrowBonus.getAbility().setAbilityName("Saving Throw Bonus " + s);
 			savingThrowBonus.getAbility().setAbilityType(AbilityType.MAGICRESISTANCE);
 			savingThrowBonus.setPermanent(true);
-			savingThrowBonus.setModifierFormula("Math.floor(constitution.getAbilityScore/3.5)");
+			savingThrowBonus.setModifierFormula("Math.floor(constitution.getModifiedAbilityScore()/3.5)");
 			savingThrowBonus.setDescription("Dwarven MagicResistance");
 			raceAbilities.add(savingThrowBonus);
 			savingThrowBonus = null;

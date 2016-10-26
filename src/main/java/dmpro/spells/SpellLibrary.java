@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
@@ -25,6 +27,8 @@ public class SpellLibrary implements ResourceLoader{
 	}
 	
 	List<Spell> spellLibrary = new ArrayList<Spell>();
+	String webSpellLibrary;
+	
 	Gson gson= new GsonBuilder().setPrettyPrinting().create();
 	File file;
 	
@@ -35,6 +39,15 @@ public class SpellLibrary implements ResourceLoader{
 		file = new File(spellDir + "spells.json");
 		loadSpells();
 	}
+	
+	/**
+	 * 
+	 * @return string spell library as jsoon
+	 */
+	public String getWebSpellLibrary() {
+		return webSpellLibrary;
+	}
+	
 	public static SpellLibrary getSpellLibrary() {
 		SpellLibrary spellLibrary = new SpellLibrary();
 		return spellLibrary;
@@ -80,15 +93,25 @@ public class SpellLibrary implements ResourceLoader{
 			FileReader r = new FileReader(file);
 			Type spellLibraryType = new TypeToken<ArrayList<Spell>>(){}.getType();
 			spellLibrary = gson.fromJson(r, spellLibraryType);
-			
+			webSpellLibrary = gson.toJson(spellLibrary);
+			//buildWebSpellCache();
 		} catch (IOException io) {System.err.println("File not Found: " + file);}		
 	}
+	
+//	private void buildWebSpellCache() {
+//		for (Spell s: spellLibrary) {
+//			Map<String,String> spell = new HashMap<String,String>();
+//			
+//		}
+//	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SpellLibrary s = new SpellLibrary();
 		//s.spellLibrary.stream().forEach( a -> System.out.println(a.spellId + ":" + a.spellName));
 		Spell sp =  s.getSpell("fireball");
 		System.out.println(sp.toString());
+		System.out.println(s.gson.toJson(s.spellLibrary));
 	}
 
 }

@@ -61,7 +61,7 @@ public class Gnome extends Race {
 			savingThrowBonus.getAbility().setAbilityName("Saving Throw Bonus " + s);
 			savingThrowBonus.getAbility().setAbilityType(AbilityType.MAGICRESISTANCE);
 			savingThrowBonus.setPermanent(true);
-			savingThrowBonus.setModifierFormula("Math.floor(constitution.getAbilityScore/3.5)");
+			savingThrowBonus.setModifierFormula("Math.floor(constitution.getModifiedAbilityScore()/3.5)");
 			savingThrowBonus.setDescription("Gnomish MagicResistance");
 			raceAbilities.add(savingThrowBonus);
 			savingThrowBonus = null;

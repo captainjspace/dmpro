@@ -1,0 +1,23 @@
+<div id="spell-detail" ng-controller="SpellController">
+  <span class="center-olde"><h1> {{ spell.spellName }} </h1></span>
+  <hr>
+  <md-tabs md-dynamic-height="true">
+    <md-tab label="Details">
+      <span>
+        <h2>Class: {{spell.spellAbilityClassName}}</h2>
+        <h3>Level: {{spell.spellAbilityClassLevel}}</h3>
+        <h4>Category: {{spell.spellCategory }} / Reversible: {{spell.reversible}}</h4>
+      </span>
+    </md-tab>
+    <md-tab label="Description">
+      <h4> {{spell.description}} </h4>
+    </md-tab>
+    <md-tab label="Complete">
+      <span ng-repeat="(key,value) in spell">
+        <p> {{key}} : {{ value }}
+      </span>
+    </md-tab>
+  </md-tabs>
+
+</div>
+<center><img src="img/dkdrow.jpg"><center>

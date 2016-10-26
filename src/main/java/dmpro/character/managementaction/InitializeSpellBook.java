@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 import dmpro.character.Character;
 import dmpro.character.classes.CharacterClass;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 
 public class InitializeSpellBook implements ManagementAction {
 

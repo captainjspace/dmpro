@@ -1,6 +1,6 @@
 package dmpro.character.classes;
 
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.items.DamageRoll;
 import dmpro.utils.Dice;
 import dmpro.utils.Die;

@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import dmpro.attributes.Attribute;
 import dmpro.character.classes.CharacterClass;
-import dmpro.character.classes.CharacterClass.CharacterClassType;
+import dmpro.character.classes.CharacterClassType;
 import dmpro.character.classes.ICharacterClass;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.race.Race;
@@ -35,7 +35,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 		character = new Character();
 		long time = System.currentTimeMillis();
 		int rand = (int) Math.random() * 9;
-		int playerBirthDate = 19861205;
+		int playerBirthDate = 19711205;
 		character.created = time;
 		character.setCharacterId(
 				(new StringBuilder().append(time).append(rand).append(playerBirthDate)).toString()
@@ -67,6 +67,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 		character.setDexterity(attributes.get("Dexterity"));
 		character.setConstitution(attributes.get("Constitution"));
 		character.setCharisma(attributes.get("Charisma"));
+		character.initializeModifiedAbilityScores();
 		logger.log(Level.INFO, "Build Attributes Complete Character Id: " + character.getCharacterId());
 	}
 	

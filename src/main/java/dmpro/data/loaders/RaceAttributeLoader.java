@@ -79,6 +79,7 @@ public class RaceAttributeLoader extends TSVLoader implements ResourceLoader{
 		public List<RaceAttributeRecord> limitRecords = new ArrayList<RaceAttributeRecord>();
 	}
 	
+	
 	public ListPossibleRaceResults listPossibleRaces(Map<String,Attribute> attributes, String sex) {
 		ListPossibleRaceResults listPossibleRaceResults = new ListPossibleRaceResults();
 		IsInRangeResults isInRangeResults;
@@ -98,5 +99,6 @@ public class RaceAttributeLoader extends TSVLoader implements ResourceLoader{
 	
 	public static void main (String[] args) {
 		RaceAttributeLoader ral = new RaceAttributeLoader();
+		System.out.println(ral.getWebTable());
 	}
 }
