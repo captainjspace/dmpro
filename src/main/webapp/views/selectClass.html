@@ -6,14 +6,12 @@
       <md-select ng-change="setClass(characterClassType)" ng-model="characterClassType" placeholder="Select Character Class">
         <md-option ng-value="characterClassType" ng-repeat="characterClassType in selectClass.possibleClasses">{{ characterClassType }}</md-option>
       </md-select>
-      <button ng-click="put(character)" class="blue md-accent md-raised">Raised and Accent Button</button>
+      <md-button class="md-raised md-primary" ng-click="put(character)"> Add Character Class </md-button>
     </md-input-container>
   </form>
     <pre>{{ characterClassType | json }}</pre>
     <pre> {{ character.classes }} </pre>
     <pre>{{ selectClass.possibleClasses | json }}</pre>
-
-
 
     <div id="attributes" class="content">
 

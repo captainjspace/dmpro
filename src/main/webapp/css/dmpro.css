@@ -1,10 +1,18 @@
-html {
-  background: linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+html, body{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    //background: #70bg32;
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient( #ECF0F1,#5DADE2,#D2B4DE);
+    background: -moz-linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+    background: -ms-linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+    background: -o-linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+    background: linear-gradient(#ECF0F1,#5DADE2,#D2B4DE);
+    height: auto;
 }
 body {
-  //position: fixed;
-  width:100%;
-  height:100%;
   font-family: 'Bree Serif', serif;
   font-size: 11pt;
 }

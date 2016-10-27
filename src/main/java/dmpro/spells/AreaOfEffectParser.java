@@ -6,7 +6,14 @@ import java.util.List;
 import dmpro.spells.AreaOfEffectLexer.Token;
 import dmpro.spells.AreaOfEffectLexer.TokenType;
 import dmpro.utils.ParseUtils;
-
+/**
+ * 
+ * @author Joshua Landman, joshua.s.landman@gmail.com
+ * created on Oct 27, 2016
+ * 
+ * 
+ * <p> Purpose of this parser to read the lex tokens and precalculate the area of effect that can be calculated
+ */
 public class AreaOfEffectParser {
 	
 	AreaOfEffectLexer lex = new AreaOfEffectLexer();
@@ -28,7 +35,7 @@ public class AreaOfEffectParser {
 			mTokens.add(tk);
 			if (tk.t == TokenType.TERMINATOR) {
 				for (int j = 0; j>=i;j++) this.lex.tokens.remove(j);
-				System.out.println("ParseTest - Requestion Parse");
+				System.out.println("ParseTest - Request Parse");
 				mTokens.stream().forEach( a -> System.out.println(a.toString()));
 				AreaOfEffect aoe = simpleParse(mTokens);
 				mTokens.removeAll(mTokens);
@@ -48,7 +55,8 @@ public class AreaOfEffectParser {
 		return a;
 		
 	}
-	//TODO: Review -  do more later - for runtime
+	
+	//TODO: Review -  do more later - for runtime???
 	public AreaOfEffect calcParse(List<Token> tokens) {
 		AreaOfEffect aoe = new AreaOfEffect();
 		StringBuilder b = new StringBuilder();

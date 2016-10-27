@@ -15,12 +15,20 @@
 	<link rel="stylesheet" href="css/dmpro.css">
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
+<!--
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+-->
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+	<script src="node_modules/angular-material/angular-material.min.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+	<script src="node_modules/angular-route/angular-route.min.js"></script>
 	<!-- Angular Material Library -->
   <!-- nicer fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -71,6 +79,7 @@
  </md-sidenav>
 <div ng-view></div>
 
+<!-- unused part of boilerplate -->
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
@@ -94,6 +103,8 @@
 </body>
 
 <script type="text/javascript">
+
+//angular modules to be moved to app.module.js
 
 var app = angular.module('App', ['ngRoute', 'ngMaterial']);
 
@@ -161,9 +172,6 @@ app.controller('LayoutController', function($scope) {
 });
 
 app.controller('CharacterController', function($scope,$http,$location,$routeParams) {
-	//
-	//$scope.id = window.location['hash'].split("/").pop();
-	//console.log($scope.id);
 	console.log($routeParams.characterId);
 	$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
 		$scope.character = response.data;
@@ -186,7 +194,6 @@ app.controller('CharacterListController', function($scope,$http, $location) {
 
   $scope.refData = { "spells":"Spells","combat":'Combat Tables', 'saving':'Saving Throws', 'thiefskills': 'Thief Skills',
 	 'turnundead':'Turn Undead', 'race':'Race Details','classes':'Class Details'};
-
 });
 
 app.controller('SpellListController', function($scope, $http, $location) {
@@ -195,7 +202,7 @@ app.controller('SpellListController', function($scope, $http, $location) {
 	})
 	$scope.sortType     = 'spellName'; // set the default sort type
 	$scope.sortReverse  = false;  // set the default sort order
-	$scope.searchSpell   = '';     // set the default search/filter term
+	$scope.searchSpell  = '';     // set the default search/filter term
 	$scope.go = function ( path ) {
 		$location.path( '/spells/' + path );
 	};
@@ -208,13 +215,10 @@ app.controller('SpellController', function($scope, $http,$location,$routeParams)
 });
 
 app.controller('CombatController', function($scope, $http,$location,$routeParams) {
-	$scope.classFilter = function(c, classSearch) {
-	  if (classSearch.toLowerCase() == c.toLowerCase()) {
-			return true
-		} else {
-			return false;
-		}
-	}
+	$scope.classSearch="";
+	$http.get('/api/classes/').then(function(response) {
+		$scope.characterClasses = response.data;
+	})
 	$http.get('/api/allcombat/').then(function(response) {
 		$scope.combat = response.data;
 	})

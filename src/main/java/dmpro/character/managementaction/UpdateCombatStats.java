@@ -40,7 +40,8 @@ import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
  * surprise - could be moved<br>
  * initiative, melee, missile (to hit) and damage and armor class are relevant every round of combat
  * <p>
- * TODO: attacks per round - really only matter for fighters and multiclass that gain <br>
+ * TODO: this whole things needs to be cleaned up - decoupled from command line
+ * additions include attacks per round - really only matter for fighters and multiclass that gain <br>
  * multiple attacks or can use a weapon that allows it.
  */
 public class UpdateCombatStats implements ManagementAction {
@@ -106,7 +107,9 @@ public class UpdateCombatStats implements ManagementAction {
 		
 		/* specialization check for fighters*/
 		character.getClasses().keySet().stream().forEach( p -> System.out.println(p));
-		int nonProficiencyPenalty = character.getClasses().entrySet().stream().mapToInt(p -> p.getValue().getNonProficiencyPenalty()).min().orElse(proficiencyPenalty);
+		int nonProficiencyPenalty = 
+				character.getClasses().entrySet().stream()
+				.mapToInt(p -> p.getValue().getNonProficiencyPenalty()).min().orElse(proficiencyPenalty);
 		System.out.printf("NON-PROFICIENCY PENALTY = %d\n", nonProficiencyPenalty);
 		/* check that equipped weapon is in proficiency list */
 

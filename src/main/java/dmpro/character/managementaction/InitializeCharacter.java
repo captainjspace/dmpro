@@ -36,5 +36,15 @@ public class InitializeCharacter implements ManagementAction {
 		output.flush();
 		return character;
 	}
+	
+	
+	public Character execute(Character character) {
+		int goldCoins = 0;
+		for (CharacterClass characterClass : character.getClasses().values()) {
+			goldCoins += characterClass.getInitialGold();
+		}
+		character.addToInventory(new CoinItem(CoinType.GOLD, goldCoins));
+		return character;
+	}
 
 }

@@ -1,16 +1,34 @@
 <div id="build-character-step-1" ng-controller="CreateCharacterFormController">
+
   <form novalidate>
-    <fieldset name="personalInformation">
-    Nickname<input type="text" ng-model="character.name"> <br>
-    Prefix<input type="text" ng-model="character.prefix"><br>
-    First Name<input type="text" ng-model="character.firstName"><br>
-    Last Name<input type="text" ng-model="character.lastName"><br>
-    Title<input type="text" ng-model="character.title"><br>
-    Suffixes<input type="text" ng-model="character.suffixes[0]"><br>
-    Gender: M <input type="radio" ng-model="character.sex" value="M">
-            F <input type="radio" ng-mdoel="character.sex" value="F"><br>
-    <input type="submit" ng-click=submit(character)>
-  </fieldset>
+    <md-input-container>
+    <label>Nickname</label><input type="text" ng-model="character.name">
+    </md-input-container>
+    <md-input-container>
+    <label>Prefix</label><input type="text" ng-model="character.prefix">
+    </md-input-container>
+    <br>
+    <md-input-container>
+    <label>First Name</label><input type="text" ng-model="character.firstName">
+    </md-input-container>
+    <md-input-container>
+    <label>Last Name</label><input type="text" ng-model="character.lastName">
+    </md-input-container>
+    <br>
+    <md-input-container>
+    <label>Title</label><input type="text" ng-model="character.title">
+    </md-input-container>
+    <md-input-container>
+    <label>Suffixes</label><input type="text" ng-model="character.suffixes[0]">
+    </md-input-container>
+    <br>
+    <md-input-container>
+    <md-radio-group ng-model="character.sex">
+    <md-radio-button class="md-primary" value="M">Male</md-radio-button>
+    <md-radio-button class="md-primary" value="F">Female</md-radio-button>
+    </md-radio-group>
+    <md-button class="md-raised md-primary" ng-click="submit(character)">Create Character</md-button>
+    </md-input-container>
   </form>
   <pre>{{character | json }}</pre>
   <pre>{{errorMessage | json }}</pre>

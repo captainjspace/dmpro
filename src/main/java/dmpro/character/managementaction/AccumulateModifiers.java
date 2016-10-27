@@ -25,5 +25,10 @@ public class AccumulateModifiers implements ManagementAction {
 		character = (new CharacterModifierEngine(application)).processModifiers(character);
 		return character;
 	}
+	
+	public Character execute(Character character, Server application) {
+		character = (new CharacterModifierEngine(application)).processModifiers(character);
+		return character;
+	}
 
 }

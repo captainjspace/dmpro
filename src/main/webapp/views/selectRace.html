@@ -7,9 +7,10 @@
     <md-select ng-change="setRace(raceType)" ng-model="raceType" placeholder="Select Race">
       <md-option ng-value="raceType" ng-repeat="raceType in possibleRace.possibleRaces">{{ raceType }}</md-option>
     </md-select>
-    <button ng-click="put(character)" class="blue md-accent md-raised">Raised and Accent Button</button>
   </md-input-container>
+  <md-button class="md-raised md-primary" ng-click="put(character)">Set Character Race</md-button>
 </form>
+
   <pre>{{ raceType | json }}</pre>
   <pre> {{ character.race }} </pre>
   <pre>{{ possibleRace | json }}</pre>
