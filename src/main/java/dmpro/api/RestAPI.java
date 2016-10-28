@@ -1,5 +1,6 @@
 package dmpro.api;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,7 @@ import dmpro.core.Server;
 import dmpro.data.loaders.ClassAttributeLoader.ListPossibleClassResults;
 import dmpro.data.loaders.ClassRaceLoader.ListPossibleClassRaceResults;
 import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
+import dmpro.items.Item;
 import dmpro.serializers.CharacterGsonService;
 /**
  * @author Joshua Landman, joshua.s.landman@gmail.com
@@ -316,6 +318,20 @@ public class RestAPI {
 		//return Response.status(200).entity(referenceDataSet.getClasses()).build();
 	}
 
+	@GET
+	@Produces("application/json")
+	@Path("/items")
+	public Response getItems() {
+		if (!initialized) init();
+		List<Item> items = new ArrayList<Item>();
+		items.addAll(referenceDataSet.getWeaponItemLoader().getWeapons());
+		items.addAll(referenceDataSet.getArmorTableLoader().getArmorItems());
+		items.addAll(referenceDataSet.getStandardItemLoader().getStandardItems());
+		return Response.status(200).entity(gson.toJson(items)).build();
+	}
+
+	
+	
 	/*
 	 * TESTING CONNECTIVITY API
 	 */

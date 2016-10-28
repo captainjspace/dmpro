@@ -47,6 +47,7 @@ public class ReferenceDataSet implements Runnable {
 
 
 	public void run() {
+		asciiArt = new AsciiArt();
 		combatTableLoader = new CombatTableLoader();
 		turnUndeadLoader = new TurnUndeadLoader();
 		experienceTableLoader = new ExperienceTableLoader();
@@ -69,7 +70,6 @@ public class ReferenceDataSet implements Runnable {
 		constitutionLoader = new ConstitutionLoader();
 		charismaLoader = new CharismaLoader();
 		attributeLoader = new AttributeLoader();
-		asciiArt = new AsciiArt();
 		raceClassAgeLoader = new RaceClassAgeLoader();
 		raceSizeLoader = new RaceSizeLoader();
 		loadMaps();

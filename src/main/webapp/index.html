@@ -140,27 +140,24 @@ app.config(function ($routeProvider) {
 	})
 	.when('/saving', {
 		templateUrl: 'views/savingThrowTables.html',
-		//controller: 'SavingThrowController'
 	})
 	.when('/thiefskills', {
 		templateUrl: 'views/thiefSkills.html',
-		//controller: 'ThiefSkillsController'
 	})
 	.when('/turnundead', {
 		templateUrl: 'views/turnUndead.html',
-		//controller: 'ThiefSkillsController'
 	})
 	.when('/race', {
 		templateUrl: 'views/race.html',
-		//controller: 'ThiefSkillsController'
 	})
 	.when('/classes', {
 		templateUrl: 'views/classes.html',
-		//controller: 'ThiefSkillsController'
 	})
 	.when('/create-character', {
 		templateUrl: 'views/build_character.html',
-		//controller: 'ThiefSkillsController'
+	})
+	.when('/items', {
+		templateUrl: 'views/items.html',
 	})
 	.otherwise( {
 		template : 'nothing'
@@ -344,5 +341,11 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 	  };
 	});
 
+
+  app.controller('ItemController', function($scope,$http,$location,$routeParams) {
+		$http.get('/api/items').then(function(response) {
+	    $scope.items = response.data;
+	  });
+	});
 </script>
 </html>

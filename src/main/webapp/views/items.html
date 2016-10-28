@@ -1,0 +1,81 @@
+<div id="items-cont" ng-controller="ItemController">
+
+  <md-tabs md-dynamic-height="true">
+    <md-tab label="Weapons">
+    <md-input-container>
+      <label>Weapon Search</label>
+      <input type="text" ng-model="weaponSearch">
+    </md-input-container>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Type</th>
+      <th>Encumbrance <br> (in gp)</th>
+      <th>Damage S/M | L</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="weapon in items | filter : { itemType : 'WEAPON'} | orderBy : '+weaponType' | filter : { itemName : weaponSearch }">
+        <td> {{ weapon.itemName }} </td>
+        <td> {{ weapon.itemValue }}, {{weapon.itemCurrency }} </td>
+        <td> {{ weapon.weaponType }} </td>
+        <td> {{ weapon.itemEncumbrance }} </td>
+        <td> {{ weapon.damageMap.M }} | {{ weapon.damageMap.L }} <span ng-if="!weapon.damageMap.L"> see Arrow or Bolt |</span></td>
+      </tr>
+    </tbody>
+  </table>
+</md-tab>
+<md-tab label="Armor">
+<md-input-container>
+  <label>Armor Search</label>
+  <input type="text" ng-model="armorSearch">
+</md-input-container>
+<table>
+<thead>
+  <th>Name</th>
+  <th>Cost</th>
+  <th>Armor Class </th>
+  <th>Encumbrance <br> (in gp)</th>
+  <th>Base Movement (per round)</th>
+</thead>
+<tbody>
+  <tr ng-repeat="armor in items | filter : { itemType : 'ARMOR'} | orderBy : '+armorType' | filter : { itemName : armorSearch }">
+    <td> {{ armor.itemName }} </td>
+    <td> {{ armor.itemValue }}, {{armor.itemCurrency }} </td>
+    <td> {{ armor.armorClass }} </td>
+    <td> {{ armor.itemEncumbrance }} </td>
+    <td> {{ armor.armorBaseMovement }} </td>
+  </tr>
+</tbody>
+</table>
+</md-tab>
+<md-tab label="Standard Items">
+  <md-input-container>
+    <label>Item Search</label>
+    <input type="text" ng-model="itemSearch">
+  </md-input-container>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Type</th>
+    <th>Encumbrance <br> (in gp)</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="std in items | filter : { itemType : 'STANDARD'} | orderBy : '+standardItemType' | filter : { itemName : itemSearch }">
+      <td> {{ std.itemName }} </td>
+      <td> {{ std.itemValue }}, {{std.itemCurrency }} </td>
+      <td> {{ std.standardItemType }} </td>
+      <td> {{ std.itemEncumbrance }} </td>
+    </tr>
+  </tbody>
+</table>
+</md-tab>
+
+<md-tab label="JSON Data">
+  <pre> {{ items | json }} </pre>
+</md-tab>
+
+</md-tabs>
+
+</div>

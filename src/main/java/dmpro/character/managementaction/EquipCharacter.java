@@ -20,6 +20,15 @@ import dmpro.character.SlottedItems.EquipmentSlotKey;
 
 public class EquipCharacter implements ManagementAction {
 
+	
+	public Character execute(Character character, String jsonInput) {
+		
+		//confirm supplied items are in inventory
+		//Choose weapons and armor , and add to slots and equipped
+		//choose non slot items and add to equipped
+		return character;
+	}
+	
 	@Override
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		output.format("--- It's time to Equip your character ---\nSelect a primary weapon:\n");

@@ -24,18 +24,18 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 
 	public List<Modifier> modifiers = new ArrayList<Modifier>();
 	
-	int itemId;
+	protected int itemId;
 	protected String itemName;
 	protected ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?
-	int itemCount;
+	protected int itemCount;
 	protected int itemValue; //gold piece value
 	protected CoinType itemCurrency;
 	protected int itemEncumbrance; //in gp
-	boolean isMagic;
-	boolean isTreasure;
-	boolean isWeapon;
-	boolean isProtection;
-	String description;
+	protected boolean isMagic;
+	protected boolean isTreasure;
+	protected boolean isWeapon;
+	protected boolean isProtection;
+	protected String description;
 	
 	
 	public boolean isMagic() {
@@ -200,6 +200,98 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 	 */
 	public int compareTo(Item item) {
 		return this.itemName.toLowerCase().compareTo(item.itemName.toLowerCase());
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + (isMagic ? 1231 : 1237);
+		result = prime * result + (isProtection ? 1231 : 1237);
+		result = prime * result + (isTreasure ? 1231 : 1237);
+		result = prime * result + (isWeapon ? 1231 : 1237);
+		result = prime * result + itemCount;
+		result = prime * result + ((itemCurrency == null) ? 0 : itemCurrency.hashCode());
+		result = prime * result + itemEncumbrance;
+		result = prime * result + itemId;
+		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
+		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
+		result = prime * result + itemValue;
+		result = prime * result + ((modifiers == null) ? 0 : modifiers.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Item)) {
+			return false;
+		}
+		Item other = (Item) obj;
+		if (description == null) {
+			if (other.description != null) {
+				return false;
+			}
+		} else if (!description.equals(other.description)) {
+			return false;
+		}
+		if (isMagic != other.isMagic) {
+			return false;
+		}
+		if (isProtection != other.isProtection) {
+			return false;
+		}
+		if (isTreasure != other.isTreasure) {
+			return false;
+		}
+		if (isWeapon != other.isWeapon) {
+			return false;
+		}
+		if (itemCount != other.itemCount) {
+			return false;
+		}
+		if (itemCurrency != other.itemCurrency) {
+			return false;
+		}
+		if (itemEncumbrance != other.itemEncumbrance) {
+			return false;
+		}
+		if (itemId != other.itemId) {
+			return false;
+		}
+		if (itemName == null) {
+			if (other.itemName != null) {
+				return false;
+			}
+		} else if (!itemName.equals(other.itemName)) {
+			return false;
+		}
+		if (itemType != other.itemType) {
+			return false;
+		}
+		if (itemValue != other.itemValue) {
+			return false;
+		}
+		if (modifiers == null) {
+			if (other.modifiers != null) {
+				return false;
+			}
+		} else if (!modifiers.equals(other.modifiers)) {
+			return false;
+		}
+		return true;
 	}
 
 }

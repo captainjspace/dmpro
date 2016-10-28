@@ -14,5 +14,10 @@ public class AddCharacterBackground implements ManagementAction {
 		// TODO Auto-generated method stub
 		return character;
 	}
+	
+	public Character execute(Character character, String jsonInput) {
+		//Get Character History - set string 
+		return character;
+	}
 
 }

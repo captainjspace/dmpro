@@ -51,6 +51,59 @@ public class StandardItemRecord extends Item implements TSVData {
 		return itemFrequencyType;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((itemFrequencyType == null) ? 0 : itemFrequencyType.hashCode());
+		result = prime * result + ((standardItemType == null) ? 0 : standardItemType.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!super.equals(obj)) {
+			return false;
+		}
+		if (!(obj instanceof StandardItemRecord)) {
+			return false;
+		}
+		StandardItemRecord other = (StandardItemRecord) obj;
+		if (itemFrequencyType != other.itemFrequencyType) {
+			return false;
+		}
+		if (standardItemType != other.standardItemType) {
+			return false;
+		}
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "StandardItemRecord ["
+				+ (itemFrequencyType != null ? "itemFrequencyType=" + itemFrequencyType + ", " : "")
+				+ (standardItemType != null ? "standardItemType=" + standardItemType + ", " : "")
+				+ (modifiers != null ? "modifiers=" + modifiers + ", " : "") + "itemId=" + itemId + ", "
+				+ (itemName != null ? "itemName=" + itemName + ", " : "")
+				+ (itemType != null ? "itemType=" + itemType + ", " : "") + "itemCount=" + itemCount + ", itemValue="
+				+ itemValue + ", " + (itemCurrency != null ? "itemCurrency=" + itemCurrency + ", " : "")
+				+ "itemEncumbrance=" + itemEncumbrance + ", isMagic=" + isMagic + ", isTreasure=" + isTreasure
+				+ ", isWeapon=" + isWeapon + ", isProtection=" + isProtection + ", "
+				+ (description != null ? "description=" + description : "") + "]";
+	}
+
 
 
 }

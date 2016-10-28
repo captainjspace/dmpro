@@ -41,7 +41,7 @@ table.character td, table.spells td, table.ref-data th td {
   table-layout: fixed;
 }
 
-table.ref-data th, td { width:50px; text-align:center; }
+table.ref-data th, td {  text-align:center; }
 
 table.character tr:hover td, table.spells tr:hover td, table.ref-data tr:hover td {
   background-color: white;

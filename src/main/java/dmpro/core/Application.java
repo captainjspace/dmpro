@@ -90,7 +90,8 @@ public class Application implements Server {
 		startCharacterModifierEngine();
 		startJetty();
 		//startRestServer();
-		System.out.println(this.referenceDataSet.getAsciiArt().art.get("banner.txt"));
+		
+		System.out.println(getReferenceDataSet().getAsciiArt().art.get("banner.txt"));
 		//startNodeWrapperService();
 		getMemoryStats();
 		
