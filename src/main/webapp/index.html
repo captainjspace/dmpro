@@ -73,7 +73,7 @@
 			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">Weapons, Armor and Equipment</span></button>
 			    <md-menu-content width="400px">
 			      <md-menu-item ng-repeat="key in ['Weapons','Armor','Equipment']">
-			        <md-button ng-click="go(key)">{{key}}</md-button>
+			        <md-button ng-click="go('/items')">{{key}}</md-button>
 			      </md-menu-item>
 			    </md-menu-content>
 			  </md-menu>
