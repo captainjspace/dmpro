@@ -29,7 +29,12 @@ button.blue {
 hr {
   color: white;
 }
+img.max100 {
+  max-width: 300px;
+  max-height: 300px;
+}
 
+}
 table.character td, table.spells td, table.ref-data th td {
   //border: 1px solid black;
   //border-collapse: collapse;
@@ -41,10 +46,18 @@ table.character td, table.spells td, table.ref-data th td {
   table-layout: fixed;
 }
 
-table.ref-data th, td {  text-align:center; }
+table.ref-data th, table.ref-data td {  text-align:center; }
 
 table.character tr:hover td, table.spells tr:hover td, table.ref-data tr:hover td {
   background-color: white;
+}
+table.races td {
+  vertical-align: top;
+  text-align: left;
+  padding: 7px;
+}
+table.races tr {
+  outline: thin solid;
 }
 #character-content {
   width: 100%;

@@ -43,14 +43,22 @@
 		<div id="menu">
 			<md-menu-bar>
 			  <md-menu md-offset="0 0">
-			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">CharacterList</span></button>
+			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">Character</span></button>
 			    <md-menu-content width="400px" ng-controller="CharacterListController">
-			      <md-menu-item ng-repeat="(key,value) in characterList">
-			        <md-button ng-click="go('/character/' + key)">{{value}}</md-button>
-			      </md-menu-item>
+						<md-menu-item>
+								<md-button ng-click="go('/create-character')">Create New ...</md-button>
+						</md-menu-item>
 						<md-menu-divider></md-menu-divider>
 						<md-menu-item>
-							  <md-button ng-click="go('/create-character')">Create New ...</md-button>
+							<md-menu>
+							  <md-button ng-click="$mdOpenMenu()"> My Characters</md-button>
+								<md-menu-content>
+			            <md-menu-item ng-repeat="(key,value) in characterList">
+			              <md-button ng-click="go('/character/' + key)">{{value}}</md-button>
+			            </md-menu-item>
+							  </md-menu-content>
+				 	    </md-menu>
+					  </md-menu-item>
 			    </md-menu-content>
 			  </md-menu>
 				<md-menu md-offset="0 0">
@@ -241,7 +249,11 @@ app.controller('TurnUndeadController', function($scope, $http,$location,$routePa
 app.controller('RaceController', function($scope, $http,$location,$routeParams) {
 	$http.get('/api/race/').then(function(response) {
 		$scope.races = response.data;
-	})
+	});
+
+	$scope.raceImages = {'DWARF' :'img/dwarvenwarrior.jpg', 'ELF': 'img/elven-warriors.jpg', 'GNOME':'img/gnome-illusionist.jpg',
+'HALFELF':'img/halfelfranger.jpg','HALFORC':'img/halforccleric.jpg','HUMAN':'img/humanpaladin.jpg', 'HALFLING':'img/dd-halfling.jpg'};
+
 });
 
 app.controller('ClassesController', function($scope, $http,$location,$routeParams) {
@@ -343,9 +355,29 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 
 
   app.controller('ItemController', function($scope,$http,$location,$routeParams) {
+		$scope.cartItems = [];
+		$scope.count = [0];
 		$http.get('/api/items').then(function(response) {
 	    $scope.items = response.data;
 	  });
+
+		$scope.addToCart = function(item) {
+			var x=-1;
+			x = $scope.cartItems.indexOf(item);
+			if ( x == -1 ) {
+			  x = $scope.cartItems.push(item);
+				console.log(x)
+				$scope.count[x-1]=1;
+			} else {
+				console.log('match at ' + x);
+				$scope.count[x]++;
+				console.log($scope.count[x]);
+			}
+
+		}
+		$scope.removeFromCart = function(index) {
+			$scope.cartItems.splice(index,1);
+		}
 	});
 </script>
 </html>

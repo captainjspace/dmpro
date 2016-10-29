@@ -44,6 +44,8 @@ public class InitializeCharacter implements ManagementAction {
 			goldCoins += characterClass.getInitialGold();
 		}
 		character.addToInventory(new CoinItem(CoinType.GOLD, goldCoins));
+		character.addToInventory(new CoinItem(CoinType.SILVER, goldCoins));
+		character.addToInventory(new CoinItem(CoinType.COPPER, goldCoins));
 		return character;
 	}
 

@@ -6,7 +6,34 @@
     <hr>
   </div>
 
-  <div id="race-table">
-    <pre> {{ races | json}} </pre>
+  <div layout="column" id="race-table">
+    <div>
+  <table class="races">
+    <tr ng-repeat="(key,value) in races">
+      <td>{{key}}</td>
+      <td><img class="max100" src="{{raceImages[key]}}"></td>
+      <td>
+          <span ng-repeat="(k,v) in value.raceAbilities">
+            <span ng-if="!$first"><br></span>
+            ({{$index+1}})
+            {{ v.INSTANCE.description}}, {{ v.INSTANCE.ability.abilityName}}
+            <small>
+            <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
+            <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
+            <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
+          </small>
+          </span>
+      </td>
+      <td>
+          <span ng-repeat="(k,v) in value.raceAttributes">
+
+            {{ v.description }} <br>
+
+          </span>
+      </td>
+    </tr>
+  </table>
+    </div>
+
   </div>
 </div>
