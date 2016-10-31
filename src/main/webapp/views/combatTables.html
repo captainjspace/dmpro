@@ -2,7 +2,8 @@
   <div id="combat-table-hdr">
     <hr>
     <h3> Combat Tables </h3>
-    <hr>
+    <md-progress-linear class="md-primary" md-mode="indeterminate"</md-progress-linear>
+
 
 
 
@@ -16,6 +17,8 @@
        <md-option ng-value="value.className" ng-repeat="(key,value) in characterClasses">{{ key + '-' + value.className }}</md-option>
      </md-select>
    </md-input-container>
+
+
    <pre> {{ classSearch }} </pre>
 
   <p class="center-big">Armor Class (to Hit) </p>

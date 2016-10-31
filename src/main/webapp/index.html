@@ -116,6 +116,19 @@
 
 var app = angular.module('App', ['ngRoute', 'ngMaterial']);
 
+/* DataFactories */
+app.service('DataService', function($http) {
+	this.races = function () {
+		return $http.get('/api/race/', { cache: true })
+	}
+	this.classes = function () {
+		return $http.get('/api/classes/', { cache: true })
+	}
+	this.items = function () {
+		return $http.get('/api/items/', { cache: true })
+	}
+});
+
 app.config(function ($routeProvider) {
 	$routeProvider
 	.when('/', {
@@ -157,6 +170,10 @@ app.config(function ($routeProvider) {
 	})
 	.when('/race', {
 		templateUrl: 'views/race.html',
+		controller: 'RaceController',
+		resolve: {
+			races: function(DataService) { return DataService.races()}
+		}
 	})
 	.when('/classes', {
 		templateUrl: 'views/classes.html',
@@ -246,20 +263,30 @@ app.controller('TurnUndeadController', function($scope, $http,$location,$routePa
 	})
 });
 
-app.controller('RaceController', function($scope, $http,$location,$routeParams) {
-	$http.get('/api/race/').then(function(response) {
-		$scope.races = response.data;
+app.controller('RaceController', function(DataService, $scope, $http) {
+	// $http.get('/api/race/').then(function(response) {
+	// 	$scope.races = response.data;
+	// });
+  DataService.races().then(function(response) {
+		$scope.races=response.data;
+		//console.log('exec async');
+		$scope.raceImages = {'DWARF' :'img/dwarvenwarrior.jpg', 'ELF': 'img/elven-warriors.jpg', 'GNOME':'img/gnome-illusionist.jpg',
+	'HALFELF':'img/halfelfranger.jpg','HALFORC':'img/halforccleric.jpg','HUMAN':'img/humanpaladin.jpg', 'HALFLING':'img/dd-halfling.jpg'};
+
 	});
 
-	$scope.raceImages = {'DWARF' :'img/dwarvenwarrior.jpg', 'ELF': 'img/elven-warriors.jpg', 'GNOME':'img/gnome-illusionist.jpg',
-'HALFELF':'img/halfelfranger.jpg','HALFORC':'img/halforccleric.jpg','HUMAN':'img/humanpaladin.jpg', 'HALFLING':'img/dd-halfling.jpg'};
+  //console.log('exec sync');
 
 });
 
-app.controller('ClassesController', function($scope, $http,$location,$routeParams) {
-	$http.get('/api/classes/').then(function(response) {
-		$scope.characterClasses = response.data;
-	})
+app.controller('ClassesController', function($scope, $http, DataService) {
+	DataService.classes().then(function(response) {
+		$scope.characterClasses=response.data;
+	});
+	$scope.classImages = {};
+	// $http.get('/api/classes/').then(function(response) {
+	// 	$scope.characterClasses = response.data;
+	// })
 });
 
 app.controller('CreateCharacterFormController', function($scope,$http, $location,$routeParams) {
@@ -332,7 +359,6 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 	    $scope.character = response.data;
 	  });
 
-
 	  $scope.setClass = function(value) {
 	    $scope.character.classes[value] = $scope.characterClassMap[value];
 	  };
@@ -354,10 +380,10 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 	});
 
 
-  app.controller('ItemController', function($scope,$http,$location,$routeParams) {
+  app.controller('ItemController', function($scope,$http,DataService) {
 		$scope.cartItems = [];
 		$scope.count = [0];
-		$http.get('/api/items').then(function(response) {
+		DataService.items().then(function(response) {
 	    $scope.items = response.data;
 	  });
 

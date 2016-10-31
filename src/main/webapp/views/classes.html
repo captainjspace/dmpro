@@ -1,10 +1,54 @@
 <div id="classes-cont" ng-controller="ClassesController">
 
-  <div id="classes-hdr">
-    <hr>
-    <h3> Character Classes </h3>
-    <hr>
-  </div>
+    <div id="classes-hdr">
+      <hr>
+      <h3> Character Classes </h3>
+      <hr>
+    </div>
+
+    <div layout="column">
+      
+    <table class="races">
+      <tr ng-repeat="(class,details) in characterClasses">
+        <td><img class="max100" src="img/{{ details.className.toLowerCase() || class.toLowerCase()}}.jpg">
+        <td>
+          <table class="character">
+            <tr><td>{{class}} {{ details.className.toLowerCase() || class.toLowerCase()}}</td></tr>
+            <tr><td> Hit Die: {{details.hitDie.dieType}} </td></tr>
+            <tr><td nowrap> Max Hit Dice: {{ details.maxHitDice }}</td></tr>
+            <tr ng-repeat="xp in details.xpBonusRequirements">
+              <td > XP Bonus Requires: {{ xp.attributeName }} &gt; {{xp.minVal }}</td>
+            </tr>
+            <tr><td nowrap>
+                    Hit Points per Level after Max:{{details.hitPointPerLevelAfterMax}}<br>
+                    Starting Proficiencies: {{details.startingProficiencies}}<br>
+                    New Proficiency 1 per {{details.newProficienyPerLevel}} levels<br>
+                    Non-proficiency to hit penalty: {{details.nonProficiencyPenalty}}</td></tr>
+          </table>
+        </td>
+
+        <td nowrap>
+            <span ng-repeat="(k,v) in details.classAbilities">
+              <span ng-if="!$first"><br></span>
+              ({{$index+1}}) {{ v.INSTANCE.ability.abilityName}} <br>
+              {{ v.INSTANCE.description}}
+              <small>
+              <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
+              <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
+              <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
+            </small>
+            </span>
+        </td>
+        <td nowrap>
+            <span ng-repeat="(k,v) in details.classAttribute">
+
+              {{ v.description }} <br>
+
+            </span>
+        </td>
+      </tr>
+    </table>
+    </div>
 
   <div id="classes-table">
     <pre>{{ characterClasses | json }}</pre>

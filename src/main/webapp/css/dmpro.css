@@ -56,6 +56,9 @@ table.races td {
   text-align: left;
   padding: 7px;
 }
+table.character tr {
+  outline: initial;
+}
 table.races tr {
   outline: thin solid;
 }
