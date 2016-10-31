@@ -29,7 +29,7 @@ public class InitializeEquipment implements ManagementAction {
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		List<Item> cart = new ArrayList<Item>();
 		output.format("\n-----------Welcome to the Keep on the Borderlands %s------------\n", character.getName());
-		output.format("First and foremost - you will need a weapon\nYout Currency:\n");
+		output.format("First and foremost - you will need a weapon\nYour Currency:\n");
 
 
 		Map<CoinType,Integer> coinMap = character.getInventory().stream()
