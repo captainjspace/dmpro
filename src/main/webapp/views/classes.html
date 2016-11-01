@@ -7,9 +7,13 @@
     </div>
 
     <div layout="column">
-      
+      <md-tabs md-dynamic-height="true">
+
+      <div ng-repeat-start="(class, details) in characterClasses">
+      </div>
+        <md-tab label="{{class}}">
     <table class="races">
-      <tr ng-repeat="(class,details) in characterClasses">
+      <tr>
         <td><img class="max100" src="img/{{ details.className.toLowerCase() || class.toLowerCase()}}.jpg">
         <td>
           <table class="character">
@@ -48,9 +52,14 @@
         </td>
       </tr>
     </table>
+  </md-tab>
+<div ng-repeat-end>
+</div>
+<md-tab label="JSON">
+    <pre>{{ characterClasses | json }}</pre>
+</md-tab>
+</md-tabs>
     </div>
 
-  <div id="classes-table">
-    <pre>{{ characterClasses | json }}</pre>
-  </div>
+
 </div>

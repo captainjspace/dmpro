@@ -41,6 +41,9 @@ public class PCCharacterBuilder implements CharacterBuilder {
 				(new StringBuilder().append(time).append(rand).append(playerBirthDate)).toString()
 				);
 		logger.log(Level.INFO, "Initialized Character Id: " + character.getCharacterId());
+		
+		character.addRequiredAction(CharacterManagementActions.INITIALIZEPROFICIENCIES);
+		character.addRequiredAction(CharacterManagementActions.INITIALIZEEQUIPMENT);
 		character.addRequiredAction(CharacterManagementActions.INITIALIZECHARACTER);
 	}
 	
@@ -95,8 +98,7 @@ public class PCCharacterBuilder implements CharacterBuilder {
 		.forEach(characterClass -> character.getClasses()
 				.put(characterClass.getCharacterClassType(), characterClass));
 		
-		character.addRequiredAction(CharacterManagementActions.INITIALIZEPROFICIENCIES);
-		character.addRequiredAction(CharacterManagementActions.INITIALIZEEQUIPMENT);
+		
 		if  ( 
 				(character.getClasses().containsKey(CharacterClassType.MAGICUSER)) ||
 				(character.getClasses().containsKey(CharacterClassType.ILLUSIONIST))

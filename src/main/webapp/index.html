@@ -282,7 +282,7 @@ app.controller('RaceController', function(DataService, $scope, $http) {
 app.controller('ClassesController', function($scope, $http, DataService) {
 	DataService.classes().then(function(response) {
 		$scope.characterClasses=response.data;
-	});
+	}, function() { console.log('error retrieving classes')});
 	$scope.classImages = {};
 	// $http.get('/api/classes/').then(function(response) {
 	// 	$scope.characterClasses = response.data;
@@ -306,13 +306,13 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 
 
 
-	app.controller('SelectRaceController', function($scope,$http,$location,$routeParams) {
+	app.controller('SelectRaceController', function($scope,$http,DataService,$location,$routeParams) {
 		//
 		//$scope.id = window.location['hash'].split("/").pop();
 		//console.log($scope.id);
 		$scope.warnings = [];
 		$scope.raceMap = {};
-		$http.get('/api/race').then(function(response) {
+		DataService.races().then(function(response) {
 			$scope.raceMap = response.data;
 		});
 		console.log($routeParams.characterId);
@@ -330,7 +330,7 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 		}
 
     $scope.put = function (character) {
-			console.log('called put');
+			//console.log('called put');
 			$http.put('/api/savecharacter', $scope.character).then(function(response) {
 				$scope.character = response.data;
 				$location.path ('/character/'+ $routeParams.characterId + '/select-class');
@@ -366,7 +366,7 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 	  $scope.put = function (character) {
 	    $http.put('/api/savecharacter', character).then(function(response) {
 	      $scope.character = response.data;
-				$http.get('/api/character/'+ $routeParams.characterId + '/setpersonal').then(function(response) {
+				$http.get('/api/character/'+ $routeParams.characterId + '/initialize').then(function(response) {
 		      $scope.character = response.data;
 					$location.path ('/character/'+ $routeParams.characterId);
 		    });

@@ -10,4 +10,13 @@ public interface ManagementAction {
 	
 	public Character execute(Character character, Server application, Scanner input, Formatter output);
 
+	/**
+	 * @param c
+	 * @param application
+	 * @return
+	 */
+	default public  Character execute(Character c, Server application) {
+		return c;
+	};
+
 }

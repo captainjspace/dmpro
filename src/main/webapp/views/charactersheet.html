@@ -1,4 +1,4 @@
-<div id="character-content" ng-controller="CharacterController">
+<div layout="row" id="character-container" class="container" ng-controller="CharacterController">
   <!-- -->
   <!--
   <md-tabs md-selected="selectedIndex">
@@ -19,12 +19,18 @@
    <hr>
    <h3>Character Personal Information</h3>
    <hr>
-  </div>
+   </div>
+
   <div id="personal" class="content">
+    <div flex="65">
     <table class="character">
-      <tr ng-repeat="(key, class) in character.classes">
+      <tr>
         <td>Race: {{ character.race.raceType }}</td>
-          <td>Class/Level:{{class.className }} {{key}}/ {{class.experienceLevel}}</td>
+          <td> Class/Level: <br>
+              <div ng-repeat-start="(key,class) in character.classes"></div>
+                {{key}} ({{class.experienceLevel}})
+                <div ng-repeat-end></div>
+          </td>
           <td>Total Exp: {{ class.experiencePoints }}</td>
         </td>
      </tr>
@@ -39,13 +45,20 @@
         <td>Weight (lbs.): {{ character.weight }}</td>
       </tr>
       <tr>
-
         <td>Character Id: {{character.characterId}}</td>
         <td>Created Date: {{character.created}}</td>
         <td>Modified Date: {{ character.modified}}</td>
-
       </tr>
     </table>
+  </div>
+  <div flex>Character Management Actions:
+    <span class="requiredActions">
+      <ul class="no-bullet required-action">
+      <li ng-repeat="action in character.requiredActions">{{action}}</li>
+    </ul>
+    </span>
+  </div>
+
   </div>
   <div id="character-stat-cont" class="container">
 
@@ -89,9 +102,7 @@
           <span class="language">
             <font ng-repeat="lang in character.languages">{{lang}}</font>
           </span>
-          <span class="requiredActions">
-            <font ng-repeat="action in character.requiredActions">{{action}}</font>
-          </span>
+
 
       </div> <!-- End key stats content -->
   </div> <!-- End key stats container -->

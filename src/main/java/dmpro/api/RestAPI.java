@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import com.google.gson.Gson;
 
@@ -27,7 +28,10 @@ import dmpro.character.AttributeRoller;
 import dmpro.character.Character;
 import dmpro.character.CharacterService;
 import dmpro.character.PCCharacterBuilder;
+import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClassType;
+import dmpro.character.managementaction.CharacterManagementActions;
+import dmpro.character.managementaction.ManagementAction;
 import dmpro.character.race.RaceType;
 import dmpro.core.ReferenceDataSet;
 import dmpro.core.Server;
@@ -93,17 +97,31 @@ public class RestAPI {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/character/{characterId}/setpersonal")
-	public Response setPersonalCharacter(@PathParam("characterId") String characterId) {
+	@Path("/character/{characterId}/initialize")
+	public Response initializeCharacter(@PathParam("characterId") String characterId) {
 		if (!initialized) init();
+		CharacterManagementActions cma;
+		
 		Character c = characterService.getCharacter(characterId);
-		c.setAge(referenceDataSet.getRaceClassAgeLoader().getAge(c.getRace().getRaceType(),
-																 c.getClasses().values().iterator().next().getCharacterClassType()));
-		c.setHeight(referenceDataSet.getRaceSizeLoader().getHeight(c.getRace().getRaceType()));
-		c.setWeight(referenceDataSet.getRaceSizeLoader().getWeight(c.getRace().getRaceType()));
-		characterService.initCharacter(c); //processModifers, XP, and Save
-		return Response.status(200).entity(gson.toJson(c.getCharacterId())).build();
-		//characterService.getCharactersJSON().get(characterId);
+		
+		/*** Processing this action ***/
+		int i = c.getRequiredActions().indexOf(CharacterManagementActions.INITIALIZECHARACTER);
+		cma = c.getRequiredActions().remove(i);
+		boolean success = false;
+		/****************************/
+		
+		ManagementAction action = cma.getManagementAction();
+		try { 
+		  c = action.execute(c, this.application);
+		  success = true;
+		} catch (RuntimeException e) {
+			logger.log(Level.WARNING, "Problem initializing character", e);
+		} catch (Exception e) {
+			logger.log(Level.WARNING, "Problem initializing character", e);
+		}
+		//characterService.initCharacter(c); //processModifers, XP, and Save
+		int responseCode = (success) ? 200 : 422;
+		return Response.status(responseCode).entity(gson.toJson(c.getCharacterId())).build();
 	}
 
 	@POST
@@ -209,7 +227,6 @@ public class RestAPI {
 		return Response.status(200).entity(result).build();
 	}
 
-	//1477429801056019711205
 	/*
 	 * SPELLS API
 	 *
@@ -330,7 +347,6 @@ public class RestAPI {
 		return Response.status(200).entity(gson.toJson(items)).build();
 	}
 
-	
 	
 	/*
 	 * TESTING CONNECTIVITY API

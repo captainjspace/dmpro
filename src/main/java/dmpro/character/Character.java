@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import dmpro.attributes.Attribute;
 import dmpro.attributes.AttributeLoader;
@@ -27,9 +28,12 @@ import dmpro.character.classes.CharacterClassType;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.classes.ICharacterClass;
 import dmpro.character.race.Race;
+import dmpro.items.CoinItem;
 import dmpro.items.Item;
 import dmpro.items.ProtectionItem;
 import dmpro.items.WeaponItem;
+import dmpro.items.CoinItem.CoinType;
+import dmpro.items.Item.ItemType;
 import dmpro.items.WeaponItem.WeaponType;
 import dmpro.modifier.AttributeModifier;
 import dmpro.modifier.Modifiable;
@@ -825,4 +829,20 @@ public class Character implements Modifiable {
 		this.slottedItems = slottedItems;
 	}
 	
+	public Map<CoinType, CoinItem> getCoinnage() {
+		Map<CoinType,CoinItem> coinMap = new HashMap<CoinType, CoinItem>(); 
+				getInventory().stream()
+				.filter( p -> p.getItemType() == ItemType.COINS)
+				.map(p -> (CoinItem)p)
+				.collect(Collectors.groupingBy(CoinItem::getCoinType, 
+								Collectors.summingInt(CoinItem::getItemCount)))
+				.forEach( (k,v) -> coinMap.put(k, new CoinItem(k,v)));
+		return coinMap;
+
+
+		//				List<CoinItem> coins = character.getInventory().stream()
+		//						.filter( p -> p.getItemType() == ItemType.COINS)
+		//						.map(p -> (CoinItem)p)
+		//						.collect(Collectors.toList());
+	}
 }

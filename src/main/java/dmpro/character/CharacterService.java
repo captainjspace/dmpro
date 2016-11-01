@@ -433,8 +433,8 @@ public class CharacterService implements Runnable, ResourceLoader {
 	/**
 	 * @param c
 	 */
-	public void initCharacter(Character c) {
-		saveCharacter(xpProcessor.evaluateExperience(characterModifierEngine.processModifiers(c)));
+	public Character initCharacter(Character c) {
+		return saveCharacter(xpProcessor.evaluateExperience(characterModifierEngine.processModifiers(c)));
 	}
 
 

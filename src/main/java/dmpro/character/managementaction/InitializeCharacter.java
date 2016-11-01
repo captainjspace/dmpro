@@ -1,13 +1,19 @@
 package dmpro.character.managementaction;
 
+import dmpro.core.ReferenceDataSet;
 import dmpro.core.Server;
 import dmpro.items.CoinItem;
 import dmpro.items.CoinItem.CoinType;
 
 import java.util.Formatter;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.logging.Level;
+
+import com.sun.media.jfxmedia.logging.Logger;
 
 import dmpro.character.Character;
+import dmpro.character.CharacterService;
 import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClassType;
 
@@ -37,8 +43,29 @@ public class InitializeCharacter implements ManagementAction {
 		return character;
 	}
 	
-	
-	public Character execute(Character character) {
+	/**
+	 * Initialize Character Level, Modifiers and Starting Coins
+	 * TODO: double save unnecessary
+	 * @param character
+	 * @return
+	 */
+	public Character execute(Character character, Server application) {
+		
+		CharacterService characterService = application.getCharacterService();
+		ReferenceDataSet referenceDataSet = application.getReferenceDataSet();
+		CharacterClassType cct;
+		try {
+			cct = character.getClasses().keySet().stream().findFirst().get();
+		} catch (NoSuchElementException e) {
+			throw new RuntimeException("Character Class Not Assigned");
+		}
+		
+		character.setAge(referenceDataSet.getRaceClassAgeLoader().getAge(character.getRace().getRaceType(),
+																 cct));
+		character.setHeight(referenceDataSet.getRaceSizeLoader().getHeight(character.getRace().getRaceType()));
+		character.setWeight(referenceDataSet.getRaceSizeLoader().getWeight(character.getRace().getRaceType()));
+		
+		character = characterService.initCharacter(character);
 		int goldCoins = 0;
 		for (CharacterClass characterClass : character.getClasses().values()) {
 			goldCoins += characterClass.getInitialGold();
@@ -46,6 +73,8 @@ public class InitializeCharacter implements ManagementAction {
 		character.addToInventory(new CoinItem(CoinType.GOLD, goldCoins));
 		character.addToInventory(new CoinItem(CoinType.SILVER, goldCoins));
 		character.addToInventory(new CoinItem(CoinType.COPPER, goldCoins));
+		
+		character = characterService.saveCharacter(character);
 		return character;
 	}
 

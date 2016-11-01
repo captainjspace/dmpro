@@ -35,34 +35,118 @@ img.max100 {
 }
 
 }
-table.character td, table.spells td, table.ref-data th td {
-  //border: 1px solid black;
-  //border-collapse: collapse;
-  padding:3px;
-  text-align: left;
-  vertical-align: top;
-  //good flow for mobile
-  //display:inline-block;
+/* Table Config */
+table {
+  overflow: hidden;
   table-layout: fixed;
 }
 
-table.ref-data th, table.ref-data td {  text-align:center; }
+td {
+  vertical-align: top;
+  text-align: left;
+  padding:3px;
+}
+
+table.character td, table.spells td, table.ref-data td {
+  //border: 1px solid black;
+  //border-collapse: collapse;
+  //good flow for mobile
+  //display:inline-block;
+  z-index:1;
+}
+
+table.ref-data th, table.ref-data td {
+  text-align:center;
+  white-space: pre-line;
+  vertical-align: bottom;
+  height:1px;
+}
 
 table.character tr:hover td, table.spells tr:hover td, table.ref-data tr:hover td {
   background-color: white;
 }
 table.races td {
-  vertical-align: top;
-  text-align: left;
   padding: 7px;
 }
+table.ref-data td {
+  padding: 5px;
+  cursor: pointer;
+}
+table.ref-data td:hover {
+  transform: scale(1.25);
+  color: red;
+}
+/*table.ref-data td:hover::after {
+    background-color: white;
+    content: '\00a0';
+    height: 10000px;
+    left: 0;
+    position: absolute;
+    top: -5000px;
+    width: 100%;
+    z-index: -100;
+}*/
+/*
+body:not(.nohover) table.ref-data tbody tr:hover {
+  background-color: #ffa;
+}
+
+table.ref-data td:hover::after,
+table.ref-data thead th:not(:empty):hover::after,
+table.ref-data td:focus::after,
+table.ref-data thead th:not(:empty):focus::after {
+  content: '';
+  height: 10000px;
+  left: 0;
+  position: absolute;
+  top: -5000px;
+  width: 100%;
+  z-index: -1;
+}
+
+table.ref-data td:hover::after,
+table.ref-data th:hover::after {
+  background-color: #ffa;
+}
+
+table.ref-data td:focus::after,
+table.ref-data th:focus::after {
+  background-color: lightblue;
+}
+
+
+table.ref-data td:focus::before,
+table.ref-data tbody th:focus::before {
+  //Focus stuff for mobile
+  background-color: lightblue;
+  content: '';
+  height: 100%;
+  top: 0;
+  left: -5000px;
+  position: absolute;
+  width: 10000px;
+  z-index: -1;
+}
+*/
+
+
+
+
+
+
 table.character tr {
-  outline: initial;
+  outline-style: none;
 }
 table.races tr {
   outline: thin solid;
 }
-#character-content {
+
+/* div formats */
+.content {
+  display: flex;
+}
+
+#character-container {
   width: 100%;
   display: inline-block;
 }
@@ -121,17 +205,12 @@ span.center-olde {
   text-align: center;
 }
 
-
-.hitDiceHistory {
-  //border: 1px solid black;
-}
-
 @font-face {
   font-family: Olde;
   src:url('/src/main/webapp/fonts/CloisterBlack.ttf');
 }
 #header {
-  margin: 0 auto;
+  margin: 0;
   padding-top: 0;
   font-family: Olde, sans-serif;
   font-size: 14pt;
@@ -165,6 +244,11 @@ ul.attribute {
   background-repeat: no-repeat;
   background-position: right top;
 }
-ul.characterList {
+ul.no-bullet {
   list-style-type: none;
+}
+ul.required-action {
+  color: red;
+  text-decoration: underline;
+  text-decoration:overline;
 }
