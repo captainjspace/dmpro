@@ -2,12 +2,15 @@ package dmpro.core;
 
 import dmpro.attributes.*;
 import dmpro.data.loaders.*;
+import dmpro.items.Item;
 import dmpro.character.race.*;
 import dmpro.character.classes.*;
 import dmpro.character.classes.CharacterClassType;
 
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import dmpro.spells.SpellLibrary;
 
@@ -257,5 +260,13 @@ public class ReferenceDataSet implements Runnable {
 	 */
 	public Map<CharacterClassType, CharacterClass> getClasses() {
 		return classes;
+	}
+	
+	public List<Item> getAllItems() {
+		List<Item> items = new ArrayList<Item>();
+		items.addAll(getWeaponItemLoader().getWeapons());
+		items.addAll(getArmorTableLoader().getArmorItems());
+		items.addAll(getStandardItemLoader().getStandardItems());
+		return items;
 	}
 }

@@ -247,6 +247,14 @@ public class CharacterClass {
 		this.newProficienyPerLevel = newProficienyPerLevel;
 	}
 	
+	/**
+	 * 
+	 * @return int calculate additional proficienc
+	 */
+	public int getAdditionalProficiencies() {
+		return Math.floorDiv(this.getExperienceLevel() - 1,this.getNewProficienyPerLevel());
+	}
+	
 	public int getNonProficiencyPenalty() {
 		return nonProficiencyPenalty;
 	}

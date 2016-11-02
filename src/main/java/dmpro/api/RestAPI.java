@@ -38,6 +38,8 @@ import dmpro.core.Server;
 import dmpro.data.loaders.ClassAttributeLoader.ListPossibleClassResults;
 import dmpro.data.loaders.ClassRaceLoader.ListPossibleClassRaceResults;
 import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
+import dmpro.items.CoinItem;
+import dmpro.items.CoinItem.CoinType;
 import dmpro.items.Item;
 import dmpro.serializers.CharacterGsonService;
 /**
@@ -106,22 +108,30 @@ public class RestAPI {
 		
 		/*** Processing this action ***/
 		int i = c.getRequiredActions().indexOf(CharacterManagementActions.INITIALIZECHARACTER);
-		cma = c.getRequiredActions().remove(i);
 		boolean success = false;
-		/****************************/
-		
-		ManagementAction action = cma.getManagementAction();
-		try { 
-		  c = action.execute(c, this.application);
-		  success = true;
-		} catch (RuntimeException e) {
-			logger.log(Level.WARNING, "Problem initializing character", e);
-		} catch (Exception e) {
-			logger.log(Level.WARNING, "Problem initializing character", e);
+		String response = c.getCharacterId();
+		if ( i != -1 ) {
+			cma = c.getRequiredActions().remove(i);
+
+			/****************************/
+
+			ManagementAction action = cma.getManagementAction();
+			try { 
+				c = action.execute(c, this.application);
+				success = true;
+			} catch (RuntimeException e) {
+				logger.log(Level.WARNING, "Problem initializing character", e);
+				response = "Character class is not set for " + response;
+			} catch (Exception e) {
+				logger.log(Level.WARNING, "Problem initializing character", e);
+				response = response + e.getMessage();
+			}
+		} else {
+			response = response + " does not have an initialized action requirement";
 		}
-		//characterService.initCharacter(c); //processModifers, XP, and Save
+		
 		int responseCode = (success) ? 200 : 422;
-		return Response.status(responseCode).entity(gson.toJson(c.getCharacterId())).build();
+		return Response.status(responseCode).entity(gson.toJson(response)).build();
 	}
 
 	@POST
@@ -335,16 +345,27 @@ public class RestAPI {
 		//return Response.status(200).entity(referenceDataSet.getClasses()).build();
 	}
 
+	
 	@GET
 	@Produces("application/json")
 	@Path("/items")
 	public Response getItems() {
 		if (!initialized) init();
-		List<Item> items = new ArrayList<Item>();
-		items.addAll(referenceDataSet.getWeaponItemLoader().getWeapons());
-		items.addAll(referenceDataSet.getArmorTableLoader().getArmorItems());
-		items.addAll(referenceDataSet.getStandardItemLoader().getStandardItems());
-		return Response.status(200).entity(gson.toJson(items)).build();
+		return Response.status(200).entity(gson.toJson(referenceDataSet.getAllItems())).build();
+	}
+	
+	@GET
+	@Produces("application/json")
+	@Path("/character/{characterId}/items")
+	public Response getDataForCart(@PathParam("characterId") String characterId) {
+		if (!initialized) init();
+		List<Item> items = referenceDataSet.getAllItems();
+		Character c = characterService.getCharacter(characterId);
+		Map<CoinType, CoinItem> coinMap = c.getCoinnage();
+		Map<String,Object> shopData = new HashMap<String,Object>();
+		shopData.put("Items", items);
+		shopData.put("Wallet", coinMap);
+		return Response.status(200).entity(gson.toJson(shopData)).build();
 	}
 
 	

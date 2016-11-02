@@ -28,5 +28,9 @@ public class Cart {
 		this.items = items;
 	}
 	
+	public void empty() {
+		items.removeAll(items);
+	}
+	
 
 }

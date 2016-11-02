@@ -16,6 +16,8 @@ public class InitializeProficiencies implements ManagementAction {
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		int initialProficiencySlots = 0;
 		boolean isFighter = false;
+		
+		//replace with character.getProficiencies.
 		for (CharacterClass characterClass : character.getClasses().values()) {
 			initialProficiencySlots += characterClass.getStartingProficiencies();
 			if (characterClass.getCharacterClassType() == CharacterClassType.FIGHTER)

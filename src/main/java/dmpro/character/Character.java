@@ -27,6 +27,7 @@ import dmpro.character.classes.CharacterClass;
 import dmpro.character.classes.CharacterClassType;
 import dmpro.character.managementaction.CharacterManagementActions;
 import dmpro.character.classes.ICharacterClass;
+import dmpro.character.classes.ProficiencyData;
 import dmpro.character.race.Race;
 import dmpro.items.CoinItem;
 import dmpro.items.Item;
@@ -844,5 +845,17 @@ public class Character implements Modifiable {
 		//						.filter( p -> p.getItemType() == ItemType.COINS)
 		//						.map(p -> (CoinItem)p)
 		//						.collect(Collectors.toList());
+	}
+	
+	public ProficiencyData getProficiencySlots() {
+		int proficiencySlots = 0;
+	    boolean hasFighter = false;
+	    for (CharacterClass characterClass : getClasses().values()) {
+	    	proficiencySlots += characterClass.getStartingProficiencies();
+	    	proficiencySlots += characterClass.getAdditionalProficiencies();
+	    	if (characterClass.getCharacterClassType() == CharacterClassType.FIGHTER)
+	    		hasFighter = true;
+	    }
+	    return new ProficiencyData(hasFighter,proficiencySlots);
 	}
 }

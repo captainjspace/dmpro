@@ -6,6 +6,7 @@ import dmpro.modifier.Modifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class Item implements Comparable<Item>, Modifiable {
 	
@@ -23,7 +24,6 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 	}
 
 	public List<Modifier> modifiers = new ArrayList<Modifier>();
-	
 	protected int itemId;
 	protected String itemName;
 	protected ItemType itemType; //coins, gems, weapon, armor, potion, scrolletc. enum?

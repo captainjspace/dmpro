@@ -73,7 +73,7 @@
 			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">Weapons, Armor and Equipment</span></button>
 			    <md-menu-content width="400px">
 			      <md-menu-item ng-repeat="key in ['Weapons','Armor','Equipment']">
-			        <md-button ng-click="go('/items')">{{key}}</md-button>
+			        <md-button ng-click="go('/character/' + characterId + '/items')">{{key}}</md-button>
 			      </md-menu-item>
 			    </md-menu-content>
 			  </md-menu>
@@ -184,19 +184,28 @@ app.config(function ($routeProvider) {
 	.when('/items', {
 		templateUrl: 'views/items.html',
 	})
+	.when('/character/:characterId/items', {
+		templateUrl: 'views/shopItems.html',
+	})
 	.otherwise( {
 		template : 'nothing'
 	});
 });
 
-app.controller('LayoutController', function($scope) {
+app.controller('LayoutController', function($scope, $location) {
 	$scope.test='test-element';
+	$scope.characterId = window.sessionStorage.getItem('characterId');
+	$scope.go = function ( path ) {
+		$location.path( path );
+	};
 });
 
 app.controller('CharacterController', function($scope,$http,$location,$routeParams) {
 	console.log($routeParams.characterId);
 	$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
 		$scope.character = response.data;
+		window.sessionStorage.setItem('characterId', $routeParams.characterId);
+		$scope.characterId = $routeParams.characterId;
 	}); // this will return a promise to controller
 	$scope.go = function ( path ) {
 		$location.path( path );
@@ -380,12 +389,33 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 	});
 
 
-  app.controller('ItemController', function($scope,$http,DataService) {
+  app.controller('CartController', function($scope,$http,DataService) {
+		$scope.cartTotals = {'GOLD':0, 'SILVER':0,'COPPER':0};
+		$scope.updateCartTotals = function() {
+			$scope.cartTotals = {'GOLD':0, 'SILVER':0,'COPPER':0};
+			for(i=0; i<$scope.cartItems.length; i++) {
+				item = $scope.cartItems[i];
+				// console.log($scope.count[i]);
+				// console.log(item.itemValue);
+				$scope.cartTotals[item.itemCurrency] += ($scope.count[i] * item.itemValue);
+			}
+		}
 		$scope.cartItems = [];
 		$scope.count = [0];
-		DataService.items().then(function(response) {
-	    $scope.items = response.data;
+
+		if ( (c=window.sessionStorage.getItem('Cart')) !== null) {
+			$scope.cartItems = JSON.parse(window.sessionStorage.getItem('Cart'));
+			$scope.count = JSON.parse(window.sessionStorage.getItem('Count'));
+			$scope.updateCartTotals();
+		}
+
+		$scope.characterId = window.sessionStorage.getItem('characterId');
+		$http.get('/api/character/' + $scope.characterId + '/items').then(function(response) {
+	    $scope.data = response.data;
+			$scope.items = $scope.data.Items;
+			$scope.wallet = $scope.data.Wallet;
 	  });
+
 
 		$scope.addToCart = function(item) {
 			var x=-1;
@@ -399,11 +429,19 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 				$scope.count[x]++;
 				console.log($scope.count[x]);
 			}
-
+			$scope.saveCart();
+			$scope.updateCartTotals();
 		}
 		$scope.removeFromCart = function(index) {
 			$scope.cartItems.splice(index,1);
+			$scope.saveCart();
+			$scope.updateCartTotals();
 		}
+		$scope.saveCart = function() {
+			window.sessionStorage.setItem('Cart', JSON.stringify($scope.cartItems));
+			window.sessionStorage.setItem('Count', JSON.stringify($scope.count));
+		}
+
 	});
 </script>
 </html>

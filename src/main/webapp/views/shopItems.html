@@ -1,0 +1,143 @@
+<div id="items-cont" ng-controller="CartController">
+
+  <md-tabs md-dynamic-height="true">
+    <md-tab label="Weapons">
+    <md-input-container>
+      <label>Weapon Search</label>
+      <input type="text" ng-model="weaponSearch">
+    </md-input-container>
+  <table>
+    <thead>
+      <th> Cart </th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Type</th>
+      <th>Encumbrance <br> (in gp)</th>
+      <th>Damage S/M | L</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="weapon in items | filter : { itemType : 'WEAPON'} | orderBy : '+weaponType' | filter : { itemName : weaponSearch }">
+        <td ng-click="addToCart(weapon)"> Buy </td>
+        <td> {{ weapon.itemName }} </td>
+        <td> {{ weapon.itemValue }}, {{weapon.itemCurrency }} </td>
+        <td> {{ weapon.weaponType }} </td>
+        <td> {{ weapon.itemEncumbrance }} </td>
+        <td> {{ weapon.damageMap.M }} | {{ weapon.damageMap.L }} <span ng-if="!weapon.damageMap.L"> see Arrow or Bolt |</span></td>
+      </tr>
+    </tbody>
+  </table>
+</md-tab>
+<md-tab label="Armor">
+<md-input-container>
+  <label>Armor Search</label>
+  <input type="text" ng-model="armorSearch">
+</md-input-container>
+<table>
+<thead>
+  <th> Cart </th>
+  <th>Name</th>
+  <th>Cost</th>
+  <th>Armor Class </th>
+  <th>Encumbrance <br> (in gp)</th>
+  <th>Base Movement (per round)</th>
+</thead>
+<tbody>
+  <tr ng-repeat="armor in items | filter : { itemType : 'ARMOR'} | orderBy : '+armorType' | filter : { itemName : armorSearch }">
+    <td ng-click="addToCart(armor)"> Buy </td>
+    <td> {{ armor.itemName }} </td>
+    <td> {{ armor.itemValue }}, {{armor.itemCurrency }} </td>
+    <td> {{ armor.armorClass }} </td>
+    <td> {{ armor.itemEncumbrance }} </td>
+    <td> {{ armor.armorBaseMovement }} </td>
+  </tr>
+</tbody>
+</table>
+</md-tab>
+<md-tab label="Standard Items">
+  <md-input-container>
+    <label>Item Search</label>
+    <input type="text" ng-model="itemSearch">
+  </md-input-container>
+<table>
+  <thead>
+    <th>Cart</th>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Type</th>
+    <th>Encumbrance <br> (in gp)</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="std in items | filter : { itemType : 'STANDARD'} | orderBy : '+standardItemType' | filter : { itemName : itemSearch }">
+      <td ng-click="addToCart(std)"> Buy </td>
+      <td> {{ std.itemName }} </td>
+      <td> {{ std.itemValue }}, {{std.itemCurrency }} </td>
+      <td> {{ std.standardItemType }} </td>
+      <td> {{ std.itemEncumbrance }} </td>
+    </tr>
+  </tbody>
+</table>
+</md-tab>
+<md-tab label="Cart">
+
+
+
+<div layout="column" layout-sm="row">
+
+  <div flex>
+  <table>
+    <thead>
+      <th>Cart</th>
+      <th>Item Count</th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Coin Type</th>
+      <th>Item Type</th>
+      <th>Encumbrance <br> (in gp)</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in cartItems" track by index>
+        <td ng-click="removeFromCart($index)"> Remove </td>
+        <td> <input type="text" ng-model="count[$index]" size="3"> </td>
+        <td> {{ item.itemName }} </td>
+        <td> {{ item.itemValue }} </td>
+        <td> {{ item.itemCurrency }} </td>
+        <td> {{ item.itemType }} </td>
+        <td> {{ item.itemEncumbrance }} </td>
+        <td> {{ count[$index] * item.itemValue }}:{{ item.itemCurrency }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+<div layout="row" flex>
+    <div flex>
+
+      <table>
+        <caption>Coin Purse</caption>
+        <tr><td>Gold: </td><td> {{wallet.GOLD.itemCount}} </td></tr>
+        <tr><td>Silver: </td><td> {{wallet.SILVER.itemCount}} </td></tr>
+        <tr><td>Copper: </td><td> {{wallet.COPPER.itemCount}} </td></tr>
+      </table>
+    </div>
+
+    <div flex>
+      <table>
+        <caption>Cart Totals</caption>
+        <tr><td>Gold: </td><td> {{cartTotals.GOLD}} </td></tr>
+        <tr><td>Silver: </td><td> {{cartTotals.SILVER}} </td></tr>
+        <tr><td>Copper: </td><td> {{cartTotals.COPPER}} </td></tr>
+      </table>
+    </div>
+</div>
+
+
+
+</md-tab>
+
+<md-tab label="JSON Data">
+  <pre> {{ items | json }} </pre>
+</md-tab>
+
+</md-tabs>
+
+</div>

@@ -1,20 +1,19 @@
 <div id="select-class-cont" ng-controller="SelectClassController">
 
+<div layout="row">
+  <div flex>
+      <form>
+        <md-input-container>
+          <md-select ng-change="setClass(characterClassType)" ng-model="characterClassType" placeholder="Select Character Class">
+            <md-option ng-value="characterClassType" ng-repeat="characterClassType in selectClass.possibleClasses">{{ characterClassType }}</md-option>
+          </md-select>
+          <md-button class="md-raised md-primary" ng-click="put(character)"> Add Character Class </md-button>
+        </md-input-container>
+      </form>
+      <span> You have selected  - {{characterClassType}}</span>
+  </div>
 
-  <form>
-    <md-input-container>
-      <md-select ng-change="setClass(characterClassType)" ng-model="characterClassType" placeholder="Select Character Class">
-        <md-option ng-value="characterClassType" ng-repeat="characterClassType in selectClass.possibleClasses">{{ characterClassType }}</md-option>
-      </md-select>
-      <md-button class="md-raised md-primary" ng-click="put(character)"> Add Character Class </md-button>
-    </md-input-container>
-  </form>
-    <pre>{{ characterClassType | json }}</pre>
-    <pre> {{ character.classes }} </pre>
-    <pre>{{ selectClass.possibleClasses | json }}</pre>
-
-    <div id="attributes" class="content">
-
+    <div flex>
       <table class="character">
         <tr>
           <td>Strength:</td><td>{{character.strength.modifiedAbilityScore}} </td>
@@ -35,6 +34,21 @@
           <td>Charisma:</td><td>{{character.charisma.modifiedAbilityScore}} </td>
         </tr>
       </table>
-    </table>
-<pre> {{ character | json }} </pre>
+    </div>
+
+    <div flex>
+      Character Management Actions:
+        <span class="requiredActions">
+          <ul class="no-bullet required-action">
+          <li ng-repeat="action in character.requiredActions">{{action}}</li>
+        </ul>
+        </span>
+    </div>
+  </div>
+  <div>
+    <span> Raw JSON </span>
+    <pre> {{ character.classes | json}} </pre>
+    <pre> {{ selectClass.possibleClasses | json }}</pre>
+    <pre> {{ character | json }} </pre>
+  </div>
 </div>
