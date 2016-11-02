@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import com.sun.media.jfxmedia.logging.Logger;
 
 import dmpro.character.Character;
 import dmpro.character.CharacterService;
