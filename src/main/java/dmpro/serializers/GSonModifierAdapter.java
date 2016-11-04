@@ -31,7 +31,6 @@ public class GSonModifierAdapter  implements JsonSerializer<Modifier>, JsonDeser
 		JsonPrimitive prim = (JsonPrimitive) jsonObject.get(CLASSNAME);
 		
 		String className = prim.getAsString();
-		System.out.println(className);
 		JsonElement element = jsonObject.get(INSTANCE);
 
 		Class<?> klass = null;

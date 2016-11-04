@@ -128,7 +128,7 @@ app.service('DataService', function($http) {
 		return $http.get('/api/items/', { cache: true })
 	}
 });
-
+/* routes */
 app.config(function ($routeProvider) {
 	$routeProvider
 	.when('/', {
@@ -192,6 +192,7 @@ app.config(function ($routeProvider) {
 	});
 });
 
+/* controllers */
 app.controller('LayoutController', function($scope, $location) {
 	$scope.test='test-element';
 	$scope.characterId = window.sessionStorage.getItem('characterId');

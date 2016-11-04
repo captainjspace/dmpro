@@ -1,65 +1,59 @@
-<div id="classes-cont" ng-controller="ClassesController">
-
-    <div id="classes-hdr">
+<div id="classes-containert" ng-controller="ClassesController">
+    <div id="classes-header">
       <hr>
       <h3> Character Classes </h3>
       <hr>
     </div>
 
-    <div layout="column">
+    <div layout="column" class="classes-content">
       <md-tabs md-dynamic-height="true">
-
-      <div ng-repeat-start="(class, details) in characterClasses">
-      </div>
+        <div ng-repeat-start="(class, details) in characterClasses"></div>
         <md-tab label="{{class}}">
-    <table class="races">
-      <tr>
-        <td><img class="max100" src="img/{{ details.className.toLowerCase() || class.toLowerCase()}}.jpg">
-        <td>
-          <table class="character">
-            <tr><td>{{class}} {{ details.className.toLowerCase() || class.toLowerCase()}}</td></tr>
-            <tr><td> Hit Die: {{details.hitDie.dieType}} </td></tr>
-            <tr><td nowrap> Max Hit Dice: {{ details.maxHitDice }}</td></tr>
-            <tr ng-repeat="xp in details.xpBonusRequirements">
-              <td > XP Bonus Requires: {{ xp.attributeName }} &gt; {{xp.minVal }}</td>
-            </tr>
-            <tr><td nowrap>
-                    Hit Points per Level after Max:{{details.hitPointPerLevelAfterMax}}<br>
-                    Starting Proficiencies: {{details.startingProficiencies}}<br>
-                    New Proficiency 1 per {{details.newProficienyPerLevel}} levels<br>
-                    Non-proficiency to hit penalty: {{details.nonProficiencyPenalty}}</td></tr>
-          </table>
-        </td>
+          <md-content>
+            <div layout="row">
 
-        <td nowrap>
-            <span ng-repeat="(k,v) in details.classAbilities">
-              <span ng-if="!$first"><br></span>
-              ({{$index+1}}) {{ v.INSTANCE.ability.abilityName}} <br>
-              {{ v.INSTANCE.description}}
-              <small>
-              <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
-              <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
-              <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
-            </small>
-            </span>
-        </td>
-        <td nowrap>
-            <span ng-repeat="(k,v) in details.classAttribute">
-
-              {{ v.description }} <br>
-
-            </span>
-        </td>
-      </tr>
-    </table>
-  </md-tab>
-<div ng-repeat-end>
-</div>
-<md-tab label="JSON">
-    <pre>{{ characterClasses | json }}</pre>
-</md-tab>
-</md-tabs>
+              <div flex>
+                <img class="max100" src="img/{{ details.className.toLowerCase() || class.toLowerCase()}}.jpg">
+              </div>
+              <div flex>
+                <table class="character">
+                  <tr><td>{{class}} {{ details.className.toLowerCase() || class.toLowerCase()}}</td></tr>
+                  <tr><td> Hit Die: {{details.hitDie.dieType}} </td></tr>
+                  <tr><td nowrap> Max Hit Dice: {{ details.maxHitDice }}</td></tr>
+                  <tr ng-repeat="xp in details.xpBonusRequirements">
+                    <td > XP Bonus Requires: {{ xp.attributeName }} &gt; {{xp.minVal }}</td>
+                  </tr>
+                  <tr><td nowrap>
+                          Hit Points per Level after Max:{{details.hitPointPerLevelAfterMax}}<br>
+                          Starting Proficiencies: {{details.startingProficiencies}}<br>
+                          New Proficiency 1 per {{details.newProficienyPerLevel}} levels<br>
+                          Non-proficiency to hit penalty: {{details.nonProficiencyPenalty}}</td></tr>
+                </table>
+              </div>
+              <div flex>Class Abilities:
+                  <span ng-repeat="(k,v) in details.classAbilities">
+                    <span ng-if="!$first"><br></span>
+                      ({{$index+1}}) {{ v.INSTANCE.ability.abilityName}} <br>
+                      {{ v.INSTANCE.description}}
+                    <small>
+                      <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
+                      <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
+                      <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
+                  </small>
+                </span>
+              </div>
+              <div flex>Class Attributes:
+                <span ng-repeat="(k,v) in details.classAttribute">
+                  {{ v.description }} <br>
+                </span>
+              </div>
+            </div>
+          </md-content>
+       </md-tab>
+       <div ng-repeat-end></div>
+        <md-tab label="JSON">
+            <pre>{{ characterClasses | json }}</pre>
+        </md-tab>
+      </md-tabs>
     </div>
-
-
 </div>

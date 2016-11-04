@@ -46,6 +46,7 @@ public class ReferenceDataSet implements Runnable {
 	private RaceClassAgeLoader raceClassAgeLoader;
 	private Map<RaceType,Race> race= new HashMap<RaceType, Race>();
 	private Map<CharacterClassType, CharacterClass> classes = new HashMap<CharacterClassType, CharacterClass>();
+	private ClassWeaponProficiencyLoader classWeaponProficiencyLoader;
 	
 
 
@@ -75,6 +76,8 @@ public class ReferenceDataSet implements Runnable {
 		attributeLoader = new AttributeLoader();
 		raceClassAgeLoader = new RaceClassAgeLoader();
 		raceSizeLoader = new RaceSizeLoader();
+		classWeaponProficiencyLoader = new ClassWeaponProficiencyLoader();
+		
 		loadMaps();
 		isReady = true;
 	}
@@ -268,5 +271,12 @@ public class ReferenceDataSet implements Runnable {
 		items.addAll(getArmorTableLoader().getArmorItems());
 		items.addAll(getStandardItemLoader().getStandardItems());
 		return items;
+	}
+
+	/**
+	 * @return the classWeaponProficiencyLoader
+	 */
+	public ClassWeaponProficiencyLoader getClassWeaponProficiencyLoader() {
+		return classWeaponProficiencyLoader;
 	}
 }

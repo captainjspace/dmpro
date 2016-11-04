@@ -12,7 +12,7 @@ Crossbow, Hand	BOWCLASS	300 gp	3	30	S	—	5			2	4	6	PHB
 Crossbow, Heavy	BOWCLASS	50 gp	14	140	M	—	10			8	16	24	PHB
 Crossbow, Light	BOWCLASS	35 gp	7	70	M	—	7			6	12	18	PHB
 Dagger	DAGGER	2 gp	1	10	S	P	2	1d4	1d3				PHB
-Dart	MISSILE	5 sp	0.5	5	S	P	2	1d3	1d2	1	2	3	PHB
+Dart	DART	5 sp	0.5	5	S	P	2	1d3	1d2	1	2	3	PHB
 Dirk	DAGGER	2 gp	1	10	S	P	2	1d4	1d3				PHB
 Flail, Footman's	FLAIL	15 gp	15	150	M	B	7	1d6+1	2d4				PHB
 Flail, Horseman's	FLAIL	8 gp	5	50	M	B	6	1d4+1	1d4+1				PHB
@@ -52,11 +52,11 @@ Quarrel, Light	MISSILE	1 sp	0.1	1	S	P	1	1d4	1d4				PHB
 Quarterstaff	STAFF	0 cp	4	40	L	B	4	1d6	1d6				PHB
 Scourge	POLEARMCLASS	1 gp	2	20	S	—	5	1d4	1d2				PHB
 Sickle	POLEARMCLASS	6 sp	3	30	S	S	4	1d4+1	1d4				PHB
-Sling	BOWCLASS	5 sp	10	100		B	1						PHB
+Sling	SLING	5 sp	10	100		B	1						PHB
 Sling Bullet	MISSILE	5 cp	0.2	2	S	B	1	1d4+1	1d6+1	5	10	20	PHB
 Sling Stone	MISSILE	0 cp	0.1	1	S	B	1	1d4	1d4	4	8	16	PHB
 Spear	SPEAR	8 sp	5	6	M	P	6	1d6	1d6	1	2	3	PHB
-Staff Sling	STAFF	2 gp	22	220	MS	—B	11						PHB
+Staff Sling	SLING	2 gp	22	220	MS	—B	11						PHB
 Staff Sling Bullet	MISSILE	5 cp	0.2	2	S	B	1/2	2d4	2d4+1		6	9	PHB
 Staff Sling Stone	MISSILE	0 cp	0.1	1	S	B	1/2	1d8	2d4		6	9	PHB
 Sword, Bastard	ONEHANDEDSWORD	25 gp	10	100	M	S	6	2d4	2d8				PHB

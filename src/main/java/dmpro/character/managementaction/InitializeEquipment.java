@@ -26,6 +26,9 @@ import dmpro.character.Character;
 public class InitializeEquipment implements ManagementAction {
 	private double afterValue;
 	@Override
+	/**
+	 * Initial prototype interaction for socket client.
+	 */
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		List<Item> cart = new ArrayList<Item>();
 		output.format("\n-----------Welcome to the Keep on the Borderlands %s------------\n", character.getName());

@@ -24,12 +24,13 @@ import dmpro.character.race.Race;
  *   </li>
  *   <li> Generate or acquire character history - optional </li>
  *   <li> ? Modification - changing of character class (i.e., Bard construction )</li>
+ *   <li> After initial build things get fuzzy - move to ManagementActions </li> 
  *  </ul>
  *  <p>
  *  
  * @author Joshua Landman, joshua.s.landman@gmail.com
  * @version 0.1;
- *
+ *@see dmpro.character.managementaction.CharacterManagementActions
  */
 public interface CharacterBuilder {
 	void buildCharacterInitialize();

@@ -14,8 +14,8 @@
 		<dropwizard.version>0.9.1</dropwizard.version>
 		<mainClass>dmpro.core.Application</mainClass>
 		<maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <dropwizard.java8.version>${project.version}</dropwizard.java8.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<dropwizard.java8.version>${project.version}</dropwizard.java8.version>
 	</properties>
 
 	<name>Dungeon Master Pro</name>
@@ -86,7 +86,7 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.2.4</version>
-			<scope>provided</scope>
+			<!--<scope>provided</scope> -->
 		</dependency>
 
 		<dependency>
@@ -105,13 +105,20 @@
 			<artifactId>kafka-streams</artifactId>
 			<version>0.10.0.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
 	</dependencies>
 
 
 	<build>
 		<plugins>
 
-			<plugin> 
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>

@@ -31,6 +31,9 @@ import dmpro.character.classes.CharacterClassType;
 public class InitializeCharacter implements ManagementAction {
 
 	@Override
+	/**
+	 * initial implementation for socket based client
+	 */
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		int goldCoins = 0;
 		for (CharacterClass characterClass : character.getClasses().values()) {
@@ -43,7 +46,7 @@ public class InitializeCharacter implements ManagementAction {
 	}
 	
 	/**
-	 * Initialize Character Level, Modifiers and Starting Coins
+	 * Initialize Character Level, Modifiers and Starting Coins for Rest API
 	 * TODO: double save unnecessary
 	 * @param character
 	 * @return

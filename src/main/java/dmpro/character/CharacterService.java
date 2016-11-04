@@ -176,18 +176,21 @@ public class CharacterService implements Runnable, ResourceLoader {
 	public Character getCharacter(String characterId) {
 		// need to offer a reference
 		Character character = null;
-		if (!characters.containsKey(characterId)) {
+		if (characters.containsKey(characterId)) {
 			logger.log(Level.INFO, "Retrieveing " + characterId + " from character map");
 			return characters.get(characterId);
 		} else {
 			//lazyload
 			character = loadCharacter(characterId);
-			characters.put(character.characterId, character);
+			
 			if (character == null)
 				logger.log(Level.WARNING, "Character " + characterId + " does not exist: Check Id, and Directories");
+			else 
+				characters.put(character.characterId, character);
 			//probably throw exception to create character or evaluate id, config
 		}
-		return character;
+		if (character != null) return character;
+		else throw new RuntimeException(characterId + " does not exist - Can't get it");
 	}
 	
 	/**
@@ -220,9 +223,7 @@ public class CharacterService implements Runnable, ResourceLoader {
 
 	private Character processManagementActions(Character character) {
 		CharacterManagementActions characterManagementAction;
-	
-		while (!character.getRequiredActions().isEmpty())
-		{
+		while (!character.getRequiredActions().isEmpty()) {
 		    characterManagementAction = character.getRequiredActions().remove(0);
 			logger.log(Level.INFO, "executing managementAction " + characterManagementAction);
 			ManagementAction action = characterManagementAction.getManagementAction();
@@ -270,10 +271,11 @@ public class CharacterService implements Runnable, ResourceLoader {
 			System.out.println(load.getFirstName());
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "File not Found: " + file +
-					" Character not loaded CharacterId:" + characterId, e);
+					" Character not loaded CharacterId:" + characterId);
+			return null;
 		}
 		if (!characters.containsKey(load.getCharacterId())) {
-			logger.log(Level.INFO, "Succcessfully loaded characterId:" + characterId, characterId);
+			logger.log(Level.INFO, "Successfully loaded characterId:" + characterId, characterId);
 			characters.put(load.getCharacterId(), load);
 		} else {
 			//log warning - already loaded character may be modified

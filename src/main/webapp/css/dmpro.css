@@ -22,6 +22,25 @@ body md-select-menu, body md-content{
 md-select {
     display: inline-block;
 }
+md-content {
+  background-color: inherit;
+}
+/* https://github.com/angular/material/issues/913 */
+/*md-tabs {  // Based on earlier post, required to allow scrolling internal tab content
+  display: flex;
+  flex-direction: column;
+}
+.md-tabs-content {  // Based on earlier post, required to get `.md-header` to show correct 'tabs' height
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.md-tab-content { // New style adjustment with flex direction set to row to allow tab contents to flex the horizontal space as well as overflow-y to allow tab content to scroll
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow-y: scroll;
+}*/
 button.blue {
   background-color:blue;
 }
@@ -199,6 +218,10 @@ span.center-olde {
   font-family: Olde;
   font-size:10pt;
   text-align: center;
+}
+span.link {
+  color: blue;
+  text-decoration: underline;
 }
 .center-big {
   font-size:11pt;

@@ -10,17 +10,17 @@
     <thead>
       <th> Cart </th>
       <th>Name</th>
-      <th>Cost</th>
       <th>Type</th>
+      <th>Cost</th>
       <th>Encumbrance <br> (in gp)</th>
       <th>Damage S/M | L</th>
     </thead>
     <tbody>
       <tr ng-repeat="weapon in items | filter : { itemType : 'WEAPON'} | orderBy : '+weaponType' | filter : { itemName : weaponSearch }">
-        <td ng-click="addToCart(weapon)"> Buy </td>
+        <td ng-click="addToCart(weapon)"><span class="link">Buy</span></td>
         <td> {{ weapon.itemName }} </td>
-        <td> {{ weapon.itemValue }}, {{weapon.itemCurrency }} </td>
         <td> {{ weapon.weaponType }} </td>
+        <td> {{ weapon.itemValue }} ({{weapon.itemCurrency }}) </td>
         <td> {{ weapon.itemEncumbrance }} </td>
         <td> {{ weapon.damageMap.M }} | {{ weapon.damageMap.L }} <span ng-if="!weapon.damageMap.L"> see Arrow or Bolt |</span></td>
       </tr>
@@ -34,7 +34,7 @@
 </md-input-container>
 <table>
 <thead>
-  <th> Cart </th>
+  <th>Cart</th>
   <th>Name</th>
   <th>Cost</th>
   <th>Armor Class </th>
@@ -43,7 +43,7 @@
 </thead>
 <tbody>
   <tr ng-repeat="armor in items | filter : { itemType : 'ARMOR'} | orderBy : '+armorType' | filter : { itemName : armorSearch }">
-    <td ng-click="addToCart(armor)"> Buy </td>
+    <td ng-click="addToCart(armor)"> <span class="link"> Buy </span></td>
     <td> {{ armor.itemName }} </td>
     <td> {{ armor.itemValue }}, {{armor.itemCurrency }} </td>
     <td> {{ armor.armorClass }} </td>
@@ -62,16 +62,16 @@
   <thead>
     <th>Cart</th>
     <th>Name</th>
-    <th>Cost</th>
     <th>Type</th>
+    <th>Cost</th>
     <th>Encumbrance <br> (in gp)</th>
   </thead>
   <tbody>
     <tr ng-repeat="std in items | filter : { itemType : 'STANDARD'} | orderBy : '+standardItemType' | filter : { itemName : itemSearch }">
-      <td ng-click="addToCart(std)"> Buy </td>
+      <td ng-click="addToCart(std)"><span class="link">Buy</span></td>
       <td> {{ std.itemName }} </td>
-      <td> {{ std.itemValue }}, {{std.itemCurrency }} </td>
       <td> {{ std.standardItemType }} </td>
+      <td> {{ std.itemValue }}, {{std.itemCurrency }} </td>
       <td> {{ std.itemEncumbrance }} </td>
     </tr>
   </tbody>

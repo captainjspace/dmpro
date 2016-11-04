@@ -1,46 +1,39 @@
-<div id="race-cont"> <!-- ng-controller="RaceController"> -->
-
+<div id="race-container"> <!-- ng-controller="RaceController"> -->
   <div id="race-hdr">
     <hr>
     <h3> Races</h3>
     <hr>
   </div>
-
-  <div layout="column" id="race-table">
+  <div id="race-content">
     <md-tabs md-dynamic-height="true">
-
-    <div ng-repeat-start="(key,value) in races">
-    </div>
+      <div ng-repeat-start="(key,value) in races"></div>
       <md-tab label="{{key}}">
-          <table class="races">
-            <!--<tr ng-repeat="(key,value) in races">-->
-            <tr>
-              <td><img class="max100" src="{{raceImages[key]}}"></td>
-              <td>
-                  <span ng-repeat="(k,v) in value.raceAbilities">
-                    <span ng-if="!$first"><br></span>
-                    ({{$index+1}})
-                    {{ v.INSTANCE.description}}, {{ v.INSTANCE.ability.abilityName}}
-                    <small>
-                    <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
-                    <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
-                    <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
-                  </small>
-                  </span>
-              </td>
-              <td>
-                  <span ng-repeat="(k,v) in value.raceAttributes">
-
-                    {{ v.description }} <br>
-
-                  </span>
-              </td>
-            </tr>
-          </table>
-        </md-tab>
-      <div ng-repeat-end>
-      </div>
-    </md-tabs>
-      </div>
+        <md-content>
+          <div layout="row" class="races">
+            <div flex>
+              <img class="max100" src="{{raceImages[key]}}">
+            </div>
+            <div flex>
+              <span ng-repeat="(k,v) in value.raceAbilities">
+                <span ng-if="!$first"><br></span>
+                ({{$index+1}})
+                {{ v.INSTANCE.description}}, {{ v.INSTANCE.ability.abilityName}}
+                <small>
+                  <span ng-if="v.INSTANCE.modifier"><br>Bonus: {{v.INSTANCE.modifier}}</span>
+                  <span ng-if="v.INSTANCE.modifierFormula"><br>Formula:{{v.INSTANCE.modifierFormula}}</span>
+                  <span ng-if="v.ability.abilityDie"><br>Die:{{ v.INSTANCE.ability.abilityDie}} </span>
+                </small>
+              </span>
+            </div>
+            <div flex>
+              <span ng-repeat="(k,v) in value.raceAttributes">
+                {{ v.description }} <br>
+              </span>
+            </div>
+          </div> <!-- end flex row -->
+        </md-content>
+    </md-tab>
+    <div ng-repeat-end></div>
+   </md-tabs>
   </div>
 </div>

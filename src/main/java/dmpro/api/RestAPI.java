@@ -1,6 +1,7 @@
 package dmpro.api;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -194,6 +195,29 @@ public class RestAPI {
 		return Response.status(200).entity(result).build();
 	}
 
+	@GET
+	@Produces("application/json")
+	@Path("/character/{characterId}/select-proficiencies")
+	public Response getPossibleProficiencies(@PathParam("characterId") String characterId) {
+		String result="";
+		int status=200;
+		Character c = null;
+		
+		if (!initialized) init();
+		try {
+		  c = characterService.getCharacter(characterId);
+		} catch ( RuntimeException e) {
+			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
+		}
+		Map <String,Object> proficiencyData = new HashMap<String,Object>();
+		proficiencyData.put("CurrentProficiencies", c.getProficiencies());
+		proficiencyData.put("ProficiencySlots", c.getProficiencySlots());
+		proficiencyData.put("ProfienciesAllowed", referenceDataSet.getClassWeaponProficiencyLoader().getAllowedWeaponTypes(c.getClasses().values()));
+		result = gson.toJson(proficiencyData);
+		return Response.status(status).entity(result).build();
+	}
+	
+	
 	//@Path("/character/{characterId}/select-race/{raceType}")
 	@PUT
 	@Produces("application/json")
@@ -237,6 +261,7 @@ public class RestAPI {
 		return Response.status(200).entity(result).build();
 	}
 
+	
 	/*
 	 * SPELLS API
 	 *
@@ -360,13 +385,21 @@ public class RestAPI {
 	public Response getDataForCart(@PathParam("characterId") String characterId) {
 		if (!initialized) init();
 		List<Item> items = referenceDataSet.getAllItems();
-		Character c = characterService.getCharacter(characterId);
+		
+		Character c = null;
+		try {
+		  c = characterService.getCharacter(characterId);
+		} catch ( RuntimeException e) {
+			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
+		}
+		
 		Map<CoinType, CoinItem> coinMap = c.getCoinnage();
 		Map<String,Object> shopData = new HashMap<String,Object>();
 		shopData.put("Items", items);
 		shopData.put("Wallet", coinMap);
 		return Response.status(200).entity(gson.toJson(shopData)).build();
 	}
+	
 
 	
 	/*

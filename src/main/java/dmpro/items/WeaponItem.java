@@ -25,7 +25,9 @@ public class WeaponItem extends Item {
 		FLAIL(10, "Flails, and whips and all chainy things",1, WeaponClass.MELEE),
 		MACE(11, "Mace, Club and One-handed crushy stuff!",1, WeaponClass.MELEE),
 		STAFF(12, "No Mage should be without his trusty Staff!",2, WeaponClass.MELEE),
-		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!",1,WeaponClass.MISSILE);
+		MISSILE(13,"Darts and Blowguns, Shurikens and Thrown Chickens!",1,WeaponClass.MISSILE),
+		SLING(13,"Sling shots and Wrist Rockets!",2,WeaponClass.MISSILE),
+		DART(13,"Lawn Darts!",1,WeaponClass.MISSILE);
 		
 		int weaponTypeIndex;
 		String weaponTypeDescription;
