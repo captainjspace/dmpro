@@ -42,6 +42,7 @@ import dmpro.data.loaders.RaceAttributeLoader.ListPossibleRaceResults;
 import dmpro.items.CoinItem;
 import dmpro.items.CoinItem.CoinType;
 import dmpro.items.Item;
+import dmpro.items.Cart;
 import dmpro.serializers.CharacterGsonService;
 /**
  * @author Joshua Landman, joshua.s.landman@gmail.com
@@ -217,9 +218,70 @@ public class RestAPI {
 		return Response.status(status).entity(result).build();
 	}
 	
-	
-	//@Path("/character/{characterId}/select-race/{raceType}")
-	@PUT
+
+        
+	@POST
+	@Produces("application/json")
+	@Path("/character/{characterId}/submit-cart")
+	@Consumes("application/json")
+	public Response submitCart(@PathParam("characterId") String characterId, String cartJSON) {
+	    String result="";
+	    int status = 200;
+	    Character c = null;
+
+	    if (!initialized) init();
+
+	    /* test for valid characterId */
+	    try {
+		  c = characterService.getCharacter(characterId);
+	    } catch ( RuntimeException e) {
+			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
+	    }
+
+	    /* get cart to object */
+	    Cart cart = null;
+	    try {
+		cart = gson.fromJson(cartJSON, Cart.class);
+	    } catch (Exception e) {
+		return Response.status(400).entity(gson.toJson(e.getMessage())).build();
+	    }
+
+	    try {
+		  c = characterService.getCharacter(characterId);
+		} catch ( RuntimeException e) {
+			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
+		}
+
+
+	    //this will consolidate coins in inventory
+	    Map<CoinType, CoinItem> coinMap = c.getCoinnage();
+
+	    for(Item item: cart.getItems()) {
+		int cost = item.getItemValue() * item.getItemCount();
+		CoinItem coinItem  = coinMap.get(item.getItemCurrency());
+		/* if we have enough cash, add to inventory and decrement coins */
+		if (coinItem.getItemValue() > cost) {
+		    c.addToInventory(item);
+		    coinItem.setItemCount(coinItem.getItemValue() - cost);
+		    coinMap.put(item.getItemCurrency(), coinItem);
+		} else {
+		    //handle conversion from one currency to another
+		    // or deny transaction 
+		}
+	    }
+
+	    //submit coins back to character
+	    c.setCoinnage(coinMap);
+
+	    //save character
+	    characterService.saveCharacter(c);
+
+	    return Response.status(status).entity(gson.toJson(c)).build();
+
+	}
+
+
+        @PUT
 	@Produces("application/json")
 	@Path("/savecharacter")
 	@Consumes("application/json")

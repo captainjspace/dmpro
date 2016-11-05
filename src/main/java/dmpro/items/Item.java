@@ -182,13 +182,6 @@ public abstract class Item implements Comparable<Item>, Modifiable {
 	}
 
 	/**
-	 * @param itemCount the count to set
-	 */
-	public void setCount(int itemCount) {
-		this.itemCount = itemCount;
-	}
-
-	/**
 	 * @param itemCount the itemCount to set
 	 */
 	public void setItemCount(int itemCount) {

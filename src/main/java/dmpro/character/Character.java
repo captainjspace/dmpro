@@ -829,23 +829,32 @@ public class Character implements Modifiable {
 	public void setSlottedItems(SlottedItems slottedItems) {
 		this.slottedItems = slottedItems;
 	}
-	
-	public Map<CoinType, CoinItem> getCoinnage() {
-		Map<CoinType,CoinItem> coinMap = new HashMap<CoinType, CoinItem>(); 
-				getInventory().stream()
-				.filter( p -> p.getItemType() == ItemType.COINS)
-				.map(p -> (CoinItem)p)
-				.collect(Collectors.groupingBy(CoinItem::getCoinType, 
-								Collectors.summingInt(CoinItem::getItemCount)))
-				.forEach( (k,v) -> coinMap.put(k, new CoinItem(k,v)));
-		return coinMap;
 
+    /**
+     * @param coinMap - map of all characters coins
+     */
+    public void setCoinnage(Map<CoinType,CoinItem> coinMap) {
+	//remove coins add map
+	List<Item> inventory  = getInventory().stream().filter( p -> p.getItemType() != ItemType.COINS).collect(Collectors.toList());
+	inventory.addAll(coinMap.values());
+	this.setInventory(inventory);	
+    }
 
-		//				List<CoinItem> coins = character.getInventory().stream()
-		//						.filter( p -> p.getItemType() == ItemType.COINS)
-		//						.map(p -> (CoinItem)p)
-		//						.collect(Collectors.toList());
-	}
+    public Map<CoinType, CoinItem> getCoinnage() {
+	Map<CoinType,CoinItem> coinMap = new HashMap<CoinType, CoinItem>(); 
+	getInventory().stream()
+	    .filter( p -> p.getItemType() == ItemType.COINS)
+	    .map(p -> (CoinItem)p)
+	    .collect(Collectors.groupingBy(CoinItem::getCoinType, 
+					   Collectors.summingInt(CoinItem::getItemCount)))
+	    .forEach( (k,v) -> coinMap.put(k, new CoinItem(k,v)));
+
+	//consolidate coins in inventory
+	this.setCoinnage(coinMap);
+					
+	return coinMap;
+		
+    }
 	
 	public ProficiencyData getProficiencySlots() {
 		int proficiencySlots = 0;
