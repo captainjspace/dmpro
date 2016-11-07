@@ -1,4 +1,4 @@
-package dmpro.world;
+package dmpro.serializers;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ import com.google.gson.reflect.TypeToken;
 
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.Modifier;
-import dmpro.serializers.GSonModifierListAdapter;
 import dmpro.world.Location;
 
 //TODO - this does not work - need to get it sorted - also need to add deserialize

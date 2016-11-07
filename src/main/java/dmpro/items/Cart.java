@@ -33,4 +33,9 @@ public class Cart {
 	}
 	
 
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		items.stream().map(p -> sb.append(p.toString()).append("\n"));
+		return sb.toString();
+	}
 }

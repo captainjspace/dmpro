@@ -1,6 +1,7 @@
 package dmpro.serializers;
 
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -27,9 +28,11 @@ public class CharacterGsonService {
 //		
 		Type abilityModifierType = new TypeToken<List<AbilityModifier>>(){}.getType();
 		Type setModifierType = new TypeToken<Set<Modifier>>(){}.getType();
+		Type colItemType = new TypeToken<Collection<Item>>(){}.getType();
 		builder.setPrettyPrinting();
 		//builder.registerTypeAdapter(CharacterClass.class, new ICharacterClassAdapter());
 		builder.registerTypeAdapter(abilityModifierType, new GSonModifierListAdapter());
+		builder.registerTypeAdapter(colItemType, new GsonItemCollectionAdapter());
 		builder.registerTypeAdapter(Item.class, new GSonItemAdapter());
 		builder.registerTypeAdapter(Modifier.class, new GSonModifierAdapter());
 		builder.registerTypeAdapter(setModifierType, new GsonModifierSetAdapter());

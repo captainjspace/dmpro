@@ -105,9 +105,9 @@ public class RestAPI {
 	public Response initializeCharacter(@PathParam("characterId") String characterId) {
 		if (!initialized) init();
 		CharacterManagementActions cma;
-		
+
 		Character c = characterService.getCharacter(characterId);
-		
+
 		/*** Processing this action ***/
 		int i = c.getRequiredActions().indexOf(CharacterManagementActions.INITIALIZECHARACTER);
 		boolean success = false;
@@ -131,7 +131,7 @@ public class RestAPI {
 		} else {
 			response = response + " does not have an initialized action requirement";
 		}
-		
+
 		int responseCode = (success) ? 200 : 422;
 		return Response.status(responseCode).entity(gson.toJson(response)).build();
 	}
@@ -203,10 +203,10 @@ public class RestAPI {
 		String result="";
 		int status=200;
 		Character c = null;
-		
+
 		if (!initialized) init();
 		try {
-		  c = characterService.getCharacter(characterId);
+			c = characterService.getCharacter(characterId);
 		} catch ( RuntimeException e) {
 			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
 		}
@@ -217,71 +217,67 @@ public class RestAPI {
 		result = gson.toJson(proficiencyData);
 		return Response.status(status).entity(result).build();
 	}
-	
 
-        
+
+
 	@POST
 	@Produces("application/json")
 	@Path("/character/{characterId}/submit-cart")
 	@Consumes("application/json")
 	public Response submitCart(@PathParam("characterId") String characterId, String cartJSON) {
-	    String result="";
-	    int status = 200;
-	    Character c = null;
+		String result="";
+		int status = 200;
+		Character c = null;
+		logger.log(Level.INFO,characterId);
+		logger.log(Level.INFO, cartJSON);
+		if (!initialized) init();
 
-	    if (!initialized) init();
-
-	    /* test for valid characterId */
-	    try {
-		  c = characterService.getCharacter(characterId);
-	    } catch ( RuntimeException e) {
-			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
-	    }
-
-	    /* get cart to object */
-	    Cart cart = null;
-	    try {
-		cart = gson.fromJson(cartJSON, Cart.class);
-	    } catch (Exception e) {
-		return Response.status(400).entity(gson.toJson(e.getMessage())).build();
-	    }
-
-	    try {
-		  c = characterService.getCharacter(characterId);
+		/* test for valid characterId */
+		try {
+			c = characterService.getCharacter(characterId);
 		} catch ( RuntimeException e) {
 			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
 		}
 
-
-	    //this will consolidate coins in inventory
-	    Map<CoinType, CoinItem> coinMap = c.getCoinnage();
-
-	    for(Item item: cart.getItems()) {
-		int cost = item.getItemValue() * item.getItemCount();
-		CoinItem coinItem  = coinMap.get(item.getItemCurrency());
-		/* if we have enough cash, add to inventory and decrement coins */
-		if (coinItem.getItemValue() > cost) {
-		    c.addToInventory(item);
-		    coinItem.setItemCount(coinItem.getItemValue() - cost);
-		    coinMap.put(item.getItemCurrency(), coinItem);
-		} else {
-		    //handle conversion from one currency to another
-		    // or deny transaction 
+		/* get cart to object */
+		Cart cart = null;
+		try {
+			cart = gson.fromJson(cartJSON, Cart.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
 		}
-	    }
 
-	    //submit coins back to character
-	    c.setCoinnage(coinMap);
+		logger.log(Level.INFO, "Character: " + c.getCharacterId() + "Cart:\n" + cart.toString());
+		//this will consolidate coins in inventory
+		Map<CoinType, CoinItem> coinMap = c.getCoinnage();
 
-	    //save character
-	    characterService.saveCharacter(c);
+		for(Item item: cart.getItems()) {
+			int cost = item.getItemValue() * item.getItemCount();
+			CoinItem coinItem  = coinMap.get(item.getItemCurrency());
+			/* if we have enough cash, add to inventory and decrement coins */
+			if (coinItem.getItemValue() > cost) {
+				c.addToInventory(item);
+				coinItem.setItemCount(coinItem.getItemValue() - cost);
+				coinMap.put(item.getItemCurrency(), coinItem);
+			} else {
+				//handle conversion from one currency to another
+				// or deny transaction 
+			}
+		}
 
-	    return Response.status(status).entity(gson.toJson(c)).build();
+		//submit coins back to character
+		c.setCoinnage(coinMap);
+
+		//save character
+		characterService.saveCharacter(c);
+
+		return Response.status(status).entity(gson.toJson(c)).build();
 
 	}
 
 
-        @PUT
+	@PUT
 	@Produces("application/json")
 	@Path("/savecharacter")
 	@Consumes("application/json")
@@ -323,13 +319,13 @@ public class RestAPI {
 		return Response.status(200).entity(result).build();
 	}
 
-	
+
 	/*
 	 * SPELLS API
 	 *
 	 *
 	 */
-	
+
 	@GET
 	@Produces("application/json")
 	@Path("/spells/{spellName}")
@@ -432,7 +428,7 @@ public class RestAPI {
 		//return Response.status(200).entity(referenceDataSet.getClasses()).build();
 	}
 
-	
+
 	@GET
 	@Produces("application/json")
 	@Path("/items")
@@ -440,30 +436,30 @@ public class RestAPI {
 		if (!initialized) init();
 		return Response.status(200).entity(gson.toJson(referenceDataSet.getAllItems())).build();
 	}
-	
+
 	@GET
 	@Produces("application/json")
 	@Path("/character/{characterId}/items")
 	public Response getDataForCart(@PathParam("characterId") String characterId) {
 		if (!initialized) init();
 		List<Item> items = referenceDataSet.getAllItems();
-		
+
 		Character c = null;
 		try {
-		  c = characterService.getCharacter(characterId);
+			c = characterService.getCharacter(characterId);
 		} catch ( RuntimeException e) {
 			return Response.status(400).entity(gson.toJson(e.getMessage())).build();
 		}
-		
+
 		Map<CoinType, CoinItem> coinMap = c.getCoinnage();
 		Map<String,Object> shopData = new HashMap<String,Object>();
 		shopData.put("Items", items);
 		shopData.put("Wallet", coinMap);
 		return Response.status(200).entity(gson.toJson(shopData)).build();
 	}
-	
 
-	
+
+
 	/*
 	 * TESTING CONNECTIVITY API
 	 */

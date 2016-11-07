@@ -411,6 +411,7 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 		}
 
 		$scope.characterId = window.sessionStorage.getItem('characterId');
+
 		$http.get('/api/character/' + $scope.characterId + '/items').then(function(response) {
 	    $scope.data = response.data;
 			$scope.items = $scope.data.Items;
@@ -435,6 +436,7 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 		}
 		$scope.removeFromCart = function(index) {
 			$scope.cartItems.splice(index,1);
+			$scope.count.splice(index,1);
 			$scope.saveCart();
 			$scope.updateCartTotals();
 		}
@@ -443,6 +445,23 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 			window.sessionStorage.setItem('Count', JSON.stringify($scope.count));
 		}
 
+    $scope.purchaseCart = function() {
+			//add count to cart items
+			//console.log($scope.cartItems);
+			for (var i; i<$scope.cartItems.length; i++) {
+				$scope.cartItems[i].itemCount = $scope.count[i];
+			}
+			//package for POJO/.
+			var cart = {};
+			cart.items = $scope.cartItems;
+			console.log(JSON.stringify($scope.cartItems));
+
+			$http.post('/api/character/' + $scope.characterId + '/submit-cart', cart)
+			.then(function(response) {
+	      $scope.character = response.data;
+			  //$location.path ('/character/'+ $routeParams.characterId);
+	    }, function (response) { console.log(response.data)});
+		}
 	});
 </script>
 </html>

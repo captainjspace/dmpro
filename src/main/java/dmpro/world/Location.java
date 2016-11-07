@@ -25,6 +25,7 @@ import dmpro.modifier.Modifier;
 import dmpro.modifier.Modifier.ModifierPriority;
 import dmpro.modifier.Modifier.ModifierSource;
 import dmpro.modifier.Modifier.ModifierType;
+import dmpro.serializers.GsonLocationAdapter;
 
 /**
  * @author Joshua Landman, joshua.s.landman@gmail.com

@@ -117,7 +117,7 @@
 
 	<build>
 		<plugins>
-
+<!-- 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -129,6 +129,8 @@
 					<compilerVersion>1.8.0_101</compilerVersion>
 				</configuration>
 			</plugin>
+-->
+			
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>2.4.1</version>
