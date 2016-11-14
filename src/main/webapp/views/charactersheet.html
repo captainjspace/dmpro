@@ -1,4 +1,4 @@
-<div layout="row" id="character-container" class="container" ng-controller="CharacterController">
+<div id="character-container" class="container" ng-controller="CharacterController">
   <!-- -->
   <!--
   <md-tabs md-selected="selectedIndex">
@@ -221,34 +221,41 @@
   </div> <!-- End Attributes Container -->
 
 
-    <div id="inventory-cont" class="container">
+  <div layout="column" id="inventory-cont" class="container">
 
-      <div id="gear">
-        <hr>
-        <h3>Inventory &amp; Equipment</h3>
-        <hr>
-      </div>
+    <div id="gear">
+      <hr>
+      <h3>Inventory &amp; Equipment</h3>
+      <hr>
+    </div>
 
-        <div id="inventory" class="content">
+    <div layout="column" id="inventory" class="content">
+      <div flex>
         <h4> Weapon Proficiencies </h4>
         <ul>
           <!-- index required for dupes - when specialized -->
           <li ng-repeat="weaponType in character.proficiencies track by $index">
-              {{weaponType}}
+            {{weaponType}}
           </li>
         </ul>
+      </div>
+      <div flex>
         <h4> Single Slot Equipment </h4>
         <ul>
           <li ng-repeat="(slotKey, item) in character.slottedItems.slots">
             {{slotKey}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} )
           </li>
         </ul>
+      </div>
+      <div flex>
         <h4>Equipped Items </h4>
         <ul>
           <li ng-repeat="(index, item) in character.equippedItems">
             {{index+1}} -- {{item.INSTANCE.itemName}} (Type: {{ item.INSTANCE.itemType }}, Magic: {{ item.INSTANCE.isMagic}} ) | Encumbrance: {{ item.INSTANCE.itemEncumbrance}}
           </li>
         </ul>
+      </div>
+      <div flex>
         <h4> Inventory </h4>
         <ul>
           <li ng-repeat="(index, item) in character.inventory">
@@ -258,6 +265,7 @@
         </ul>
       </div>
     </div>
+  </div>
 
 
 

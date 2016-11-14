@@ -24,13 +24,13 @@ import dmpro.items.Item;
  * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Nov 7, 2016
  */
-public class GsonItemCollectionAdapter implements JsonDeserializer<Collection<Item>>, 
-JsonSerializer<Collection<Item>> {
+public class GsonItemCollectionAdapter implements JsonDeserializer<List<? extends Item>>, 
+JsonSerializer<List<? extends Item>> {
 	private static final String CLASSNAME = "CLASSNAME";
 	private static final String INSTANCE="INSTANCE";
 
 	@Override
-	public JsonElement serialize(Collection<Item> src, Type typeOfSrc, JsonSerializationContext context) {
+	public JsonElement serialize(List<? extends Item> src, Type typeOfSrc, JsonSerializationContext context) {
 		JsonArray jArray = new JsonArray();
 		JsonObject listElement;
 		for (Item a : src) {
@@ -46,7 +46,7 @@ JsonSerializer<Collection<Item>> {
 	}
 
 	@Override
-	public Collection<Item> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+	public List<Item> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 
 		List<Item> items = new ArrayList<Item>();
 		JsonArray jArray = null;

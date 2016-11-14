@@ -37,14 +37,30 @@
 
 <!-- cloaking hides template -->
 <body class="dmpro" ng-controller="LayoutController" ng-cloak>
+<div layout="row" flex>
 
+<!--
+  <div flex=10>
+	<md-sidenav md-component-id="left" class="md-sidenav-left">
+		 Left Nav!
+		 {{ test-element }}
+	 </md-sidenav>
+ </div>
+ -->
+
+
+  <div flex>
 <div id="header" ng-controller="CharacterListController">
-		<h1>Dungeon Master Pro Character Sheet </h1>
+		<h1 ng-click="go('/')">Dungeon Master Pro Character Sheet </h1>
+		<!-- Character Management Menu -->
 		<div id="menu">
 			<md-menu-bar>
 			  <md-menu md-offset="0 0">
 			    <button ng-click="$mdOpenMenu()"><span class="menu-bar">Character</span></button>
 			    <md-menu-content width="400px" ng-controller="CharacterListController">
+						<md-menu-item>
+								<md-button ng-click="go('/')">Home</md-button>
+						</md-menu-item>
 						<md-menu-item>
 								<md-button ng-click="go('/create-character')">Create New ...</md-button>
 						</md-menu-item>
@@ -78,14 +94,16 @@
 			    </md-menu-content>
 			  </md-menu>
 			</md-menu-bar>
-		</div>
-</div>
+		</div> <!-- end menu bar -->
+</div> <!-- end header -->
+
 <!-- Add your site or application content here -->
-<md-sidenav md-component-id="left" class="md-sidenav-left">
-	 Left Nav!
-	 {{ test-element }}
- </md-sidenav>
+
 <div ng-view></div>
+
+
+</div>
+</div>
 
 <!-- unused part of boilerplate -->
 <script src="js/plugins.js"></script>
@@ -411,14 +429,16 @@ app.controller('CreateCharacterFormController', function($scope,$http, $location
 		}
 
 		$scope.characterId = window.sessionStorage.getItem('characterId');
-
+    console.log($scope.characterId);
 		$http.get('/api/character/' + $scope.characterId + '/items').then(function(response) {
 	    $scope.data = response.data;
 			$scope.items = $scope.data.Items;
 			$scope.wallet = $scope.data.Wallet;
 	  });
 
-
+		$scope.setSearch = function(search) {
+			$scope.weaponSearch = search;
+		}
 		$scope.addToCart = function(item) {
 			var x=-1;
 			x = $scope.cartItems.indexOf(item);

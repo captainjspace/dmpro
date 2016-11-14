@@ -98,46 +98,49 @@ public class Character implements Modifiable {
 	
 	Race race;
 	Map<CharacterClassType,CharacterClass> classes = new HashMap<CharacterClassType,CharacterClass>();
-	
-	//alignment
-	Alignment alignment;
-	
-	CombatStatistics combatStats;
-	//level data
-	int maxHitPoints;
-	//int armorClass = 10;
-	
-	//active effects.
-	List<Modifier> activeModifiers = new ArrayList<Modifier>();
-	
-	//change later -- list of actions -- add spells, choose proficiencies, equip character, visit pc shop,etc.
-	List<CharacterManagementActions> requiredActions = new ArrayList<CharacterManagementActions>();
 	List<Language> languages = new ArrayList<Language>();
 	
-	List<Item> inventory = new ArrayList<Item>();
 	
-	//need slots for certain equipment
-	//also all equippedItems must be from inventory..
-	List<Item> equippedItems = new ArrayList<Item>();
-	SlottedItems slottedItems = new SlottedItems();
+	/* Class impacts possible alignment */
+	//TODO: create data table for rule
+	Alignment alignment;
 	
-	//Saving Throws
-	//determined by level and class, race, and modifiers
-	Map<SavingThrowType,SavingThrow> savingThrowMap = new HashMap<SavingThrowType,SavingThrow>();
+	
+	/* Movement and Encumbrance */
+	long movementRate;; //to be calced at runtime
+	int encumbranceState; //modifies movementRate
+	
+	/* Combat */
 	List<WeaponType> proficiencies = new ArrayList<WeaponType>();
+	CombatStatistics combatStats;
+	int maxHitPoints;
+	int currentHitPoints;
+	
+	
+	/* Saving Throws - determined by level and class, race, and modifiers */
+	Map<SavingThrowType,SavingThrow> savingThrowMap = new HashMap<SavingThrowType,SavingThrow>();
+	
+	/* active effects */
+	List<Modifier> activeModifiers = new ArrayList<Modifier>();
+	
+	/* Queue of Executable actions */
+	List<CharacterManagementActions> requiredActions = new ArrayList<CharacterManagementActions>();
+	
+	/* Character inventory */
+	List<Item> inventory = new ArrayList<Item>();  //general inventory
+	List<Item> equippedItems = new ArrayList<Item>(); //equipped
+	SlottedItems slottedItems = new SlottedItems();  //limited equipped
+	
+	// probably remove thsi
 	List<ProtectionItem> protections = new ArrayList<ProtectionItem>();
 	
 	//TODO: Move spells to Spell Casters...
 	List<Spell> spellBook = new ArrayList<Spell>();
 	List<Spell> dailySpells = new ArrayList<Spell>();
 	
-	//Movement and Encumbrance
-	long movementRate;; //to be calced at runtime
-	int encumbranceState; //modifies movementRate
 	
 	AdventureParty currentAdventureParty;
 	Environment currentEnvironment;
-	
 	
 	public Character(){
 	}
@@ -184,114 +187,6 @@ public class Character implements Modifiable {
 		}
 	}
 	/* End Spell Methods */
-	
-//	//Move to modifier engine
-//	public void processAttributeModifiers() {
-//		// get all attribute active modifiers
-//		if (DEBUG) System.out.println("PROCESSING ATTRIBUTE MODIFIERS:");
-//		List<Attribute> attributes = new ArrayList<Attribute>();
-//		attributes.addAll( Arrays.asList(strength,intelligence,wisdom, 
-//				dexterity, constitution, charisma) );
-//
-//		List <AttributeModifier> activeAttributeModifiers = new ArrayList<AttributeModifier>();
-//		activeAttributeModifiers.addAll(race.getRaceAttributes());
-//
-//		//modify base level attribute first then other things...could use priorities and sorts
-//		for (AttributeModifier am : activeAttributeModifiers) {
-//			if (DEBUG) System.out.println(am.getDescription());
-//			if (am.modifiesAbilityScore()) {
-//				for (Attribute a : attributes) {
-//					if (DEBUG) System.out.println("Checking Modifiers" + ":" + a.getClass().getName() + 
-//							":" + am.getAttributeToModify().getName());
-//					if ( a.getClass() == am.getAttributeToModify()) {
-//						//Review Me
-//						a.addAttributeModifier(am);
-//						List<AttributeModifier> amSave = a.getAttributeModifiers();
-//						a.setModifiedAbilityScore(a.getModifiedAbilityScore() + am.getBonus());
-//						setAttribute(a,am, amSave);
-//
-//					}
-//				}
-//			} else {
-//				//handle second tier.
-//			}
-//		}
-//	}
-
-	
-	//refactor me & move to modifier engine
-//	public void setAttribute (Attribute a,AttributeModifier am, List<AttributeModifier> amSave) {
-//		AttributeLoader al;
-//		System.out.println( a.getClass().getName() );
-//		if (a.getClass() == Strength.class) {
-//			al = new StrengthLoader();
-//			int temp = a.getAbilityScore();
-//			Strength s = (Strength) al.getRecord(a.getModifiedAbilityScore());
-//			s.setAbilityScore(temp);
-//			s.addAttributeModifier(am);
-//		}
-//		else if ( a.getClass() == Intelligence.class) {
-//			al = new IntelligenceLoader();
-//			int temp = a.getAbilityScore();
-//			Intelligence s = (Intelligence) al.getRecord(a.getModifiedAbilityScore());
-//			s.setAbilityScore(temp);
-//			s.addAttributeModifier(am);
-//		}
-//		else if ( a.getClass() == Wisdom.class) {
-//			al = new WisdomLoader();
-//			int temp = a.getAbilityScore();
-//			Wisdom s = (Wisdom) al.getRecord(a.getModifiedAbilityScore());
-//			s.setAbilityScore(temp);
-//			s.addAttributeModifier(am);
-//		}
-//		else if ( a.getClass() == Dexterity.class) {
-//			al = new DexterityLoader();
-//			int abSave = a.getAbilityScore(), modSave = a.getModifiedAbilityScore();
-//			dexterity = (Dexterity) al.getRecord(a.getModifiedAbilityScore());
-//			dexterity.setAbilityScore(abSave);
-//			dexterity.setModifiedAbilityScore(modSave);
-//			//dexterity.addAttributeModifier(am);
-//			if (!amSave.isEmpty()) amSave.stream().forEach (amSv -> dexterity.addAttributeModifier(amSv));
-//		}
-//		else if ( a.getClass() == Constitution.class) {
-//			al = new ConstitutionLoader();
-//			int abSave = a.getAbilityScore(), modSave = a.getModifiedAbilityScore();
-//			Constitution s = (Constitution) al.getRecord(a.getModifiedAbilityScore());
-//			s.setAbilityScore(abSave);
-//			s.setModifiedAbilityScore(modSave);
-//			s.addAttributeModifier(am);
-//		}
-//		else if ( a.getClass() == Charisma.class) {
-//			al = new CharismaLoader();
-//			int temp = a.getAbilityScore();
-//			Charisma s = (Charisma) al.getRecord(a.getModifiedAbilityScore());
-//			s.setAbilityScore(temp);
-//			s.addAttributeModifier(am);
-//		}
-//	}
-	
-	//TODO: move to modifier engine
-	public void processAbilityModifiers() {
-		
-		//List<AbilityModifier> activeAbilityModifiers = new ArrayList<AbilityModifier>();
-//		activeAbilityModifiers.addAll(race.getRaceAbilities());
-		activeModifiers.addAll(race.getRaceAbilities());
-		for (CharacterClass cc : classes.values()) {
-			activeModifiers.addAll(cc.getClassAbilities());
-		}
-		/**
-		activeModifiers.addAll(
-				(Collection<? extends AbilityModifier>) classes.entrySet().stream().map(p -> p.getValue().getClassAbility()).collect(Collectors.toList())
-				);
-				*/
-		//add equiped weaopns
-		//add magic items
-		//add active spell effects
-//		
-//		for (AbilityModifier am: activeAbilityModifiers) {
-//			
-//		}
-	}
 	
 	//move to CharacterLevelingManager
 //	public void setHitPoints() {
@@ -407,16 +302,7 @@ public class Character implements Modifiable {
 	public void setWisdom(Attribute wisdom) {
 		this.wisdom = (Wisdom)wisdom;
 	}
-//	public int getModifiedDexterity() {
-//		int dex = this.getDexterity().getAbilityScore();
-//		for (AttributeModifier am : race.getRaceAttributes()){
-//			if ( am.getClass() == Dexterity.class) {
-//				System.out.println("Modifying Dexterity);");
-//				dex += am.getBonus();
-//			}
-//		}
-//		return dex;
-//	}
+
 	public Dexterity getDexterity() {
 		return dexterity;
 	}
@@ -573,8 +459,10 @@ public class Character implements Modifiable {
  	//specialization and double for Fighters?
 
 
+	/* Attribute Accessibility Helper Functions */
+	
 	/**
-	 * Attribute Helper Functions
+	 * Attribute[] getAttributes
 	 * @return dmpro.attributes.Attribute[]
 	 */
 	public Attribute[] getAttributes() {
@@ -588,14 +476,15 @@ public class Character implements Modifiable {
 			attributesMap.put(a.attributeName.toLowerCase(), a);
 		return attributesMap;
 	}
-    public void initializeModifiedAbilityScores() {
-    	if (strength.modifiedAbilityScore == -1) { strength.modifiedAbilityScore = strength.abilityScore; }
-    	if (intelligence.modifiedAbilityScore == -1) { intelligence.modifiedAbilityScore = intelligence.abilityScore; }
-    	if (wisdom.modifiedAbilityScore == -1) { wisdom.modifiedAbilityScore = wisdom.abilityScore; }
-    	if (constitution.modifiedAbilityScore == -1) { constitution.modifiedAbilityScore = constitution.abilityScore; }
-    	if (dexterity.modifiedAbilityScore == -1) { dexterity.modifiedAbilityScore = dexterity.abilityScore; }
-    	if (charisma.modifiedAbilityScore == -1) { charisma.modifiedAbilityScore = charisma.abilityScore; }
-    }
+	
+	public void initializeModifiedAbilityScores() {
+		if (strength.modifiedAbilityScore == -1) { strength.modifiedAbilityScore = strength.abilityScore; }
+		if (intelligence.modifiedAbilityScore == -1) { intelligence.modifiedAbilityScore = intelligence.abilityScore; }
+		if (wisdom.modifiedAbilityScore == -1) { wisdom.modifiedAbilityScore = wisdom.abilityScore; }
+		if (constitution.modifiedAbilityScore == -1) { constitution.modifiedAbilityScore = constitution.abilityScore; }
+		if (dexterity.modifiedAbilityScore == -1) { dexterity.modifiedAbilityScore = dexterity.abilityScore; }
+		if (charisma.modifiedAbilityScore == -1) { charisma.modifiedAbilityScore = charisma.abilityScore; }
+	}
 	
 	/**
 	 * @param strength the strength to set
@@ -830,6 +719,8 @@ public class Character implements Modifiable {
 		this.slottedItems = slottedItems;
 	}
 
+	
+	/* Inventory Helper/Accesibility Functions */
     /**
      * @param coinMap - map of all characters coins
      */
@@ -866,5 +757,37 @@ public class Character implements Modifiable {
 	    		hasFighter = true;
 	    }
 	    return new ProficiencyData(hasFighter,proficiencySlots);
+	}
+
+
+	/**
+	 * @return the playerId
+	 */
+	public long getPlayerId() {
+		return playerId;
+	}
+
+
+	/**
+	 * @param playerId the playerId to set
+	 */
+	public void setPlayerId(long playerId) {
+		this.playerId = playerId;
+	}
+
+
+	/**
+	 * @return the currentHitPoints
+	 */
+	public int getCurrentHitPoints() {
+		return currentHitPoints;
+	}
+
+
+	/**
+	 * @param currentHitPoints the currentHitPoints to set
+	 */
+	public void setCurrentHitPoints(int currentHitPoints) {
+		this.currentHitPoints = currentHitPoints;
 	}
 }

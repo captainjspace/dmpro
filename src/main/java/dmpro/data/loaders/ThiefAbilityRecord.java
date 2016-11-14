@@ -15,6 +15,8 @@ public class ThiefAbilityRecord implements TSVData {
 	float climbWalls;
 	float readLanguages;
 	
+	public ThiefAbilityRecord() {}
+	
 	public ThiefAbilityRecord(String[] fields) {
 		
 		this.experienceLevel = Integer.parseInt(fields[0]);

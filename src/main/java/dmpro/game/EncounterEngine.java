@@ -16,7 +16,7 @@ public class EncounterEngine {
 	Loot loot;
 	
 	public EncounterEngine() {
-		// TODO Auto-generated constructor stub
+		// TODO generate planned or random encounter
 	}
 
 }

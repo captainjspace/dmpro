@@ -17,6 +17,7 @@ public class AddCharacterBackground implements ManagementAction {
 	
 	public Character execute(Character character, String jsonInput) {
 		//Get Character History - set string 
+		
 		return character;
 	}
 

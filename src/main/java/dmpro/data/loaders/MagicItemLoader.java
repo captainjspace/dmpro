@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 import dmpro.items.Item;
 import dmpro.items.MagicItem;
 import dmpro.modifier.*;
+import dmpro.serializers.CharacterGsonService;
 import dmpro.serializers.GSonItemAdapter;
 import dmpro.serializers.GSonModifierAdapter;
 
@@ -108,6 +109,10 @@ public class MagicItemLoader implements ResourceLoader {
 		System.out.println("MagicItemLoader");
 		MagicItemLoader magicItemLoader = new MagicItemLoader();
 		magicItemLoader.load();
+		dmpro.character.Character c= new dmpro.character.Character();
+		magicItemLoader.getMagicItems().stream().forEach( p -> c.addToInventory(p));
+		Gson gson = CharacterGsonService.getCharacterGson();
+		System.out.println(gson.toJson(c));
 		//System.out.println(magicItemLoader.getMagicItem("ring of dexterity").toString());
 	}
 

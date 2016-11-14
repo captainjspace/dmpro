@@ -30,13 +30,13 @@ public class GSonModifierListAdapter implements JsonSerializer<List<Modifier>>
 	 */
 	@SuppressWarnings("rawtypes")
 	private static Map<String, Class> map = new TreeMap<String, Class>();
-	static {
-		map.put("Modifier", Modifier.class);
-		map.put("AbilityModifier", AbilityModifier.class);
-		map.put("SavingThrowModifier", SavingThrowModifier.class);
-		map.put("AttributeModifier", AttributeModifier.class);
-		map.put("SpellEffectModifier", SpellEffectModifier.class);
-	}
+//	static {
+//		map.put("Modifier", Modifier.class);
+//		map.put("AbilityModifier", AbilityModifier.class);
+//		map.put("SavingThrowModifier", SavingThrowModifier.class);
+//		map.put("AttributeModifier", AttributeModifier.class);
+//		map.put("SpellEffectModifier", SpellEffectModifier.class);
+//	}
 
 	private static final String CLASSNAME = "CLASSNAME";
 	private static final String INSTANCE="INSTANCE";

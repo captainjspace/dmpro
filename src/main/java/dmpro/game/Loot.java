@@ -7,5 +7,5 @@ import dmpro.items.Item;
 
 public interface Loot {
 	List<Item> search();
-	void addToParty(AdventureParty adevntureParty);
+	void addToParty(AdventureParty adventureParty);
 }

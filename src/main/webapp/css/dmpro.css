@@ -25,6 +25,9 @@ md-select {
 md-content {
   background-color: inherit;
 }
+div.classes {
+  min-height:400px;
+}
 /* https://github.com/angular/material/issues/913 */
 /*md-tabs {  // Based on earlier post, required to allow scrolling internal tab content
   display: flex;
@@ -269,7 +272,7 @@ ul.attribute {
 }
 ul.no-bullet {
   list-style-type: none;
-  text-indent: 
+  text-indent:
 }
 ul.required-action {
   color: red;

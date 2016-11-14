@@ -12,6 +12,8 @@ import dmpro.character.classes.CharacterClassType;
 
 public class InitializeProficiencies implements ManagementAction {
 
+	
+	/* command line client initial dialog */
 	@Override
 	public Character execute(Character character, Server application, Scanner input, Formatter output) {
 		int initialProficiencySlots = 0;

@@ -14,7 +14,7 @@ public class CombatLoop implements Runnable {
 	private List<CombatAction> combatActions;
 	
 	public void run() {
-		//while encounter exists
+		//while encounter active
 		//while monster is not dead
 		//execute initiative
 		//execute combat actions in queue

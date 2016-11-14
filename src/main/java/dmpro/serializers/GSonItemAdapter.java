@@ -1,5 +1,6 @@
 package dmpro.serializers;
 import java.lang.reflect.Type;
+import java.util.List;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -10,15 +11,18 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import dmpro.items.Item;
-import dmpro.modifier.Modifier;
 
-public class GSonItemAdapter  implements JsonSerializer<Item>, JsonDeserializer<Item> {
+import dmpro.items.Item;
+import dmpro.data.loaders.*;
+
+
+public class GSonItemAdapter implements JsonSerializer<Item>, JsonDeserializer<Item> {
 	private static final String CLASSNAME = "CLASSNAME";
 	private static final String INSTANCE="INSTANCE";
 	@Override
 	public JsonElement serialize(Item src, Type typeOfSrc, JsonSerializationContext context) {
 		JsonObject result = new JsonObject();
+		System.out.println(src);
 		result.add(CLASSNAME, new JsonPrimitive(src.getClass().getName()));
 		result.add(INSTANCE, context.serialize(src, src.getClass())); 
 		return result;

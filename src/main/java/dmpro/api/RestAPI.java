@@ -47,6 +47,8 @@ import dmpro.serializers.CharacterGsonService;
 /**
  * @author Joshua Landman, joshua.s.landman@gmail.com
  * created on Oct 20, 2016
+ * 
+ * Porkbarrel of API calls, to be microserviced out later.
  */
 
 

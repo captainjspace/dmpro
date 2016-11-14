@@ -90,12 +90,22 @@ public class Thief extends CharacterClass {
 		
 	}
 
-//	public void processExperience(int i) {
-//		super.processExperience(i);;
-//		this.processThiefAbility();
-//	}
 	void processThiefAbility() {
 		ThiefAbilityTableLoader tat = new ThiefAbilityTableLoader();
 		thiefAbilityRecord = tat.getRecord(this.getExperienceLevel());
+	}
+
+	/**
+	 * @return the thiefAbilityRecord
+	 */
+	public ThiefAbilityRecord getThiefAbilityRecord() {
+		return thiefAbilityRecord;
+	}
+
+	/**
+	 * @param thiefAbilityRecord the thiefAbilityRecord to set
+	 */
+	public void setThiefAbilityRecord(ThiefAbilityRecord thiefAbilityRecord) {
+		this.thiefAbilityRecord = thiefAbilityRecord;
 	}
 }

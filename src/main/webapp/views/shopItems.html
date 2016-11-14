@@ -4,7 +4,7 @@
     <md-tab label="Weapons">
     <md-input-container>
       <label>Weapon Search</label>
-      <input type="text" ng-model="weaponSearch">
+      <input id="search" type="text" ng-model="weaponSearch">
     </md-input-container>
   <table>
     <thead>
@@ -22,7 +22,8 @@
         <td> {{ weapon.weaponType }} </td>
         <td> {{ weapon.itemValue }} ({{weapon.itemCurrency }}) </td>
         <td> {{ weapon.itemEncumbrance }} </td>
-        <td> {{ weapon.damageMap.M }} | {{ weapon.damageMap.L }} <span ng-if="!weapon.damageMap.L"> see Arrow or Bolt |</span></td>
+        <td> {{ weapon.damageMap.M }} | {{ weapon.damageMap.L }} <span ng-if="!weapon.damageMap.L"
+          ng-click="setSearch('Arrow')"> see Arrow or Quarrel |</span></td>
       </tr>
     </tbody>
   </table>
