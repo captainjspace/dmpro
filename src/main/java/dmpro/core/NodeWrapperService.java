@@ -11,6 +11,8 @@ import java.util.logging.Logger;
  * just trying to make the server aware that node is running and that node is shutdown in concert
  * with other systems - even if I sent an Ctrl + c
  * 
+ * using jetty at now.
+ * 
  * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */

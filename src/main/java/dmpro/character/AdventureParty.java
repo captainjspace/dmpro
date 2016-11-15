@@ -25,6 +25,7 @@ public class AdventureParty implements Modifiable{
     String partyName;
     AdventureModule m = null;
     String location;
+    List<String> adventureRecords = new ArrayList<String>(); //reference to history records of party activity
 
     public AdventureParty() {
     }

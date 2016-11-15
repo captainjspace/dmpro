@@ -11,7 +11,12 @@ public class UpdateExperience implements ManagementAction {
 
 	@Override
 	public Character execute(Character character, Server application, Scanner input, Formatter output){
-		// TODO Auto-generated method stub
+		
+		return character;
+	}
+	
+	public Character execute(Character character, Server application, int xp) {
+		character = application.getCharacterService().getXpProcessor());
 		return character;
 	}
 
