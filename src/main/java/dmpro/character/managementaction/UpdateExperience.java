@@ -16,7 +16,7 @@ public class UpdateExperience implements ManagementAction {
 	}
 	
 	public Character execute(Character character, Server application, int xp) {
-		character = application.getCharacterService().getXpProcessor());
+		//application.getCharacterService().getXpProcessor();
 		return character;
 	}
 
