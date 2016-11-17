@@ -129,6 +129,8 @@
 </body>
 
 <script type="text/javascript">
+//generic functions
+
 
 //angular modules to be moved to app.module.js
 
@@ -220,6 +222,12 @@ app.controller('LayoutController', function($scope, $location) {
 });
 
 app.controller('CharacterController', function($scope,$http,$location,$routeParams) {
+	//should move to generic functions service
+	$scope.displayAsPercent = function displayAsPercent (a) {
+		if (!isNaN(a)) {
+			return (a * 100).toFixed(0) + '%';
+		} else return a;
+	};
 	console.log($routeParams.characterId);
 	$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
 		$scope.character = response.data;

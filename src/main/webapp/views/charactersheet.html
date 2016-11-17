@@ -124,7 +124,7 @@
           <td>To Hit:{{character.strength.hitProbabilityModifier}}</td>
           <td>Dmg Adj: {{character.strength.damageAdjustmentModifier}}</td>
           <td>Open Doors: {{character.strength.openDoorDieRoll}} ({{character.strength.doorDie}})
-          <td>Bend Bars: {{character.strength.bendBarsLiftGates}}</td>
+          <td>Bend Bars: {{displayAsPercent(character.strength.bendBarsLiftGates)}}</td>
           <!--
           <td>
             <ul class="attribute">
@@ -138,7 +138,7 @@
 
           <td>Intelligence: {{character.intelligence.modifiedAbilityScore}}</td>
           <td>Additional Languages : {{character.intelligence.bonusLanguageModifier}}</td>
-          <td>% Know Spell: {{character.intelligence.percentKnowSpell}}</td>
+          <td>% Know Spell: {{displayAsPercent(character.intelligence.percentKnowSpell)}}</td>
           <td>Min Spells: {{character.intelligence.minSpellLevel}}</td>
           <td>Max Spells: {{character.intelligence.maxSpellLevel}}</td>
           <!--
@@ -156,7 +156,7 @@
             <td>Wisdom {{character.wisdom.modifiedAbilityScore}}</td>
             <td>Magical Attack Adjustment: {{character.wisdom.magicalAttackAdjustment}} </td>
             <td>Spell Bonus: {{character.wisdom.bonusSpells}} </td>
-            <td>% Spell Failure: {{character.wisdom.percentSpellFailure}}</td>
+            <td>% Spell Failure: {{displayAsPercent(character.wisdom.percentSpellFailure)}}</td>
             <!--
             <td>
               <ul class="attribute">
@@ -188,8 +188,8 @@
           <tr>
             <td>Constitution: {{character.constitution.modifiedAbilityScore}}</td>
             <td>Hit Point Adj: {{character.constitution.hitPointAdjustment}}</td>
-            <td>System Shock: {{character.constitution.systemShock}}</td>
-            <td>Resurrection Survival: {{character.constitution.resurrectionSurvival}}
+            <td>System Shock: {{displayAsPercent(character.constitution.systemShock)}}</td>
+            <td>Resurrection Survival: {{displayAsPercent(character.constitution.resurrectionSurvival)}}
               <!--
             <td>
               <ul class="attribute">
@@ -203,9 +203,9 @@
 
           <tr>
             <td>Charisma: {{character.charisma.modifiedAbilityScore}}</td>
-            <td>Max Henchmane: {{character.charisma.maxHenchmen}}</td>
-            <td>Loyalty Base: {{character.charisma.loyaltyBase}}</td>
-            <td>Reaction Adj: {{character.charisma.reactionAdjustment}}</td>
+            <td>Max Henchmen: {{character.charisma.maxHenchmen}}</td>
+            <td>Loyalty Base: {{displayAsPercent(character.charisma.loyaltyBase)}}</td>
+            <td>Reaction Adj: {{displayAsPercent(character.charisma.reactionAdjustment)}}</td>
             <!--
             <td>
               <ul class="attribute">

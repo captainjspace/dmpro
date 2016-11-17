@@ -3,7 +3,7 @@ package dmpro.attributes;
 public class Charisma extends Attribute {
 	
 	static final int fieldCount = 4;
-	int maxHenchment;
+	int maxHenchmen;
 	float loyaltyBase;
 	float reactionAdjustment;
 	int awePowerHitDice; //gods and demi-gods only, not mortals
@@ -12,16 +12,16 @@ public class Charisma extends Attribute {
 		attributeType = AttributeType.CHARISMA;
 		attributeName = "Charisma";
 		abilityScore = Integer.parseInt(fields[0].trim());
-		this.maxHenchment = Integer.parseInt(fields[1].trim());
+		this.maxHenchmen = Integer.parseInt(fields[1].trim());
 		this.loyaltyBase = Float.parseFloat(fields[2].trim());
 		this.reactionAdjustment = Float.parseFloat(fields[3].trim());
 	}
 	
-	public int getMaxHenchment() {
-		return maxHenchment;
+	public int getMaxHenchmen() {
+		return maxHenchmen;
 	}
-	public void setMaxHenchment(int maxHenchment) {
-		this.maxHenchment = maxHenchment;
+	public void setMaxHenchmen(int maxHenchment) {
+		this.maxHenchmen = maxHenchment;
 	}
 	public float getLoyaltyBase() {
 		return loyaltyBase;
@@ -44,7 +44,7 @@ public class Charisma extends Attribute {
 
 	@Override
 	public String toString() {
-		return "Charisma [maxHenchment=" + maxHenchment + ", loyaltyBase=" + loyaltyBase + ", reactionAdjustment="
+		return "Charisma [maxHenchment=" + maxHenchmen + ", loyaltyBase=" + loyaltyBase + ", reactionAdjustment="
 				+ reactionAdjustment + "]";
 	}
 	
