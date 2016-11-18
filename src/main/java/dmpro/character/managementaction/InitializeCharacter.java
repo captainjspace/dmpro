@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.logging.Level;
 
+import java.util.logging.Logger;
 
 import dmpro.character.Character;
 import dmpro.character.CharacterService;
@@ -29,6 +30,7 @@ import dmpro.character.classes.CharacterClassType;
  */
 
 public class InitializeCharacter implements ManagementAction {
+	private Logger logger = Logger.getLogger(this.getClass().getName());
 
 	@Override
 	/**
@@ -56,17 +58,20 @@ public class InitializeCharacter implements ManagementAction {
 		CharacterService characterService = application.getCharacterService();
 		ReferenceDataSet referenceDataSet = application.getReferenceDataSet();
 		CharacterClassType cct;
+		logger.log(Level.INFO, "Initialize Character Execute");
 		try {
 			cct = character.getClasses().keySet().stream().findFirst().get();
 		} catch (NoSuchElementException e) {
 			throw new RuntimeException("Character Class Not Assigned");
 		}
-		
-		character.setAge(referenceDataSet.getRaceClassAgeLoader().getAge(character.getRace().getRaceType(),
-																 cct));
-		character.setHeight(referenceDataSet.getRaceSizeLoader().getHeight(character.getRace().getRaceType()));
-		character.setWeight(referenceDataSet.getRaceSizeLoader().getWeight(character.getRace().getRaceType()));
-		
+
+		if ( character.getAge() == 0) {
+			character.setAge(referenceDataSet.getRaceClassAgeLoader().getAge(character.getRace().getRaceType(),
+					cct));
+			character.setHeight(referenceDataSet.getRaceSizeLoader().getHeight(character.getRace().getRaceType()));
+			character.setWeight(referenceDataSet.getRaceSizeLoader().getWeight(character.getRace().getRaceType()));
+		}
+
 		character = characterService.initCharacter(character);
 		//additional management actions 
 		character = CharacterManagementActions.UPDATESAVINGTHROWS.getManagementAction().execute(character, application);

@@ -61,21 +61,39 @@ public class XPProcessor {
 	public void addExperiencePoints(int newXPpoints) {
 
 		//support multiclass
-		int classCount = character.getClasses().size();
+		int classCount = this.character.getClasses().size();
 		int xpToAdd = newXPpoints/classCount;
+		float bonusMultiplier=1.0f;
 
 		//evaluate 10% bonus for each class.
 		//add to xpToAdd
 		//shorten this code
-		for (CharacterClass characterClass : character.getClasses().values()) {
-			float bonusMultiplier = 1;
-			for (XPBonus xpBonus : characterClass.getXPBonusRequirements()) {
-				Integer attributeValue = character.getAttributesAsMap().get(xpBonus.getAttributeName().toLowerCase()).getModifiedAbilityScore();
-				if ( Integer.valueOf(attributeValue) > xpBonus.getMinVal())
-					bonusMultiplier = (float)1.1;
-				else { 
-					bonusMultiplier = (float)1.0; 
-					break; //end as soon as we don't have it
+		int z=0;
+		for (CharacterClass characterClass : this.character.getClasses().values()) {
+			logger.log(Level.INFO, "" + z++ + ":" + characterClass.toString());
+			//if characterClass record is damaged (most likely due to dev work) abort
+			if(characterClass.getCharacterClassType() == null) { 
+				logger.log(Level.INFO, " Null Character Class Type - Skipping ");
+				character.addRequiredAction(CharacterManagementActions.CLASSCLEANUP);
+				continue; 
+			} 
+			bonusMultiplier = (float)1.0;
+//			try {
+//			logger.log(Level.INFO, characterClass.getCharacterClassType().className);
+//			} catch (NullPointerException e) {
+//				logger.log(Level.INFO, "Dirty class record no type: " + characterClass);
+//			}
+			
+			if (!characterClass.getXPBonusRequirements().isEmpty()) {
+				for (XPBonus xpBonus : characterClass.getXPBonusRequirements()) { //you are my null pointer{
+					Integer attributeValue = character.getAttributesAsMap().get(xpBonus.getAttributeName().toLowerCase()).getModifiedAbilityScore();
+					//TODO: review, clean, tertiary
+					if ( Integer.valueOf(attributeValue) > xpBonus.getMinVal())
+						bonusMultiplier = (float)1.1;
+					else { 
+						bonusMultiplier = (float)1.0; 
+						break; //end as soon as we don't have it
+					}
 				}
 			}
 
@@ -90,8 +108,12 @@ public class XPProcessor {
 	
 	public void processExperienceLevel(CharacterClass characterClass) {
 		int currentLevel  = characterClass.getExperienceLevel();
-		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet().getExperienceTableLoader().getRecordByXP(characterClass.getClassName(), characterClass.getExperiencePoints());
-	
+		logger.log(Level.INFO, "Character Class: " + characterClass.getClassName());
+		logger.log(Level.INFO, "Character Class: " + characterClass.getExperiencePoints());
+		ExperienceTableRecord experienceTableRecord = application.getReferenceDataSet()
+				.getExperienceTableLoader().getRecordByXP(characterClass.getClassName(), characterClass.getExperiencePoints());
+//		logger.log(Level.INFO, "Character Class: " + characterClass.getClassName());
+//		logger.log(Level.INFO, "Character Class: " + characterClass.getExperiencePoints());
 		//TODO: implement race checks for max
 		//TODO: implement max 1 level increase and cap XP.
 		if (currentLevel < experienceTableRecord.getExperienceLevel()) {

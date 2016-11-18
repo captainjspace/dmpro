@@ -612,7 +612,10 @@ public class Character implements Modifiable {
 	public List<CharacterManagementActions> getRequiredActions() {
 		return requiredActions;
 	}
+	
+	
 	public void addRequiredAction(CharacterManagementActions characterManagementAction) {
+		if (requiredActions.contains(characterManagementAction)) return;
 		this.requiredActions.add(characterManagementAction);
 	}
 

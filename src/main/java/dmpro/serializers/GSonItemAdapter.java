@@ -22,7 +22,7 @@ public class GSonItemAdapter implements JsonSerializer<Item>, JsonDeserializer<I
 	@Override
 	public JsonElement serialize(Item src, Type typeOfSrc, JsonSerializationContext context) {
 		JsonObject result = new JsonObject();
-		System.out.println(src);
+		//System.out.println(src);
 		result.add(CLASSNAME, new JsonPrimitive(src.getClass().getName()));
 		result.add(INSTANCE, context.serialize(src, src.getClass())); 
 		return result;

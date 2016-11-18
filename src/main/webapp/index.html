@@ -238,7 +238,7 @@ app.controller('CharacterController', function($scope,$http,$location,$routePara
 		$location.path( path );
 	};
 	$scope.execute = function (action) {
-		$http.get('/api/character/'+$routeParams.characterId+'/initialize')
+		$http.get('/api/character/'+$routeParams.characterId+'/managementactions/' + action)
 		.then(function(response) {
 			$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
 				$scope.character = response.data;

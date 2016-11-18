@@ -7,6 +7,8 @@ import java.util.Formatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
@@ -45,7 +47,13 @@ import dmpro.modifier.WeaponSkillModifier.WeaponSkillModifierType;
  * multiple attacks or can use a weapon that allows it.
  */
 public class UpdateCombatStats implements ManagementAction {
+	private Logger logger = Logger.getLogger(this.getClass().getName());
 
+	
+	@Override
+	public Character execute(Character character, Server application) {
+		return this.execute(character,  application, null, null);
+	}
 	/* (non-Javadoc)
 	 * @see dmpro.character.managementaction.ManagementAction#execute(dmpro.character.Character, dmpro.core.Server, java.util.Scanner, java.util.Formatter)
 	 */
@@ -106,7 +114,7 @@ public class UpdateCombatStats implements ManagementAction {
 		
 		
 		/* specialization check for fighters*/
-		character.getClasses().keySet().stream().forEach( p -> System.out.println(p));
+		//character.getClasses().keySet().stream().forEach( p -> System.out.println(p));
 		int nonProficiencyPenalty = 
 				character.getClasses().entrySet().stream()
 				.mapToInt(p -> p.getValue().getNonProficiencyPenalty()).min().orElse(proficiencyPenalty);
@@ -118,11 +126,11 @@ public class UpdateCombatStats implements ManagementAction {
 		.map(w -> (WeaponItem) w)
 		.collect(Collectors.toList());
 		
-		equippedWeapons.stream().forEach( w -> System.out.printf("%s - %s - %s\n", 
-				w.getItemName(), 
-				w.getWeaponType(), 
-				character.getProficiencies().stream().anyMatch(p -> p.equals(w.getWeaponType()))));
-		
+//		equippedWeapons.stream().forEach( w -> System.out.printf("%s - %s - %s\n", 
+//				w.getItemName(), 
+//				w.getWeaponType(), 
+//				character.getProficiencies().stream().anyMatch(p -> p.equals(w.getWeaponType()))));
+//		
 //		
 //				 {
 //			System.out.println("Proficient");
@@ -131,7 +139,7 @@ public class UpdateCombatStats implements ManagementAction {
 //		}
 		
 		if (character.getClasses().containsKey(CharacterClassType.FIGHTER)) {
-			System.out.println("I AM A FIGHTER");
+			logger.log(Level.INFO, "I AM A FIGHTER");
 			//TODO:  think about programming individual classes for different specialization types
 			
 			List<WeaponSkillModifier> specializationMod = 
@@ -154,7 +162,7 @@ public class UpdateCombatStats implements ManagementAction {
 							.filter(s -> p.getWeaponType() == s.getWeaponType()))
 					.collect(Collectors.toList());
 			
-			specializedEquipped.stream().forEach(p -> System.out.println("SpecializedMATCH: " + p.toString()));
+			//specializedEquipped.stream().forEach(p -> System.out.println("SpecializedMATCH: " + p.toString()));
 
 			/* melee specialization */
 			if ( specializedEquipped.size() >= 1) {
@@ -164,7 +172,7 @@ public class UpdateCombatStats implements ManagementAction {
 			//output.format("Specialized to Hit: +%d\tSpecialized Damage: +%d\n", specializedMeleeBonus, specializedDamageBonus);
 			//output.flush();
 		} else {
-			System.out.println("I HAVE NOT FIGHTER IN ME!");
+			logger.log(Level.INFO,"I HAVE NO FIGHTER IN ME!");
 		}
 		
 		/* To hit */

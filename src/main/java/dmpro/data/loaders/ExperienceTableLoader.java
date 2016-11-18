@@ -2,9 +2,12 @@ package dmpro.data.loaders;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ExperienceTableLoader extends TSVLoader implements ResourceLoader {
+	Logger logger = Logger.getLogger(this.getClass().getName());
 	/**
 	 * data container
 	 * needs to interact with individual classes to extend base data table as characters progress to levels/
@@ -19,6 +22,8 @@ public class ExperienceTableLoader extends TSVLoader implements ResourceLoader {
 	}
 	
 	public ExperienceTableRecord getRecordByXP(String characterClass, long experiencePoints) {
+		logger.log(Level.INFO, "INPUTS: " + characterClass + "," + experiencePoints);
+		
 		return
 			this.tsvTable.stream()
 					.map(p -> (ExperienceTableRecord) p)

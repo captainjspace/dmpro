@@ -20,6 +20,7 @@ public enum CharacterManagementActions {
 	ADDCHARACTERBACKGROUND( new AddCharacterBackground()),
 	UPDATETURNUNDEAD(new UpdateTurnUndead()),
 	ACCUMULATEMODIFIERS(new AccumulateModifiers()),
+	CLASSCLEANUP(new ClassCleanUp()),
 	UPDATECOMBATSTATS(new UpdateCombatStats());
 	
 	private ManagementAction managementAction;

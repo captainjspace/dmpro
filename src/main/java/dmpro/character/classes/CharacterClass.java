@@ -352,4 +352,29 @@ public class CharacterClass {
 	public CharacterClassType getCombatClass() {
 		return ( combatClass != null ) ? combatClass : characterClassType;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CharacterClass ["
+				+ (characterClassType != null ? "characterClassType=" + characterClassType + ", " : "")
+				+ (combatClass != null ? "combatClass=" + combatClass + ", " : "")
+				+ (className != null ? "className=" + className + ", " : "") + "experiencePoints=" + experiencePoints
+				+ ", experiencePointsPerLevelAfterMax=" + experiencePointsPerLevelAfterMax + ", experienceLevel="
+				+ experienceLevel + ", hitTableId=" + hitTableId + ", savingThrowTableId=" + savingThrowTableId
+				+ ", hasSpells=" + hasSpells + ", readyForLevelUp=" + readyForLevelUp + ", initialGold=" + initialGold
+				+ ", " + (hitDie != null ? "hitDie=" + hitDie + ", " : "")
+				+ (hitDieHistory != null ? "hitDieHistory=" + hitDieHistory + ", " : "") + "maxHitDice=" + maxHitDice
+				+ ", hitPointPerLevelAfterMax=" + hitPointPerLevelAfterMax + ", startingProficiencies="
+				+ startingProficiencies + ", newProficienyPerLevel=" + newProficienyPerLevel
+				+ ", nonProficiencyPenalty=" + nonProficiencyPenalty + ", "
+				+ (weaponProficiencies != null ? "weaponProficiencies=" + weaponProficiencies + ", " : "")
+				+ (combatRecord != null ? "combatRecord=" + combatRecord + ", " : "")
+				+ (savingThrowRecord != null ? "savingThrowRecord=" + savingThrowRecord + ", " : "")
+				+ (restrictedItems != null ? "restrictedItems=" + restrictedItems + ", " : "")
+				+ (classAbilities != null ? "classAbilities=" + classAbilities + ", " : "")
+				+ (classAttribute != null ? "classAttribute=" + classAttribute + ", " : "")
+				+ (xpBonusRequirements != null ? "xpBonusRequirements=" + xpBonusRequirements : "") + "]";
+	}
 }

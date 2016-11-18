@@ -12,10 +12,11 @@ import java.util.logging.Level;
 
 
 import dmpro.character.Character;
+import dmpro.character.classes.CharacterClass;
 import dmpro.character.CharacterService;
 import dmpro.character.SavingThrow;
 import dmpro.character.SavingThrowType;
-import dmpro.character.classes.CharacterClass;
+
 
 
 /**
@@ -45,12 +46,13 @@ public class UpdateSavingThrows implements ManagementAction {
 	public Character execute(Character character,Server application) {
 		
 		CharacterService characterService = application.getCharacterService();
+		logger.log(Level.INFO, "Updating Character Saving Throws");
 		
 		Map <SavingThrowType, SavingThrow> savingThrowMap = new HashMap<SavingThrowType, SavingThrow>();
-		if (!character.getRequiredActions().isEmpty()) {
-			int i = character.getRequiredActions().indexOf(CharacterManagementActions.UPDATESAVINGTHROWS);
+		//if (!character.getRequiredActions().isEmpty()) {
+			//int i = character.getRequiredActions().indexOf(CharacterManagementActions.UPDATESAVINGTHROWS);
 			//if (i != -1) { //make sure this is required - double check since we checked in API
-				
+			
 				/*loop through classes */
 				for (CharacterClass characterClass : character.getClasses().values()) {
 					//compare saving throws for each class and choose lower.
@@ -61,28 +63,36 @@ public class UpdateSavingThrows implements ManagementAction {
 					/* Loop through all saving throws use SavingThrowRecord helper function */
 					for (SavingThrowType stt : SavingThrowType.values()) {
 						st = new SavingThrow();
-						st.savingThrowType = stt;
+						st.setSavingThrowType(stt);// = stt;
+						//TODO: Null Pointer 
+						logger.log(Level.INFO, "value of stt: "+ stt.name());
+						
+						try {
 						st.setSavingThrowRoll(savingThrowRecord.getBySavingThrowType(stt));
-
+						} catch (NullPointerException e) {
+							logger.log(Level.INFO, "");
+						}
 						if (savingThrowMap.containsKey(stt)) {
 							SavingThrow existing = savingThrowMap.get(stt);
-							if ( existing.getSavingThrowRoll() < st.getSavingThrowRoll() ) continue; //skip we already have a lower value;
+							int currentSave = existing.getSavingThrowRoll();
+							/* make sure we didn't load an empty save map with zeroes */
+							if ( currentSave > 0 && currentSave < st.getSavingThrowRoll() ) continue; //skip we already have a lower value;
 							else savingThrowMap.put(stt, st);
 						} else savingThrowMap.put(stt, st);
 					}
 										
 				} //foreach class
 				
-				//Proceed to SavingThrow Modifiers .
-				try { 
-					character.getRequiredActions().remove(i); //remove action
-				} catch (Exception e) {
-					logger.log(Level.INFO, "did not find update saving throw action -- probably initializong a new character");
-				}
+//				//Proceed to SavingThrow Modifiers .
+//				try { 
+//					character.getRequiredActions().remove(i); //remove action
+//				} catch (Exception e) {
+//					logger.log(Level.INFO, "did not find update saving throw action -- probably initializong a new character");
+//				}
 				character.setSavingThrowMap(savingThrowMap); //add to character
 				character = characterService.saveCharacter(character); //save
 			//} //end of management action
-		}
+		//}
 		return character;
 	}
 }

@@ -16,6 +16,7 @@ public interface ManagementAction {
 	 * @return
 	 */
 	default public  Character execute(Character c, Server application) {
+		java.util.logging.Logger.getLogger(getClass().getName()).log(java.util.logging.Level.WARNING, "interace default called - no execution");
 		return c;
 	};
 

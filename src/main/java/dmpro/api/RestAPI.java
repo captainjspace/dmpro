@@ -5,18 +5,21 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -80,8 +83,11 @@ public class RestAPI {
 	@GET
 	@Produces("application/json")
 	@Path("/allcharacters")
-	public String getCharacters() {
+	public String getCharacters(@DefaultValue("false")@QueryParam("force") String force) {
 		if (!initialized) init();
+		if (!force.equals("false")) {
+			characterService.loadAllCharacters();
+		}
 		return gson.toJson(characterService.getCharacterList());
 	}
 
@@ -104,13 +110,17 @@ public class RestAPI {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/character/{characterId}/initialize")
-	public Response initializeCharacter(@PathParam("characterId") String characterId) {
+	public Response initializeCharacter(
+			@PathParam("characterId") String characterId, 
+			@DefaultValue("false")@QueryParam("force") String force) {
 		if (!initialized) init();
 		CharacterManagementActions cma;
 
 		Character c = characterService.getCharacter(characterId);
 
 		/*** Processing this action ***/
+		if (!force.equals("false")) c.addRequiredAction(CharacterManagementActions.INITIALIZECHARACTER);
+		
 		int i = c.getRequiredActions().indexOf(CharacterManagementActions.INITIALIZECHARACTER);
 		boolean success = false;
 		String response = c.getCharacterId();
@@ -141,13 +151,16 @@ public class RestAPI {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/character/{characterId}/update-saving-throws")
-	public Response updateSavingThrows(@PathParam("characterId") String characterId) {
+	public Response updateSavingThrows(
+			@PathParam("characterId") String characterId,
+			@DefaultValue("false")@QueryParam("force") String force) {
 		if (!initialized) init();
 		CharacterManagementActions cma;
 
 		Character c = characterService.getCharacter(characterId);
 
 		/*** Processing this action ***/
+		if (!force.equals("false")) c.addRequiredAction(CharacterManagementActions.UPDATESAVINGTHROWS);
 		int i = c.getRequiredActions().indexOf(CharacterManagementActions.UPDATESAVINGTHROWS);
 		boolean success = false;
 		logger.log(Level.INFO, "value of i " );
@@ -172,6 +185,95 @@ public class RestAPI {
 
 		int responseCode = (success) ? 200 : 422;
 		return Response.status(responseCode).entity(gson.toJson(response)).build();
+	}
+	
+	
+	/**
+	 * <p>This is a major piece of legistlation right here.
+	 * Bridging the api tot hte concept of invokable management actions
+	 * </p>
+	 * <p> params are obvious - for a character ID execute one fo the requiredActions
+	 * @param characterId
+	 * @param action
+	 * @param force
+	 * @return
+	 */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/character/{characterId}/managementactions/{action}")
+	public Response executeManagementAction(
+			@PathParam("characterId") String characterId,
+			@PathParam("action") String action,
+			@DefaultValue("false")@QueryParam("force") String force) {
+		
+		//control
+		boolean exec = false; //identify action to execute
+		String response = "Empty";
+		int responseCode = 422; //anticipate problems
+		boolean success = false; //action success
+		Character c= null;
+		
+		/* FIND ACTION */
+		CharacterManagementActions cma = null;
+		try {
+			cma = CharacterManagementActions.valueOf(action);
+			exec = true;
+		} catch (IllegalArgumentException |  NullPointerException e) {
+			response = action + " is not a valid enum in CharacterManagementActions";
+			logger.log(Level.INFO,action + " is not a valid enum in CharacterManagementActions");
+			//return Response.status(422).entity(response).build();
+			//honestly if this was assembly code I would JMP but I guess peeps don't like that
+		}
+		
+		logger.log(Level.INFO, "value of exec: " + exec);
+		if (exec) {
+			/* get latest character */
+			if (!initialized) init();
+			try {
+				c = characterService.getCharacter(characterId);
+			} catch (RuntimeException e) {
+				response = action + ":OK But CharacterId: " + characterId + " failed to load";
+				logger.log(Level.INFO, "Bad Characters Id " + characterId, e.getMessage());
+			}
+
+			/* LEGIT CharacterManagementAction and Character ID Provided */
+			/*** Test for Force ***/
+			if (!force.equals("false")) c.addRequiredAction(cma);
+
+			/* collect action for removal */
+			int i = c.getRequiredActions().indexOf(cma);
+
+			/* triple check */
+			if ( i != -1 ) {
+				cma = c.getRequiredActions().remove(i); //removal inside action now.
+				logger.log(Level.INFO, "Removing action required: " + cma.name());
+				ManagementAction mAction = cma.getManagementAction();
+				logger.log(Level.INFO, "Execute " + mAction.getClass().getName());
+				try { 
+					c = mAction.execute(c, this.application);
+					c = characterService.saveCharacter(c);
+					success = true;
+				} catch (RuntimeException e) {
+					logger.log(Level.WARNING, "Problem executing " + mAction.getClass().getName(), e);
+					response = "Character update failed for " + c.getCharacterId();
+				} catch (Exception e) {
+					logger.log(Level.WARNING, "Problem executing " + action + " for character", e);
+					response = response + e.getMessage();
+				}
+			}  else {
+			response = response + " does not have an update saving throw requirement";
+		}
+	} else {
+		logger.log(Level.INFO, "Value of success: " + success);
+			logger.log(Level.INFO, "PLanned response: " + response);
+		}
+
+		if (success) {
+			responseCode = 200;
+			response = gson.toJson(c);
+		}
+		
+		return Response.status(responseCode).entity(response).build();
 	}
 	
 	

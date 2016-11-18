@@ -59,6 +59,7 @@ import dmpro.utils.FileUtils;
  * This service uses JSON format to seriealize and deserialize the character from the file system
  * <p>
  * Could be refactored to use Mongo or key-val store or db.
+ * TODO: Add access to loadAll from disk to DM interface.
  * 
  */
 //@SuppressWarnings("unused")
