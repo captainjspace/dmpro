@@ -175,7 +175,7 @@ public class XPProcessor {
 		logger.log(Level.INFO,  "Class Saving Throw Check");
 		characterClass.setSavingThrow( 
 				application.getReferenceDataSet().getSavingThrowTableLoader()
-				.getRecord(characterClass.getCharacterClassType().className, 
+				.getRecord(characterClass.getCombatClass().className, 
 						characterClass.getExperienceLevel())
 				);
 	}
@@ -184,7 +184,7 @@ public class XPProcessor {
 		logger.log(Level.INFO,  "Class Combat Check : " + characterClass.getCharacterClassType().className + ":" + characterClass.getExperienceLevel());
 		characterClass.setCombatRecord( 
 				application.getReferenceDataSet().getCombatTableLoader()
-				.getRecord(characterClass.getCharacterClassType().className, 
+				.getRecord(characterClass.getCombatClass(), 
 						characterClass.getExperienceLevel())
 				);
 	}

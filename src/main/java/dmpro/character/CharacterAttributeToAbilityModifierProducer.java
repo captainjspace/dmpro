@@ -186,7 +186,18 @@ public class CharacterAttributeToAbilityModifierProducer implements ModifierProd
 			armorClassModifier.setModifier(ac);
 			armorClassModifier.setDescription("Dexterity Armor Class Bonus");
 			modifiers.add(armorClassModifier);
+			
+			//somewhat redundant but may be valuable to distinguish between pure AC and dodging a fireball...
+			SavingThrowModifier savingThrowModifier = new SavingThrowModifier();
+			savingThrowModifier.savingThrowType = SavingThrowType.DODGING;
+			savingThrowModifier.modifierPriority = ModifierPriority.MEDIUM;
+			savingThrowModifier.modifierSource = ModifierSource.ATTRIBUTE;
+			savingThrowModifier.setModifier(ac);
+			savingThrowModifier.setDescription("Dexterity Magic Dodge Bonus");
+			modifiers.add(savingThrowModifier);
+			
 		}	
+		
 		//todo thief bonuses.
 	}
 	

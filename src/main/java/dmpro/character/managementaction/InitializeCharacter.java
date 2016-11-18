@@ -68,6 +68,10 @@ public class InitializeCharacter implements ManagementAction {
 		character.setWeight(referenceDataSet.getRaceSizeLoader().getWeight(character.getRace().getRaceType()));
 		
 		character = characterService.initCharacter(character);
+		//additional management actions 
+		character = CharacterManagementActions.UPDATESAVINGTHROWS.getManagementAction().execute(character, application);
+		character = CharacterManagementActions.UPDATECOMBATSTATS.getManagementAction().execute(character, application, null, null);
+		
 		int goldCoins = 0;
 		for (CharacterClass characterClass : character.getClasses().values()) {
 			goldCoins += characterClass.getInitialGold();

@@ -237,7 +237,20 @@ app.controller('CharacterController', function($scope,$http,$location,$routePara
 	$scope.go = function ( path ) {
 		$location.path( path );
 	};
-});
+	$scope.execute = function (action) {
+		$http.get('/api/character/'+$routeParams.characterId+'/initialize')
+		.then(function(response) {
+			$http.get('/api/character/'+$routeParams.characterId).then(function(response) {
+				$scope.character = response.data;
+			});
+			//$scope.character = response.data;
+			window.sessionStorage.setItem('characterId', $routeParams.characterId);
+			$scope.characterId = $routeParams.characterId;
+		}, function(err) {
+			window.alert(err.data);
+		}
+	)};
+}); //end controller
 
 //rename to menu controller
 app.controller('CharacterListController', function($scope,$http, $location) {

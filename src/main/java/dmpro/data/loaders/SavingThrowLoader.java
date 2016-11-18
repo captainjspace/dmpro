@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import dmpro.character.classes.CharacterClassType;
+
 
 public class SavingThrowLoader extends TSVLoader implements ResourceLoader{
 	/**
@@ -21,6 +23,14 @@ public class SavingThrowLoader extends TSVLoader implements ResourceLoader{
 	}
 	public String getWebSavingThrowTables() {
 		return webSavingThrowTables;
+	}
+	
+	public SavingThrowRecord getRecord(CharacterClassType characterClassType, int experienceLevel) {
+		return tsvTable.stream()
+				.map(p -> (SavingThrowRecord)p)
+				.filter(p -> p.getCharacterClassExperienceLevel() == experienceLevel)
+				.filter(p -> p.getCharacterClassName().toLowerCase().equals(characterClassType.className.toLowerCase()))
+				.findFirst().get();
 	}
 	
 	public SavingThrowRecord getRecord(String characterClass, int experienceLevel) {

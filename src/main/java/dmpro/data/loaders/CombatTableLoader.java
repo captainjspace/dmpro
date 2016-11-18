@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import dmpro.character.classes.CharacterClassType;
+
 
 /**
  * 
@@ -28,6 +30,21 @@ public class CombatTableLoader extends TSVLoader implements ResourceLoader {
 	
 	public String getWebCombatTables() {
 		return webCombatTables;
+	}
+	
+	
+	/**
+	 * Leverage the CharacterClassType to map type name to data value
+	 * @param characterClassType (combat class type)
+	 * @param level
+	 * @return CombatRecord
+	 */
+	public CombatRecord getRecord(CharacterClassType characterClassType, int level) {
+		return tsvTable.stream()
+				.map(p -> (CombatRecord)p)
+				.filter (p -> p.getCharacterClassName().toLowerCase().equals(characterClassType.className.toLowerCase()))
+				.filter (p -> p.getExperienceLevel() == level)
+				.findFirst().get();
 	}
 	
 	public CombatRecord getRecord(String characterClass, int level) {

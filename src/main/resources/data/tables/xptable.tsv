@@ -36,10 +36,10 @@ Thief	10001	20000	5	5		burglar
 Thief	20001	42500	6	6		filcher
 Thief	42501	70000	7	7		sharper
 Thief	70001	110000	8	8		magsman
-Thief	110001	160000	9	9		Thief
-Thief	160001	220000	10	10		master Thief
-Thief	220001	440000	11		2	master Thief
-Thief	440001	660000	12		4	master Thief
+Thief	110001	160000	9	9		theif
+Thief	160001	220000	10	10		master theif
+Thief	220001	440000	11		2	master theif
+Thief	440001	660000	12		4	master theif
 Cleric	0	1500	1	1		acolyte
 Cleric	1501	3000	2	2		adept
 Cleric	3001	6000	3	3		priest
@@ -51,3 +51,107 @@ Cleric	110001	225000	8	8		patriarch
 Cleric	225001	450000	9	9		high priest
 Cleric	450001	6750000	10		2	high priest
 Cleric	6750001	9000000	11		4	high priest
+Druid	0	2000	1	1		Aspirant
+Druid	2001	4000	2	2		Ovate
+Druid	4001	7500	3	3		Initiate of the 1st Circle
+Druid	7501	12500	4	4		Initiate of the 2nd Circle
+Druid	12501	25000	5	5		Initiate of the 3rd Circle
+Druid	20001	35000	6	6		Initiate of the 4th Circle
+Druid	35001	60000	7	7		Initiate of the 5th Circle
+Druid	60001	90000	8	8		Initiate of the 6th Circle
+Druid	90001	125000	9	9		Initiate of the 7th Circle
+Druid	125001	200000	10	10		Initiate of the 8th Circle
+Druid	200001	300000	11	11		Initiate of the 9th Circle
+Druid	300001	750000	12	12		Druid
+Druid	750001	15000000	13	13		Archdruid
+Druid	1500001	20000000	14	14		The Great Druid
+Paladin	0	2750	1	1		Gallant
+Paladin	2751	5500	2	2		Keeper
+Paladin	5501	12000	3	3		Protector
+Paladin	12001	24000	4	4		Defender
+Paladin	24001	45000	5	5		Warder
+Paladin	45001	95000	6	6		Guardian
+Paladin	95001	175000	7	7		Chevalier
+Paladin	175001	350000	8	8		Justiciar
+Paladin	350001	700000	9	9		Paladin
+Paladin	700001	1050000	10		3	Paladin
+Paladin	1050001	1400000	11		6	Paladin
+Ranger	0	2250	1	2		Runner
+Ranger	2251	4500	2	3		Strider
+Ranger	4501	10000	3	4		Scout
+Ranger	10001	20000	4	5		Courser
+Ranger	20001	40000	5	6		Tracker
+Ranger	40001	90000	6	7		Guide
+Ranger	90001	150000	7	8		Pathfinder
+Ranger	150001	225000	8	9		Ranger
+Ranger	225001	325000	9	10		Ranger Knight
+Ranger	325001	650000	10	11		Ranger Lord
+Ranger	650001	975000	11	11	2	Ranger Lord
+Ranger	975001	1300000	12	11	4	Ranger Lord
+Illusionist	0	2250	1	1		Prestidigitator
+Illusionist	2251	4500	2	2		Minor Trickster
+Illusionist	4501	9000	3	3		Trickster
+Illusionist	9001	18000	4	4		Master Trickster
+Illusionist	18001	35000	5	5		Cabalist
+Illusionist	35001	60000	6	6		Visionist
+Illusionist	60001	95000	7	7		Phantasmist
+Illusionist	95001	145000	8	8		Apparitionist
+Illusionist	145001	220000	9	9		Spellbinder
+Illusionist	220001	440000	10	10		Illusionist
+Illusionist	440001	660000	11		1	Illusionist
+Illusionist	660001	880000	12		2	Illusionist
+Assassin	0	1500	1	1		Bravo (Apprentice)
+Assassin	1501	3000	2	2		Rutterkin
+Assassin	3001	6000	3	3		Waghalter
+Assassin	6001	12000	4	4		Murderer
+Assassin	12001	25000	5	5		Thug
+Assassin	25001	50000	6	6		Killer
+Assassin	50001	100000	7	7		Cutthroat
+Assassin	100001	200000	8	8		Executioner
+Assassin	200001	300000	9	9		Assassin
+Assassin	300001	425000	10	10		Expert Assassin
+Assassin	425001	575000	11	11		Senior Assassin
+Assassin	575001	750000	12	12		Chief Assassin
+Assassin	750001	1000000	13	13		Prime Assassin
+Assassin	1000001	1500000	14	14		Guildmaster Assassin
+Assassin	1500001	10000000	15	15		Grandfather of Assassins
+Monk	0	2250	1	2		Novice
+Monk	2251	4750	2	3		Initiate
+Monk	4751	10000	3	4		Brother
+Monk	10001	22500	4	5		Disciple
+Monk	22501	47500	5	6		Immaculate
+Monk	47501	98000	6	7		Master
+Monk	98001	200000	7	8		Superior Master
+Monk	200001	350000	8	9		Master of Dragons
+Monk	350001	500000	9	10		Master of the North Wind
+Monk	500001	700000	10	11		Master of the West Wind
+Monk	700001	950000	11	12		Master of the South Wind
+Monk	950001	1250000	12	13		Master of the East Wind
+Monk	1250001	1750000	13	14		Master of Winter
+Monk	1750001	2250000	14	15		Master of Autumn
+Monk	2250001	2750000	15	16		Master of Summer
+Monk	2750001	3250000	16	17		Master of Spring
+Monk	3250001	10000000	17	18		Grand Master of Flowers
+Bard	0	2000	1	0		Rhymer
+Bard	2001	4000	2	1		Lyrist
+Bard	4001	8000	3	2		Sonnateer
+Bard	8001	16000	4	3		Skald
+Bard	16001	25000	5	4		Racaraide
+Bard	25001	40000	6	5		Joungleur
+Bard	40001	60000	7	6		Troubadour
+Bard	60001	85000	8	7		Minstrel
+Bard	85001	110000	9	8		Muse
+Bard	110001	150000	10	9		Lorist
+Bard	150001	200000	11	10		Bard
+Bard	200001	400000	12		1	Master Bard
+Bard	400001	600000	13		2	Master Bard
+Bard	600001	800000	14		3	Master Bard
+Bard	800001	1000000	15		4	Master Bard
+Bard	1000001	1200000	16		5	Master Bard
+Bard	1200001	1400000	17		6	Master Bard
+Bard	1400001	1600000	18		7	Master Bard
+Bard	1600001	1800000	19		8	Master Bard
+Bard	1800001	2000000	20		9	Master Bard
+Bard	2000001	2200000	21		10	Master Bard
+Bard	2200001	3000000	22		11	Master Bard
+Bard	3000001	10000000	23		12	Master Bard

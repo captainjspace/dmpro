@@ -8,7 +8,7 @@ public enum CharacterManagementActions {
 	UPDATEXP(new UpdateExperience()),
 	UPDATELEVEL(new UpdateLevel()),
 	UPDATECOMBAT(new UpdateCombatTables()),
-	UPDATESAVING(new UpdateSavingThrows()),
+	UPDATESAVINGTHROWS(new UpdateSavingThrows()),
 	UPDATEHP(new UpdateHitPoints()),
 	UPDATESPELLSALLOWED(new UpdateSpellsAllowed()),
 	UPDATESPELLBOOK(new UpdateSpellBook()),

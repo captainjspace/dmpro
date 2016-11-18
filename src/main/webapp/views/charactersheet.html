@@ -54,7 +54,7 @@
   <div flex>Character Management Actions:
     <span class="requiredActions">
       <ul class="no-bullet required-action">
-      <li ng-repeat="action in character.requiredActions">{{action}}</li>
+      <li ng-repeat="action in character.requiredActions"><a ng-click="execute(action)">{{action}}</a></li>
     </ul>
     </span>
   </div>
@@ -79,13 +79,21 @@
 
 
         <tr><td colspan="10" style="text-align:center;"><span class="bold-text">Saving Throws</span></td></tr>
-
+<!--
           <tr ng-repeat="class in character.classes">
             <td>Paralyzation-Poison:</td><td>{{class.savingThrowRecord.paralyzationPoisonOrDeathMagic}}</td>
             <td>Pertification-Polymorph:</td><td>{{class.savingThrowRecord.petrifactionOrPolymorph}}</td>
             <td>Rod, Staff, or Wand:</td><td>{{class.savingThrowRecord.rodStaffOrWand}}</td>
             <td>Breath Weapon:</td><td>{{class.savingThrowRecord.breathWeapon}}</td>
             <td>Spell:</td><td>{{class.savingThrowRecord.spell}}</td>
+          </tr>
+        -->
+          <tr>
+            <td>Paralyzation-Poison:</td><td>{{character.savingThrowMap.PARALYZATIONPOISONDEATHMAGIC.savingThrowRoll}}</td>
+            <td>Pertification-Polymorph:</td><td>{{character.savingThrowMap.PETRIFACTIONPOLYMORPH.savingThrowRoll}}</td>
+            <td>Rod, Staff, or Wand:</td><td>{{character.savingThrowMap.RODSTAFFWAND.savingThrowRoll}}</td>
+            <td>Breath Weapon:</td><td>{{character.savingThrowMap.BREATHWEAPON.savingThrowRoll}}</td>
+            <td>Spell:</td><td>{{character.savingThrowMap.SPELLS.savingThrowRoll}}</td>
           </tr>
 
         <tr>

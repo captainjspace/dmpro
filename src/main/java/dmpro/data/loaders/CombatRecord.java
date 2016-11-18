@@ -14,7 +14,7 @@ public class CombatRecord implements TSVData {
 	public CombatRecord(String [] fields) {
 		//String[] fields = lineInput.split("\t",24);
 		
-		characterClassName = fields[0];
+		characterClassName = fields[0]; //TODO: consider normalizing to CharacterClassType or let enum be an abstraction/mapping layer for now
 		experienceLevel = Integer.parseInt(fields[1]);
 		int ac=-10;
 		for (int i = 2; i<23; i++) {

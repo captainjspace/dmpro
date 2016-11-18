@@ -8,6 +8,8 @@ package dmpro.character;
  * So if a ring wearer has a +2 ring and a +3 ring -- they get +3 ALL
  * But a a ring wearer with a +3 ring, and +3 armor -- gets +6 ALL
  * 
+ * TODO: link cleanly ot saving throw record fields 3,4,5,6,7
+ * 
  * @author Joshua Landman, joshua.s.landman@gmail.com
  *
  */
@@ -20,7 +22,8 @@ public enum SavingThrowType {
 	SPELLS(5, "Spells"),
 	POISON(6,"Poison"),//for poison alone
 	MENTALATTACK(7,"Mental Attack Spells"), //wisdom
-	ALL(7, "All Saves"); // convenience for general modifier +3 ring of protection, etc.
+	DODGING(8, "Dodgeable Magic Attacks"), 
+	ALL(9, "All Saves"); // convenience for general modifier +3 ring of protection, etc.
 	
 	int savingThrowTypeIndex;
 	String savingThrowTypeName;

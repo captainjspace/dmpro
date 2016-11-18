@@ -27,6 +27,8 @@ public class CharacterClass {
 	 */
 
 	CharacterClassType characterClassType;
+	CharacterClassType combatClass = null; //for rolling up sub(character)classes to main
+	
 	String className;
 	long experiencePoints;
 	int experiencePointsPerLevelAfterMax;
@@ -343,5 +345,11 @@ public class CharacterClass {
 	 */
 	public void setInitialGold(int initialGold) {
 		this.initialGold = initialGold;
+	}
+	/**
+	 * @return the combatClass
+	 */
+	public CharacterClassType getCombatClass() {
+		return ( combatClass != null ) ? combatClass : characterClassType;
 	}
 }

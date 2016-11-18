@@ -1,5 +1,7 @@
 package dmpro.data.loaders;
 
+import dmpro.character.SavingThrowType;
+
 public class SavingThrowRecord implements TSVData {
 
 	//	CharacterClass characterClass;
@@ -82,6 +84,23 @@ public class SavingThrowRecord implements TSVData {
 		this.spell = spell;
 	}
 
+	public int getBySavingThrowType (SavingThrowType savingThrowType) {
+		switch (savingThrowType) {
+		case PARALYZATIONPOISONDEATHMAGIC:
+			return this.getParalyzationPoisonOrDeathMagic();
+		case PETRIFACTIONPOLYMORPH:
+			return this.getPetrifactionOrPolymorph();
+		case RODSTAFFWAND:
+			return this.getRodStaffOrWand();
+		case BREATHWEAPON:
+			return this.getBreathWeapon();
+		case SPELLS:
+			return this.getSpell();
+		default:
+			return -1;
+		}
+	}
+	
 	/**
 	 * @return the characterClassName
 	 */

@@ -137,7 +137,44 @@ public class RestAPI {
 		int responseCode = (success) ? 200 : 422;
 		return Response.status(responseCode).entity(gson.toJson(response)).build();
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/character/{characterId}/update-saving-throws")
+	public Response updateSavingThrows(@PathParam("characterId") String characterId) {
+		if (!initialized) init();
+		CharacterManagementActions cma;
 
+		Character c = characterService.getCharacter(characterId);
+
+		/*** Processing this action ***/
+		int i = c.getRequiredActions().indexOf(CharacterManagementActions.UPDATESAVINGTHROWS);
+		boolean success = false;
+		logger.log(Level.INFO, "value of i " );
+		String response = c.getCharacterId();
+		if ( i != -1 ) {
+			cma = c.getRequiredActions().get(i); //removal inside action now.
+			logger.log(Level.INFO, "Execute " + cma.name());
+			ManagementAction action = cma.getManagementAction();
+			try { 
+				c = action.execute(c, this.application);
+				success = true;
+			} catch (RuntimeException e) {
+				logger.log(Level.WARNING, "Problem initializing character", e);
+				response = "Character class is not set for " + response;
+			} catch (Exception e) {
+				logger.log(Level.WARNING, "Problem initializing character", e);
+				response = response + e.getMessage();
+			}
+		} else {
+			response = response + " does not have an update saving throw requirement";
+		}
+
+		int responseCode = (success) ? 200 : 422;
+		return Response.status(responseCode).entity(gson.toJson(response)).build();
+	}
+	
+	
 	@POST
 	@Produces("application/json")
 	@Path("/character")
