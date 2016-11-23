@@ -130,6 +130,7 @@ public class XPProcessor {
 		}
 	}
 
+	/* TODO: refactor me */
 	private void queueClassSpecificActions(Character character, CharacterClass characterClass) {
 		if  (
 				(characterClass.getCharacterClassType() == CharacterClassType.MAGICUSER) ||

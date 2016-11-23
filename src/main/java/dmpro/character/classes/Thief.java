@@ -43,7 +43,7 @@ public class Thief extends CharacterClass {
 	//reading language - 1 chance per level
 	
 	//should these be parsed to individual abilities?
-	ThiefAbilityRecord thiefAbilityRecord;
+	//ThiefAbilityRecord thiefAbilityRecord;
 	List<Language> languages = new ArrayList<Language>();
 	
 	public Thief() {
@@ -90,22 +90,22 @@ public class Thief extends CharacterClass {
 		
 	}
 
-	void processThiefAbility() {
-		ThiefAbilityTableLoader tat = new ThiefAbilityTableLoader();
-		thiefAbilityRecord = tat.getRecord(this.getExperienceLevel());
-	}
-
-	/**
-	 * @return the thiefAbilityRecord
-	 */
-	public ThiefAbilityRecord getThiefAbilityRecord() {
-		return thiefAbilityRecord;
-	}
-
-	/**
-	 * @param thiefAbilityRecord the thiefAbilityRecord to set
-	 */
-	public void setThiefAbilityRecord(ThiefAbilityRecord thiefAbilityRecord) {
-		this.thiefAbilityRecord = thiefAbilityRecord;
-	}
+//	void processThiefAbility() {
+//		ThiefAbilityTableLoader tat = new ThiefAbilityTableLoader();
+//		thiefAbilityRecord = tat.getRecord(this.getExperienceLevel());
+//	}
+//
+//	/**
+//	 * @return the thiefAbilityRecord
+//	 */
+//	public ThiefAbilityRecord getThiefAbilityRecord() {
+//		return thiefAbilityRecord;
+//	}
+//
+//	/**
+//	 * @param thiefAbilityRecord the thiefAbilityRecord to set
+//	 */
+//	public void setThiefAbilityRecord(ThiefAbilityRecord thiefAbilityRecord) {
+//		this.thiefAbilityRecord = thiefAbilityRecord;
+//	}
 }

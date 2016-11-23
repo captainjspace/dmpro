@@ -35,13 +35,17 @@ public class UpdateThiefSkills implements ManagementAction {
 	
 	
 
-	public Character execute(Character character, Server application, String jsonInput) {
+	public Character execute(Character character, Server application) {
 		/* base record */
 		ThiefAbilityTableLoader tal = application.getReferenceDataSet().getThiefAbilityTableLoader();
-		Thief thief = (Thief) character.getClasses().get(CharacterClassType.THIEF);
-		thief.setThiefAbilityRecord(tal.getRecord(thief.getExperienceLevel()));
+		CharacterClass thief = character.getClasses()
+				.get(CharacterClassType.THIEF);
+		if (thief == null) return character;
 		
+		thief.setThiefAbilityRecord( tal.getRecord(thief.getExperienceLevel()) );
+		character.getClasses().put(CharacterClassType.THIEF, thief);
 		
+		/*TODO: lookup/calc modifiers for race and dexterity */
 		
 		return character;
 	}

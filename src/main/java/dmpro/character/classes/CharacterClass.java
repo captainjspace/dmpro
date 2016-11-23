@@ -1,6 +1,9 @@
 package dmpro.character.classes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+
+import com.sun.media.jfxmedia.logging.Logger;
 
 import dmpro.character.Proficiency;
 import dmpro.data.loaders.CombatRecord;
@@ -9,6 +12,7 @@ import dmpro.data.loaders.ExperienceTableLoader;
 import dmpro.data.loaders.ExperienceTableRecord;
 import dmpro.data.loaders.SavingThrowLoader;
 import dmpro.data.loaders.SavingThrowRecord;
+import dmpro.data.loaders.ThiefAbilityRecord;
 import dmpro.items.Item;
 import dmpro.modifier.AbilityModifier;
 import dmpro.modifier.AttributeModifier;
@@ -61,6 +65,34 @@ public class CharacterClass {
 	List<AbilityModifier> classAbilities = new ArrayList<AbilityModifier>(); //vague
 	List<AttributeModifier> classAttribute = new ArrayList<AttributeModifier>();
 	List<XPBonus> xpBonusRequirements = new ArrayList<XPBonus>();
+	
+	ThiefAbilityRecord thiefAbilityRecord;
+	
+	/**
+	 * @return the thiefAbilityRecord
+	 */
+	public ThiefAbilityRecord getThiefAbilityRecord() {
+		return thiefAbilityRecord;
+	}
+
+	/**
+	 * @param thiefAbilityRecord the thiefAbilityRecord to set
+	 */
+	public void setThiefAbilityRecord(ThiefAbilityRecord thiefAbilityRecord) {
+		this.thiefAbilityRecord = thiefAbilityRecord;
+	}
+	UndeadControl undeadControl;
+	
+	/**
+	 * @return the undeadControl
+	 */
+	public UndeadControl getUndeadControl() {
+		return undeadControl;
+	}
+
+	public void setUndeadControl(UndeadControl undeadControl) {
+		this.undeadControl = undeadControl;
+	}
 	
 	public void addXPBonus(XPBonus xpBonus) {
 		xpBonusRequirements.add(xpBonus);
@@ -352,6 +384,7 @@ public class CharacterClass {
 	public CharacterClassType getCombatClass() {
 		return ( combatClass != null ) ? combatClass : characterClassType;
 	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -375,6 +408,7 @@ public class CharacterClass {
 				+ (restrictedItems != null ? "restrictedItems=" + restrictedItems + ", " : "")
 				+ (classAbilities != null ? "classAbilities=" + classAbilities + ", " : "")
 				+ (classAttribute != null ? "classAttribute=" + classAttribute + ", " : "")
-				+ (xpBonusRequirements != null ? "xpBonusRequirements=" + xpBonusRequirements : "") + "]";
+				+ (xpBonusRequirements != null ? "xpBonusRequirements=" + xpBonusRequirements + ", " : "")
+				+ (undeadControl != null ? "undeadControl=" + undeadControl : "") + "]";
 	}
 }

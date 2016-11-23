@@ -249,6 +249,7 @@ public class ReferenceDataSet implements Runnable {
 	public static void main (String [] args) {
 		ReferenceDataSet rds = new ReferenceDataSet();
 		rds.run();
+		System.out.println(rds.getClasses());
 	}
 
 	/**
@@ -279,4 +280,5 @@ public class ReferenceDataSet implements Runnable {
 	public ClassWeaponProficiencyLoader getClassWeaponProficiencyLoader() {
 		return classWeaponProficiencyLoader;
 	}
+	
 }

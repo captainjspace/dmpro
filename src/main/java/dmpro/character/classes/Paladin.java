@@ -31,7 +31,6 @@ import dmpro.utils.Die;
  */
 public class Paladin extends CharacterClass {
 
-
 	public Paladin() {
 		characterClassType = CharacterClassType.PALADIN;
 		combatClass = CharacterClassType.FIGHTER;
@@ -48,7 +47,7 @@ public class Paladin extends CharacterClass {
 		//all could be in table
 		this.setStartingProficiencies(4);
 		this.setNewProficienyPerLevel(3);
-		this.setNonProficiencyPenalty(-2);
-		
+		this.setNonProficiencyPenalty(-2);	
 	}
+	
 }

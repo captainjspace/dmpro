@@ -437,6 +437,7 @@ public class RestAPI {
 	public Response getCharacterClassPossible(@PathParam("characterId") String characterId) {
 		/** 
 		 * throws NullPointer if race not set
+		 * TODO: why did this break!!?
 		 */
 		String result="Class selection train wreck!";
 		if (!initialized) init();
