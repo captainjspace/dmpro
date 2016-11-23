@@ -19,6 +19,7 @@ package dmpro.character;
  * </ol>
  */
 
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,9 +70,12 @@ public class XPProcessor {
 		//add to xpToAdd
 		//shorten this code
 		int z=0;
-		for (CharacterClass characterClass : this.character.getClasses().values()) {
+		/* could use entry set to access the Character Class Type */
+		for (Entry classEntry  : this.character.getClasses().entrySet()) {
+			CharacterClassType key = (CharacterClassType) classEntry.getKey();
+			CharacterClass characterClass = (CharacterClass) classEntry.getValue();
 			logger.log(Level.INFO, "" + z++ + ":" + characterClass.toString());
-			//if characterClass record is damaged (most likely due to dev work) abort
+			//if characterClass record is damaged (most likely due to dev work) abort or fix
 			if(characterClass.getCharacterClassType() == null) { 
 				logger.log(Level.INFO, " Null Character Class Type - Skipping ");
 				character.addRequiredAction(CharacterManagementActions.CLASSCLEANUP);
