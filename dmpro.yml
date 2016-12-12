@@ -1,3 +1,4 @@
+# currently unused - leftover as part of dropwizard idea
 server:
  adminMinThreads: 1
  adminMaxThreads: 64

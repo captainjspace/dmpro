@@ -1,4 +1,4 @@
-package dmpro;
+package dmpro.core;
 
 import java.util.Date;
 
@@ -9,10 +9,10 @@ public class Player {
 	String playerLastName;
 	String screenName;
 	String playerEmail;
-	Date playerBirthDate; //or sql date?
+	Date playerBirthDate; 
 	
 	public Player() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }

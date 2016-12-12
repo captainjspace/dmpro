@@ -3,7 +3,7 @@ package dmpro.character;
 import java.util.ArrayList;
 import java.util.List;
 
-import dmpro.AdventureModule;
+import dmpro.core.AdventureModule;
 import dmpro.modifier.Modifiable;
 import dmpro.modifier.Modifier;
 /**

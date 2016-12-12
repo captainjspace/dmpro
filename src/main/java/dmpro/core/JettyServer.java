@@ -17,7 +17,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 import dmpro.api.RestAPI;
-import dmpro.api.RestApp;
+//import dmpro.api.RestApp;
 
 
 /**
